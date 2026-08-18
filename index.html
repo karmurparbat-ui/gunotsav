@@ -209,7 +209,7 @@
   table.custom-table {
     width: 100%;
     border-collapse: collapse;
-    margin: 8px 0;
+    margin: 8px 0 4px 0;
     font-size: 1.05rem;
     table-layout: auto;
   }
@@ -240,6 +240,41 @@
   table.custom-table td[contenteditable="true"]:focus {
     background-color: #ebf8ff;
     box-shadow: inset 0 0 0 1.5px #3182ce;
+  }
+
+  /* Table Row Action Bar */
+  .table-btn-bar {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin: 3px 0 10px 0;
+  }
+  .btn-table-action {
+    background-color: #f8fafc;
+    border: 1.2px solid #cbd5e1;
+    color: #1e293b;
+    padding: 3px 10px;
+    font-size: 0.86rem;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Rasa', serif;
+    transition: all 0.15s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .btn-table-action:hover {
+    background-color: #e2e8f0;
+    border-color: #94a3b8;
+    color: #0f172a;
+  }
+  .btn-table-action.btn-del {
+    color: #991b1b;
+  }
+  .btn-table-action.btn-del:hover {
+    background-color: #fee2e2;
+    border-color: #fca5a5;
   }
 
   /* In-Table Inputs */
@@ -299,8 +334,8 @@
       background: none;
       padding: 0;
     }
-    .control-panel {
-      display: none;
+    .control-panel, .table-btn-bar, .no-print {
+      display: none !important;
     }
     .page {
       box-shadow: none;
@@ -323,9 +358,114 @@
       bottom: 4mm;
     }
   }
+  /* Auth Modal & Logout Styling */
+  .auth-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(15, 23, 42, 0.88);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+  }
+  .auth-card {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 420px;
+    width: 90%;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.3);
+    text-align: center;
+    font-family: 'Rasa', serif;
+    border-top: 5px solid #1a365d;
+  }
+  .auth-input-group {
+    margin-bottom: 15px;
+    text-align: left;
+  }
+  .auth-input-group label {
+    display: block;
+    font-weight: 700;
+    font-size: 1rem;
+    color: #2d3748;
+    margin-bottom: 5px;
+  }
+  .auth-input-group input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1.5px solid #cbd5e0;
+    border-radius: 6px;
+    font-size: 1.05rem;
+    box-sizing: border-box;
+    font-family: 'Rasa', serif;
+  }
+  .auth-input-group input:focus {
+    border-color: #2b6cb0;
+    outline: none;
+  }
+  .btn-auth {
+    width: 100%;
+    background: #1a365d;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 1.15rem;
+    font-weight: 700;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: 'Rasa', serif;
+    margin-top: 8px;
+  }
+  .btn-auth:hover { background: #2a4365; }
+  .btn-auth:disabled { background: #a0aec0; cursor: not-allowed; }
+  .auth-msg {
+    margin-top: 12px;
+    font-size: 0.98rem;
+    font-weight: 600;
+  }
+  .auth-err { color: #c53030; }
+  .auth-loader { color: #2b6cb0; }
+  .btn-logout {
+    background: #fed7d7;
+    color: #9b2c2c;
+    padding: 11px 18px;
+    border: 1px solid #feb2b2;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: 'Rasa', serif;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .btn-logout:hover { background: #feb2b2; color: #742a2a; }
 </style>
 </head>
 <body>
+  <!-- લૉગિન પોપઅપ વિન્ડો -->
+<div id="authModal" class="auth-overlay no-print">
+  <div class="auth-card">
+    <h2 style="margin: 0 0 8px 0; color: #0f2b48; font-size: 1.45rem;">🔐 અધિકૃત શાળા પ્રવેશ (Login)</h2>
+    <p style="color: #4a5568; font-size: 1rem; margin-bottom: 20px;">
+      દસ્તાવેજમાં એડિટિંગ અને પ્રિન્ટ કરવા માટે શાળાનો ડાયસ કોડ અને પિન દાખલ કરો:
+    </p>
+
+    <div class="auth-input-group">
+      <label>શાળાનો ડાયસ કોડ (DISE Code):</label>
+      <input type="text" id="authDise" placeholder="દા.ત. 24280100000">
+    </div>
+
+    <div class="auth-input-group">
+      <label>સિક્રેટ પિન (PIN):</label>
+      <input type="password" id="authPin" placeholder="૪ આંકડાનો પિન" onkeypress="if(event.key==='Enter') verifyAccessFromSheet()">
+    </div>
+
+    <button type="button" class="btn-auth" id="btnAuthSubmit" onclick="verifyAccessFromSheet()">🔓 લૉગિન કરો</button>
+    <div id="authStatusMsg" class="auth-msg"></div>
+  </div>
+</div>
 
 <!-- માસ્ટર કંટ્રોલ પેનલ -->
 <div class="control-panel">
@@ -3781,13 +3921,13 @@
 </div>
 
 <!-- ========================================== -->
-<!-- જાવાસ્ક્રિપ્ટ: ડાયનેમિક બાઇન્ડિંગ, કેલ્ક્યુલેશન અને સેફ લોકલ સ્ટોરેજ -->
+<!-- જાવાસ્ક્રિપ્ટ: ડાયનેમિક રો મેનેજમેન્ટ, બાઇન્ડિંગ અને લોકલ સ્ટોરેજ -->
 <!-- ========================================== -->
 <script>
   const STORAGE_KEY = 'sqaaf_gunotsav_data_2026_27';
   let saveTimeout = null;
 
-  // LocalStorage સપોર્ટ ચેક
+  // ૧. LocalStorage સપોર્ટ ચેક
   function isStorageAvailable() {
     try {
       const test = '__storage_test__';
@@ -3799,7 +3939,7 @@
     }
   }
 
-  // ૧. ડાયનેમિક રિયલ-ટાઇમ ડેટા સિન્ક્રોનાઇઝેશન
+  // ૨. ડાયનેમિક રિયલ-ટાઇમ ડેટા સિન્ક્રોનાઇઝેશન
   function syncData() {
     const schoolEl = document.getElementById('inputSchoolName');
     const talukaEl = document.getElementById('inputTaluka');
@@ -3831,7 +3971,7 @@
     document.querySelectorAll('.dyn-principal').forEach(el => el.textContent = principal);
   }
 
-  // ૨. નવા પ્રવેશ ટેબલની ગણતરી (Page 3)
+  // ૩. નવા પ્રવેશ ટેબલની ગણતરી (Page 3)
   function calcAdm() {
     let bList = document.querySelectorAll('.adm-b');
     let gList = document.querySelectorAll('.adm-g');
@@ -3854,7 +3994,7 @@
     if (totAll) totAll.textContent = sumB + sumG;
   }
 
-  // ૩. કેટેગરી પ્રવેશ ટેબલની ગણતરી (Page 3)
+  // ૪. કેટેગરી પ્રવેશ ટેબલની ગણતરી (Page 3)
   function calcCat() {
     let bList = document.querySelectorAll('.cat-b');
     let gList = document.querySelectorAll('.cat-g');
@@ -3877,7 +4017,7 @@
     if (totAll) totAll.textContent = sumB + sumG;
   }
 
-  // ૪. વિદ્યાર્થી સંખ્યા ટેબલની ગણતરી (Page 5)
+  // ૫. વિદ્યાર્થી સંખ્યા ટેબલની ગણતરી (Page 5)
   function calcEnr() {
     let bList = document.querySelectorAll('.enr-b');
     let gList = document.querySelectorAll('.enr-g');
@@ -3900,29 +4040,136 @@
     if (totAll) totAll.textContent = sumB + sumG;
   }
 
-  // ૫. લોકલ સ્ટોરેજમાં ડેટા સેવ કરવો
+  // ૬. ક્રમ નંબર ડિટેક્શન (ગુજરાતી કે અંગ્રેજી અંક મુજબ)
+  function getNextRowNumber(tbody) {
+    const rows = tbody.querySelectorAll('tr');
+    const count = rows.length + 1;
+    if (rows.length > 0) {
+      const firstCell = rows[rows.length - 1].children[0];
+      const txt = firstCell ? firstCell.textContent.trim() : '';
+      if (/[૧-૯]/.test(txt)) {
+        const gujDigits = ['૦','૧','૨','૩','૪','૫','૬','૭','૮','૯'];
+        return String(count).split('').map(d => gujDigits[parseInt(d)] || d).join('');
+      }
+    }
+    return count;
+  }
+
+  // ૭. ટેબલમાં નવી રો ઉમેરવી
+  function addTableRow(table) {
+    const tbody = table.querySelector('tbody');
+    if (!tbody) return;
+
+    const rows = tbody.querySelectorAll('tr');
+    const lastRow = rows.length > 0 ? rows[rows.length - 1] : null;
+    const colCount = table.querySelectorAll('thead th').length || (lastRow ? lastRow.children.length : 4);
+
+    const newRow = document.createElement('tr');
+    const nextNum = getNextRowNumber(tbody);
+
+    let html = '';
+    const isFirstColNum = lastRow ? (lastRow.children[0].classList.contains('text-center') || !isNaN(parseInt(lastRow.children[0].textContent.trim()))) : true;
+
+    for (let i = 0; i < colCount; i++) {
+      if (i === 0 && isFirstColNum) {
+        html += `<td class="text-center">${nextNum}</td>`;
+      } else {
+        html += `<td contenteditable="true"></td>`;
+      }
+    }
+
+    newRow.innerHTML = html;
+    tbody.appendChild(newRow);
+    saveToLocalStorage();
+  }
+
+  // ૮. છેલ્લી રો કાઢવી
+  function deleteTableRow(table) {
+    const tbody = table.querySelector('tbody');
+    if (!tbody) return;
+
+    const rows = tbody.querySelectorAll('tr');
+    if (rows.length > 1) {
+      tbody.removeChild(rows[rows.length - 1]);
+      saveToLocalStorage();
+    }
+  }
+
+  // ૯. તમામ એડિટેબલ ટેબલ્સ નીચે ઓટોમેટિક એક્શન બટનો ઉમેરવા
+  function setupDynamicTableButtons() {
+    document.querySelectorAll('table.custom-table').forEach((table) => {
+      // ફિક્સ કેલ્ક્યુલેશન ટેબલ અને ૧-રો સમરી ટેબલ સ્કીપ કરો
+      if (table.id === 'admTable' || table.id === 'catTable' || table.id === 'enrTable') return;
+      if (table.rows.length <= 2 && table.querySelectorAll('input').length > 0) return;
+
+      // ડુપ્લિકેટ બટન બાર અટકાવો
+      if (table.nextElementSibling && table.nextElementSibling.classList.contains('table-btn-bar')) {
+        return;
+      }
+
+      const tbody = table.querySelector('tbody');
+      if (!tbody || tbody.querySelectorAll('tr').length === 0) return;
+
+      const bar = document.createElement('div');
+      bar.className = 'table-btn-bar no-print';
+
+      const addBtn = document.createElement('button');
+      addBtn.type = 'button';
+      addBtn.className = 'btn-table-action';
+      addBtn.innerHTML = '➕ નવી રો ઉમેરો';
+      addBtn.onclick = () => addTableRow(table);
+
+      const delBtn = document.createElement('button');
+      delBtn.type = 'button';
+      delBtn.className = 'btn-table-action btn-del';
+      delBtn.innerHTML = '➖ છેલ્લી રો કાઢો';
+      delBtn.onclick = () => deleteTableRow(table);
+
+      bar.appendChild(addBtn);
+      bar.appendChild(delBtn);
+
+      table.parentNode.insertBefore(bar, table.nextSibling);
+    });
+  }
+
+  // ૧૦. લોકલ સ્ટોરેજમાં સંપૂર્ણ ડેટા સેવ કરવો
   function saveToLocalStorage() {
     if (!isStorageAvailable()) return;
 
     try {
       const data = {
         inputs: {},
-        editables: []
+        tables: [],
+        otherEditables: []
       };
 
-      // તમામ ઇનપુટ ફિલ્ડ સેવ કરો
+      // કંટ્રોલ પેનલ + ઇન-ટેબલ ઇનપુટ્સ
       document.querySelectorAll('input').forEach((input, index) => {
-        const key = input.id ? input.id : 'inp_idx_' + index;
+        const key = input.id ? input.id : 'inp_' + index;
         data.inputs[key] = input.value;
       });
 
-      // તમામ એડિટેબલ સેલ્સ સેવ કરો
-      document.querySelectorAll('[contenteditable="true"]').forEach((el) => {
-        data.editables.push(el.innerHTML);
+      // તમામ ટેબલ્સનું tbody innerHTML (નવી રો સહિત સુરક્ષિત સેવ)
+      document.querySelectorAll('table.custom-table').forEach((table, tIdx) => {
+        const tbody = table.querySelector('tbody');
+        if (tbody) {
+          data.tables.push({
+            index: tIdx,
+            html: tbody.innerHTML
+          });
+        }
+      });
+
+      // ટેબલ બહારના contenteditable તત્વો
+      document.querySelectorAll('p[contenteditable="true"], li[contenteditable="true"], span[contenteditable="true"]').forEach((el, index) => {
+        data.otherEditables.push({
+          index: index,
+          html: el.innerHTML
+        });
       });
 
       localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-      
+
       const statusEl = document.getElementById('saveStatus');
       if (statusEl) {
         statusEl.textContent = '✅ વિગતો લોકલ સ્ટોરેજમાં સેવ થઈ ગઈ!';
@@ -3931,11 +4178,11 @@
         }, 1500);
       }
     } catch (err) {
-      console.warn('LocalStorage save error:', err);
+      console.warn('Auto-save error:', err);
     }
   }
 
-  // ૬. લોકલ સ્ટોરેજમાંથી ડેટા લોડ કરવો
+  // ૧૧. લોકલ સ્ટોરેજમાંથી ડેટા લોડ કરવો
   function loadFromLocalStorage() {
     if (!isStorageAvailable()) return;
 
@@ -3945,32 +4192,46 @@
 
       const data = JSON.parse(saved);
 
-      // ઇનપુટ્સ રિસ્ટોર કરો
+      // ૧. ઇનપુટ્સ રિસ્ટોર
       if (data.inputs) {
         document.querySelectorAll('input').forEach((input, index) => {
-          const key = input.id ? input.id : 'inp_idx_' + index;
+          const key = input.id ? input.id : 'inp_' + index;
           if (data.inputs[key] !== undefined) {
             input.value = data.inputs[key];
           }
         });
       }
 
-      // એડિટેબલ સેલ્સ રિસ્ટોર કરો
-      if (data.editables && Array.isArray(data.editables)) {
-        document.querySelectorAll('[contenteditable="true"]').forEach((el, index) => {
-          if (data.editables[index] !== undefined) {
-            el.innerHTML = data.editables[index];
+      // ૨. ટેબલ રો રિસ્ટોર
+      if (data.tables && Array.isArray(data.tables)) {
+        const allTables = document.querySelectorAll('table.custom-table');
+        data.tables.forEach(tItem => {
+          if (allTables[tItem.index]) {
+            const tbody = allTables[tItem.index].querySelector('tbody');
+            if (tbody && tItem.html) {
+              tbody.innerHTML = tItem.html;
+            }
+          }
+        });
+      }
+
+      // ૩. અન્ય એડિટેબલ સેલ રિસ્ટોર
+      if (data.otherEditables && Array.isArray(data.otherEditables)) {
+        const allOtherEditables = document.querySelectorAll('p[contenteditable="true"], li[contenteditable="true"], span[contenteditable="true"]');
+        data.otherEditables.forEach(eItem => {
+          if (allOtherEditables[eItem.index] && eItem.html !== undefined) {
+            allOtherEditables[eItem.index].innerHTML = eItem.html;
           }
         });
       }
     } catch (err) {
-      console.warn('LocalStorage load error:', err);
+      console.warn('Auto-load error:', err);
     }
   }
 
-  // ૭. ડિફોલ્ટ ડેટા રીસેટ કરવો
+  // ૧૨. ડિફોલ્ટ ડેટા રીસેટ
   function resetDefaults() {
-    if (confirm('શું તમે તમામ સુધારેલી વિગતો ભૂંસીને મૂળ ડિફોલ્ટ વિગત પાછી લાવવા માંગો છો?')) {
+    if (confirm('શું તમે તમામ સુધારેલી વિગતો અને ઉમેરેલી રો ભૂંસીને મૂળ ડિફોલ્ટ સ્થિતિ પાછી લાવવા માંગો છો?')) {
       if (isStorageAvailable()) {
         try {
           localStorage.removeItem(STORAGE_KEY);
@@ -3980,16 +4241,16 @@
     }
   }
 
-  // ૮. માસ્ટર ઇવેન્ટ લિસનર્સ
+  // ૧૩. માસ્ટર ઇવેન્ટ લિસનર્સ
   function attachEvents() {
-    // કંટ્રોલ પેનલના ઇનપુટ્સ સાથે તાત્કાલિક બાઇન્ડિંગ
     document.querySelectorAll('.control-panel input').forEach(input => {
       input.addEventListener('input', () => {
         syncData();
+        clearTimeout(saveTimeout);
+        saveTimeout = setTimeout(saveToLocalStorage, 300);
       });
     });
 
-    // સમગ્ર ડોક્યુમેન્ટ માટે ઇનપુટ અને ઓટો-સેવ
     document.addEventListener('input', (e) => {
       syncData();
       calcAdm();
@@ -4001,18 +4262,21 @@
     });
   }
 
-  // ૯. શરૂઆતી રન (Immediate Execution)
+  // ૧૪. મુખ્ય શરૂઆત (Initialization)
   function init() {
     loadFromLocalStorage();
     syncData();
     calcAdm();
     calcCat();
     calcEnr();
+    setupDynamicTableButtons();
     attachEvents();
   }
 
-  // પેજ લોડ થતાં જ તુરંત ચાલુ કરો
-  init();
+  // પેજ લોડિંગ હેન્ડલર
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
 </script>
-</body>
-</html>
