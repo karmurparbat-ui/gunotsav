@@ -483,10 +483,10 @@
       <label>જિલ્લો:</label>
       <input type="text" id="inputDistrict" value="દેવભૂમિ દ્વારકા">
     </div>
-    <div class="form-group">
-      <label>ડાયસ કોડ (DISE Code):</label>
-      <input type="text" id="inputDiseCode" value="24280100000">
-    </div>
+<div class="form-group">
+  <label>ડાયસ કોડ (DISE Code): <span style="font-size:0.85rem; color:#2b6cb0; font-weight:600;">🔒 (લૉક)</span></label>
+  <input type="text" id="inputDiseCode" value="" readonly placeholder="લૉગિન થતાં આપોઆપ આવશે" style="background-color: #edf2f7; color: #1a365d; font-weight: 700; cursor: not-allowed; border: 1.5px solid #cbd5e0;">
+</div>
     <div class="form-group">
       <label>શૈક્ષણિક વર્ષ:</label>
       <input type="text" id="inputYear" value="૨૦૨૬-૨૭">
@@ -506,7 +506,7 @@
   </div>
   <div class="panel-actions">
     <button class="btn-print" onclick="window.print()">🖨️ પ્રિન્ટ / PDF ડાઉનલોડ કરો</button>
-    <button class="btn-reset" onclick="resetDefaults()">🔄 ડિફોલ્ટ ડેટા રીસેટ</button>
+    <button class="btn-reset" onclick="resetDefaults()">🔄 ડિફોલ્ટ ડેટા રીસેટ</button><button class="btn-logout" onclick="logoutUser()">🚪 લૉગઆઉટ</button>
     <span class="save-status" id="saveStatus">💾 તમામ વિગતો લોકલ સ્ટોરેજમાં સેવ થાય છે</span>
   </div>
 </div>
@@ -3923,6 +3923,8 @@
 <!-- ========================================== -->
 <!-- જાવાસ્ક્રિપ્ટ: ડાયનેમિક રો મેનેજમેન્ટ, બાઇન્ડિંગ અને લોકલ સ્ટોરેજ -->
 <!-- ========================================== -->
+  // 👇 અહીં તમારી ગૂગલ એપ્સ સ્ક્રિપ્ટની Web App URL મૂકો
+const GOOGLE_SCRIPT_API_URL = "https://script.google.com/macros/s/AKfycbxbhhSUAxnOXxX_PrUHOEPH_2xbcyXdg31vLw5haKE-CMGvEGKNC3KRIVwpbAkwiDaS/exec";
 <script>
   const STORAGE_KEY = 'sqaaf_gunotsav_data_2026_27';
   let saveTimeout = null;
@@ -4230,7 +4232,131 @@
   }
 
   // ૧૨. ડિફોલ્ટ ડેટા રીસેટ
-  function resetDefaults() {
+  function resetDefaults() // ૧૨.૧ ગૂગલ શીટ દ્વારા લૉગિન વેરિફિકેશન
+  async function verifyAccessFromSheet() {
+    const diseInput = document.getElementById('authDise');
+    const pinInput = document.getElementById('authPin');
+    const statusMsg = document.getElementById('authStatusMsg');
+    const btnSubmit = document.getElementById('btnAuthSubmit');
+
+    const dise = diseInput ? diseInput.value.trim() : '';
+    const pin = pinInput ? pinInput.value.trim() : '';
+
+    if (!dise || !pin) {
+      statusMsg.className = 'auth-msg auth-err';
+      statusMsg.textContent = '❌ કૃપા કરીને ડાયસ કોડ અને પિન બંને દાખલ કરો.';
+      return;
+    }
+
+    btnSubmit.disabled = true;
+    statusMsg.className = 'auth-msg auth-loader';
+    statusMsg.textContent = '⏳ ચકાસણી થઈ રહી છે...';
+
+    try {
+      const requestUrl = `${GOOGLE_SCRIPT_API_URL}?action=verify&dise=${encodeURIComponent(dise)}&pin=${encodeURIComponent(pin)}`;
+      const response = await fetch(requestUrl);
+      const result = await response.json();
+
+      if (result.success) {
+        const verifiedDise = result.diseCode || dise;
+
+        sessionStorage.setItem('gunotsav_auth', 'true');
+        sessionStorage.setItem('gunotsav_verified_dise', verifiedDise);
+
+        statusMsg.className = 'auth-msg';
+        statusMsg.style.color = '#22543d';
+        statusMsg.textContent = '✅ પ્રવેશ સફળ!';
+
+        // ડાયસ કોડ કંટ્રોલ પેનલમાં ફિક્સ કરવો
+        const diseEl = document.getElementById('inputDiseCode');
+        if (diseEl) {
+          diseEl.value = verifiedDise;
+          diseEl.readOnly = true;
+        }
+
+        syncData();
+        saveToLocalStorage();
+
+        setTimeout(() => {
+          unlockEditor();
+        }, 500);
+
+      } else {
+        statusMsg.className = 'auth-msg auth-err';
+        statusMsg.textContent = '❌ ' + (result.message || 'ખોટો ડાયસ કોડ અથવા પિન!');
+      }
+    } catch (err) {
+      console.error(err);
+      statusMsg.className = 'auth-msg auth-err';
+      statusMsg.textContent = '❌ કનેક્શન એરર! ફરી પ્રયાસ કરો.';
+    } finally {
+      btnSubmit.disabled = false;
+    }
+  }
+
+  // ૧૨.૨ એડિટર અનલૉક કરવું
+  function unlockEditor() {
+    const modal = document.getElementById('authModal');
+    if (modal) modal.style.display = 'none';
+
+    const verifiedDise = sessionStorage.getItem('gunotsav_verified_dise');
+    const diseEl = document.getElementById('inputDiseCode');
+    if (diseEl && verifiedDise) {
+      diseEl.value = verifiedDise;
+      diseEl.readOnly = true;
+    }
+
+    // ડાયસ કોડ સિવાયના તમામ ઇનપુટ્સ એડિટેબલ કરવા
+    document.querySelectorAll('.control-panel input:not(#inputDiseCode), table input').forEach(el => {
+      el.disabled = false;
+    });
+
+    // તમામ લખાણ અને ટેબલ સેલ એડિટેબલ કરવા
+    document.querySelectorAll('[contenteditable]').forEach(el => {
+      el.setAttribute('contenteditable', 'true');
+    });
+
+    syncData();
+  }
+
+  // ૧૨.૩ એડિટર લૉક રાખવું
+  function lockEditor() {
+    const modal = document.getElementById('authModal');
+    if (modal) modal.style.display = 'flex';
+
+    document.querySelectorAll('.control-panel input, table input').forEach(el => {
+      el.disabled = true;
+    });
+
+    document.querySelectorAll('[contenteditable]').forEach(el => {
+      el.setAttribute('contenteditable', 'false');
+    });
+  }
+
+  // ૧૨.૪ પેજ લોડ વખતે ચકાસણી
+  function checkAuthOnLoad() {
+    const isAuth = sessionStorage.getItem('gunotsav_auth');
+    const verifiedDise = sessionStorage.getItem('gunotsav_verified_dise');
+
+    if (isAuth === 'true' && verifiedDise) {
+      const diseEl = document.getElementById('inputDiseCode');
+      if (diseEl) {
+        diseEl.value = verifiedDise;
+        diseEl.readOnly = true;
+      }
+      unlockEditor();
+    } else {
+      lockEditor();
+    }
+  }
+
+  // ૧૨.૫ લૉગઆઉટ ફંક્શન
+  function logoutUser() {
+    if (confirm('શું તમે લૉગઆઉટ કરવા માંગો છો?')) {
+      sessionStorage.clear();
+      location.reload();
+    }
+  }{
     if (confirm('શું તમે તમામ સુધારેલી વિગતો અને ઉમેરેલી રો ભૂંસીને મૂળ ડિફોલ્ટ સ્થિતિ પાછી લાવવા માંગો છો?')) {
       if (isStorageAvailable()) {
         try {
@@ -4262,7 +4388,7 @@
     });
   }
 
-  // ૧૪. મુખ્ય શરૂઆત (Initialization)
+ // ૧૪. મુખ્ય શરૂઆત (Initialization)
   function init() {
     loadFromLocalStorage();
     syncData();
@@ -4271,6 +4397,9 @@
     calcEnr();
     setupDynamicTableButtons();
     attachEvents();
+    
+    // 👇 આ નવી લાઈન ઉમેરો
+    checkAuthOnLoad();
   }
 
   // પેજ લોડિંગ હેન્ડલર
@@ -4278,5 +4407,6 @@
     document.addEventListener('DOMContentLoaded', init);
   } else {
     init();
+    
   }
 </script>
