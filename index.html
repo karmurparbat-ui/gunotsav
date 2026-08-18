@@ -3923,13 +3923,13 @@
 <!-- ========================================== -->
 <!-- જાવાસ્ક્રિપ્ટ: ડાયનેમિક રો મેનેજમેન્ટ, બાઇન્ડિંગ અને લોકલ સ્ટોરેજ -->
 <!-- ========================================== -->
-  // 👇 અહીં તમારી ગૂગલ એપ્સ સ્ક્રિપ્ટની Web App URL મૂકો
-const GOOGLE_SCRIPT_API_URL = "https://script.google.com/macros/s/AKfycbxbhhSUAxnOXxX_PrUHOEPH_2xbcyXdg31vLw5haKE-CMGvEGKNC3KRIVwpbAkwiDaS/exec";
 <script>
+  // ૧. ગૂગલ એપ્સ સ્ક્રિપ્ટ API URL
+  const GOOGLE_SCRIPT_API_URL = "https://script.google.com/macros/s/AKfycbxbhhSUAxnOXxX_PrUHOEPH_2xbcyXdg31vLw5haKE-CMGvEGKNC3KRIVwpbAkwiDaS/exec";
   const STORAGE_KEY = 'sqaaf_gunotsav_data_2026_27';
   let saveTimeout = null;
 
-  // ૧. LocalStorage સપોર્ટ ચેક
+  // ૨. LocalStorage સપોર્ટ ચેક
   function isStorageAvailable() {
     try {
       const test = '__storage_test__';
@@ -3941,7 +3941,7 @@ const GOOGLE_SCRIPT_API_URL = "https://script.google.com/macros/s/AKfycbxbhhSUAx
     }
   }
 
-  // ૨. ડાયનેમિક રિયલ-ટાઇમ ડેટા સિન્ક્રોનાઇઝેશન
+  // ૩. ડાયનેમિક રિયલ-ટાઇમ ડેટા સિન્ક્રોનાઇઝેશન
   function syncData() {
     const schoolEl = document.getElementById('inputSchoolName');
     const talukaEl = document.getElementById('inputTaluka');
@@ -3973,7 +3973,7 @@ const GOOGLE_SCRIPT_API_URL = "https://script.google.com/macros/s/AKfycbxbhhSUAx
     document.querySelectorAll('.dyn-principal').forEach(el => el.textContent = principal);
   }
 
-  // ૩. નવા પ્રવેશ ટેબલની ગણતરી (Page 3)
+  // ૪. નવા પ્રવેશ ટેબલની ગણતરી (Page 3)
   function calcAdm() {
     let bList = document.querySelectorAll('.adm-b');
     let gList = document.querySelectorAll('.adm-g');
@@ -3996,7 +3996,7 @@ const GOOGLE_SCRIPT_API_URL = "https://script.google.com/macros/s/AKfycbxbhhSUAx
     if (totAll) totAll.textContent = sumB + sumG;
   }
 
-  // ૪. કેટેગરી પ્રવેશ ટેબલની ગણતરી (Page 3)
+  // ૫. કેટેગરી પ્રવેશ ટેબલની ગણતરી (Page 3)
   function calcCat() {
     let bList = document.querySelectorAll('.cat-b');
     let gList = document.querySelectorAll('.cat-g');
@@ -4019,7 +4019,7 @@ const GOOGLE_SCRIPT_API_URL = "https://script.google.com/macros/s/AKfycbxbhhSUAx
     if (totAll) totAll.textContent = sumB + sumG;
   }
 
-  // ૫. વિદ્યાર્થી સંખ્યા ટેબલની ગણતરી (Page 5)
+  // ૬. વિદ્યાર્થી સંખ્યા ટેબલની ગણતરી (Page 5)
   function calcEnr() {
     let bList = document.querySelectorAll('.enr-b');
     let gList = document.querySelectorAll('.enr-g');
@@ -4042,7 +4042,7 @@ const GOOGLE_SCRIPT_API_URL = "https://script.google.com/macros/s/AKfycbxbhhSUAx
     if (totAll) totAll.textContent = sumB + sumG;
   }
 
-  // ૬. ક્રમ નંબર ડિટેક્શન (ગુજરાતી કે અંગ્રેજી અંક મુજબ)
+  // ૭. ક્રમ નંબર ડિટેક્શન (ગુજરાતી કે અંગ્રેજી અંક મુજબ)
   function getNextRowNumber(tbody) {
     const rows = tbody.querySelectorAll('tr');
     const count = rows.length + 1;
@@ -4057,7 +4057,7 @@ const GOOGLE_SCRIPT_API_URL = "https://script.google.com/macros/s/AKfycbxbhhSUAx
     return count;
   }
 
-  // ૭. ટેબલમાં નવી રો ઉમેરવી
+  // ૮. ટેબલમાં નવી રો ઉમેરવી
   function addTableRow(table) {
     const tbody = table.querySelector('tbody');
     if (!tbody) return;
@@ -4085,7 +4085,7 @@ const GOOGLE_SCRIPT_API_URL = "https://script.google.com/macros/s/AKfycbxbhhSUAx
     saveToLocalStorage();
   }
 
-  // ૮. છેલ્લી રો કાઢવી
+  // ૯. છેલ્લી રો કાઢવી
   function deleteTableRow(table) {
     const tbody = table.querySelector('tbody');
     if (!tbody) return;
@@ -4097,14 +4097,12 @@ const GOOGLE_SCRIPT_API_URL = "https://script.google.com/macros/s/AKfycbxbhhSUAx
     }
   }
 
-  // ૯. તમામ એડિટેબલ ટેબલ્સ નીચે ઓટોમેટિક એક્શન બટનો ઉમેરવા
+  // ૧૦. તમામ એડિટેબલ ટેબલ્સ નીચે ઓટોમેટિક એક્શન બટનો ઉમેરવા
   function setupDynamicTableButtons() {
     document.querySelectorAll('table.custom-table').forEach((table) => {
-      // ફિક્સ કેલ્ક્યુલેશન ટેબલ અને ૧-રો સમરી ટેબલ સ્કીપ કરો
       if (table.id === 'admTable' || table.id === 'catTable' || table.id === 'enrTable') return;
       if (table.rows.length <= 2 && table.querySelectorAll('input').length > 0) return;
 
-      // ડુપ્લિકેટ બટન બાર અટકાવો
       if (table.nextElementSibling && table.nextElementSibling.classList.contains('table-btn-bar')) {
         return;
       }
@@ -4134,7 +4132,7 @@ const GOOGLE_SCRIPT_API_URL = "https://script.google.com/macros/s/AKfycbxbhhSUAx
     });
   }
 
-  // ૧૦. લોકલ સ્ટોરેજમાં સંપૂર્ણ ડેટા સેવ કરવો
+  // ૧૧. લોકલ સ્ટોરેજમાં સંપૂર્ણ ડેટા સેવ કરવો
   function saveToLocalStorage() {
     if (!isStorageAvailable()) return;
 
@@ -4145,13 +4143,11 @@ const GOOGLE_SCRIPT_API_URL = "https://script.google.com/macros/s/AKfycbxbhhSUAx
         otherEditables: []
       };
 
-      // કંટ્રોલ પેનલ + ઇન-ટેબલ ઇનપુટ્સ
       document.querySelectorAll('input').forEach((input, index) => {
         const key = input.id ? input.id : 'inp_' + index;
         data.inputs[key] = input.value;
       });
 
-      // તમામ ટેબલ્સનું tbody innerHTML (નવી રો સહિત સુરક્ષિત સેવ)
       document.querySelectorAll('table.custom-table').forEach((table, tIdx) => {
         const tbody = table.querySelector('tbody');
         if (tbody) {
@@ -4162,7 +4158,6 @@ const GOOGLE_SCRIPT_API_URL = "https://script.google.com/macros/s/AKfycbxbhhSUAx
         }
       });
 
-      // ટેબલ બહારના contenteditable તત્વો
       document.querySelectorAll('p[contenteditable="true"], li[contenteditable="true"], span[contenteditable="true"]').forEach((el, index) => {
         data.otherEditables.push({
           index: index,
@@ -4184,7 +4179,7 @@ const GOOGLE_SCRIPT_API_URL = "https://script.google.com/macros/s/AKfycbxbhhSUAx
     }
   }
 
-  // ૧૧. લોકલ સ્ટોરેજમાંથી ડેટા લોડ કરવો
+  // ૧૨. લોકલ સ્ટોરેજમાંથી ડેટા લોડ કરવો
   function loadFromLocalStorage() {
     if (!isStorageAvailable()) return;
 
@@ -4194,7 +4189,6 @@ const GOOGLE_SCRIPT_API_URL = "https://script.google.com/macros/s/AKfycbxbhhSUAx
 
       const data = JSON.parse(saved);
 
-      // ૧. ઇનપુટ્સ રિસ્ટોર
       if (data.inputs) {
         document.querySelectorAll('input').forEach((input, index) => {
           const key = input.id ? input.id : 'inp_' + index;
@@ -4204,7 +4198,6 @@ const GOOGLE_SCRIPT_API_URL = "https://script.google.com/macros/s/AKfycbxbhhSUAx
         });
       }
 
-      // ૨. ટેબલ રો રિસ્ટોર
       if (data.tables && Array.isArray(data.tables)) {
         const allTables = document.querySelectorAll('table.custom-table');
         data.tables.forEach(tItem => {
@@ -4217,7 +4210,6 @@ const GOOGLE_SCRIPT_API_URL = "https://script.google.com/macros/s/AKfycbxbhhSUAx
         });
       }
 
-      // ૩. અન્ય એડિટેબલ સેલ રિસ્ટોર
       if (data.otherEditables && Array.isArray(data.otherEditables)) {
         const allOtherEditables = document.querySelectorAll('p[contenteditable="true"], li[contenteditable="true"], span[contenteditable="true"]');
         data.otherEditables.forEach(eItem => {
@@ -4231,8 +4223,19 @@ const GOOGLE_SCRIPT_API_URL = "https://script.google.com/macros/s/AKfycbxbhhSUAx
     }
   }
 
-  // ૧૨. ડિફોલ્ટ ડેટા રીસેટ
-  function resetDefaults() // ૧૨.૧ ગૂગલ શીટ દ્વારા લૉગિન વેરિફિકેશન
+  // ૧૩. ડિફોલ્ટ ડેટા રીસેટ
+  function resetDefaults() {
+    if (confirm('શું તમે તમામ સુધારેલી વિગતો અને ઉમેરેલી રો ભૂંસીને મૂળ ડિફોલ્ટ સ્થિતિ પાછી લાવવા માંગો છો?')) {
+      if (isStorageAvailable()) {
+        try {
+          localStorage.removeItem(STORAGE_KEY);
+        } catch (e) {}
+      }
+      location.reload();
+    }
+  }
+
+  // ૧૪. ગૂગલ શીટ દ્વારા લૉગિન વેરિફિકેશન
   async function verifyAccessFromSheet() {
     const diseInput = document.getElementById('authDise');
     const pinInput = document.getElementById('authPin');
@@ -4267,7 +4270,6 @@ const GOOGLE_SCRIPT_API_URL = "https://script.google.com/macros/s/AKfycbxbhhSUAx
         statusMsg.style.color = '#22543d';
         statusMsg.textContent = '✅ પ્રવેશ સફળ!';
 
-        // ડાયસ કોડ કંટ્રોલ પેનલમાં ફિક્સ કરવો
         const diseEl = document.getElementById('inputDiseCode');
         if (diseEl) {
           diseEl.value = verifiedDise;
@@ -4294,7 +4296,7 @@ const GOOGLE_SCRIPT_API_URL = "https://script.google.com/macros/s/AKfycbxbhhSUAx
     }
   }
 
-  // ૧૨.૨ એડિટર અનલૉક કરવું
+  // ૧૫. એડિટર અનલૉક કરવું
   function unlockEditor() {
     const modal = document.getElementById('authModal');
     if (modal) modal.style.display = 'none';
@@ -4306,12 +4308,10 @@ const GOOGLE_SCRIPT_API_URL = "https://script.google.com/macros/s/AKfycbxbhhSUAx
       diseEl.readOnly = true;
     }
 
-    // ડાયસ કોડ સિવાયના તમામ ઇનપુટ્સ એડિટેબલ કરવા
     document.querySelectorAll('.control-panel input:not(#inputDiseCode), table input').forEach(el => {
       el.disabled = false;
     });
 
-    // તમામ લખાણ અને ટેબલ સેલ એડિટેબલ કરવા
     document.querySelectorAll('[contenteditable]').forEach(el => {
       el.setAttribute('contenteditable', 'true');
     });
@@ -4319,7 +4319,7 @@ const GOOGLE_SCRIPT_API_URL = "https://script.google.com/macros/s/AKfycbxbhhSUAx
     syncData();
   }
 
-  // ૧૨.૩ એડિટર લૉક રાખવું
+  // ૧૬. એડિટર લૉક રાખવું (લૉગિન વિના)
   function lockEditor() {
     const modal = document.getElementById('authModal');
     if (modal) modal.style.display = 'flex';
@@ -4333,7 +4333,7 @@ const GOOGLE_SCRIPT_API_URL = "https://script.google.com/macros/s/AKfycbxbhhSUAx
     });
   }
 
-  // ૧૨.૪ પેજ લોડ વખતે ચકાસણી
+  // ૧૭. પેજ લોડ વખતે ચકાસણી
   function checkAuthOnLoad() {
     const isAuth = sessionStorage.getItem('gunotsav_auth');
     const verifiedDise = sessionStorage.getItem('gunotsav_verified_dise');
@@ -4350,24 +4350,15 @@ const GOOGLE_SCRIPT_API_URL = "https://script.google.com/macros/s/AKfycbxbhhSUAx
     }
   }
 
-  // ૧૨.૫ લૉગઆઉટ ફંક્શન
+  // ૧૮. લૉગઆઉટ ફંક્શન
   function logoutUser() {
     if (confirm('શું તમે લૉગઆઉટ કરવા માંગો છો?')) {
       sessionStorage.clear();
       location.reload();
     }
-  }{
-    if (confirm('શું તમે તમામ સુધારેલી વિગતો અને ઉમેરેલી રો ભૂંસીને મૂળ ડિફોલ્ટ સ્થિતિ પાછી લાવવા માંગો છો?')) {
-      if (isStorageAvailable()) {
-        try {
-          localStorage.removeItem(STORAGE_KEY);
-        } catch (e) {}
-      }
-      location.reload();
-    }
   }
 
-  // ૧૩. માસ્ટર ઇવેન્ટ લિસનર્સ
+  // ૧૯. માસ્ટર ઇવેન્ટ લિસનર્સ
   function attachEvents() {
     document.querySelectorAll('.control-panel input').forEach(input => {
       input.addEventListener('input', () => {
@@ -4388,7 +4379,7 @@ const GOOGLE_SCRIPT_API_URL = "https://script.google.com/macros/s/AKfycbxbhhSUAx
     });
   }
 
- // ૧૪. મુખ્ય શરૂઆત (Initialization)
+  // ૨૦. મુખ્ય શરૂઆત (Initialization)
   function init() {
     loadFromLocalStorage();
     syncData();
@@ -4398,7 +4389,7 @@ const GOOGLE_SCRIPT_API_URL = "https://script.google.com/macros/s/AKfycbxbhhSUAx
     setupDynamicTableButtons();
     attachEvents();
     
-    // 👇 આ નવી લાઈન ઉમેરો
+    // લૉગિન ચકાસણી
     checkAuthOnLoad();
   }
 
@@ -4407,6 +4398,5 @@ const GOOGLE_SCRIPT_API_URL = "https://script.google.com/macros/s/AKfycbxbhhSUAx
     document.addEventListener('DOMContentLoaded', init);
   } else {
     init();
-    
   }
 </script>
