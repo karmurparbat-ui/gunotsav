@@ -1,0 +1,4018 @@
+<!DOCTYPE html>
+<html lang="gu">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ગુણોત્સવ 2026-27</title>
+<!-- Rasa Google Font Import -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rasa:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --primary-color: #0f2b48;
+    --border-color: #0f2b48;
+    --bg-page: #ffffff;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Rasa', serif;
+    background-color: #dbe2ef;
+    margin: 0;
+    padding: 20px;
+    color: #111827;
+    font-size: 16px;
+  }
+
+  /* Control Panel */
+  .control-panel {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 22px;
+    max-width: 210mm;
+    margin: 0 auto 25px auto;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    border-top: 5px solid #1a365d;
+  }
+  .control-panel h2 {
+    margin: 0 0 15px 0;
+    color: var(--primary-color);
+    font-size: 1.35rem;
+    font-weight: 700;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 8px;
+  }
+  .form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 15px;
+  }
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+  .form-group label {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: #2d3748;
+  }
+  .form-group input {
+    padding: 8px 12px;
+    border: 1.5px solid #cbd5e0;
+    border-radius: 5px;
+    font-family: 'Rasa', serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #1a202c;
+  }
+  .form-group input:focus {
+    border-color: #2b6cb0;
+    outline: none;
+    background-color: #f7fafc;
+  }
+  .panel-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    margin-top: 18px;
+  }
+  .btn-print {
+    background: #1a365d;
+    color: white;
+    padding: 11px 22px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.15rem;
+    font-weight: 700;
+    font-family: 'Rasa', serif;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .btn-print:hover {
+    background: #2a4365;
+  }
+  .btn-reset {
+    background: #e2e8f0;
+    color: #4a5568;
+    padding: 11px 18px;
+    border: 1px solid #cbd5e0;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: 'Rasa', serif;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .btn-reset:hover {
+    background: #cbd5e0;
+    color: #1a202c;
+  }
+  .save-status {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #2b6cb0;
+    margin-left: auto;
+  }
+
+  /* A4 Document Pages */
+  .page {
+    background: var(--bg-page);
+    width: 210mm;
+    min-height: 297mm;
+    padding: 15mm 18mm 18mm 18mm;
+    margin: 0 auto 25px auto;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+    position: relative;
+    line-height: 1.45;
+    border: 3px double var(--border-color);
+    outline: 1.5px solid var(--border-color);
+    outline-offset: -7px;
+  }
+
+  /* Header Section */
+  .doc-header {
+    text-align: center;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 6px;
+    margin-bottom: 10px;
+  }
+  .school-title {
+    font-size: 1.65rem;
+    font-weight: 700;
+    color: #000000;
+    margin: 0;
+  }
+  .school-meta {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin: 2px 0;
+    color: #2d3748;
+  }
+  .doc-main-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    text-decoration: underline;
+    margin: 5px 0 2px 0;
+    color: #0f2b48;
+  }
+  .doc-tag {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #4a5568;
+  }
+
+  /* Typography */
+  .section-heading {
+    font-size: 1.22rem;
+    font-weight: 700;
+    margin: 8px 0 4px 0;
+    color: #000000;
+  }
+  p {
+    font-size: 1.08rem;
+    font-weight: 500;
+    text-align: justify;
+    margin: 0 0 5px 0;
+  }
+  ul, ol {
+    margin: 3px 0 6px 20px;
+    padding: 0;
+  }
+  li {
+    font-size: 1.08rem;
+    font-weight: 500;
+    margin-bottom: 3px;
+    text-align: justify;
+  }
+  .policy-box {
+    margin-bottom: 6px;
+    font-size: 1.05rem;
+    text-align: justify;
+  }
+  .policy-label {
+    font-weight: 700;
+    color: #000;
+  }
+
+  /* Custom Table */
+  table.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 8px 0;
+    font-size: 1.05rem;
+    table-layout: auto;
+  }
+  table.custom-table th, 
+  table.custom-table td {
+    border: 1.2px solid #2d3748;
+    padding: 6px 8px;
+    vertical-align: middle;
+    word-break: break-word;
+    white-space: normal;
+  }
+  table.custom-table th {
+    background-color: #edf2f7;
+    font-weight: 700;
+    text-align: center;
+    color: #1a202c;
+  }
+  table.custom-table td {
+    font-weight: 500;
+  }
+  table.custom-table td[contenteditable="true"] {
+    outline: none;
+    min-height: 26px;
+  }
+  table.custom-table td[contenteditable="true"]:hover {
+    background-color: #f7fafc;
+  }
+  table.custom-table td[contenteditable="true"]:focus {
+    background-color: #ebf8ff;
+    box-shadow: inset 0 0 0 1.5px #3182ce;
+  }
+
+  /* In-Table Inputs */
+  table input[type="number"], table input[type="text"] {
+    width: 100%;
+    border: 1px dashed #a0aec0;
+    border-radius: 3px;
+    padding: 3px;
+    font-family: 'Rasa', serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    text-align: center;
+    background: transparent;
+  }
+  table input:focus {
+    border: 1px solid #2b6cb0;
+    background: #ebf8ff;
+    outline: none;
+  }
+
+  .text-center { text-align: center; }
+  .text-right { text-align: right; }
+  .font-bold { font-weight: 700 !important; }
+
+  /* Footer Signature */
+  .doc-footer {
+    margin-top: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+  .sign-area {
+    text-align: center;
+    border-top: 1px dashed #4a5568;
+    padding-top: 4px;
+    min-width: 200px;
+  }
+
+  .credit-footer {
+    position: absolute;
+    bottom: 5mm;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #94a3b8;
+    letter-spacing: 0.5px;
+    user-select: none;
+  }
+
+  /* Print Settings */
+  @media print {
+    body {
+      background: none;
+      padding: 0;
+    }
+    .control-panel {
+      display: none;
+    }
+    .page {
+      box-shadow: none;
+      margin: 0;
+      width: 100%;
+      min-height: 100vh;
+      page-break-after: always;
+      padding: 13mm 15mm 16mm 15mm;
+      border: 3px double #000;
+      outline: 1.5px solid #000;
+      outline-offset: -6px;
+    }
+    table input {
+      border: none !important;
+    }
+    .credit-footer {
+      color: #94a3b8 !important;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+      bottom: 4mm;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- માસ્ટર કંટ્રોલ પેનલ -->
+<div class="control-panel">
+  <h2>⚙️ શાળાની માસ્ટર વિગત (અહીં વિગત નાખતાં જ સમગ્ર દસ્તાવેજમાં આપોઆપ સેટ થઈ જશે)</h2>
+  <div class="form-grid">
+    <div class="form-group">
+      <label>શાળાનું નામ:</label>
+      <input type="text" id="inputSchoolName" value="શ્રી કોરાડા વાડી પ્રાથમિક શાળા">
+    </div>
+    <div class="form-group">
+      <label>તાલુકો:</label>
+      <input type="text" id="inputTaluka" value="દ્વારકા">
+    </div>
+    <div class="form-group">
+      <label>જિલ્લો:</label>
+      <input type="text" id="inputDistrict" value="દેવભૂમિ દ્વારકા">
+    </div>
+    <div class="form-group">
+      <label>ડાયસ કોડ (DISE Code):</label>
+      <input type="text" id="inputDiseCode" value="24280100000">
+    </div>
+    <div class="form-group">
+      <label>શૈક્ષણિક વર્ષ:</label>
+      <input type="text" id="inputYear" value="૨૦૨૬-૨૭">
+    </div>
+    <div class="form-group">
+      <label>તારીખ:</label>
+      <input type="text" id="inputDate" value="10/08/2026">
+    </div>
+    <div class="form-group">
+      <label>સ્થળ:</label>
+      <input type="text" id="inputPlace" value="કોરાડા">
+    </div>
+    <div class="form-group">
+      <label>આચાર્યશ્રીનું નામ:</label>
+      <input type="text" id="inputPrincipal" value="હિતેશભાઈ પુજારા" placeholder="આચાર્યશ્રીનું નામ">
+    </div>
+  </div>
+  <div class="panel-actions">
+    <button class="btn-print" onclick="window.print()">🖨️ પ્રિન્ટ / PDF ડાઉનલોડ કરો</button>
+    <button class="btn-reset" onclick="resetDefaults()">🔄 ડિફોલ્ટ ડેટા રીસેટ</button>
+    <span class="save-status" id="saveStatus">💾 તમામ વિગતો લોકલ સ્ટોરેજમાં સેવ થાય છે</span>
+  </div>
+</div>
+
+<!-- ========================================== -->
+<!-- પેજ ૧: મિશન, વિઝન અને નીતિઓનો દસ્તાવેજ -->
+<!-- ========================================== -->
+<div class="page">
+  <div class="doc-header">
+    <div class="school-title"><span class="dyn-school">શ્રી કોરાડા વાડી પ્રાથમિક શાળા</span></div>
+    <div class="school-meta">
+      તા- <span class="dyn-taluka">દ્વારકા</span>, જિલ્લો- <span class="dyn-district">દેવભૂમિ દ્વારકા</span> | ડાયસ કોડ: <span class="dyn-dise">24280100000</span>
+    </div>
+    <div class="doc-main-title">શાળાનો મિશન, વિઝન અને નીતિઓનો દસ્તાવેજ</div>
+    <div class="doc-tag">(SQAAF ગુણોત્સવ - ૨.૦ ની માર્ગદર્શિકા મુજબ)</div>
+  </div>
+
+  <div class="section-heading">૧. શાળાનું વિઝન (Vision - દીર્ઘદ્રષ્ટિ)</div>
+  <p>દરેક બાળકને ગુણવત્તાયુક્ત શિક્ષણ પ્રદાન કરી, તેમનામાં રહેલી સુષુપ્ત શક્તિઓને ખીલવવી અને તેમને ૨૧મી સદીના પડકારો ઝીલી શકે તેવા આદર્શ, સંસ્કારી અને જવાબદાર નાગરિક બનાવવા. શાળાને એક એવું વિદ્યામંદિર બનાવવું જ્યાં ભયમુક્ત અને સર્વસમાવેશી વાતાવરણમાં દરેક બાળકનો સર્વાંગી વિકાસ થાય.</p>
+
+  <div class="section-heading">૨. શાળાનું મિશન (Mission - ધ્યેય)</div>
+  <p>અમારા વિઝનને સાકાર કરવા માટે શાળા નીચે મુજબના ધ્યેયો (Mission) પર કાર્ય કરવા કટિબદ્ધ છે:</p>
+  <ul>
+    <li>રાષ્ટ્રીય શિક્ષણ નીતિ (NEP-2020) અને રાજ્ય અભ્યાસક્રમ રૂપરેખા (SCF) ની માર્ગદર્શિકા મુજબ અધ્યયન-અધ્યાપન પ્રક્રિયા સુનિશ્ચિત કરવી.</li>
+    <li>બાળકો માટે ભયમુક્ત, આનંદદાયી, અને સુરક્ષિત શૈક્ષણિક વાતાવરણ પૂરું પાડવું.</li>
+    <li>સતત અને સર્વગ્રાહી મૂલ્યાંકન (CCE) દ્વારા બાળકોના શૈક્ષણિક અને સહ-શૈક્ષણિક ક્ષેત્રોમાં વિકાસની નોંધ રાખવી.</li>
+    <li>શાળા વ્યવસ્થાપન સમિતિ (SMC), વાલીઓ અને સ્થાનિક સમુદાયના સક્રિય સહયોગથી શાળાની ભૌતિક અને શૈક્ષણિક ગુણવત્તામાં સતત વધારો કરવો.</li>
+    <li>બાળકોમાં નૈતિક મૂલ્યો, સ્વચ્છતા, પર્યાવરણ પ્રેમ અને રાષ્ટ્રપ્રેમનું સિંચન કરવું.</li>
+  </ul>
+
+  <div class="section-heading">૩. શાળાના મૂળભૂત મૂલ્યો (Core Values)</div>
+  <ul>
+    <li><strong>સમાનતા (Equality) :</strong> દરેક બાળક સાથે જાતિ, ધર્મ કે લિંગના ભેદભાવ વિના સમાન વ્યવહાર.</li>
+    <li><strong>પ્રામાણિકતા (Integrity) :</strong> શાળાના તમામ કાર્યોમાં પારદર્શિતા અને નીતિમત્તા.</li>
+    <li><strong>સમાવેશીતા (Inclusivity) :</strong> દરેક પ્રકારના (સામાન્ય અને દિવ્યાંગ) બાળકોને સાથે રાખીને શૈક્ષણિક કાર્ય.</li>
+    <li><strong>સતત શીખવું (Lifelong Learning) :</strong> શિક્ષકો અને વિદ્યાર્થીઓ માટે સતત નવું શીખવાની ધગશ.</li>
+  </ul>
+
+  <div class="section-heading">૪. શાળાની નીતિઓ (School Policies)</div>
+  <div class="policy-box"><span class="policy-label">૪.૧ પ્રવેશ અને હાજરી નીતિ (Admission & Attendance Policy):</span> RTE Act-2009 મુજબ કોઈપણ ભેદભાવ વિના 100% નામાંકન. બાળકોની નિયમિત હાજરી સુનિશ્ચિત કરવા માટે વાલી સંપર્ક અને At-Risk બાળકોની ઓળખ કરી શાળામાં જાળવવા સઘન પ્રયાસો કરવા.</div>
+  <div class="policy-box"><span class="policy-label">૪.૨ શૈક્ષણિક અને અધ્યાપન નીતિ (Teaching & Learning Policy):</span> દૈનિક આયોજનપોથીના નિભાવ સાથે અધ્યયન નિષ્પત્તિકેન્દ્રી વર્ગકાર્ય કરવું. TLM નો મહત્તમ ઉપયોગ અને શિક્ષકો દ્વારા CPD તાલીમોમાં ભાગીદારી.</div>
+  <div class="policy-box"><span class="policy-label">૪.૩ મૂલ્યાંકન નીતિ (Evaluation Policy):</span> રચનાત્મક (સતત) મૂલ્યાંકન અને સત્રાંત કસોટીઓ દ્વારા પ્રગતિ સમીક્ષા અને નબળા બાળકો માટે ઉપચારાત્મક કાર્ય (Remedial Teaching) કરવું.</div>
+  <div class="policy-box"><span class="policy-label">૪.૪ સલામતી અને સુરક્ષા નીતિ (Safety & Security Policy):</span> શારીરિક શિક્ષા પર સંપૂર્ણ પ્રતિબંધ. ફાયર સેફ્ટી, ફર્સ્ટ એઇડ અને શુદ્ધ પીવાના પાણીની વ્યવસ્થા. નિયમિત મોકડ્રીલનું આયોજન.</div>
+  <div class="policy-box"><span class="policy-label">૪.૫ સમાવેશી શિક્ષણ નીતિ (Inclusive Education Policy):</span> CWSN બાળકો માટે રેમ્પ, યોગ્ય બેઠક વ્યવસ્થા અને દિવ્યાંગ-મૈત્રીપૂર્ણ શૌચાલય સાથે સમાન તકો આપવી.</div>
+  <div class="policy-box"><span class="policy-label">૪.૬ સમુદાય સહભાગિતા નીતિ (Community Participation Policy):</span> SMC અને વાલીમંડળની નિયમિત બેઠકો યોજી પારદર્શક વહીવટમાં સૂચનો આવકારવા.</div>
+
+  <p style="margin-top: 8px; font-size: 0.95rem; font-style: italic;">
+    <strong>નોંધ:</strong> આ મિશન, વિઝન અને નીતિઓના દસ્તાવેજનું શાળાના તમામ કર્મચારીઓ દ્વારા પાલન કરવામાં આવશે અને સમયાંતરે તેમાં જરૂરી સમીક્ષા કરવામાં આવશે.
+  </p>
+
+  <div class="doc-footer">
+    <div>સ્થળ: <span class="dyn-place">કોરાડા</span><br>તારીખ: <span class="dyn-date">10/08/2026</span></div>
+    <div class="sign-area"><span class="dyn-principal">હિતેશભાઈ પુજારા</span><br>આચાર્યશ્રીની સહી અને સિક્કો</div>
+  </div>
+  <div class="credit-footer">સૌજન્ય : પરબતભાઇ કરમુર - શ્રી કોરાડાવાડી પ્રાથમિક શાળા</div>
+</div>
+
+<!-- ========================================== -->
+<!-- પેજ ૨: નીતિઓના અમલીકરણ અને સમીક્ષાનો અહેવાલ -->
+<!-- ========================================== -->
+<div class="page">
+  <div class="doc-header">
+    <div class="school-title"><span class="dyn-school">શ્રી કોરાડા વાડી પ્રાથમિક શાળા</span></div>
+    <div class="school-meta">
+      તા- <span class="dyn-taluka">દ્વારકા</span>, જિલ્લો- <span class="dyn-district">દેવભૂમિ દ્વારકા</span> | ડાયસ કોડ: <span class="dyn-dise">24280100000</span>
+    </div>
+    <div class="doc-main-title">શાળાની નીતિઓના અમલીકરણ અને સમીક્ષાનો અહેવાલ</div>
+    <div class="doc-tag">(SQAAF ગુણોત્સવ - ૨.૦ માર્ગદર્શિકા અંતર્ગત) &nbsp;&nbsp;|&nbsp;&nbsp; શૈક્ષણિક વર્ષ: <span class="dyn-year">૨૦૨૬-૨૭</span></div>
+  </div>
+
+  <div class="section-heading">૧. પ્રસ્તાવના</div>
+  <p>ગુણોત્સવ ૨.૦ ના સ્કૂલ ક્વૉલિટી એસેસમેન્ટ એન્ડ એશ્યોરન્સ ફ્રેમવર્ક (SQAAF) ના માપદંડોને અનુરૂપ <span class="dyn-school">શ્રી કોરાડા વાડી પ્રાથમિક શાળા</span> દ્વારા વિવિધ નીતિઓ ઘડવામાં આવેલ છે. આ અહેવાલ ચાલુ શૈક્ષણિક સત્ર દરમિયાન શાળામાં અમલમાં મુકાયેલ નીતિઓ, તેના પરિણામો અને સમીક્ષા બેઠકના તારણો રજૂ કરે છે.</p>
+
+  <div class="section-heading">૨. નીતિઓના અમલીકરણ અને સમીક્ષાની વિગત</div>
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th style="width: 25%;">નીતિનું નામ</th>
+        <th style="width: 40%;">અમલીકરણની સ્થિતિ</th>
+        <th style="width: 35%;">સમીક્ષા / તારણ</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>પ્રવેશ અને હાજરી નીતિ</strong></td>
+        <td contenteditable="true">શાળામાં ૧૦૦% નામાંકન સુનિશ્ચિત કરવામાં આવ્યું છે. અનિયમિત વિદ્યાર્થીઓના વાલીઓનો નિયમિત સંપર્ક કરાયો છે.</td>
+        <td contenteditable="true">હાજરીમાં સુધારો જોવા મળ્યો છે. સ્થળાંતરિત પરિવારોના બાળકો પર વધુ ધ્યાન આપવાની જરૂર છે.</td>
+      </tr>
+      <tr>
+        <td><strong>શૈક્ષણિક અને અધ્યાપન નીતિ</strong></td>
+        <td contenteditable="true">તમામ શિક્ષકો દ્વારા દૈનિક આયોજનપોથીનો નિભાવ થાય છે અને અધ્યયન નિષ્પત્તિ આધારિત TLM નો ઉપયોગ કરાય છે.</td>
+        <td contenteditable="true">શૈક્ષણિક કાર્ય સંતોષકારક છે. શિક્ષકોને નવી NEP 2020 અને SCF આધારિત તાલીમોમાં સક્રિયપણે જોડવા.</td>
+      </tr>
+      <tr>
+        <td><strong>મૂલ્યાંકન નીતિ</strong></td>
+        <td contenteditable="true">રચનાત્મક મૂલ્યાંકન અને એકમ કસોટીઓ નિયમિત લેવાય છે. પરિણામ મુજબ ઉપચારાત્મક કાર્ય (Remedial Teaching) શરૂ છે.</td>
+        <td contenteditable="true">નબળા વિદ્યાર્થીઓ માટે હજુ વધુ સમય ફાળવી તેમને વ્યક્તિગત માર્ગદર્શન પૂરું પાડવું.</td>
+      </tr>
+      <tr>
+        <td><strong>સલામતી અને સુરક્ષા નીતિ</strong></td>
+        <td contenteditable="true">ફાયર સેફ્ટી સાધનો કાર્યરત છે, મોકડ્રીલ યોજવામાં આવી છે. પ્રાથમિક સારવાર પેટી (First Aid) ઉપલબ્ધ છે.</td>
+        <td contenteditable="true">શાળા કેમ્પસ સંપૂર્ણ સુરક્ષિત છે. શૌચાલય અને પીવાના પાણીની ટાંકીની સફાઈ નિયમિત થાય છે.</td>
+      </tr>
+      <tr>
+        <td><strong>સમાવેશી શિક્ષણ (CWSN) નીતિ</strong></td>
+        <td contenteditable="true">CWSN બાળકો માટે વિશેષ બેઠક વ્યવસ્થા અને રેમ્પની સુવિધા ઉપલબ્ધ કરવામાં આવી છે.</td>
+        <td contenteditable="true">તમામ બાળકો સાથે મળીને પ્રવૃત્તિ કરે છે, જે ખૂબ હકારાત્મક અને પ્રોત્સાહક છે.</td>
+      </tr>
+      <tr>
+        <td><strong>સમુદાય સહભાગિતા (SMC) નીતિ</strong></td>
+        <td contenteditable="true">SMC ની બેઠકો નિયમિત રીતે યોજાય છે અને વાલીઓનો સારો પ્રતિસાદ મળે છે.</td>
+        <td contenteditable="true">શાળા વિકાસ કાર્યોમાં સમુદાય અને દાતાઓનો સહયોગ વધુ સક્રિય બનાવવો.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="section-heading">૩. સમીક્ષા સમિતિના સૂચનો અને આગામી આયોજન</div>
+  <ul>
+    <li>વાલીઓ સાથેનો સંપર્ક હજુ વધુ સુદ્રઢ કરવો જેથી બાળકોની ગેરહાજરીનું પ્રમાણ ઘટાડી શકાય.</li>
+    <li>શિક્ષકોને ડિજિટલ શિક્ષણ (સ્માર્ટ ક્લાસ અને દીક્ષા પોર્ટલ) ના મહત્તમ ઉપયોગ માટે પ્રોત્સાહિત કરવા.</li>
+    <li>રમતગમત, કલા ઉત્સવ અને સાંસ્કૃતિક પ્રવૃત્તિઓમાં દરેક બાળકની ભાગીદારી સુનિશ્ચિત કરવી.</li>
+  </ul>
+
+  <p style="margin-top: 8px; font-size: 0.95rem; font-style: italic;">
+    <strong>નોંધ:</strong> આ અહેવાલ શાળા કક્ષાએ યોજાયેલ સમીક્ષા બેઠકના આધારે તૈયાર કરવામાં આવ્યો છે અને તેને શાળાના રેકોર્ડમાં જાળવી રાખવામાં આવશે.
+  </p>
+
+  <div class="doc-footer">
+    <div>સ્થળ: <span class="dyn-place">કોરાડા</span><br>તારીખ: <span class="dyn-date">10/08/2026</span></div>
+    <div class="sign-area"><span class="dyn-principal">હિતેશભાઈ પુજારા</span><br>આચાર્યશ્રીની સહી અને સિક્કો</div>
+  </div>
+  <div class="credit-footer">સૌજન્ય : પરબતભાઇ કરમુર - શ્રી કોરાડાવાડી પ્રાથમિક શાળા</div>
+</div>
+
+<!-- ========================================== -->
+<!-- પેજ ૩: શાળાએ ચાલુ શૈક્ષણિક વર્ષમાં આપેલ પ્રવેશની વિગત -->
+<!-- ========================================== -->
+<div class="page">
+  <div class="doc-header">
+    <div class="school-title"><span class="dyn-school">શ્રી કોરાડા વાડી પ્રાથમિક શાળા</span></div>
+    <div class="school-meta">
+      તા- <span class="dyn-taluka">દ્વારકા</span>, જિલ્લો- <span class="dyn-district">દેવભૂમિ દ્વારકા</span> | ડાયસ કોડ: <span class="dyn-dise">24280100000</span>
+    </div>
+    <div class="doc-main-title">શાળાએ ચાલુ શૈક્ષણિક વર્ષમાં આપેલ પ્રવેશની વિગત</div>
+    <div class="doc-tag">(SQAAF ગુણોત્સવ - ૨.૦ માર્ગદર્શિકા મુજબ અપલોડ કરવાનો આધાર)</div>
+  </div>
+
+  <div class="section-heading">૧. ધોરણવાર નવા પ્રવેશની વિગત</div>
+  <table class="custom-table" id="admTable">
+    <thead>
+      <tr>
+        <th style="width: 10%;">ક્રમ</th>
+        <th style="width: 35%;">ધોરણ</th>
+        <th style="width: 18%;">કુમાર (Boys)</th>
+        <th style="width: 18%;">કન્યા (Girls)</th>
+        <th style="width: 19%;">કુલ પ્રવેશ</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="text-center">1</td><td>બાલવાટીકા</td><td><input type="number" class="adm-b" value="11" oninput="calcAdm()"></td><td><input type="number" class="adm-g" value="8" oninput="calcAdm()"></td><td class="text-center font-bold adm-t">19</td></tr>
+      <tr><td class="text-center">2</td><td>ધોરણ 1</td><td><input type="number" class="adm-b" value="0" oninput="calcAdm()"></td><td><input type="number" class="adm-g" value="0" oninput="calcAdm()"></td><td class="text-center font-bold adm-t">0</td></tr>
+      <tr><td class="text-center">3</td><td>ધોરણ 2</td><td><input type="number" class="adm-b" value="0" oninput="calcAdm()"></td><td><input type="number" class="adm-g" value="0" oninput="calcAdm()"></td><td class="text-center font-bold adm-t">0</td></tr>
+      <tr><td class="text-center">4</td><td>ધોરણ 3</td><td><input type="number" class="adm-b" value="0" oninput="calcAdm()"></td><td><input type="number" class="adm-g" value="0" oninput="calcAdm()"></td><td class="text-center font-bold adm-t">0</td></tr>
+      <tr><td class="text-center">5</td><td>ધોરણ 4</td><td><input type="number" class="adm-b" value="0" oninput="calcAdm()"></td><td><input type="number" class="adm-g" value="0" oninput="calcAdm()"></td><td class="text-center font-bold adm-t">0</td></tr>
+      <tr><td class="text-center">6</td><td>ધોરણ 5</td><td><input type="number" class="adm-b" value="0" oninput="calcAdm()"></td><td><input type="number" class="adm-g" value="0" oninput="calcAdm()"></td><td class="text-center font-bold adm-t">0</td></tr>
+      <tr><td class="text-center">7</td><td>ધોરણ 6</td><td><input type="number" class="adm-b" value="0" oninput="calcAdm()"></td><td><input type="number" class="adm-g" value="0" oninput="calcAdm()"></td><td class="text-center font-bold adm-t">0</td></tr>
+      <tr><td class="text-center">8</td><td>ધોરણ 7</td><td><input type="number" class="adm-b" value="0" oninput="calcAdm()"></td><td><input type="number" class="adm-g" value="0" oninput="calcAdm()"></td><td class="text-center font-bold adm-t">0</td></tr>
+      <tr><td class="text-center">9</td><td>ધોરણ 8</td><td><input type="number" class="adm-b" value="0" oninput="calcAdm()"></td><td><input type="number" class="adm-g" value="0" oninput="calcAdm()"></td><td class="text-center font-bold adm-t">0</td></tr>
+      <tr style="background-color: #f7fafc;">
+        <td colspan="2" class="text-center font-bold">કુલ (Grand Total)</td>
+        <td class="text-center font-bold" id="totAdmB">11</td>
+        <td class="text-center font-bold" id="totAdmG">8</td>
+        <td class="text-center font-bold" id="totAdmAll">19</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="section-heading">૨. સામાજિક વર્ગ (Category) મુજબ નવા પ્રવેશની વિગત</div>
+  <table class="custom-table" id="catTable">
+    <thead>
+      <tr>
+        <th style="width: 45%;">કેટેગરી</th>
+        <th style="width: 18%;">કુમાર</th>
+        <th style="width: 18%;">કન્યા</th>
+        <th style="width: 19%;">કુલ</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>SC</td><td><input type="number" class="cat-b" value="2" oninput="calcCat()"></td><td><input type="number" class="cat-g" value="0" oninput="calcCat()"></td><td class="text-center font-bold cat-t">2</td></tr>
+      <tr><td>ST</td><td><input type="number" class="cat-b" value="0" oninput="calcCat()"></td><td><input type="number" class="cat-g" value="0" oninput="calcCat()"></td><td class="text-center font-bold cat-t">0</td></tr>
+      <tr><td>OBC / SEBC</td><td><input type="number" class="cat-b" value="9" oninput="calcCat()"></td><td><input type="number" class="cat-g" value="8" oninput="calcCat()"></td><td class="text-center font-bold cat-t">17</td></tr>
+      <tr><td>General / Other</td><td><input type="number" class="cat-b" value="0" oninput="calcCat()"></td><td><input type="number" class="cat-g" value="0" oninput="calcCat()"></td><td class="text-center font-bold cat-t">0</td></tr>
+      <tr style="background-color: #f7fafc;">
+        <td class="font-bold text-center">કુલ (Total)</td>
+        <td class="text-center font-bold" id="totCatB">11</td>
+        <td class="text-center font-bold" id="totCatG">8</td>
+        <td class="text-center font-bold" id="totCatAll">19</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p style="margin-top: 8px; font-size: 0.95rem; font-style: italic;">
+    <strong>નોંધ:</strong> ઉપર દર્શાવેલ આંકડાકીય માહિતી શાળાના જનરલ રજીસ્ટર (G.R.) અને ચાલુ વર્ષના પ્રવેશ ફોર્મ આધારિત છે.
+  </p>
+
+  <div class="doc-footer">
+    <div>સ્થળ: <span class="dyn-place">કોરાડા</span><br>તારીખ: <span class="dyn-date">10/08/2026</span></div>
+    <div class="sign-area"><span class="dyn-principal">હિતેશભાઈ પુજારા</span><br>આચાર્યશ્રીની સહી અને સિક્કો</div>
+  </div>
+  <div class="credit-footer">સૌજન્ય : પરબતભાઇ કરમુર - શ્રી કોરાડાવાડી પ્રાથમિક શાળા</div>
+</div>
+
+<!-- ========================================== -->
+<!-- પેજ ૪: RTE અંતર્ગત આપેલ પ્રવેશની વિગત -->
+<!-- ========================================== -->
+<div class="page">
+  <div class="doc-header">
+    <div class="school-title"><span class="dyn-school">શ્રી કોરાડા વાડી પ્રાથમિક શાળા</span></div>
+    <div class="school-meta">
+      તા- <span class="dyn-taluka">દ્વારકા</span>, જિલ્લો- <span class="dyn-district">દેવભૂમિ દ્વારકા</span> | ડાયસ કોડ: <span class="dyn-dise">24280100000</span>
+    </div>
+    <div class="doc-main-title">શાળાએ RTE (Right to Education) અંતર્ગત આપેલ પ્રવેશની વિગત</div>
+    <div class="doc-tag">(SQAAF ગુણોત્સવ - ૨.૦ માર્ગદર્શિકા મુજબ અપલોડ કરવાનો આધાર)</div>
+  </div>
+
+  <p>આ દસ્તાવેજમાં રાઈટ ટુ એજ્યુકેશન (RTE) એક્ટ અંતર્ગત <span class="dyn-school">શ્રી કોરાડા વાડી પ્રાથમિક શાળા</span>માં પ્રવેશ મેળવેલ વિદ્યાર્થીઓ અને તેમના વર્ગ તથા શાળા સમયની વિગતો દર્શાવવામાં આવી છે.</p>
+
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th style="width: 8%;">ક્રમ</th>
+        <th style="width: 32%;">વિદ્યાર્થીનું પૂરું નામ</th>
+        <th style="width: 15%;">ધોરણ</th>
+        <th style="width: 15%;">પ્રવેશ વર્ષ</th>
+        <th style="width: 15%;">જાતિ/કેટેગરી</th>
+        <th style="width: 15%;">શાળાનો સમય</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="text-center">1</td><td contenteditable="true">NIL</td><td contenteditable="true">NIL</td><td contenteditable="true">NIL</td><td contenteditable="true">NIL</td><td contenteditable="true">NIL</td></tr>
+      <tr><td class="text-center">2</td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td></tr>
+      <tr><td class="text-center">3</td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td></tr>
+      <tr><td class="text-center">4</td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td></tr>
+      <tr><td class="text-center">5</td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td></tr>
+    </tbody>
+  </table>
+
+  <p style="margin-top: 10px; font-size: 0.95rem;">
+    <strong>નોંધ:</strong> RTE અંતર્ગત પ્રવેશ મેળવેલ તમામ વિદ્યાર્થીઓને અન્ય સામાન્ય વિદ્યાર્થીઓની જેમ સમાન શૈક્ષણિક તકો, વિનામૂલ્યે શિક્ષણ અને સુવિધાઓ ભેદભાવ વિના પૂરી પાડવામાં આવે છે. તેઓનો શાળા સમય અન્ય વિદ્યાર્થીઓ સમાન જ રાખવામાં આવેલ છે.
+  </p>
+
+  <div class="doc-footer" style="margin-top: 40px;">
+    <div>સ્થળ: <span class="dyn-place">કોરાડા</span><br>તારીખ: <span class="dyn-date">10/08/2026</span></div>
+    <div class="sign-area"><span class="dyn-principal">હિતેશભાઈ પુજારા</span><br>આચાર્યશ્રીની સહી અને સિક્કો</div>
+  </div>
+  <div class="credit-footer">સૌજન્ય : પરબતભાઇ કરમુર - શ્રી કોરાડાવાડી પ્રાથમિક શાળા</div>
+</div>
+
+<!-- ========================================== -->
+<!-- પેજ ૫: શાળાના કુલ શિક્ષકો અને વિદ્યાર્થીઓની સંખ્યા -->
+<!-- ========================================== -->
+<div class="page">
+  <div class="doc-header">
+    <div class="school-title"><span class="dyn-school">શ્રી કોરાડા વાડી પ્રાથમિક શાળા</span></div>
+    <div class="school-meta">
+      તા- <span class="dyn-taluka">દ્વારકા</span>, જિલ્લો- <span class="dyn-district">દેવભૂમિ દ્વારકા</span> | ડાયસ કોડ: <span class="dyn-dise">24280100000</span>
+    </div>
+    <div class="doc-main-title">શાળાના કુલ શિક્ષકો અને વિદ્યાર્થીઓની સંખ્યા</div>
+    <div class="doc-tag">(SQAAF ગુણોત્સવ - ૨.૦ માર્ગદર્શિકા મુજબ અપલોડ કરવાનો આધાર)</div>
+  </div>
+
+  <div class="section-heading">૧. શાળામાં શિક્ષકોની મહેકમ વિગત (Teacher Details)</div>
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th style="width: 25%;">મંજૂર થયેલ મહેકમ (Sanctioned)</th>
+        <th style="width: 25%;">ભરાયેલ જગ્યાઓ (Filled)</th>
+        <th style="width: 25%;">ખાલી જગ્યાઓ (Vacant)</th>
+        <th style="width: 25%;">હાલ શિક્ષકોની વિગત</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="text-center">
+        <td><input type="number" value="4" style="font-weight:700;"></td>
+        <td><input type="number" value="4" style="font-weight:700;"></td>
+        <td><input type="number" value="0" style="font-weight:700;"></td>
+        <td>ભાઈઓ: <input type="number" value="4" style="width:40px; display:inline;"> / બહેનો: <input type="number" value="0" style="width:40px; display:inline;"></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="section-heading">૨. શાળાના પ્રત્યેક વર્ગ દીઠ વિદ્યાર્થીઓની સંખ્યા (Student Enrollment)</div>
+  <table class="custom-table" id="enrTable">
+    <thead>
+      <tr>
+        <th style="width: 10%;">ક્રમ</th>
+        <th style="width: 35%;">ધોરણ</th>
+        <th style="width: 18%;">કુમાર (Boys)</th>
+        <th style="width: 18%;">કન્યા (Girls)</th>
+        <th style="width: 19%;">કુલ (Total)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="text-center">1</td><td>બાલવાટીકા</td><td><input type="number" class="enr-b" value="11" oninput="calcEnr()"></td><td><input type="number" class="enr-g" value="8" oninput="calcEnr()"></td><td class="text-center font-bold enr-t">19</td></tr>
+      <tr><td class="text-center">2</td><td>ધોરણ 1</td><td><input type="number" class="enr-b" value="5" oninput="calcEnr()"></td><td><input type="number" class="enr-g" value="7" oninput="calcEnr()"></td><td class="text-center font-bold enr-t">12</td></tr>
+      <tr><td class="text-center">3</td><td>ધોરણ 2</td><td><input type="number" class="enr-b" value="11" oninput="calcEnr()"></td><td><input type="number" class="enr-g" value="8" oninput="calcEnr()"></td><td class="text-center font-bold enr-t">19</td></tr>
+      <tr><td class="text-center">4</td><td>ધોરણ 3</td><td><input type="number" class="enr-b" value="13" oninput="calcEnr()"></td><td><input type="number" class="enr-g" value="4" oninput="calcEnr()"></td><td class="text-center font-bold enr-t">17</td></tr>
+      <tr><td class="text-center">5</td><td>ધોરણ 4</td><td><input type="number" class="enr-b" value="0" oninput="calcEnr()"></td><td><input type="number" class="enr-g" value="0" oninput="calcEnr()"></td><td class="text-center font-bold enr-t">0</td></tr>
+      <tr><td class="text-center">6</td><td>ધોરણ 5</td><td><input type="number" class="enr-b" value="16" oninput="calcEnr()"></td><td><input type="number" class="enr-g" value="10" oninput="calcEnr()"></td><td class="text-center font-bold enr-t">26</td></tr>
+      <tr><td class="text-center">7</td><td>ધોરણ 6</td><td><input type="number" class="enr-b" value="9" oninput="calcEnr()"></td><td><input type="number" class="enr-g" value="13" oninput="calcEnr()"></td><td class="text-center font-bold enr-t">22</td></tr>
+      <tr><td class="text-center">8</td><td>ધોરણ 7</td><td><input type="number" class="enr-b" value="8" oninput="calcEnr()"></td><td><input type="number" class="enr-g" value="10" oninput="calcEnr()"></td><td class="text-center font-bold enr-t">18</td></tr>
+      <tr><td class="text-center">9</td><td>ધોરણ 8</td><td><input type="number" class="enr-b" value="12" oninput="calcEnr()"></td><td><input type="number" class="enr-g" value="13" oninput="calcEnr()"></td><td class="text-center font-bold enr-t">25</td></tr>
+      <tr style="background-color: #f7fafc;">
+        <td colspan="2" class="text-center font-bold">કુલ (Grand Total)</td>
+        <td class="text-center font-bold" id="totEnrB">85</td>
+        <td class="text-center font-bold" id="totEnrG">73</td>
+        <td class="text-center font-bold" id="totEnrAll">158</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p style="margin-top: 8px; font-size: 0.95rem; font-style: italic;">
+    <strong>નોંધ:</strong> ઉપર દર્શાવેલ સંખ્યા શાળાના હાજરી પત્રક અને જનરલ રજીસ્ટર મુજબ પ્રમાણિત કરવામાં આવેલ છે.
+  </p>
+
+  <div class="doc-footer">
+    <div>સ્થળ: <span class="dyn-place">કોરાડા</span><br>તારીખ: <span class="dyn-date">10/08/2026</span></div>
+    <div class="sign-area"><span class="dyn-principal">હિતેશભાઈ પુજારા</span><br>આચાર્યશ્રીની સહી અને સિક્કો</div>
+  </div>
+  <div class="credit-footer">સૌજન્ય : પરબતભાઇ કરમુર - શ્રી કોરાડાવાડી પ્રાથમિક શાળા</div>
+</div>
+
+<!-- ========================================== -->
+<!-- ભાગ ૫ - પેજ ૧: કર્મચારી/શિક્ષક લાયકાત અને કામગીરી પત્રક -->
+<!-- ========================================== -->
+<div class="page">
+  <div class="doc-header">
+    <div class="school-title"><span class="dyn-school">શ્રી કોરાડા વાડી પ્રાથમિક શાળા</span></div>
+    <div class="school-meta">
+      તા- <span class="dyn-taluka">દ્વારકા</span>, જિલ્લો- <span class="dyn-district">દેવભૂમિ દ્વારકા</span> | ડાયસ કોડ: <span class="dyn-dise">24280100000</span>
+    </div>
+    <div class="doc-main-title">શાળાના પ્રત્યેક કર્મચારી/ શિક્ષકને અપાયેલ કામગીરી/વિષય અને તેમની શૈક્ષણિક – વ્યાવસાયિક લાયકાતની વિગત</div>
+    <div class="doc-tag">(SQAAF ગુણોત્સવ - ૨.૦ માર્ગદર્શિકા મુજબ અપલોડ કરવાનો આધાર)</div>
+  </div>
+
+  <p>આ પત્રકમાં શાળાના પ્રત્યેક કર્મચારી અને શિક્ષકોની શૈક્ષણિક-વ્યાવસાયિક લાયકાત તેમજ તેમને ફાળવવામાં આવેલ વિષયો અને અન્ય કામગીરીની વિગત દર્શાવવામાં આવી છે.</p>
+
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th style="width: 6%;">ક્રમ</th>
+        <th style="width: 25%;">કર્મચારી / શિક્ષકનું પૂરું નામ</th>
+        <th style="width: 14%;">હોદ્દો</th>
+        <th style="width: 13%;">શૈક્ષણિક લાયકાત</th>
+        <th style="width: 13%;">વ્યાવસાયિક લાયકાત</th>
+        <th style="width: 29%;">સોંપેલ કામગીરી / ભણાવતા વિષયો</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="text-center">1</td>
+        <td contenteditable="true">હિતેશભાઈ પુજારા</td>
+        <td contenteditable="true">આચાર્ય</td>
+        <td contenteditable="true">M.A.</td>
+        <td contenteditable="true">B.Ed.</td>
+        <td contenteditable="true">ધોરણ બાલવાટિકા થી ૫, શાળા સંચાલન અને વહીવટ</td>
+      </tr>
+      <tr>
+        <td class="text-center">2</td>
+        <td contenteditable="true">સુરેન્દ્રભાઈ સોલંકી</td>
+        <td contenteditable="true">મદદનીશ શિક્ષક</td>
+        <td contenteditable="true">B.Sc.</td>
+        <td contenteditable="true">B.Ed.</td>
+        <td contenteditable="true">ધોરણ ૬ થી ૮ ગણિત / વિજ્ઞાન</td>
+      </tr>
+      <tr>
+        <td class="text-center">3</td>
+        <td contenteditable="true">જેન્તીભાઈ નકુમ</td>
+        <td contenteditable="true">મદદનીશ શિક્ષક</td>
+        <td contenteditable="true">B.A.</td>
+        <td contenteditable="true">B.Ed.</td>
+        <td contenteditable="true">ધોરણ ૬ થી ૮ સામાજિક વિજ્ઞાન / હિન્દી</td>
+      </tr>
+      <tr>
+        <td class="text-center">4</td>
+        <td contenteditable="true">પરબતભાઈ કરમુર</td>
+        <td contenteditable="true">મદદનીશ શિક્ષક</td>
+        <td contenteditable="true">M.A.</td>
+        <td contenteditable="true">B.Ed.</td>
+        <td contenteditable="true">ધોરણ ૬ થી ૮ ભાષા (ગુજરાતી / અંગ્રેજી / સંસ્કૃત)</td>
+      </tr>
+      <tr>
+        <td class="text-center">5</td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+      </tr>
+      <tr>
+        <td class="text-center">6</td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p style="margin-top: 6px; font-size: 0.92rem; font-style: italic;">
+    <strong>નોંધ:</strong> ઉપરોક્ત માહિતી શિક્ષકોની સર્વિસ બુક અને શાળાના શૈક્ષણિક સમયપત્રક મુજબ પ્રમાણિત કરવામાં આવેલ છે.
+  </p>
+
+  <div class="doc-footer">
+    <div>સ્થળ: <span class="dyn-place">કોરાડા</span><br>તારીખ: <span class="dyn-date">10/08/2026</span></div>
+    <div class="sign-area"><span class="dyn-principal">હિતેશભાઈ પુજારા</span><br>આચાર્યશ્રીની સહી અને સિક્કો</div>
+  </div>
+  <div class="credit-footer">સૌજન્ય : પરબતભાઇ કરમુર - શ્રી કોરાડાવાડી પ્રાથમિક શાળા</div>
+</div>
+
+<!-- ========================================== -->
+<!-- ભાગ ૬ - પેજ ૧: કર્મચારી પ્રોત્સાહન-પુરસ્કાર સંબંધિત વિગત -->
+<!-- ========================================== -->
+<div class="page">
+  <div class="doc-header">
+    <div class="school-title"><span class="dyn-school">શ્રી કોરાડા વાડી પ્રાથમિક શાળા</span></div>
+    <div class="school-meta">
+      તા- <span class="dyn-taluka">દ્વારકા</span>, જિલ્લો- <span class="dyn-district">દેવભૂમિ દ્વારકા</span> | ડાયસ કોડ: <span class="dyn-dise">24280100000</span>
+    </div>
+    <div class="doc-main-title">કર્મચારીઓને આપેલ પ્રોત્સાહન અને પુરસ્કાર સંબંધિત વિગત</div>
+    <div class="doc-tag">(SQAAF ગુણોત્સવ - ૨.૦ માર્ગદર્શિકા મુજબ અપલોડ કરવાનો આધાર)</div>
+  </div>
+
+  <p>શાળાના શિક્ષકો અને કર્મચારીઓના ઉત્કૃષ્ટ શૈક્ષણિક અને સહ-શૈક્ષણિક કાર્યની નોંધ લઈ, તેમના ઉત્સાહમાં વધારો કરવા માટે શાળા, એસ.એમ.સી. (SMC), તાલુકા, જિલ્લા કે રાજ્ય કક્ષાએ આપવામાં આવેલ પ્રોત્સાહન અને પુરસ્કારની વિગત નીચે મુજબ દર્શાવવામાં આવી છે:</p>
+
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th style="width: 6%;">ક્રમ</th>
+        <th style="width: 24%;">કર્મચારી / શિક્ષકનું નામ</th>
+        <th style="width: 25%;">પુરસ્કાર / પ્રોત્સાહનનું નામ</th>
+        <th style="width: 15%;">કક્ષા</th>
+        <th style="width: 10%;">વર્ષ</th>
+        <th style="width: 20%;">સિદ્ધિ / વિગત</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="text-center">1</td>
+        <td contenteditable="true">પરબતભાઈ કરમુર</td>
+        <td contenteditable="true">શૈક્ષણિક ઇનોવેશન / TLM</td>
+        <td contenteditable="true">તાલુકા / જિલ્લા</td>
+        <td contenteditable="true">2025-26</td>
+        <td contenteditable="true">ડિજિટલ શિક્ષણ અને એપ્લિકેશન</td>
+      </tr>
+      <tr>
+        <td class="text-center">2</td>
+        <td contenteditable="true">સુરેન્દ્રભાઈ સોલંકી</td>
+        <td contenteditable="true">ગણિત / વિજ્ઞાન પ્રદર્શન</td>
+        <td contenteditable="true">તાલુકા</td>
+        <td contenteditable="true">2025</td>
+        <td contenteditable="true">વિજ્ઞાન મેળો ઉત્કૃષ્ટ મોડેલ</td>
+      </tr>
+      <tr>
+        <td class="text-center">3</td>
+        <td contenteditable="true">જેન્તીભાઈ નકુમ</td>
+        <td contenteditable="true">સાંસ્કૃતિક અને કલા ઉત્સવ</td>
+        <td contenteditable="true">શાળા / તાલુકા</td>
+        <td contenteditable="true">2025</td>
+        <td contenteditable="true">વિદ્યાર્થી માર્ગદર્શન</td>
+      </tr>
+      <tr>
+        <td class="text-center">4</td>
+        <td contenteditable="true">હિતેશભાઈ પુજારા</td>
+        <td contenteditable="true">શ્રેષ્ઠ શાળા વહીવટ / SMC</td>
+        <td contenteditable="true">તાલુકા</td>
+        <td contenteditable="true">2026</td>
+        <td contenteditable="true">100% નામાંકન અને CCE</td>
+      </tr>
+      <tr>
+        <td class="text-center">5</td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p style="margin-top: 8px; font-size: 0.95rem; font-style: italic;">
+    <strong>નોંધ:</strong> ઉપરોક્ત માહિતી કર્મચારીઓને મળેલ અસલ પ્રમાણપત્રો, સન્માન પત્રો અને શાળાના દફતરે નોંધેલ વિગતો મુજબ સાચી છે.
+  </p>
+
+  <div class="doc-footer" style="margin-top: 40px;">
+    <div>સ્થળ: <span class="dyn-place">કોરાડા</span><br>તારીખ: <span class="dyn-date">10/08/2026</span></div>
+    <div class="sign-area"><span class="dyn-principal">હિતેશભાઈ પુજારા</span><br>આચાર્યશ્રીની સહી અને સિક્કો</div>
+  </div>
+  <div class="credit-footer">સૌજન્ય : પરબતભાઇ કરમુર - શ્રી કોરાડાવાડી પ્રાથમિક શાળા</div>
+</div>
+
+<!-- ========================================== -->
+<!-- ભાગ ૭ - પેજ ૧: SMC/વાલીમંડળની બેઠક કાર્યવાહી નોંધ અને ઠરાવો -->
+<!-- ========================================== -->
+<div class="page">
+  <div class="doc-header">
+    <div class="school-title"><span class="dyn-school">શ્રી કોરાડા વાડી પ્રાથમિક શાળા</span></div>
+    <div class="school-meta">
+      તા- <span class="dyn-taluka">દ્વારકા</span>, જિલ્લો- <span class="dyn-district">દેવભૂમિ દ્વારકા</span> | ડાયસ કોડ: <span class="dyn-dise">24280100000</span>
+    </div>
+    <div class="doc-main-title">શાળા વિકાસ યોજના રચનાના ભાગરૂપે યોજાયેલ SMC/વાલીમંડળની બેઠકોની વિગત અને કાર્યવાહી નોંધ</div>
+    <div class="doc-tag">(SQAAF ગુણોત્સવ - ૨.૦ માર્ગદર્શિકા મુજબ અપલોડ કરવાનો આધાર)</div>
+  </div>
+
+  <p><strong>પ્રસ્તાવના:</strong> ગુણોત્સવ ૨.૦ ના માપદંડો અને રાઈટ ટુ એજ્યુકેશન (RTE) એક્ટની જોગવાઈઓ અનુસાર, <span class="dyn-school">શ્રી કોરાડા વાડી પ્રાથમિક શાળા</span>ના સર્વાંગી વિકાસ માટે "શાળા વિકાસ યોજના (School Development Plan - SDP)" તૈયાર કરવાના હેતુથી SMC (શાળા વ્યવસ્થાપન સમિતિ) અને વાલીમંડળની સંયુક્ત બેઠકનું આયોજન કરવામાં આવ્યું હતું. જેની વિગત અને કાર્યવાહી નોંધ નીચે મુજબ છે:</p>
+
+  <div class="section-heading">૧. બેઠકની પ્રાથમિક વિગતો:</div>
+  <table class="custom-table">
+    <tbody>
+      <tr>
+        <td style="width: 40%; font-weight: 700;">બેઠક તારીખ</td>
+        <td contenteditable="true">૧૫/૦૬/૨૦૨૬</td>
+      </tr>
+      <tr>
+        <td style="font-weight: 700;">બેઠકનો સમય</td>
+        <td contenteditable="true">બપોરે ૩:૦૦ કલાકે</td>
+      </tr>
+      <tr>
+        <td style="font-weight: 700;">સ્થળ</td>
+        <td contenteditable="true"><span class="dyn-school">શ્રી કોરાડા વાડી પ્રાથમિક શાળા</span></td>
+      </tr>
+      <tr>
+        <td style="font-weight: 700;">SMC / વાલીમંડળના કુલ સભ્યો</td>
+        <td contenteditable="true">૧૨</td>
+      </tr>
+      <tr>
+        <td style="font-weight: 700;">બેઠકમાં હાજર સભ્યોની સંખ્યા</td>
+        <td contenteditable="true">૦૯</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="section-heading">૨. બેઠકનો એજન્ડા (મુદ્દાઓ):</div>
+  <ul>
+    <li>આગામી શૈક્ષણિક વર્ષ માટે શાળા વિકાસ યોજના (SDP) ની રૂપરેખા તૈયાર કરવી.</li>
+    <li>શાળામાં ખૂટતી ભૌતિક સુવિધાઓ અને શૈક્ષણિક ગુણવત્તા સુધારવા અંગે ચર્ચા.</li>
+    <li>વિદ્યાર્થીઓની ૧૦૦% હાજરી અને નામાંકન (Enrollment) સુનિશ્ચિત કરવા અંગે વાલીઓનો સહકાર.</li>
+    <li>SQAAF ગુણોત્સવ ૨.૦ ના માપદંડો મુજબ શાળાની કામગીરીની સમીક્ષા અને સુધારાત્મક પગલાં.</li>
+  </ul>
+
+  <div class="section-heading">૩. કાર્યવાહી નોંધ અને ઠરાવો (Minutes of Meeting):</div>
+  <p><strong>ઠરાવ ૧ (શાળા વિકાસ યોજના મંજૂરી):</strong> શાળા વિકાસ યોજના (SDP) અંતર્ગત નક્કી કરાયેલ શૈક્ષણિક લક્ષ્યાંકો (વાંચન, લેખન, ગણન સુધારણા) તેમજ સહ-અભ્યાસિક પ્રવૃત્તિઓના આયોજનને સર્વાનુમતે મંજૂર કરવામાં આવ્યું.</p>
+  <p><strong>ઠરાવ ૨ (ભૌતિક સુવિધાઓનો વિકાસ):</strong> શાળામાં પીવાનું શુદ્ધ પાણી, શૌચાલયની નિયમિત સફાઈ અને વર્ગખંડ સાધનોની જાળવણી માટે SMC ગ્રાન્ટનો પારદર્શક ઉપયોગ કરવો તેવો ઠરાવ પસાર કરાયો.</p>
+  <p><strong>ઠરાવ ૩ (વિદ્યાર્થીઓની હાજરી):</strong> અનિયમિત કે At-Risk બાળકોના વાલીઓનો સંપર્ક કરી નિયમિત શાળાએ લાવવા SMC સભ્યોએ અંગત જવાબદારી સ્વીકારી.</p>
+  <p><strong>ઠરાવ ૪ (ગુણોત્સવ ૨.૦ ની તૈયારી):</strong> ગુણોત્સવ ૨.૦ ના મૂલ્યાંકનમાં શાળા શ્રેષ્ઠ પ્રદર્શન કરે તે માટે શિક્ષકો, વાલીઓ અને સમુદાયે સંયુક્ત રીતે પ્રયાસો કરવા સંમતિ દર્શાવી.</p>
+
+  <p style="margin-top: 6px; font-size: 0.92rem; font-style: italic;">
+    <strong>નોંધ:</strong> ઉપરોક્ત બેઠકની સંપૂર્ણ કાર્યવાહી શાળાના SMC ઠરાવ રજીસ્ટરમાં નોંધવામાં આવેલ છે, જેમાં હાજર તમામ સભ્યોની સહી લેવામાં આવેલ છે.
+  </p>
+
+  <div class="doc-footer">
+    <div>સ્થળ: <span class="dyn-place">કોરાડા</span><br>તારીખ: <span class="dyn-date">10/08/2026</span></div>
+    <div class="sign-area"><span class="dyn-principal">હિતેશભાઈ પુજારા</span><br>આચાર્યશ્રીની સહી અને સિક્કો</div>
+  </div>
+  <div class="credit-footer">સૌજન્ય : પરબતભાઇ કરમુર - શ્રી કોરાડાવાડી પ્રાથમિક શાળા</div>
+</div>
+
+<!-- ========================================== -->
+<!-- ભાગ ૭ - પેજ ૨: શાળા વિકાસ યોજના (SDP) અમલીકરણ અને સમીક્ષા -->
+<!-- ========================================== -->
+<div class="page">
+  <div class="doc-header">
+    <div class="school-title"><span class="dyn-school">શ્રી કોરાડા વાડી પ્રાથમિક શાળા</span></div>
+    <div class="school-meta">
+      તા- <span class="dyn-taluka">દ્વારકા</span>, જિલ્લો- <span class="dyn-district">દેવભૂમિ દ્વારકા</span> | ડાયસ કોડ: <span class="dyn-dise">24280100000</span>
+    </div>
+    <div class="doc-main-title">શાળા વિકાસ યોજના (SDP) ના અમલીકરણ અને સમીક્ષાનો અહેવાલ</div>
+    <div class="doc-tag">(SQAAF ગુણોત્સવ - ૨.૦ માર્ગદર્શિકા મુજબ અપલોડ કરવાનો આધાર)</div>
+  </div>
+
+  <div class="section-heading">પ્રસ્તાવના:</div>
+  <p>ગુણોત્સવ ૨.૦ ના માપદંડો મુજબ <span class="dyn-school">શ્રી કોરાડા વાડી પ્રાથમિક શાળા</span>ના સર્વાંગી વિકાસ માટે શાળા વ્યવસ્થાપન સમિતિ (SMC) અને શિક્ષકો દ્વારા સંયુક્ત રીતે "શાળા વિકાસ યોજના (SDP)" તૈયાર કરવામાં આવી હતી. આ અહેવાલ સત્ર દરમિયાન યોજના અંતર્ગત હાથ ધરાયેલ કાર્યો અને અમલીકરણની સ્થિતિ દર્શાવે છે.</p>
+
+  <div class="section-heading">૧. શાળા વિકાસ યોજના (SDP) ના અમલીકરણની વિગત:</div>
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th style="width: 6%;">ક્રમ</th>
+        <th style="width: 28%;">નક્કી કરેલ લક્ષ્યાંક / કાર્ય</th>
+        <th style="width: 38%;">અમલીકરણની સ્થિતિ (થયેલ કામગીરી)</th>
+        <th style="width: 28%;">લાભાર્થી / અસર</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="text-center">૧</td>
+        <td contenteditable="true"><strong>શૈક્ષણિક ગુણવત્તા સુધારણા:</strong> FLN વાંચન, લેખન અને ગણન કૌશલ્ય.</td>
+        <td contenteditable="true">દરેક વર્ગમાં વિશેષ વાંચન પ્રવૃત્તિઓ કરાવી અને નબળા વિદ્યાર્થીઓ માટે ઉપચારાત્મક કાર્ય શરૂ કર્યું.</td>
+        <td contenteditable="true">એકમ કસોટી અને CCE પરિણામોમાં સંતોષકારક સુધારો જોવા મળ્યો.</td>
+      </tr>
+      <tr>
+        <td class="text-center">૨</td>
+        <td contenteditable="true"><strong>ભૌતિક સુવિધાઓ:</strong> શૌચાલય સફાઈ અને પીવાનું શુદ્ધ પાણી.</td>
+        <td contenteditable="true">SMC ગ્રાન્ટમાંથી RO ફિલ્ટર મેઇન્ટેનન્સ અને શૌચાલય નિયમિત સફાઈ વ્યવસ્થા કરી.</td>
+        <td contenteditable="true">વિદ્યાર્થીઓને સ્વચ્છ અને આરોગ્યપ્રદ વાતાવરણ મળ્યું.</td>
+      </tr>
+      <tr>
+        <td class="text-center">૩</td>
+        <td contenteditable="true"><strong>૧૦૦% હાજરી અને નામાંકન:</strong> નિયમિત શાળા પ્રવેશ.</td>
+        <td contenteditable="true">અનિયમિત બાળકોના વાલી સંપર્ક અને At-Risk બાળકોનું કાઉન્સેલિંગ કર્યું.</td>
+        <td contenteditable="true">શાળાની દૈનિક સરેરાશ હાજરીમાં વધારો થયો.</td>
+      </tr>
+      <tr>
+        <td class="text-center">૪</td>
+        <td contenteditable="true"><strong>ડિજિટલ શિક્ષણ (ICT):</strong> સ્માર્ટ ક્લાસ ઉપયોગ.</td>
+        <td contenteditable="true">સ્માર્ટ ટીવી અને દીક્ષા પોર્ટલના માધ્યમથી દૈનિક શૈક્ષણિક પ્રવૃત્તિઓ કરાવી.</td>
+        <td contenteditable="true">બાળકોમાં અભ્યાસ પ્રત્યે રસ અને જિજ્ઞાસા વધી.</td>
+      </tr>
+      <tr>
+        <td class="text-center">૫</td>
+        <td contenteditable="true"><strong>સર્વાંગી વિકાસ:</strong> યોગ અને રમતગમત.</td>
+        <td contenteditable="true">યોગ, ચિત્રકામ, આનંદદાયી શનિવાર અને સાંસ્કૃતિક પ્રવૃત્તિઓનું આયોજન કર્યું.</td>
+        <td contenteditable="true">વિદ્યાર્થીઓનો આત્મવિશ્વાસ અને કલા કૌશલ્ય ખીલ્યું.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="section-heading">૨. સમીક્ષાના તારણો અને આગામી આયોજન:</div>
+  <ul>
+    <li>મોટાભાગના શૈક્ષણિક અને ભૌતિક લક્ષ્યાંકો સમયસર પૂર્ણ કરવામાં આવ્યા છે.</li>
+    <li>વાંચન-લેખનમાં નબળા વિદ્યાર્થીઓ માટે "પીઅર લર્નિંગ" પદ્ધતિ વધુ સઘન બનાવવી.</li>
+    <li>SMC સભ્યો અને વાલીઓનો સહકાર ઉત્તમ રહ્યો છે, સમુદાય સહયોગ હજુ વધારવો.</li>
+  </ul>
+
+  <div class="doc-footer">
+    <div>
+      SMC અધ્યક્ષની સહી: ______________<br>
+      તારીખ: <span class="dyn-date">10/08/2026</span>
+    </div>
+    <div class="sign-area"><span class="dyn-principal">હિતેશભાઈ પુજારા</span><br>આચાર્યશ્રીની સહી અને સિક્કો</div>
+  </div>
+  <div class="credit-footer">સૌજન્ય : પરબતભાઇ કરમુર - શ્રી કોરાડાવાડી પ્રાથમિક શાળા</div>
+</div>
+
+<!-- ========================================== -->
+<!-- ભાગ ૭ - પેજ ૩: ગત અને વર્તમાન SDP માં ગુણાત્મક ફેરફાર -->
+<!-- ========================================== -->
+<div class="page">
+  <div class="doc-header">
+    <div class="school-title"><span class="dyn-school">શ્રી કોરાડા વાડી પ્રાથમિક શાળા</span></div>
+    <div class="school-meta">
+      તા- <span class="dyn-taluka">દ્વારકા</span>, જિલ્લો- <span class="dyn-district">દેવભૂમિ દ્વારકા</span> | ડાયસ કોડ: <span class="dyn-dise">24280100000</span>
+    </div>
+    <div class="doc-main-title">ગત અને વર્તમાન શાળા વિકાસ યોજના (SDP) માં કરાયેલ ગુણાત્મક ફેરફારની વિગત</div>
+    <div class="doc-tag">(SQAAF ગુણોત્સવ - ૨.૦ માર્ગદર્શિકા મુજબ અપલોડ કરવાનો આધાર)</div>
+  </div>
+
+  <div class="section-heading">પ્રસ્તાવના:</div>
+  <p>SQAAF ગુણોત્સવ ૨.૦ ના માપદંડોને ધ્યાનમાં રાખીને ગત વર્ષની શાળા વિકાસ યોજનાની સમીક્ષા કરી, વર્તમાન વર્ષની યોજનામાં નીચે મુજબના ગુણાત્મક સુધારાઓ અને ફેરફારો કરવામાં આવ્યા છે:</p>
+
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th style="width: 20%;">મુખ્ય ક્ષેત્ર / બાબત</th>
+        <th style="width: 25%;">ગત યોજનાની સ્થિતિ</th>
+        <th style="width: 32%;">વર્તમાન યોજનામાં ગુણાત્મક ફેરફાર</th>
+        <th style="width: 23%;">અપેક્ષિત પરિણામ</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>૧. શૈક્ષણિક ગુણવત્તા</strong></td>
+        <td contenteditable="true">માત્ર સામાન્ય વાંચન-લેખન પર ભાર.</td>
+        <td contenteditable="true">NEP-2020 મુજબ FLN, પ્રવૃત્તિમય શિક્ષણ અને પીઅર લર્નિંગનો સમાવેશ.</td>
+        <td contenteditable="true">પાયાના જ્ઞાન અને કસોટી પરિણામમાં ગુણાત્મક સુધારો.</td>
+      </tr>
+      <tr>
+        <td><strong>૨. ડિજિટલ શિક્ષણ (ICT)</strong></td>
+        <td contenteditable="true">સ્માર્ટ ક્લાસનો મર્યાદિત ઉપયોગ.</td>
+        <td contenteditable="true">દીક્ષા પોર્ટલ, શૈક્ષણિક વિડીયો અને સ્માર્ટ ટીવીનો દૈનિક શૈક્ષણિક ઉપયોગ.</td>
+        <td contenteditable="true">ટેકનોલોજીથી શિક્ષણ વધુ રસપ્રદ બનશે.</td>
+      </tr>
+      <tr>
+        <td><strong>૩. ભૌતિક સુવિધાઓ</strong></td>
+        <td contenteditable="true">સામાન્ય સફાઈ પૂરતું સીમિત.</td>
+        <td contenteditable="true">પીવાના પાણીનું RO ફિલ્ટર, CWSN રેમ્પ અને દિવ્યાંગ-મૈત્રીપૂર્ણ સુવિધા.</td>
+        <td contenteditable="true">સ્વચ્છ, સુરક્ષિત અને સમાવેશી વાતાવરણ.</td>
+      </tr>
+      <tr>
+        <td><strong>૪. સર્વાંગી વિકાસ</strong></td>
+        <td contenteditable="true">રાષ્ટ્રીય પર્વોની ઉજવણી પૂરતું.</td>
+        <td contenteditable="true">આનંદદાયી શનિવાર, ૧૦ બેગલેસ ડેઝ, કલા ઉત્સવ અને નિયમિત યોગાભ્યાસ.</td>
+        <td contenteditable="true">વિદ્યાર્થીઓનો શારીરિક-માનસિક વિકાસ.</td>
+      </tr>
+      <tr>
+        <td><strong>૫. વાલી સહભાગિતા</strong></td>
+        <td contenteditable="true">ઔપચારિક બેઠકો પૂરતો સંપર્ક.</td>
+        <td contenteditable="true">માસિક વાલી સંપર્ક, At-Risk કાઉન્સેલિંગ અને શાળા વિકાસમાં દાતાઓનો સહયોગ.</td>
+        <td contenteditable="true">૧૦૦% હાજરી અને સક્રિય વાલી સહયોગ.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p style="margin-top: 8px; font-size: 0.95rem; font-style: italic;">
+    <strong>નોંધ:</strong> ઉપરોક્ત ગુણાત્મક ફેરફારો SMC બેઠકમાં સર્વાનુમતે મંજૂર કરવામાં આવ્યા છે અને ચાલુ વર્ષમાં તેનું ચુસ્ત અમલીકરણ થઈ રહ્યું છે.
+  </p>
+
+  <div class="doc-footer" style="margin-top: 30px;">
+    <div>
+      SMC અધ્યક્ષની સહી: ______________<br>
+      તારીખ: <span class="dyn-date">10/08/2026</span>
+    </div>
+    <div class="sign-area"><span class="dyn-principal">હિતેશભાઈ પુજારા</span><br>આચાર્યશ્રીની સહી અને સિક્કો</div>
+  </div>
+  <div class="credit-footer">સૌજન્ય : પરબતભાઇ કરમુર - શ્રી કોરાડાવાડી પ્રાથમિક શાળા</div>
+</div>
+
+<!-- ========================================== -->
+<!-- ભાગ ૭ - પેજ ૪: SMC / વાલીમંડળના સભ્યોની વિગત (૧૬ સભ્યો) -->
+<!-- ========================================== -->
+<div class="page">
+  <div class="doc-header">
+    <div class="school-title"><span class="dyn-school">શ્રી કોરાડા વાડી પ્રાથમિક શાળા</span></div>
+    <div class="school-meta">
+      તા- <span class="dyn-taluka">દ્વારકા</span>, જિલ્લો- <span class="dyn-district">દેવભૂમિ દ્વારકા</span> | ડાયસ કોડ: <span class="dyn-dise">24280100000</span>
+    </div>
+    <div class="doc-main-title">SMC / વાલીમંડળના સભ્યોની વિગત</div>
+    <div class="doc-tag">(SQAAF ગુણોત્સવ - ૨.૦ માર્ગદર્શિકા મુજબ અપલોડ કરવાનો આધાર)</div>
+  </div>
+
+  <p>ગુણોત્સવ ૨.૦ ના માપદંડો અને RTE એક્ટ મુજબ રચાયેલ શાળા વ્યવસ્થાપન સમિતિ (SMC) ના નવીન પરિપત્ર મુજબ સભ્યોની યાદી:</p>
+
+  <table class="custom-table" style="font-size: 0.96rem;">
+    <thead>
+      <tr>
+        <th style="width: 5%;">ક્રમ</th>
+        <th style="width: 25%;">હોદ્દો</th>
+        <th style="width: 23%;">SMC પસંદ થયેલ સભ્યનું નામ</th>
+        <th style="width: 18%;">વિદ્યાર્થી નામ / ધોરણ</th>
+        <th style="width: 10%;">કેટેગરી</th>
+        <th style="width: 12%;">મોબાઇલ નં.</th>
+        <th style="width: 7%;">સહી</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="text-center">1</td><td>અધ્યક્ષ</td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td></td></tr>
+      <tr><td class="text-center">2</td><td>ઉપાધ્યક્ષ</td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td></td></tr>
+      <tr><td class="text-center">3</td><td>સભ્ય (વાલી)</td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td></td></tr>
+      <tr><td class="text-center">4</td><td>સભ્ય (વાલી)</td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td></td></tr>
+      <tr><td class="text-center">5</td><td>સભ્ય (વાલી)</td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td></td></tr>
+      <tr><td class="text-center">6</td><td>સભ્ય (વાલી)</td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td></td></tr>
+      <tr><td class="text-center">7</td><td>સભ્ય (વાલી)</td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td></td></tr>
+      <tr><td class="text-center">8</td><td>સભ્ય (વાલી)</td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td></td></tr>
+      <tr><td class="text-center">9</td><td>સભ્ય (વાલી)</td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td></td></tr>
+      <tr><td class="text-center">10</td><td>સભ્ય (વાલી)</td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td></td></tr>
+      <tr><td class="text-center">11</td><td>સભ્ય (વાલી)</td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td></td></tr>
+      <tr><td class="text-center">12</td><td>સભ્ય (વાલી)</td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td></td></tr>
+      <tr><td class="text-center">13</td><td>સ્થા. મંડળના ચૂંટાયેલા સભ્ય</td><td contenteditable="true"></td><td contenteditable="true">-</td><td contenteditable="true"></td><td contenteditable="true"></td><td></td></tr>
+      <tr><td class="text-center">14</td><td>શિક્ષક પ્રતિનિધિ</td><td contenteditable="true">પરબતભાઈ કરમુર</td><td contenteditable="true">મદદનીશ શિક્ષક</td><td contenteditable="true">OBC</td><td contenteditable="true"></td><td></td></tr>
+      <tr><td class="text-center">15</td><td>શિક્ષણશાસ્ત્રી / AWW / ASHA</td><td contenteditable="true"></td><td contenteditable="true">-</td><td contenteditable="true"></td><td contenteditable="true"></td><td></td></tr>
+      <tr><td class="text-center">16</td><td>સભ્ય સચિવ</td><td contenteditable="true">હિતેશભાઈ પુજારા</td><td contenteditable="true">આચાર્ય</td><td contenteditable="true">General</td><td contenteditable="true"></td><td></td></tr>
+    </tbody>
+  </table>
+
+  <p style="margin-top: 6px; font-size: 0.90rem; font-style: italic;">
+    <strong>નોંધ:</strong> આ યાદી શાળાના SMC ઠરાવ બુક મુજબ પ્રમાણિત કરવામાં આવેલ છે. સમિતિમાં ૫૦% મહિલા સભ્યોની ભાગીદારી સુનિશ્ચિત કરવામાં આવેલ છે.
+  </p>
+
+  <div class="doc-footer" style="margin-top: 15px;">
+    <div>સ્થળ: <span class="dyn-place">કોરાડા</span><br>તારીખ: <span class="dyn-date">10/08/2026</span></div>
+    <div class="sign-area"><span class="dyn-principal">હિતેશભાઈ પુજારા</span><br>આચાર્યશ્રીની સહી અને સિક્કો</div>
+  </div>
+  <div class="credit-footer">સૌજન્ય : પરબતભાઇ કરમુર - શ્રી કોરાડાવાડી પ્રાથમિક શાળા</div>
+</div>
+
+<!-- ========================================== -->
+<!-- ભાગ ૮ - પેજ ૧: ફાયર સેફ્ટી પ્રમાણપત્ર (NOC) અને સાધનો -->
+<!-- ========================================== -->
+<div class="page">
+  <div class="doc-header">
+    <div class="school-title"><span class="dyn-school">શ્રી કોરાડા વાડી પ્રાથમિક શાળા</span></div>
+    <div class="school-meta">
+      તા- <span class="dyn-taluka">દ્વારકા</span>, જિલ્લો- <span class="dyn-district">દેવભૂમિ દ્વારકા</span> | ડાયસ કોડ: <span class="dyn-dise">24280100000</span>
+    </div>
+    <div class="doc-main-title">ફાયર સેફ્ટી પ્રમાણપત્ર (Fire NOC) અને સાધનોની વિગત</div>
+    <div class="doc-tag">(SQAAF ગુણોત્સવ - ૨.૦ માર્ગદર્શિકા મુજબ અપલોડ કરવાનો આધાર)</div>
+  </div>
+
+  <div class="section-heading">૧. ફાયર સેફ્ટી પ્રમાણપત્ર (Fire NOC) ની વિગતો:</div>
+  <table class="custom-table">
+    <tbody>
+      <tr>
+        <td style="width: 45%; font-weight: 700;">પ્રમાણપત્ર નંબર (Fire NOC No.):</td>
+        <td contenteditable="true">FS/NOC/DWK/2025-26/108</td>
+      </tr>
+      <tr>
+        <td style="font-weight: 700;">પ્રમાણપત્ર ઇશ્યૂ કરનાર ઓથોરિટી:</td>
+        <td contenteditable="true">ચીફ ફાયર ઓફિસર / સક્ષમ અધિકારીશ્રી</td>
+      </tr>
+      <tr>
+        <td style="font-weight: 700;">NOC ઇશ્યૂ થયાની તારીખ:</td>
+        <td contenteditable="true">15/06/2025</td>
+      </tr>
+      <tr>
+        <td style="font-weight: 700;">NOC ની માન્યતા (Valid Up To):</td>
+        <td contenteditable="true">14/06/2028</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="section-heading">૨. શાળામાં ઉપલબ્ધ ફાયર સેફ્ટી સાધનોની વિગત:</div>
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th style="width: 8%;">ક્રમ</th>
+        <th style="width: 52%;">સાધનનું નામ</th>
+        <th style="width: 20%;">ઉપલબ્ધ સંખ્યા</th>
+        <th style="width: 20%;">કાર્યરત છે? (હા/ના)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="text-center">1</td>
+        <td contenteditable="true">ફાયર એક્સટિંગ્વિશર (Fire Extinguisher - ABC Type)</td>
+        <td class="text-center" contenteditable="true">2</td>
+        <td class="text-center" contenteditable="true">હા</td>
+      </tr>
+      <tr>
+        <td class="text-center">2</td>
+        <td contenteditable="true">રેતી ભરેલી ડોલ (Sand Buckets)</td>
+        <td class="text-center" contenteditable="true">2</td>
+        <td class="text-center" contenteditable="true">હા</td>
+      </tr>
+      <tr>
+        <td class="text-center">3</td>
+        <td contenteditable="true">પાણીની પાઇપલાઇન / હોઝ રીલ (Hose Reel)</td>
+        <td class="text-center" contenteditable="true">00</td>
+        <td class="text-center" contenteditable="true">ના</td>
+      </tr>
+      <tr>
+        <td class="text-center">4</td>
+        <td contenteditable="true">ફાયર એલાર્મ / સાયરન (Fire Alarm)</td>
+        <td class="text-center" contenteditable="true">00</td>
+        <td class="text-center" contenteditable="true">ના</td>
+      </tr>
+      <tr>
+        <td class="text-center">5</td>
+        <td contenteditable="true">ઇમરજન્સી એક્ઝિટ બોર્ડ (Emergency Exit Signs)</td>
+        <td class="text-center" contenteditable="true">2</td>
+        <td class="text-center" contenteditable="true">હા</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="section-heading">૩. ફાયર સેફ્ટી મોકડ્રીલ (Mock Drill) ની વિગત:</div>
+  <table class="custom-table">
+    <tbody>
+      <tr>
+        <td style="width: 50%; font-weight: 700;">છેલ્લી મોકડ્રીલ યોજ્યા તારીખ:</td>
+        <td contenteditable="true">૧૦/૦૭/૨૦૨૬</td>
+      </tr>
+      <tr>
+        <td style="font-weight: 700;">મોકડ્રીલમાં ભાગ લેનાર વિદ્યાર્થીઓની સંખ્યા:</td>
+        <td contenteditable="true">૧૫૮</td>
+      </tr>
+      <tr>
+        <td style="font-weight: 700;">મોકડ્રીલમાં ભાગ લેનાર શિક્ષકો/કર્મચારીઓની સંખ્યા:</td>
+        <td contenteditable="true">૦૪</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p style="margin-top: 6px; font-size: 0.92rem; font-style: italic;">
+    <strong>નોંધ:</strong> આ માહિતી સાથે ફાયર સેફ્ટી NOC ની અસલ નકલ અને સાધનોના ફોટોગ્રાફ્સ ગુણોત્સવ પોર્ટલ પર અપલોડ કરવાના રહેશે.
+  </p>
+
+  <div class="doc-footer">
+    <div>સ્થળ: <span class="dyn-place">કોરાડા</span><br>તારીખ: <span class="dyn-date">10/08/2026</span></div>
+    <div class="sign-area"><span class="dyn-principal">હિતેશભાઈ પુજારા</span><br>આચાર્યશ્રીની સહી અને સિક્કો</div>
+  </div>
+  <div class="credit-footer">સૌજન્ય : પરબતભાઇ કરમુર - શ્રી કોરાડાવાડી પ્રાથમિક શાળા</div>
+</div>
+
+<!-- ========================================== -->
+<!-- ભાગ ૮ - પેજ ૨: મોકડ્રીલ પ્રવૃત્તિનો અહેવાલ (ફોટોગ્રાફ્સ સાથે) -->
+<!-- ========================================== -->
+<div class="page">
+  <div class="doc-header">
+    <div class="school-title"><span class="dyn-school">શ્રી કોરાડા વાડી પ્રાથમિક શાળા</span></div>
+    <div class="school-meta">
+      તા- <span class="dyn-taluka">દ્વારકા</span>, જિલ્લો- <span class="dyn-district">દેવભૂમિ દ્વારકા</span> | ડાયસ કોડ: <span class="dyn-dise">24280100000</span>
+    </div>
+    <div class="doc-main-title">આપત્તિ વ્યવસ્થાપન અને ફાયર સેફ્ટી: મોકડ્રીલ (Mock Drill) અહેવાલ</div>
+  </div>
+
+  <div class="section-heading">૧. મોકડ્રીલની પ્રાથમિક વિગતો:</div>
+  <table class="custom-table">
+    <tbody>
+      <tr>
+        <td style="width: 25%; font-weight: 700;">તારીખ:</td>
+        <td style="width: 25%;" contenteditable="true">૧૦/૦૭/૨૦૨૬</td>
+        <td style="width: 25%; font-weight: 700;">સમય:</td>
+        <td style="width: 25%;" contenteditable="true">સવારે ૧૧:૦૦ કલાકે</td>
+      </tr>
+      <tr>
+        <td style="font-weight: 700;">સ્થળ:</td>
+        <td colspan="3" contenteditable="true">શાળાનું મેદાન, <span class="dyn-school">શ્રી કોરાડા વાડી પ્રાથમિક શાળા</span></td>
+      </tr>
+      <tr>
+        <td style="font-weight: 700;">માર્ગદર્શક અધિકારી/ટીમ:</td>
+        <td colspan="3" contenteditable="true">સ્થાનિક આપત્તિ વ્યવસ્થાપન ટીમ / શાળા ફાયર સેફ્ટી ઇન્ચાર્જ</td>
+      </tr>
+      <tr>
+        <td style="font-weight: 700;">ભાગ લેનાર વિદ્યાર્થીઓ:</td>
+        <td contenteditable="true">૧૫૮</td>
+        <td style="font-weight: 700;">ભાગ લેનાર સ્ટાફ:</td>
+        <td contenteditable="true">૦૪ શિક્ષકો</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="section-heading">૨. મોકડ્રીલ દરમિયાન કરવામાં આવેલ મુખ્ય પ્રવૃત્તિઓ:</div>
+  <ul>
+    <li>ઇમરજન્સી સાયરન વગાડવું અને ઇવેક્યુએશન પ્લાન મુજબ વિદ્યાર્થીઓને શાંતિપૂર્ણ રીતે વર્ગખંડમાંથી ખુલ્લા મેદાનમાં એકઠા કરવા.</li>
+    <li>શિક્ષકો અને વિદ્યાર્થીઓને ફાયર એક્સટિંગ્વિશર (Fire Extinguisher) ના ઉપયોગનું જીવંત નિદર્શન (Live Demo) બતાવવું.</li>
+    <li>ઇમરજન્સી નંબરો (જેમ કે ફાયર-101, એમ્બ્યુલન્સ-108, પોલીસ-112) ક્યારે અને કેવી રીતે ડાયલ કરવા તેની સમજ આપવી.</li>
+    <li>આગ કે ભૂકંપ સમયે દાઝી જવા કે શ્વાસ રુંધાવા જેવી પરિસ્થિતિમાં બચાવ અને પ્રાથમિક સારવાર (First Aid) નું માર્ગદર્શન.</li>
+  </ul>
+
+  <div class="section-heading">૩. મોકડ્રીલ પ્રવૃત્તિના ફોટોગ્રાફ્સ:</div>
+  <table class="custom-table" style="height: 140px; margin: 10px 0;">
+    <tbody>
+      <tr style="height: 130px; text-align: center; color: #718096;">
+        <td style="width: 50%; border: 2px dashed #a0aec0; vertical-align: middle;">
+          [ અહીં મોકડ્રીલ સાયરન / ઇવેક્યુએશનનો ફોટો લગાવો ]
+        </td>
+        <td style="width: 50%; border: 2px dashed #a0aec0; vertical-align: middle;">
+          [ અહીં ફાયર એક્સટિંગ્વિશર લાઇવ ડેમોનો ફોટો લગાવો ]
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="doc-footer" style="margin-top: 20px;">
+    <div>તાલીમ આપનાર ઇન્ચાર્જ સહી: ______________</div>
+    <div class="sign-area"><span class="dyn-principal">હિતેશભાઈ પુજારા</span><br>આચાર્યશ્રીની સહી અને સિક્કો</div>
+  </div>
+  <div class="credit-footer">સૌજન્ય : પરબતભાઇ કરમુર - શ્રી કોરાડાવાડી પ્રાથમિક શાળા</div>
+</div>
+
+<!-- ========================================== -->
+<!-- ભાગ ૮ - પેજ ૩: શૌચાલયોની સ્વચ્છતા અને રખરખાવ અહેવાલ & રજીસ્ટર -->
+<!-- ========================================== -->
+<div class="page">
+  <div class="doc-header">
+    <div class="school-title"><span class="dyn-school">શ્રી કોરાડા વાડી પ્રાથમિક શાળા</span></div>
+    <div class="school-meta">
+      તા- <span class="dyn-taluka">દ્વારકા</span>, જિલ્લો- <span class="dyn-district">દેવભૂમિ દ્વારકા</span> | ડાયસ કોડ: <span class="dyn-dise">24280100000</span>
+    </div>
+    <div class="doc-main-title">શૌચાલયોની સ્વચ્છતા અને રખરખાવ માટેના આયોજન અને અમલની વિગત</div>
+    <div class="doc-tag">(SQAAF ગુણોત્સવ - ૨.૦ માર્ગદર્શિકા મુજબ અપલોડ કરવાનો આધાર)</div>
+  </div>
+
+  <div class="section-heading">૧. શૌચાલયોની સફાઈનું આયોજન અને વ્યવસ્થા:</div>
+  <p><strong>સફાઈ કામદારની નિમણૂક:</strong> શાળાના શૌચાલયો અને મૂતરડીઓની નિયમિત સફાઈ માટે SMC દ્વારા સફાઈ વ્યવસ્થા ગોઠવેલ છે.</p>
+  <p><strong>દૈનિક સફાઈ:</strong> દરરોજ બે વખત (શાળા શરૂ થતાં પહેલાં અને રિસેસ દરમિયાન) ફિનાઇલ, એસિડ અને બ્રશ વડે શૌચાલયની સંપૂર્ણ સફાઈ થાય છે.</p>
+  <p><strong>પાણીની વ્યવસ્થા:</strong> તમામ શૌચાલયોમાં ૨૪/૭ વહેતા પાણી માટે ઓવરહેડ ટાંકી અને નળ જોડાણ સુનિશ્ચિત કરેલ છે.</p>
+  <p><strong>સાબુ અને ડસ્ટબિન:</strong> હાથ ધોવા માટે હેન્ડવોશ અને કચરાના નિકાલ માટે કવરવાળી ડસ્ટબિન ઉપલબ્ધ છે.</p>
+  <p><strong>CWSN શૌચાલય:</strong> દિવ્યાંગ બાળકો માટેના શૌચાલયમાં રેમ્પ અને સપોર્ટ હેન્ડલની વ્યવસ્થા છે.</p>
+
+  <div class="section-heading">૨. શૌચાલયોની દૈનિક સફાઈ અને ચેકિંગ રજીસ્ટર (નમૂનો):</div>
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th style="width: 15%;">તારીખ</th>
+        <th style="width: 20%;">કુમાર શૌચાલય સાફ છે?</th>
+        <th style="width: 20%;">કન્યા શૌચાલય સાફ છે?</th>
+        <th style="width: 20%;">સ્ટાફ/CWSN સાફ છે?</th>
+        <th style="width: 25%;">ચેકિંગ કરનાર શિક્ષક સહી</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="text-center" contenteditable="true">૦૧/૦૮/૨૦૨૬</td>
+        <td class="text-center" contenteditable="true">હા</td>
+        <td class="text-center" contenteditable="true">હા</td>
+        <td class="text-center" contenteditable="true">હા</td>
+        <td class="text-center" contenteditable="true">સુરેન્દ્રભાઈ સોલંકી</td>
+      </tr>
+      <tr>
+        <td class="text-center" contenteditable="true">૦૨/૦૮/૨૦૨૬</td>
+        <td class="text-center" contenteditable="true">હા</td>
+        <td class="text-center" contenteditable="true">હા</td>
+        <td class="text-center" contenteditable="true">હા</td>
+        <td class="text-center" contenteditable="true">જેન્તીભાઈ નકુમ</td>
+      </tr>
+      <tr>
+        <td class="text-center" contenteditable="true">૦૩/૦૮/૨૦૨૬</td>
+        <td class="text-center" contenteditable="true">હા</td>
+        <td class="text-center" contenteditable="true">હા</td>
+        <td class="text-center" contenteditable="true">હા</td>
+        <td class="text-center" contenteditable="true">પરબતભાઈ કરમુર</td>
+      </tr>
+      <tr>
+        <td class="text-center" contenteditable="true">૦૪/૦૮/૨૦૨૬</td>
+        <td class="text-center" contenteditable="true">હા</td>
+        <td class="text-center" contenteditable="true">હા</td>
+        <td class="text-center" contenteditable="true">હા</td>
+        <td class="text-center" contenteditable="true">હિતેશભાઈ પુજારા</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p style="margin-top: 8px; font-size: 0.95rem;">
+    <strong>નિષ્કર્ષ:</strong> શૌચાલયની સઘન સફાઈના કારણે શાળામાં મચ્છર કે દુર્ગંધનો પ્રશ્ન રહેતો નથી અને વિદ્યાર્થીઓને આરોગ્યપ્રદ વાતાવરણ મળે છે.
+  </p>
+
+  <div class="doc-footer">
+    <div>સ્થળ: <span class="dyn-place">કોરાડા</span><br>તારીખ: <span class="dyn-date">10/08/2026</span></div>
+    <div class="sign-area"><span class="dyn-principal">હિતેશભાઈ પુજારા</span><br>આચાર્યશ્રીની સહી અને સિક્કો</div>
+  </div>
+  <div class="credit-footer">સૌજન્ય : પરબતભાઇ કરમુર - શ્રી કોરાડાવાડી પ્રાથમિક શાળા</div>
+</div>
+
+<!-- ========================================== -->
+<!-- ભાગ ૮ - પેજ ૪: કચરાના વ્યવસ્થાપન (Waste Management) અહેવાલ -->
+<!-- ========================================== -->
+<div class="page">
+  <div class="doc-header">
+    <div class="school-title"><span class="dyn-school">શ્રી કોરાડા વાડી પ્રાથમિક શાળા</span></div>
+    <div class="school-meta">
+      તા- <span class="dyn-taluka">દ્વારકા</span>, જિલ્લો- <span class="dyn-district">દેવભૂમિ દ્વારકા</span> | ડાયસ કોડ: <span class="dyn-dise">24280100000</span>
+    </div>
+    <div class="doc-main-title">કચરાના વ્યવસ્થાપન (Waste Management) અંગે શાળાની પદ્ધતિનો અહેવાલ</div>
+    <div class="doc-tag">(SQAAF ગુણોત્સવ - ૨.૦ માર્ગદર્શિકા મુજબ અપલોડ કરવાનો આધાર)</div>
+  </div>
+
+  <div class="section-heading">પ્રસ્તાવના:</div>
+  <p>પર્યાવરણની જાળવણી અને "સ્વચ્છ ભારત અભિયાન" અંતર્ગત <span class="dyn-school">શ્રી કોરાડા વાડી પ્રાથમિક શાળા</span> દ્વારા શાળા કેમ્પસમાં ઉત્પન્ન થતા કચરાના યોગ્ય નિકાલ અને વ્યવસ્થાપન માટે વૈજ્ઞાનિક પદ્ધતિ અપનાવવામાં આવી છે. જેની વિગતો નીચે મુજબ છે:</p>
+
+  <div class="section-heading">૧. કચરાનું વર્ગીકરણ (Waste Segregation):</div>
+  <ul>
+    <li><strong>ભીનો કચરો (લીલી ડસ્ટબિન - Green Bin):</strong> જેમાં ફળ-શાકભાજીની છાલ, વધેલું મધ્યાહ્ન ભોજન અને બગીચાના સૂકા પાંદડા એકત્રિત કરવામાં આવે છે.</li>
+    <li><strong>સૂકો કચરો (ભૂરી ડસ્ટબિન - Blue Bin):</strong> જેમાં કાગળ, પૂંઠા, પેન્સિલનો છોલ અને પ્લાસ્ટિક કચરો અલગ એકત્ર કરાય છે.</li>
+  </ul>
+
+  <div class="section-heading">૨. કચરાના નિકાલની પદ્ધતિ (Waste Disposal System):</div>
+  <ul>
+    <li><strong>ભીના કચરામાંથી સેન્દ્રીય ખાતર (Composting):</strong> શાળાના બગીચાના ખૂણામાં કમ્પોસ્ટ પીટ (Compost Pit) બનાવવામાં આવ્યો છે. રોજેરોજ એકત્ર થતો ભીનો કચરો આ ખાડામાં નાખવામાં આવે છે, જેમાંથી બનતું સેન્દ્રીય ખાતર શાળાના વૃક્ષો અને બગીચા માટે વપરાય છે.</li>
+    <li><strong>સૂકા કચરાનો નિકાલ:</strong> કાગળ, પૂંઠા જેવા રિસાયકલ થઈ શકે તેવા કચરાને અલગ રાખી પુનઃઉપયોગ કરવામાં આવે છે.</li>
+    <li><strong>સિંગલ યુઝ પ્લાસ્ટિક પર પ્રતિબંધ:</strong> શાળા પરિસરમાં સિંગલ યુઝ પ્લાસ્ટિકના ઉપયોગ પર સંપૂર્ણ પ્રતિબંધ મૂકવામાં આવ્યો છે.</li>
+  </ul>
+
+  <p><strong>નિષ્કર્ષ:</strong> કચરાના યોગ્ય વ્યવસ્થાપનથી શાળા પરિસર સ્વચ્છ રહે છે અને વિદ્યાર્થીઓમાં "Reduce, Reuse, Recycle (3R)" ની સમજ વિકસી છે.</p>
+
+  <div class="doc-footer" style="margin-top: 40px;">
+    <div>સ્થળ: <span class="dyn-place">કોરાડા</span><br>તારીખ: <span class="dyn-date">10/08/2026</span></div>
+    <div class="sign-area"><span class="dyn-principal">હિતેશભાઈ પુજારા</span><br>આચાર્યશ્રીની સહી અને સિક્કો</div>
+  </div>
+  <div class="credit-footer">સૌજન્ય : પરબતભાઇ કરમુર - શ્રી કોરાડાવાડી પ્રાથમિક શાળા</div>
+</div>
+
+<!-- ========================================== -->
+<!-- ભાગ ૮ - પેજ ૫: બાળ સુરક્ષા સમિતિ અને કાર્યો (POCSO) -->
+<!-- ========================================== -->
+<div class="page">
+  <div class="doc-header">
+    <div class="school-title"><span class="dyn-school">શ્રી કોરાડા વાડી પ્રાથમિક શાળા</span></div>
+    <div class="school-meta">
+      તા- <span class="dyn-taluka">દ્વારકા</span>, જિલ્લો- <span class="dyn-district">દેવભૂમિ દ્વારકા</span> | ડાયસ કોડ: <span class="dyn-dise">24280100000</span>
+    </div>
+    <div class="doc-main-title">બાળ સુરક્ષા સમિતિ અને તેણે કરેલ કાર્યોની વિગત – અહેવાલ</div>
+    <div class="doc-tag">(POCSO એક્ટ-૨૦૧૨ અને RTE જોગવાઈઓ અંતર્ગત)</div>
+  </div>
+
+  <div class="section-heading">પ્રસ્તાવના:</div>
+  <p>શાળામાં અભ્યાસ કરતા તમામ વિદ્યાર્થીઓની શારીરિક, માનસિક અને ભાવનાત્મક સુરક્ષા સુનિશ્ચિત કરવા તેમજ POCSO એક્ટ-૨૦૧૨ અને RTE ની જોગવાઈઓના પાલન માટે <span class="dyn-school">શ્રી કોરાડા વાડી પ્રાથમિક શાળા</span>માં "બાળ સુરક્ષા સમિતિ" ની રચના કરવામાં આવેલ છે.</p>
+
+  <div class="section-heading">૧. બાળ સુરક્ષા સમિતિના સભ્યોની વિગત:</div>
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th style="width: 10%;">ક્રમ</th>
+        <th style="width: 40%;">હોદ્દો</th>
+        <th style="width: 50%;">નામ / પ્રતિનિધિ</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="text-center">૧</td>
+        <td>અધ્યક્ષ</td>
+        <td contenteditable="true">હિતેશભાઈ પુજારા (આચાર્યશ્રી)</td>
+      </tr>
+      <tr>
+        <td class="text-center">૨</td>
+        <td>સભ્ય સચિવ / નોડલ ઓફિસર</td>
+        <td contenteditable="true">પરબતભાઈ કરમુર (મદદનીશ શિક્ષક)</td>
+      </tr>
+      <tr>
+        <td class="text-center">૩</td>
+        <td>સભ્ય (વાલી પ્રતિનિધિ)</td>
+        <td contenteditable="true">SMC અધ્યક્ષશ્રી</td>
+      </tr>
+      <tr>
+        <td class="text-center">૪</td>
+        <td>સભ્ય (વિદ્યાર્થી પ્રતિનિધિ)</td>
+        <td contenteditable="true">બાળ સંસદ મંત્રી (ધોરણ ૮)</td>
+      </tr>
+      <tr>
+        <td class="text-center">૫</td>
+        <td>સભ્ય (આરોગ્ય/આંગણવાડી)</td>
+        <td contenteditable="true">સ્થાનિક ASHA / ANM કાર્યકર</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="section-heading">૨. સમિતિ દ્વારા કરવામાં આવેલ મુખ્ય કાર્યો:</div>
+  <ul>
+    <li><strong>સુરક્ષિત વાતાવરણ:</strong> શાળા પરિસર, શૌચાલયો અને પીવાના પાણીની જગ્યાઓ પર સુરક્ષાનું નિયમિત નિરીક્ષણ.</li>
+    <li><strong>ગુડ ટચ અને બેડ ટચ (Good Touch & Bad Touch):</strong> વિદ્યાર્થીઓને શારીરિક સુરક્ષા અને ગુડ ટચ/બેડ ટચ અંગે ચિત્રો અને વાર્તા દ્વારા સમજ.</li>
+    <li><strong>ફરિયાદ પેટી (Complaint Box):</strong> બાળકો પોતાની સમસ્યા રજૂ કરી શકે તે માટે શાળામાં ફરિયાદ પેટી મૂકવામાં આવી છે.</li>
+    <li><strong>ચાઈલ્ડ હેલ્પલાઈન (1098):</strong> નોટિસ બોર્ડ પર ઇમરજન્સી નંબરો (ચાઈલ્ડ હેલ્પલાઈન-1098, પોલીસ-100, એમ્બ્યુલન્સ-108) પ્રદર્શિત કરેલ છે.</li>
+    <li><strong>POCSO કાયદાની સમજ:</strong> શિક્ષકો અને વાલીઓને બાળ સુરક્ષા કાયદા અંગે જાગૃત કરવામાં આવ્યા.</li>
+  </ul>
+
+  <div class="doc-footer" style="margin-top: 25px;">
+    <div>નોડલ ઓફિસર (બાળ સુરક્ષા) સહી: ___________</div>
+    <div class="sign-area"><span class="dyn-principal">હિતેશભાઈ પુજારા</span><br>આચાર્યશ્રીની સહી અને સિક્કો</div>
+  </div>
+  <div class="credit-footer">સૌજન્ય : પરબતભાઇ કરમુર - શ્રી કોરાડાવાડી પ્રાથમિક શાળા</div>
+</div>
+
+<!-- ========================================== -->
+<!-- ભાગ ૯ - પેજ ૧: વાર્ષિક આરોગ્ય તપાસ (RBSK) અહેવાલ -->
+<!-- ========================================== -->
+<div class="page">
+  <div class="doc-header">
+    <div class="school-title"><span class="dyn-school">શ્રી કોરાડા વાડી પ્રાથમિક શાળા</span></div>
+    <div class="school-meta">
+      તા- <span class="dyn-taluka">દ્વારકા</span>, જિલ્લો- <span class="dyn-district">દેવભૂમિ દ્વારકા</span> | ડાયસ કોડ: <span class="dyn-dise">24280100000</span>
+    </div>
+    <div class="doc-main-title">વિદ્યાર્થીઓના વાર્ષિક આરોગ્ય તપાસ (Health Check-up) નો અહેવાલ</div>
+    <div class="doc-tag">(રાષ્ટ્રીય બાળ સ્વાસ્થ્ય કાર્યક્રમ - RBSK અંતર્ગત)</div>
+  </div>
+
+  <div class="section-heading">પ્રસ્તાવના:</div>
+  <p>ગુણોત્સવ ૨.૦ ના માપદંડો અને "રાષ્ટ્રીય બાળ સ્વાસ્થ્ય કાર્યક્રમ" (RBSK) અંતર્ગત <span class="dyn-school">શ્રી કોરાડા વાડી પ્રાથમિક શાળા</span>માં વિદ્યાર્થીઓની શારીરિક અને માનસિક સુખાકારી માટે વાર્ષિક આરોગ્ય તપાસણી કેમ્પનું આયોજન કરવામાં આવ્યું હતું.</p>
+
+  <div class="section-heading">૧. આરોગ્ય તપાસણી કેમ્પની પ્રાથમિક વિગતો:</div>
+  <table class="custom-table">
+    <tbody>
+      <tr>
+        <td style="width: 35%; font-weight: 700;">આરોગ્ય તપાસણીની તારીખ:</td>
+        <td style="width: 25%;" contenteditable="true">૨૫/૦૭/૨૦૨૬</td>
+        <td style="width: 20%; font-weight: 700;">તપાસ કરનાર ટીમ:</td>
+        <td style="width: 20%;" contenteditable="true">RBSK મેડિકલ ટીમ, PHC</td>
+      </tr>
+      <tr>
+        <td style="font-weight: 700;">કુલ નોંધાયેલ વિદ્યાર્થીઓ:</td>
+        <td contenteditable="true">૧૫૮</td>
+        <td style="font-weight: 700;">તપાસેલ વિદ્યાર્થીઓ:</td>
+        <td contenteditable="true">૧૫૮</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="section-heading">૨. આરોગ્ય તપાસણીનું વર્ગવાર તારણ (Summary):</div>
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th style="width: 8%;">ક્રમ</th>
+        <th style="width: 22%;">ધોરણ</th>
+        <th style="width: 18%;">તપાસ થયેલ સંખ્યા</th>
+        <th style="width: 18%;">સ્વસ્થ (Normal)</th>
+        <th style="width: 16%;">ખામી જણાયેલ</th>
+        <th style="width: 18%;">મુખ્ય ખામી (આંખ/દાંત)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="text-center">1</td><td>બાલવાટીકા</td><td class="text-center" contenteditable="true">19</td><td class="text-center" contenteditable="true">19</td><td class="text-center" contenteditable="true">0</td><td contenteditable="true">NIL</td></tr>
+      <tr><td class="text-center">2</td><td>ધોરણ 1</td><td class="text-center" contenteditable="true">12</td><td class="text-center" contenteditable="true">12</td><td class="text-center" contenteditable="true">0</td><td contenteditable="true">NIL</td></tr>
+      <tr><td class="text-center">3</td><td>ધોરણ 2</td><td class="text-center" contenteditable="true">19</td><td class="text-center" contenteditable="true">18</td><td class="text-center" contenteditable="true">1</td><td contenteditable="true">દાંતની સફાઈ</td></tr>
+      <tr><td class="text-center">4</td><td>ધોરણ 3</td><td class="text-center" contenteditable="true">17</td><td class="text-center" contenteditable="true">17</td><td class="text-center" contenteditable="true">0</td><td contenteditable="true">NIL</td></tr>
+      <tr><td class="text-center">5</td><td>ધોરણ 4</td><td class="text-center" contenteditable="true">0</td><td class="text-center" contenteditable="true">0</td><td class="text-center" contenteditable="true">0</td><td contenteditable="true">-</td></tr>
+      <tr><td class="text-center">6</td><td>ધોરણ 5</td><td class="text-center" contenteditable="true">26</td><td class="text-center" contenteditable="true">25</td><td class="text-center" contenteditable="true">1</td><td contenteditable="true">ઝાંખી દ્રષ્ટિ</td></tr>
+      <tr><td class="text-center">7</td><td>ધોરણ 6</td><td class="text-center" contenteditable="true">22</td><td class="text-center" contenteditable="true">22</td><td class="text-center" contenteditable="true">0</td><td contenteditable="true">NIL</td></tr>
+      <tr><td class="text-center">8</td><td>ધોરણ 7</td><td class="text-center" contenteditable="true">18</td><td class="text-center" contenteditable="true">18</td><td class="text-center" contenteditable="true">0</td><td contenteditable="true">NIL</td></tr>
+      <tr><td class="text-center">9</td><td>ધોરણ 8</td><td class="text-center" contenteditable="true">25</td><td class="text-center" contenteditable="true">24</td><td class="text-center" contenteditable="true">1</td><td contenteditable="true">દાંતનો સડો</td></tr>
+    </tbody>
+  </table>
+
+  <div class="section-heading">૩. શાળા દ્વારા લેવાયેલ ફોલો-અપ (Follow-up Action):</div>
+  <ul>
+    <li>આયર્ન અને ફોલિક એસિડ (IFA) ની ગોળીઓ અને કૃમિનાશક (Albendazole) ગોળીઓનું નિયમિત વિતરણ.</li>
+    <li>દાંતની સફાઈ અને આંખની તપાસ માટે સંદર્ભ સેવા (Referral Service) દ્વારા PHC ખાતે સારવાર અપાવી.</li>
+  </ul>
+
+  <div class="doc-footer">
+    <div>RBSK મેડિકલ ઓફિસર સહી: ___________</div>
+    <div class="sign-area"><span class="dyn-principal">હિતેશભાઈ પુજારા</span><br>આચાર્યશ્રીની સહી અને સિક્કો</div>
+  </div>
+  <div class="credit-footer">સૌજન્ય : પરબતભાઇ કરમુર - શ્રી કોરાડાવાડી પ્રાથમિક શાળા</div>
+</div>
+
+<!-- ========================================== -->
+<!-- ભાગ ૯ - પેજ ૨: CWSN સ્ક્રિનિંગ (પ્રશસ્ત એપ) & અનુકાર્ય -->
+<!-- ========================================== -->
+<div class="page">
+  <div class="doc-header">
+    <div class="school-title"><span class="dyn-school">શ્રી કોરાડા વાડી પ્રાથમિક શાળા</span></div>
+    <div class="school-meta">
+      તા- <span class="dyn-taluka">દ્વારકા</span>, જિલ્લો- <span class="dyn-district">દેવભૂમિ દ્વારકા</span> | ડાયસ કોડ: <span class="dyn-dise">24280100000</span>
+    </div>
+    <div class="doc-main-title">દિવ્યાંગતાની જાણ માટે વિદ્યાર્થીઓના સ્ક્રિનિંગ અને કરેલ અનુકાર્યની વિગત</div>
+    <div class="doc-tag">(સમાવેશી શિક્ષણ અને પ્રશસ્ત એપ અંતર્ગત)</div>
+  </div>
+
+  <p><strong>પ્રસ્તાવના:</strong> સમાવેશી શિક્ષણ (Inclusive Education) અને RTE અંતર્ગત શાળામાં અભ્યાસ કરતા દિવ્યાંગ (CWSN) બાળકોની વહેલી ઓળખ થાય તે હેતુથી <span class="dyn-school">શ્રી કોરાડા વાડી પ્રાથમિક શાળા</span>માં નિયમિત સ્ક્રિનિંગ અને અનુકાર્ય કરવામાં આવે છે.</p>
+
+  <div class="section-heading">૧. દિવ્યાંગતા (CWSN) સ્ક્રિનિંગની પદ્ધતિ:</div>
+  <ul>
+    <li><strong>પ્રશસ્ત એપ (PRASHAST App):</strong> શાળાના શિક્ષકો દ્વારા તમામ બાળકોનું પ્રાથમિક અવલોકન કરી ભારત સરકારની "પ્રશસ્ત એપ" માં સ્ક્રિનિંગ કરવામાં આવે છે.</li>
+    <li><strong>મેડિકલ કેમ્પ (RBSK):</strong> RBSK ના ડોક્ટરો દ્વારા શારીરિક તપાસ અને માર્ગદર્શન.</li>
+    <li><strong>સ્પેશિયલ એજ્યુકેટર મુલાકાત:</strong> BRC ભવનના સ્પેશિયલ એજ્યુકેટર દ્વારા શાળાની મુલાકાત લઈ સઘન ચકાસણી.</li>
+  </ul>
+
+  <div class="section-heading">૨. ચાલુ શૈક્ષણિક વર્ષનો સ્ક્રિનિંગ ડેટા:</div>
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th style="width: 10%;">ક્રમ</th>
+        <th style="width: 30%;">ધોરણ</th>
+        <th style="width: 25%;">કુલ સ્ક્રિનિંગ બાળકો</th>
+        <th style="width: 35%;">ઓળખી કાઢેલ CWSN / દિવ્યાંગતા</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="text-center">1</td><td>બાલવાટીકા થી ધોરણ ૨</td><td class="text-center" contenteditable="true">50</td><td contenteditable="true">NIL (કોઈ ખામી નથી)</td></tr>
+      <tr><td class="text-center">2</td><td>ધોરણ ૩ થી ૫</td><td class="text-center" contenteditable="true">43</td><td contenteditable="true">NIL</td></tr>
+      <tr><td class="text-center">3</td><td>ધોરણ ૬ થી ૮</td><td class="text-center" contenteditable="true">65</td><td contenteditable="true">NIL</td></tr>
+    </tbody>
+  </table>
+
+  <div class="section-heading">૩. ઓળખાયેલ CWSN બાળકો માટે કરેલ અનુકાર્ય (Follow-up):</div>
+  <p><strong>UDID કાર્ડ & UDISE+ પોર્ટલ:</strong> પ્રમાણપત્ર આધારિત વિગતો UDISE પોર્ટલ અને CTS માં અપડેટ કરવામાં આવે છે.</p>
+  <p><strong>સાધન સહાય & વાહન ભથ્થું:</strong> જરૂરિયાતમંદ બાળકો માટે BRC ભવન ખાતેથી સાધન સહાય અને એસ્કોર્ટ એલાઉન્સની દરખાસ્ત કરવામાં આવે છે.</p>
+  <p><strong>સમાવેશી શિક્ષણ:</strong> દિવ્યાંગ બાળકો સામાન્ય બાળકો સાથે ભળી શકે તે માટે "પીઅર લર્નિંગ" પદ્ધતિ અપનાવવામાં આવે છે.</p>
+
+  <div class="doc-footer" style="margin-top: 25px;">
+    <div>IED કો-ઓર્ડિનેટર સહી: ____________</div>
+    <div class="sign-area"><span class="dyn-principal">હિતેશભાઈ પુજારા</span><br>આચાર્યશ્રીની સહી અને સિક્કો</div>
+  </div>
+  <div class="credit-footer">સૌજન્ય : પરબતભાઇ કરમુર - શ્રી કોરાડાવાડી પ્રાથમિક શાળા</div>
+</div>
+
+<!-- ========================================== -->
+<!-- ભાગ ૯ - પેજ ૩: વિશિષ્ટ શિક્ષક (Special Educator) કામગીરી -->
+<!-- ========================================== -->
+<div class="page">
+  <div class="doc-header">
+    <div class="school-title"><span class="dyn-school">શ્રી કોરાડા વાડી પ્રાથમિક શાળા</span></div>
+    <div class="school-meta">
+      તા- <span class="dyn-taluka">દ્વારકા</span>, જિલ્લો- <span class="dyn-district">દેવભૂમિ દ્વારકા</span> | ડાયસ કોડ: <span class="dyn-dise">24280100000</span>
+    </div>
+    <div class="doc-main-title">વિશિષ્ટ શિક્ષક (Special Educator) દ્વારા કરવામાં આવેલ કામગીરીનો અહેવાલ</div>
+  </div>
+
+  <div class="section-heading">પ્રસ્તાવના:</div>
+  <p>સમાવેશી શિક્ષણ (Inclusive Education) અંતર્ગત <span class="dyn-school">શ્રી કોરાડા વાડી પ્રાથમિક શાળા</span>માં BRC ભવનના વિશિષ્ટ શિક્ષક (Special Educator) દ્વારા સમયાંતરે મુલાકાત લઈ નીચે મુજબની કામગીરી કરવામાં આવે છે:</p>
+
+  <div class="section-heading">૧. વિશિષ્ટ શિક્ષક દ્વારા કરવામાં આવેલ મુખ્ય કામગીરી:</div>
+  <ul>
+    <li><strong>બાળકોની ઓળખ અને સ્ક્રિનિંગ:</strong> શાળાના શિક્ષકો સાથે મળીને પ્રશસ્ત એપ દ્વારા CWSN બાળકોની ચકાસણી.</li>
+    <li><strong>વ્યક્તિગત શૈક્ષણિક આયોજન (IEP):</strong> જરૂરિયાતમંદ બાળકો માટે Individualized Education Program તૈયાર કરવું.</li>
+    <li><strong>વાલી કાઉન્સેલિંગ:</strong> વાલીઓને સરકારની વિવિધ કલ્યાણકારી યોજનાઓ અને UDID કાર્ડ કઢાવવા અંગે માર્ગદર્શન આપવું.</li>
+    <li><strong>શિક્ષકોને માર્ગદર્શન:</strong> સામાન્ય શિક્ષકોને દિવ્યાંગ બાળકો સાથે વર્તન અને વિશિષ્ટ અધ્યાપન પદ્ધતિઓ વિશે માર્ગદર્શન આપવું.</li>
+  </ul>
+
+  <div class="section-heading">૨. ચાલુ વર્ષે લાભાન્વિત CWSN વિદ્યાર્થીઓની વિગત:</div>
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th style="width: 8%;">ક્રમ</th>
+        <th style="width: 32%;">વિદ્યાર્થીનું નામ</th>
+        <th style="width: 15%;">ધોરણ</th>
+        <th style="width: 25%;">દિવ્યાંગતાનો પ્રકાર</th>
+        <th style="width: 20%;">આપેલ સહાય/માર્ગદર્શન</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="text-center">1</td>
+        <td contenteditable="true">NIL</td>
+        <td contenteditable="true">NIL</td>
+        <td contenteditable="true">NIL</td>
+        <td contenteditable="true">NIL</td>
+      </tr>
+      <tr>
+        <td class="text-center">2</td>
+        <td contenteditable="true">NIL</td>
+        <td contenteditable="true">NIL</td>
+        <td contenteditable="true">NIL</td>
+        <td contenteditable="true">NIL</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p style="margin-top: 10px; font-size: 0.95rem;">
+    <strong>નિષ્કર્ષ:</strong> વિશિષ્ટ શિક્ષકના નિયમિત માર્ગદર્શનથી શાળાનું વાતાવરણ સમાવેશી બન્યું છે.
+  </p>
+
+  <div class="doc-footer" style="margin-top: 40px;">
+    <div>વિશિષ્ટ શિક્ષકની સહી: ____________</div>
+    <div class="sign-area"><span class="dyn-principal">હિતેશભાઈ પુજારા</span><br>આચાર્યશ્રીની સહી અને સિક્કો</div>
+  </div>
+  <div class="credit-footer">સૌજન્ય : પરબતભાઇ કરમુર - શ્રી કોરાડાવાડી પ્રાથમિક શાળા</div>
+</div>
+
+<!-- ========================================== -->
+<!-- ભાગ ૯ - પેજ ૪: કિશોરીઓ માટે માસિક ધર્મ સ્વચ્છતા (MHM) -->
+<!-- ========================================== -->
+<div class="page">
+  <div class="doc-header">
+    <div class="school-title"><span class="dyn-school">શ્રી કોરાડા વાડી પ્રાથમિક શાળા</span></div>
+    <div class="school-meta">
+      તા- <span class="dyn-taluka">દ્વારકા</span>, જિલ્લો- <span class="dyn-district">દેવભૂમિ દ્વારકા</span> | ડાયસ કોડ: <span class="dyn-dise">24280100000</span>
+    </div>
+    <div class="doc-main-title">કિશોરીઓ/વિદ્યાર્થિનીઓ માટે માસિક ધર્મ સ્વચ્છતા વ્યવસ્થાપન (MHM) માર્ગદર્શન અહેવાલ</div>
+    <div class="doc-tag">(WASH અને રાષ્ટ્રીય કિશોર સ્વાસ્થ્ય કાર્યક્રમ અંતર્ગત)</div>
+  </div>
+
+  <p>ગુણોત્સવ ૨.૦ ના માપદંડો અંતર્ગત શાળામાં અભ્યાસ કરતી ધોરણ ૬ થી ૮ ની કિશોરીઓમાં માસિક ધર્મ સ્વચ્છતા વ્યવસ્થાપન (MHM) અંગે જાગૃતિ લાવવા માટે વિશેષ માર્ગદર્શન સત્રનું આયોજન કરવામાં આવ્યું હતું.</p>
+
+  <div class="section-heading">૧. કાર્યક્રમની પ્રાથમિક વિગતો:</div>
+  <table class="custom-table">
+    <tbody>
+      <tr>
+        <td style="width: 30%; font-weight: 700;">પ્રવૃત્તિનું નામ:</td>
+        <td colspan="3" contenteditable="true">માસિક ધર્મ સ્વચ્છતા અને કિશોરી આરોગ્ય માર્ગદર્શન સત્ર</td>
+      </tr>
+      <tr>
+        <td style="font-weight: 700;">તારીખ & સમય:</td>
+        <td style="width: 30%;" contenteditable="true">૧૨/૦૭/૨૦૨૬ (બપોરે ૨:૦૦)</td>
+        <td style="width: 20%; font-weight: 700;">સ્થળ:</td>
+        <td style="width: 20%;" contenteditable="true">સ્માર્ટ ક્લાસ રૂમ</td>
+      </tr>
+      <tr>
+        <td style="font-weight: 700;">માર્ગદર્શક / વક્તા:</td>
+        <td contenteditable="true">PHC મહિલા આરોગ્ય કાર્યકર (ANM/ASHA)</td>
+        <td style="font-weight: 700;">લાભાર્થી સંખ્યા:</td>
+        <td contenteditable="true">૩૬ વિદ્યાર્થિનીઓ</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="section-heading">૨. હાથ ધરાયેલ મુખ્ય પ્રવૃત્તિઓ અને માર્ગદર્શન:</div>
+  <ul>
+    <li><strong>વૈજ્ઞાનિક સમજ:</strong> માસિક ધર્મ એ કુદરતી જૈવિક પ્રક્રિયા છે તે સમજાવી મનમાંથી ભય અને સંકોચ દૂર કરવો.</li>
+    <li><strong>સેનિટરી નેપકિન ઉપયોગ & નિકાલ:</strong> સ્વચ્છતા માટે સેનિટરી પેડ વાપરવા અને વપરાયેલા પેડનો કવરવાળી ડસ્ટબિનમાં સુરક્ષિત નિકાલ કરવાની રીત શીખવવી.</li>
+    <li><strong>શાળામાં પેડ બેંક:</strong> અચાનક જરૂરિયાત વખતે કન્યા શૌચાલય પાસે વિનામૂલ્યે ઉપલબ્ધ "પેડ બેંક" સુવિધાની જાણકારી આપી.</li>
+  </ul>
+
+  <div class="section-heading">૩. પરિણામ અને અસર:</div>
+  <p>વિદ્યાર્થિનીઓમાં માસિક ધર્મ અંગેનો સંકોચ દૂર થયો, ગેરહાજરીનું પ્રમાણ ઘટ્યું અને સ્વચ્છતા પ્રત્યે જાગૃતિ વધી.</p>
+
+  <div class="doc-footer" style="margin-top: 30px;">
+    <div>માર્ગદર્શક આરોગ્ય કાર્યકર સહી: ___________</div>
+    <div class="sign-area"><span class="dyn-principal">હિતેશભાઈ પુજારા</span><br>આચાર્યશ્રીની સહી અને સિક્કો</div>
+  </div>
+  <div class="credit-footer">સૌજન્ય : પરબતભાઇ કરમુર - શ્રી કોરાડાવાડી પ્રાથમિક શાળા</div>
+</div>
+
+<!-- ========================================== -->
+<!-- ભાગ ૯ - પેજ ૫: વિદ્યાર્થીઓની વ્યક્તિગત સ્વચ્છતા (Personal Hygiene) -->
+<!-- ========================================== -->
+<div class="page">
+  <div class="doc-header">
+    <div class="school-title"><span class="dyn-school">શ્રી કોરાડા વાડી પ્રાથમિક શાળા</span></div>
+    <div class="school-meta">
+      તા- <span class="dyn-taluka">દ્વારકા</span>, જિલ્લો- <span class="dyn-district">દેવભૂમિ દ્વારકા</span> | ડાયસ કોડ: <span class="dyn-dise">24280100000</span>
+    </div>
+    <div class="doc-main-title">વિદ્યાર્થીઓની વ્યક્તિગત સ્વચ્છતા (Personal Hygiene) ની કેળવણી માટેના શાળાના પ્રયાસોનો અહેવાલ</div>
+  </div>
+
+  <div class="section-heading">૧. વ્યક્તિગત સ્વચ્છતા કેળવણી માટે શાળા દ્વારા થતા પ્રયાસો:</div>
+  <ul>
+    <li><strong>દૈનિક સ્વચ્છતા ચકાસણી:</strong> શાળા પ્રવેશે દરરોજ શિક્ષકો દ્વારા વિદ્યાર્થીઓના નખ, વાળ, ગણવેશ (Uniform), દાંત અને હાથની સફાઈની નિયમિત ચકાસણી.</li>
+    <li><strong>હાથ ધોવાની સાચી પદ્ધતિ:</strong> મધ્યાહ્ન ભોજન (MDM) પહેલાં અને શૌચાલય ઉપયોગ બાદ સાબુથી ૨૦ સેકન્ડ હાથ ધોવાની ટેવ.</li>
+    <li><strong>આરોગ્ય માર્ગદર્શન:</strong> RBSK મેડિકલ ટીમ દ્વારા વ્યક્તિગત હાઇજીન અને રોગપ્રતિકારક શક્તિ વધારવા અંગે માર્ગદર્શન.</li>
+  </ul>
+
+  <div class="section-heading">૨. સ્વચ્છતા પ્રવૃત્તિઓનું સંકલન પત્રક:</div>
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th style="width: 8%;">ક્રમ</th>
+        <th style="width: 32%;">સ્વચ્છતા પ્રવૃત્તિ / કાર્યક્રમ</th>
+        <th style="width: 30%;">ભાગ લેનાર જૂથ</th>
+        <th style="width: 30%;">આયોજન સમય / આવૃત્તિ</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="text-center">૧</td>
+        <td contenteditable="true">દૈનિક નખ, વાળ અને ગણવેશ ચકાસણી</td>
+        <td contenteditable="true">ધોરણ ૧ થી ૮ ના વિદ્યાર્થીઓ</td>
+        <td contenteditable="true">રોજ સવારે પ્રાર્થના સમયે</td>
+      </tr>
+      <tr>
+        <td class="text-center">૨</td>
+        <td contenteditable="true">સાબુથી હાથ ધોવાની ટેવ અને મહાવરો</td>
+        <td contenteditable="true">સમસ્ત વિદ્યાર્થીઓ</td>
+        <td contenteditable="true">મધ્યાહ્ન ભોજન સમયે દૈનિક</td>
+      </tr>
+      <tr>
+        <td class="text-center">૩</td>
+        <td contenteditable="true">વ્યક્તિગત હાઇજીન માર્ગદર્શન સત્ર</td>
+        <td contenteditable="true">ધોરણ ૬ થી ૮ ના વિદ્યાર્થીઓ</td>
+        <td contenteditable="true">માસિક ધોરણે (RBSK ટીમ)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p style="margin-top: 10px; font-size: 0.95rem;">
+    <strong>નિષ્કર્ષ:</strong> આ સઘન પ્રયાસોથી વિદ્યાર્થીઓમાં વ્યક્તિગત સ્વચ્છતાની ટેવ દ્રઢ બની છે અને બીમારીનું પ્રમાણ ઘટ્યું છે.
+  </p>
+
+  <div class="doc-footer" style="margin-top: 35px;">
+    <div>સ્વચ્છતા ઇન્ચાર્જ શિક્ષક સહી: ___________</div>
+    <div class="sign-area"><span class="dyn-principal">હિતેશભાઈ પુજારા</span><br>આચાર્યશ્રીની સહી અને સિક્કો</div>
+  </div>
+  <div class="credit-footer">સૌજન્ય : પરબતભાઇ કરમુર - શ્રી કોરાડાવાડી પ્રાથમિક શાળા</div>
+</div>
+
+<!-- ========================================== -->
+<!-- ભાગ ૧૦ - પેજ ૧: NEP 2020 અને SCF અભિમુખતા અહેવાલ -->
+<!-- ========================================== -->
+<div class="page">
+  <div class="doc-header">
+    <div class="school-title"><span class="dyn-school">શ્રી કોરાડા વાડી પ્રાથમિક શાળા</span></div>
+    <div class="school-meta">
+      તા- <span class="dyn-taluka">દ્વારકા</span>, જિલ્લો- <span class="dyn-district">દેવભૂમિ દ્વારકા</span> | ડાયસ કોડ: <span class="dyn-dise">24280100000</span>
+    </div>
+    <div class="doc-main-title">NEP 2020 અને SCF ની અભિમુખતા (Orientation) માટે શાળા દ્વારા થયેલ પ્રયાસોનો અહેવાલ</div>
+    <div class="doc-tag">(SQAAF ગુણોત્સવ - ૨.૦ માર્ગદર્શિકા મુજબ અપલોડ કરવાનો આધાર)</div>
+  </div>
+
+  <p>રાષ્ટ્રીય શિક્ષણ નીતિ (NEP-2020) અને સ્ટેટ કરિક્યુલમ ફ્રેમવર્ક (SCF) ના અસરકારક અમલીકરણ માટે <span class="dyn-school">શ્રી કોરાડા વાડી પ્રાથમિક શાળા</span>ના તમામ શિક્ષકોની અભિમુખતા (Orientation) માટે નીચે મુજબના સઘન પ્રયાસો કરવામાં આવ્યા છે:</p>
+
+  <div class="section-heading">૧. શાળા દ્વારા કરવામાં આવેલ મુખ્ય પ્રયાસો:</div>
+  <ul>
+    <li><strong>નિષ્ઠા (NISHTHA) & દીક્ષા તાલીમ:</strong> શાળાના તમામ શિક્ષકોએ દીક્ષા પોર્ટલ પર FLN/NEP આધારિત ઓનલાઇન મોડ્યુલ્સ સફળતાપૂર્વક પૂર્ણ કરેલ છે.</li>
+    <li><strong>સ્ટાફ મીટિંગમાં ચર્ચા:</strong> માસિક સ્ટાફ મીટિંગમાં NEP 2020 ના મુખ્ય પાયા (પ્લે-વે મેથડ, રચનાત્મક મૂલ્યાંકન, બેગલેસ ડેઝ) પર વિશેષ ચર્ચા કરાય છે.</li>
+    <li><strong>BRC / CRC તાલીમમાં ભાગીદારી:</strong> ક્લસ્ટર કક્ષાએ યોજાતા NEP/SCF વર્કશોપમાં શાળાના શિક્ષકો સક્રિયપણે જોડાય છે.</li>
+    <li><strong>સાહિત્યની ઉપલબ્ધતા:</strong> શાળા પુસ્તકાલયમાં NEP 2020 દસ્તાવેજ અને NCF-FS માર્ગદર્શિકા શિક્ષકોના સંદર્ભ માટે ઉપલબ્ધ છે.</li>
+  </ul>
+
+  <div class="section-heading">૨. શિક્ષકોની તાલીમ અને અભિમુખતાની વિગત:</div>
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th style="width: 8%;">ક્રમ</th>
+        <th style="width: 32%;">શિક્ષક / કર્મચારીનું નામ</th>
+        <th style="width: 20%;">હોદ્દો</th>
+        <th style="width: 20%;">NEP તાલીમ પૂર્ણ?</th>
+        <th style="width: 20%;">અમલીકરણ ક્ષેત્ર</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="text-center">1</td>
+        <td contenteditable="true">હિતેશભાઈ પુજારા</td>
+        <td contenteditable="true">આચાર્ય</td>
+        <td class="text-center" contenteditable="true">હા</td>
+        <td contenteditable="true">FLN / પ્રાથમિક વિભાગ</td>
+      </tr>
+      <tr>
+        <td class="text-center">2</td>
+        <td contenteditable="true">સુરેન્દ્રભાઈ સોલંકી</td>
+        <td contenteditable="true">મદદનીશ શિક્ષક</td>
+        <td class="text-center" contenteditable="true">હા</td>
+        <td contenteditable="true">ગણિત-વિજ્ઞાન (ઉચ્ચ પ્રા.)</td>
+      </tr>
+      <tr>
+        <td class="text-center">3</td>
+        <td contenteditable="true">જેન્તીભાઈ નકુમ</td>
+        <td contenteditable="true">મદદનીશ શિક્ષક</td>
+        <td class="text-center" contenteditable="true">હા</td>
+        <td contenteditable="true">સામાજિક વિજ્ઞાન</td>
+      </tr>
+      <tr>
+        <td class="text-center">4</td>
+        <td contenteditable="true">પરબતભાઈ કરમુર</td>
+        <td contenteditable="true">મદદનીશ શિક્ષક</td>
+        <td class="text-center" contenteditable="true">હા</td>
+        <td contenteditable="true">ભાષા સાક્ષરતા / ICT</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p style="margin-top: 8px; font-size: 0.95rem;">
+    <strong>નિષ્કર્ષ:</strong> આ પ્રયાસોથી વર્ગખંડમાં અધ્યાપન કાર્ય વધુ બાળકેન્દ્રી (Child-centric) અને પ્રવૃત્તિલક્ષી બન્યું છે.
+  </p>
+
+  <div class="doc-footer">
+    <div>સ્થળ: <span class="dyn-place">કોરાડા</span><br>તારીખ: <span class="dyn-date">10/08/2026</span></div>
+    <div class="sign-area"><span class="dyn-principal">હિતેશભાઈ પુજારા</span><br>આચાર્યશ્રીની સહી અને સિક્કો</div>
+  </div>
+  <div class="credit-footer">સૌજન્ય : પરબતભાઇ કરમુર - શ્રી કોરાડાવાડી પ્રાથમિક શાળા</div>
+</div>
+
+<!-- ========================================== -->
+<!-- ભાગ ૧૦ - પેજ ૨: ત્રિમાસિક ઉપચારાત્મક કાર્ય (Remedial Teaching) -->
+<!-- ========================================== -->
+<div class="page">
+  <div class="doc-header">
+    <div class="school-title"><span class="dyn-school">શ્રી કોરાડા વાડી પ્રાથમિક શાળા</span></div>
+    <div class="school-meta">
+      તા- <span class="dyn-taluka">દ્વારકા</span>, જિલ્લો- <span class="dyn-district">દેવભૂમિ દ્વારકા</span> | ડાયસ કોડ: <span class="dyn-dise">24280100000</span>
+    </div>
+    <div class="doc-main-title">ત્રિમાસિક કસોટીઓના પરિણામોને આધારે ઉપચારાત્મક કાર્ય (Remedial Teaching) નો અહેવાલ</div>
+  </div>
+
+  <p>ગુણોત્સવ ૨.૦ ના માપદંડો મુજબ એકમ અને સત્રાંત કસોટીઓ (PAT/SAT) ના પરિણામનું વિશ્લેષણ કરી, શૈક્ષણિક રીતે નબળા (C અને D ગ્રેડ) વિદ્યાર્થીઓ માટે <span class="dyn-school">શ્રી કોરાડા વાડી પ્રાથમિક શાળા</span> દ્વારા વિશેષ ઉપચારાત્મક કાર્ય હાથ ધરવામાં આવેલ છે:</p>
+
+  <div class="section-heading">૧. નબળા વિદ્યાર્થીઓની તારવણી (વર્ગવાર વિગત):</div>
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th style="width: 8%;">ક્રમ</th>
+        <th style="width: 22%;">ધોરણ</th>
+        <th style="width: 35%;">વિષય (જેમાં કચાશ જણાયેલ)</th>
+        <th style="width: 17%;">કુલ સંખ્યા</th>
+        <th style="width: 18%;">ઉપચારાત્મક સંખ્યા</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="text-center">1</td><td>ધોરણ ૩</td><td contenteditable="true">ગણિત (વ્યવહારિક કોયડા)</td><td class="text-center" contenteditable="true">17</td><td class="text-center" contenteditable="true">3</td></tr>
+      <tr><td class="text-center">2</td><td>ધોરણ ૫</td><td contenteditable="true">ગણિત અને અંગ્રેજી વાચન</td><td class="text-center" contenteditable="true">26</td><td class="text-center" contenteditable="true">4</td></tr>
+      <tr><td class="text-center">3</td><td>ધોરણ ૬</td><td contenteditable="true">ગણિત અને વિજ્ઞાન પ્રયોગ</td><td class="text-center" contenteditable="true">22</td><td class="text-center" contenteditable="true">3</td></tr>
+      <tr><td class="text-center">4</td><td>ધોરણ ૭</td><td contenteditable="true">ભાષા વ્યાકરણ અને સા.વિ.</td><td class="text-center" contenteditable="true">18</td><td class="text-center" contenteditable="true">2</td></tr>
+      <tr><td class="text-center">5</td><td>ધોરણ ૮</td><td contenteditable="true">ગણિત, વિજ્ઞાન અને અંગ્રેજી</td><td class="text-center" contenteditable="true">25</td><td class="text-center" contenteditable="true">4</td></tr>
+    </tbody>
+  </table>
+
+  <div class="section-heading">૨. ઉપચારાત્મક કાર્યનું આયોજન અને અમલીકરણ:</div>
+  <ul>
+    <li><strong>વિશેષ સમય ફાળવણી:</strong> શાળા સમય બાદ અથવા રિસેસ દરમિયાન નબળા વિદ્યાર્થીઓ પર શિક્ષકો દ્વારા વ્યક્તિગત ધ્યાન આપવામાં આવે છે.</li>
+    <li><strong>પીઅર લર્નિંગ (Buddy System):</strong> હોશિયાર વિદ્યાર્થીઓ સાથે જોડી બનાવી સહાધ્યાયી શિક્ષણને પ્રોત્સાહિત કરાય છે.</li>
+    <li><strong>TLM અને FLN પદ્ધતિ:</strong> ફ્લેશ કાર્ડ, ચાર્ટ અને શૈક્ષણિક રમતો દ્વારા પાયાના ખ્યાલો સ્પષ્ટ કરવામાં આવે છે.</li>
+  </ul>
+
+  <div class="doc-footer" style="margin-top: 30px;">
+    <div>વિષય શિક્ષક સહી: ____________</div>
+    <div class="sign-area"><span class="dyn-principal">હિતેશભાઈ પુજારા</span><br>આચાર્યશ્રીની સહી અને સિક્કો</div>
+  </div>
+  <div class="credit-footer">સૌજન્ય : પરબતભાઇ કરમુર - શ્રી કોરાડાવાડી પ્રાથમિક શાળા</div>
+</div>
+
+<!-- ========================================== -->
+<!-- ભાગ ૧૦ - પેજ ૩: સર્વેક્ષણ (Survey) જાગૃતિ અહેવાલ -->
+<!-- ========================================== -->
+<div class="page">
+  <div class="doc-header">
+    <div class="school-title"><span class="dyn-school">શ્રી કોરાડા વાડી પ્રાથમિક શાળા</span></div>
+    <div class="school-meta">
+      તા- <span class="dyn-taluka">દ્વારકા</span>, જિલ્લો- <span class="dyn-district">દેવભૂમિ દ્વારકા</span> | ડાયસ કોડ: <span class="dyn-dise">24280100000</span>
+    </div>
+    <div class="doc-main-title">કર્મચારીઓ અને વિદ્યાર્થીઓમાં સર્વેક્ષણ (Survey) અંગેની જાગૃતિ માટે કરેલ પ્રયાસોનો અહેવાલ</div>
+  </div>
+
+  <p>રાષ્ટ્રીય અને રાજ્ય કક્ષાના શૈક્ષણિક સર્વેક્ષણો (NAS, SAS, G-SAS) ના સુદ્રઢ અમલીકરણ માટે <span class="dyn-school">શ્રી કોરાડા વાડી પ્રાથમિક શાળા</span> દ્વારા નીચે મુજબના જાગૃતિ પ્રયાસો હાથ ધરવામાં આવેલ છે:</p>
+
+  <div class="section-heading">૧. શિક્ષકો અને સ્ટાફમાં જાગૃતિ:</div>
+  <p>માસિક સ્ટાફ મીટિંગમાં સર્વેક્ષણના હેતુઓ, લર્નિંગ આઉટકમ્સ (LOs) અને OMR આધારિત મૂલ્યાંકન પદ્ધતિ અંગે વિશ્લેષણ કરવામાં આવે છે.</p>
+
+  <div class="section-heading">૨. વિદ્યાર્થીઓમાં પૂર્વ-તૈયારી પ્રવૃત્તિઓ:</div>
+  <ul>
+    <li><strong>OMR શીટ મહાવરો:</strong> વિદ્યાર્થીઓ પરીક્ષાના માહોલથી પરિચિત થાય તે માટે નિયમિત OMR શીટ ભરવાની પ્રેક્ટિસ કરાવાય છે.</li>
+    <li><strong>મોક ટેસ્ટનું આયોજન:</strong> MCQ આધારિત પ્રશ્નપત્રો તૈયાર કરી સાપ્તાહિક મોક ટેસ્ટ લેવામાં આવે છે.</li>
+    <li><strong>LO આધારિત શિક્ષણ:</strong> ગોખણપટ્ટીના બદલે સમજ આધારિત જ્ઞાન વિકસે તે પદ્ધતિ અપનાવવામાં આવી છે.</li>
+  </ul>
+
+  <div class="section-heading">૩. જાગૃતિ પ્રવૃત્તિઓનું સંકલન પત્રક:</div>
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th style="width: 8%;">ક્રમ</th>
+        <th style="width: 38%;">પ્રવૃત્તિ / પ્રયાસ</th>
+        <th style="width: 27%;">લક્ષિત જૂથ</th>
+        <th style="width: 27%;">અમલીકરણ સમય</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="text-center">૧</td>
+        <td contenteditable="true">OMR શીટ ભરવાનો મહાવરો અને મોક ટેસ્ટ</td>
+        <td contenteditable="true">ધોરણ ૩ થી ૮ ના વિદ્યાર્થીઓ</td>
+        <td contenteditable="true">પખવાડિક</td>
+      </tr>
+      <tr>
+        <td class="text-center">૨</td>
+        <td contenteditable="true">LO આધારિત પરિણામ સમીક્ષા વર્કશોપ</td>
+        <td contenteditable="true">શિક્ષકો અને સ્ટાફ</td>
+        <td contenteditable="true">માસિક સ્ટાફ મીટિંગ</td>
+      </tr>
+      <tr>
+        <td class="text-center">૩</td>
+        <td contenteditable="true">સર્વેક્ષણ મહત્વ અંગે વાલી માર્ગદર્શન</td>
+        <td contenteditable="true">વાલીઓ / સમુદાય</td>
+        <td contenteditable="true">માસિક SMC બેઠકમાં</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="doc-footer" style="margin-top: 30px;">
+    <div>સ્થળ: <span class="dyn-place">કોરાડા</span><br>તારીખ: <span class="dyn-date">10/08/2026</span></div>
+    <div class="sign-area"><span class="dyn-principal">હિતેશભાઈ પુજારા</span><br>આચાર્યશ્રીની સહી અને સિક્કો</div>
+  </div>
+  <div class="credit-footer">સૌજન્ય : પરબતભાઇ કરમુર - શ્રી કોરાડાવાડી પ્રાથમિક શાળા</div>
+</div>
+
+<!-- ========================================== -->
+<!-- ભાગ ૧૦ - પેજ ૪: NAS / SAS પરિણામ આધારિત અનુકાર્ય -->
+<!-- ========================================== -->
+<div class="page">
+  <div class="doc-header">
+    <div class="school-title"><span class="dyn-school">શ્રી કોરાડા વાડી પ્રાથમિક શાળા</span></div>
+    <div class="school-meta">
+      તા- <span class="dyn-taluka">દ્વારકા</span>, જિલ્લો- <span class="dyn-district">દેવભૂમિ દ્વારકા</span> | ડાયસ કોડ: <span class="dyn-dise">24280100000</span>
+    </div>
+    <div class="doc-main-title">રાષ્ટ્રીય અને રાજ્ય કક્ષાના સિદ્ધિ સર્વેક્ષણ (NAS/SAS) ના પરિણામ આધારિત અનુકાર્યનો અહેવાલ</div>
+  </div>
+
+  <p>રાષ્ટ્રીય સિદ્ધિ સર્વેક્ષણ (NAS) અને રાજ્ય કક્ષાના સિદ્ધિ સર્વેક્ષણ (SAS) ના પરિણામોના આધારે જે અધ્યયન નિષ્પત્તિઓ (LOs) માં વિદ્યાર્થીઓનો દેખાવ નબળો જણાયો, તેના સુધારા માટે હાથ ધરેલ અનુકાર્ય:</p>
+
+  <div class="section-heading">૧. નબળી અધ્યયન નિષ્પત્તિઓ (LOs) ની તારવણી:</div>
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th style="width: 8%;">ક્રમ</th>
+        <th style="width: 18%;">ધોરણ</th>
+        <th style="width: 22%;">વિષય</th>
+        <th style="width: 52%;">નબળો દેખાવ ધરાવતી અધ્યયન નિષ્પત્તિ (LO Code / વિગત)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="text-center">૧</td>
+        <td>ધોરણ ૩</td>
+        <td>ગણિત</td>
+        <td contenteditable="true">M302 - સરવાળા અને બાદબાકીના વ્યાવહારિક કોયડા ઉકેલવા.</td>
+      </tr>
+      <tr>
+        <td class="text-center">૨</td>
+        <td>ધોરણ ૫</td>
+        <td>પર્યાવરણ</td>
+        <td contenteditable="true">E504 - રોજિંદા જીવનમાં પર્યાવરણ અને કુદરતી સ્ત્રોતોની સમજ.</td>
+      </tr>
+      <tr>
+        <td class="text-center">૩</td>
+        <td>ધોરણ ૮</td>
+        <td>ગુજરાતી</td>
+        <td contenteditable="true">G806 - ફકરો વાંચીને અર્થગ્રહણ કરી મૌલિક વિચારો રજૂ કરવા.</td>
+      </tr>
+      <tr>
+        <td class="text-center">૪</td>
+        <td>ધોરણ ૮</td>
+        <td>વિજ્ઞાન</td>
+        <td contenteditable="true">S803 - પ્રયોગોના આધારે તારણો કાઢી વૈજ્ઞાનિક કારણો આપવા.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="section-heading">૨. નબળા LOs સિદ્ધ કરવા માટે હાથ ધરાયેલ અનુકાર્ય:</div>
+  <ul>
+    <li><strong>વિશેષ વર્કશીટ & મહાવરો:</strong> અર્થગ્રહણ અને કોયડા ઉકેલ માટે સાપ્તાહિક પ્રેક્ટિસ વર્કશીટ આપવામાં આવે છે.</li>
+    <li><strong>ડિજિટલ કન્ટેન્ટ & દીક્ષા એપ:</strong> અમૂર્ત સંકલ્પનાઓ સ્પષ્ટ કરવા સ્માર્ટ ક્લાસ અને દીક્ષા વિડીયોનો ઉપયોગ કરાય છે.</li>
+    <li><strong>પીઅર લર્નિંગ:</strong> તેજસ્વી વિદ્યાર્થીઓની નબળા વિદ્યાર્થીઓ સાથે જોડી બનાવી સાથે શીખવા પ્રેરિત કરાય છે.</li>
+  </ul>
+
+  <div class="doc-footer" style="margin-top: 30px;">
+    <div>નોડલ શિક્ષક સહી: <span contenteditable="true">પરબતભાઈ કરમુર</span></div>
+    <div class="sign-area"><span class="dyn-principal">હિતેશભાઈ પુજારા</span><br>આચાર્યશ્રીની સહી અને સિક્કો</div>
+  </div>
+  <div class="credit-footer">સૌજન્ય : પરબતભાઇ કરમુર - શ્રી કોરાડાવાડી પ્રાથમિક શાળા</div>
+</div>
+
+<!-- ========================================== -->
+<!-- ભાગ ૧૦ - પેજ ૫: ઉચ્ચ લાયકાત અને CPD તાલીમ અહેવાલ -->
+<!-- ========================================== -->
+<div class="page">
+  <div class="doc-header">
+    <div class="school-title"><span class="dyn-school">શ્રી કોરાડા વાડી પ્રાથમિક શાળા</span></div>
+    <div class="school-meta">
+      તા- <span class="dyn-taluka">દ્વારકા</span>, જિલ્લો- <span class="dyn-district">દેવભૂમિ દ્વારકા</span> | ડાયસ કોડ: <span class="dyn-dise">24280100000</span>
+    </div>
+    <div class="doc-main-title">શિક્ષકોની ઉચ્ચ લાયકાત અને વ્યાવસાયિક વિકાસ (CPD) તાલીમ અહેવાલ</div>
+  </div>
+
+  <div class="section-heading">૧. લઘુત્તમ કરતાં વધુ (ઉચ્ચ) લાયકાત ધરાવતા શિક્ષકોની વિગત:</div>
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th style="width: 8%;">ક્રમ</th>
+        <th style="width: 32%;">શિક્ષકનું નામ</th>
+        <th style="width: 25%;">જરૂરી લઘુત્તમ લાયકાત</th>
+        <th style="width: 35%;">ધરાવતા ઉચ્ચ લાયકાત</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="text-center">1</td><td>હિતેશભાઈ પુજારા</td><td>PTC / TET</td><td contenteditable="true">M.A., B.Ed.</td></tr>
+      <tr><td class="text-center">2</td><td>સુરેન્દ્રભાઈ સોલંકી</td><td>B.Sc., TET-2</td><td contenteditable="true">B.Sc., B.Ed.</td></tr>
+      <tr><td class="text-center">3</td><td>જેન્તીભાઈ નકુમ</td><td>B.A., TET-2</td><td contenteditable="true">B.A., B.Ed.</td></tr>
+      <tr><td class="text-center">4</td><td>પરબતભાઈ કરમુર</td><td>B.A., TET-2</td><td contenteditable="true">M.A., B.Ed.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="section-heading">૨. શૈક્ષણિક/વ્યાવસાયિક વિકાસ (CPD) તાલીમોમાં ભાગીદારી:</div>
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th style="width: 8%;">ક્રમ</th>
+        <th style="width: 32%;">શિક્ષકનું નામ</th>
+        <th style="width: 30%;">તાલીમનું નામ</th>
+        <th style="width: 30%;">પૂર્ણ કરેલ કલાકો / દિવસો</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="text-center">1</td><td>હિતેશભાઈ પુજારા</td><td>નિષ્ઠા FLN & શાળા નેતૃત્વ</td><td class="text-center" contenteditable="true">૫૦ કલાક પૂર્ણ</td></tr>
+      <tr><td class="text-center">2</td><td>સુરેન્દ્રભાઈ સોલંકી</td><td>ગણિત-વિજ્ઞાન સજ્જતા & દીક્ષા</td><td class="text-center" contenteditable="true">૫૦ કલાક પૂર્ણ</td></tr>
+      <tr><td class="text-center">3</td><td>જેન્તીભાઈ નકુમ</td><td>સા.વિ. અને NEP પેડાગોજી</td><td class="text-center" contenteditable="true">૫૦ કલાક પૂર્ણ</td></tr>
+      <tr><td class="text-center">4</td><td>પરબતભાઈ કરમુર</td><td>ભાષા સજ્જતા, ICT & FLN</td><td class="text-center" contenteditable="true">૫૦ કલાક પૂર્ણ</td></tr>
+    </tbody>
+  </table>
+
+  <div class="doc-footer" style="margin-top: 25px;">
+    <div>સ્થળ: <span class="dyn-place">કોરાડા</span><br>તારીખ: <span class="dyn-date">10/08/2026</span></div>
+    <div class="sign-area"><span class="dyn-principal">હિતેશભાઈ પુજારા</span><br>આચાર્યશ્રીની સહી અને સિક્કો</div>
+  </div>
+  <div class="credit-footer">સૌજન્ય : પરબતભાઇ કરમુર - શ્રી કોરાડાવાડી પ્રાથમિક શાળા</div>
+</div>
+
+<!-- ========================================== -->
+<!-- ભાગ ૧૦ - પેજ ૬: પારસ્પરિક અધ્યયન (Peer Learning) અને ટીમ ટીચિંગ -->
+<!-- ========================================== -->
+<div class="page">
+  <div class="doc-header">
+    <div class="school-title"><span class="dyn-school">શ્રી કોરાડા વાડી પ્રાથમિક શાળા</span></div>
+    <div class="school-meta">
+      તા- <span class="dyn-taluka">દ્વારકા</span>, જિલ્લો- <span class="dyn-district">દેવભૂમિ દ્વારકા</span> | ડાયસ કોડ: <span class="dyn-dise">24280100000</span>
+    </div>
+    <div class="doc-main-title">શિક્ષકોમાં પારસ્પરિક અધ્યયન (Peer Learning) અને ટીમ ટીચિંગ પદ્ધતિનો અહેવાલ</div>
+  </div>
+
+  <div class="section-heading">૧. પારસ્પરિક અધ્યયન (Peer Learning) અને ડેમો ક્લાસ:</div>
+  <p>શિક્ષકો એકબીજાના જ્ઞાન અને વિશિષ્ટ શિક્ષણ પદ્ધતિઓનો લાભ લઈ શકે તે માટે માસિક ડેમો ક્લાસ અને TLM શેરિંગ કરવામાં આવે છે.</p>
+
+  <div class="section-heading">૨. ટીમ ટીચિંગ (Team Teaching) પદ્ધતિથી લેવાયેલ તાસની વિગત:</div>
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th style="width: 8%;">ક્રમ</th>
+        <th style="width: 18%;">તારીખ & વાર</th>
+        <th style="width: 18%;">ધોરણ & વિષય</th>
+        <th style="width: 28%;">ભણાવેલ મુદ્દો / પ્રવૃત્તિ</th>
+        <th style="width: 28%;">ટીમ ટીચિંગ કરાવનાર શિક્ષકો</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="text-center">1</td>
+        <td contenteditable="true">૧૬/૦૭/૨૦૨૬ (ગુરુ)</td>
+        <td contenteditable="true">ધોરણ ૮ - ગણિત/વિજ્ઞાન</td>
+        <td contenteditable="true">પ્રકાશનું પરાવર્તન અને ભૂમિતિ રચના</td>
+        <td contenteditable="true">સુરેન્દ્રભાઈ સોલંકી & પરબતભાઈ કરમુર</td>
+      </tr>
+      <tr>
+        <td class="text-center">2</td>
+        <td contenteditable="true">૨૩/૦૭/૨૦૨૬ (ગુરુ)</td>
+        <td contenteditable="true">ધોરણ ૬ - ભાષા/સા.વિ.</td>
+        <td contenteditable="true">ભારતીય સંસ્કૃતિ અને લોકસાહિત્ય</td>
+        <td contenteditable="true">પરબતભાઈ કરમુર & જેન્તીભાઈ નકુમ</td>
+      </tr>
+      <tr>
+        <td class="text-center">3</td>
+        <td contenteditable="true">૩૦/૦૭/૨૦૨૬ (ગુરુ)</td>
+        <td contenteditable="true">ધોરણ ૫ - ગણિત/પર્યાવરણ</td>
+        <td contenteditable="true">ક્ષેત્રફળ-પરિમિતિ અને પ્રકૃતિ નિરીક્ષણ</td>
+        <td contenteditable="true">હિતેશભાઈ પુજારા & સુરેન્દ્રભાઈ સોલંકી</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p style="margin-top: 10px; font-size: 0.95rem;">
+    <strong>નિષ્કર્ષ:</strong> ટીમ ટીચિંગથી વર્ગખંડ જીવંત બને છે અને વિદ્યાર્થીઓને એક જ તાસમાં બે શિક્ષકોના અનુભવનો વિશેષ લાભ મળે છે.
+  </p>
+
+  <div class="doc-footer" style="margin-top: 30px;">
+    <div>ટીમ ટીચિંગ શિક્ષકોની સહી: ______________</div>
+    <div class="sign-area"><span class="dyn-principal">હિતેશભાઈ પુજારા</span><br>આચાર્યશ્રીની સહી અને સિક્કો</div>
+  </div>
+  <div class="credit-footer">સૌજન્ય : પરબતભાઇ કરમુર - શ્રી કોરાડાવાડી પ્રાથમિક શાળા</div>
+</div>
+
+<!-- ========================================================= -->
+<!-- ભાગ ૧૧ - પેજ ૧ : હિતધારકોના પ્રતિભાવ એકત્રિત કરવાની વ્યવસ્થા -->
+<!-- ========================================================= -->
+<div class="page">
+  <div class="doc-header">
+    <div class="school-title">
+      <span class="dyn-school">શ્રી કોરાડા વાડી પ્રાથમિક શાળા</span>
+    </div>
+    <div class="school-meta">
+      તા- <span class="dyn-taluka">દ્વારકા</span>,
+      જિલ્લો- <span class="dyn-district">દેવભૂમિ દ્વારકા</span>
+      | ડાયસ કોડ: <span class="dyn-dise">24280100000</span>
+    </div>
+    <div class="doc-main-title">
+      શાળાના વિવિધ હિતધારકોના પ્રતિભાવ એકત્રિત કરવાની વ્યવસ્થાનો અહેવાલ
+    </div>
+    <div class="doc-tag">
+      (SQAAF ગુણોત્સવ - ૨.૦)
+    </div>
+  </div>
+
+  <p>
+    <strong>પ્રસ્તાવના:</strong>
+    શાળાના સતત વિકાસ, શૈક્ષણિક ગુણવત્તા સુધારણા અને પારદર્શક વહીવટ માટે
+    શાળા સાથે જોડાયેલા તમામ હિતધારકો (Stakeholders - વિદ્યાર્થીઓ, વાલીઓ,
+    શિક્ષકો, SMC સભ્યો અને સ્થાનિક સમુદાય) ના મંતવ્યો અને પ્રતિભાવો ખૂબ જ
+    અગત્યના છે. શાળા દ્વારા તમામ હિતધારકોના પ્રતિભાવો એકત્રિત કરવા માટે
+    નીચે મુજબની સુદઢ વ્યવસ્થા અમલમાં મૂકવામાં આવી છે.
+  </p>
+
+  <div class="section-heading">
+    ૧. પ્રતિભાવ એકત્રિત કરવાની પદ્ધતિઓ (Feedback Collection Mechanisms)
+  </div>
+
+  <ol style="margin-top:4px;">
+    <li contenteditable="true">
+      <strong>સૂચન પેટી (Suggestion Box):</strong>
+      શાળાના કેમ્પસમાં સરળતાથી પહોંચી શકાય તેવી જગ્યાએ સૂચન પેટી મૂકવામાં
+      આવી છે. કોઈપણ વિદ્યાર્થી, વાલી કે મુલાકાતી તેમાં પોતાના સૂચનો અથવા
+      પ્રતિભાવો લેખિતમાં મૂકી શકે છે. આ પેટી દર અઠવાડિયે આચાર્યશ્રી અને
+      SMC સભ્યની હાજરીમાં ખોલવામાં આવે છે.
+    </li>
+    <li contenteditable="true">
+      <strong>વાલી સંપર્ક અને SMC બેઠકો:</strong>
+      દર મહિને યોજાતી SMC બેઠક અને સમયાંતરે યોજાતી વાલી-શિક્ષક મીટિંગ
+      (PTM) માં વાલીઓ તથા સમુદાયના આગેવાનો સાથે સીધો સંવાદ કરી મૌખિક
+      પ્રતિભાવો નોંધવામાં આવે છે.
+    </li>
+    <li contenteditable="true">
+      <strong>બાલ સંસદ અને વિદ્યાર્થી સંવાદ:</strong>
+      વિદ્યાર્થીઓના પ્રશ્નો અને પ્રતિભાવો જાણવા માટે બાલ સંસદની રચના
+      કરવામાં આવી છે. બાલ સંસદના મંત્રીઓ મારફતે વિદ્યાર્થીઓના સૂચનો
+      આચાર્યશ્રી સુધી પહોંચાડવામાં આવે છે.
+    </li>
+    <li contenteditable="true">
+      <strong>શિક્ષક સમીક્ષા બેઠક (Staff Meeting):</strong>
+      શાળાના આંતરિક વહીવટ અને શૈક્ષણિક પ્રક્રિયા અંગે શિક્ષકોના પ્રતિભાવો
+      મેળવવા માટે નિયમિત સ્ટાફ મીટિંગનું આયોજન કરવામાં આવે છે.
+    </li>
+    <li contenteditable="true">
+      <strong>પ્રતિભાવ રજીસ્ટર (Feedback Register):</strong>
+      શાળામાં આવતા વિશેષ મુલાકાતીઓ, અધિકારીઓ અને વાલીઓ માટે અલગ
+      "મુલાકાતી અને પ્રતિભાવ રજીસ્ટર" નિભાવવામાં આવે છે.
+    </li>
+  </ol>
+
+  <div class="section-heading">
+    ૨. પ્રતિભાવ રજીસ્ટર અને કાર્યવાહીનો નમૂનો
+  </div>
+
+  <p>
+    મેળવેલા પ્રતિભાવો અને સૂચનો પર શાળા દ્વારા કરવામાં આવેલી કાર્યવાહી
+    દર્શાવવા માટે નીચેનું પત્રક નિભાવવામાં આવે છે.
+  </p>
+
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th style="width:6%;">ક્રમ</th>
+        <th style="width:18%;">હિતધારકનું નામ / વર્ગ</th>
+        <th style="width:27%;">પ્રતિભાવ / સૂચનની વિગત</th>
+        <th style="width:20%;">પ્રતિભાવનું માધ્યમ</th>
+        <th style="width:29%;">લેવાયેલ પગલાં / નિકાલની વિગત</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="text-center">૧</td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true">સૂચન પેટી / બેઠક / રજીસ્ટર</td>
+        <td contenteditable="true"></td>
+      </tr>
+      <tr>
+        <td class="text-center">૨</td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true">સૂચન પેટી / બેઠક / રજીસ્ટર</td>
+        <td contenteditable="true"></td>
+      </tr>
+      <tr>
+        <td class="text-center">૩</td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true">સૂચન પેટી / બેઠક / રજીસ્ટર</td>
+        <td contenteditable="true"></td>
+      </tr>
+      <tr>
+        <td class="text-center">૪</td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true">સૂચન પેટી / બેઠક / રજીસ્ટર</td>
+        <td contenteditable="true"></td>
+      </tr>
+      <tr>
+        <td class="text-center">૫</td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true">સૂચન પેટી / બેઠક / રજીસ્ટર</td>
+        <td contenteditable="true"></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p style="margin-top:8px;">
+    <strong>નિષ્કર્ષ:</strong>
+    આ વ્યવસ્થા થકી શાળાના વહીવટમાં પારદર્શિતા આવે છે, સમસ્યાઓનું ઝડપી
+    નિરાકરણ થાય છે અને હિતધારકોનો શાળા પ્રત્યેનો વિશ્વાસ વધે છે.
+  </p>
+
+  <div class="doc-footer">
+    <div>
+      સ્થળ: <span class="dyn-place">કોરાડા</span><br>
+      તારીખ: <span class="dyn-date">10/08/2026</span>
+    </div>
+    <div class="sign-area">
+      SMC અધ્યક્ષની સહી: _______________<br>
+      <span class="dyn-principal">હિતેશભાઈ પુજારા</span><br>
+      આચાર્યશ્રીની સહી અને સિક્કો
+    </div>
+  </div>
+  <div class="credit-footer">સૌજન્ય : પરબતભાઇ કરમુર - શ્રી કોરાડાવાડી પ્રાથમિક શાળા</div>
+</div>
+
+<!-- ========================================================= -->
+<!-- ભાગ ૧૧ - પેજ ૨ : હિતધારકોના પ્રતિભાવોના નમૂના -->
+<!-- ========================================================= -->
+<div class="page">
+  <div class="doc-header">
+    <div class="school-title">
+      <span class="dyn-school">શ્રી કોરાડા વાડી પ્રાથમિક શાળા</span>
+    </div>
+    <div class="school-meta">
+      તા- <span class="dyn-taluka">દ્વારકા</span>,
+      જિલ્લો- <span class="dyn-district">દેવભૂમિ દ્વારકા</span>
+      | ડાયસ કોડ: <span class="dyn-dise">24280100000</span>
+    </div>
+    <div class="doc-main-title">
+      શાળાએ જુદા જુદા હિતધારકો પાસેથી મેળવેલ પ્રતિભાવોના નમૂના
+    </div>
+    <div class="doc-tag">
+      (Stakeholder Feedback Samples)
+    </div>
+  </div>
+
+  <p>
+    શાળાના સર્વાંગી વિકાસ અને ગુણવત્તા સુધારણા માટે શાળાના વિવિધ
+    હિતધારકો (વિદ્યાર્થીઓ, વાલીઓ, શિક્ષકો અને SMC સભ્યો) પાસેથી
+    લેખિત તથા મૌખિક પ્રતિભાવો મેળવવામાં આવે છે.
+  </p>
+
+  <div class="section-heading">૧. વિદ્યાર્થીનો પ્રતિભાવ (Student Feedback)</div>
+  <p>
+    નામ:
+    <span contenteditable="true" style="display:inline-block;min-width:180px;border-bottom:1px solid #555;"></span>
+    &nbsp;&nbsp; ધોરણ:
+    <span contenteditable="true" style="display:inline-block;min-width:70px;border-bottom:1px solid #555;"></span>
+  </p>
+  <p>તારીખ: <span class="dyn-date">10/08/2026</span></p>
+  <p contenteditable="true">
+    "અમને શાળામાં સ્માર્ટ ક્લાસમાં ભણવાની ખૂબ મજા આવે છે. શિક્ષકો અમને
+    વાર્તા અને રમતો દ્વારા ભણાવે છે. શાળાના મેદાનમાં નવી રમતોના સાધનો
+    લાવવામાં આવે તેવી મારી વિનંતી છે."
+  </p>
+  <p>સહી: __________________________</p>
+
+  <div class="section-heading">૨. વાલીનો પ્રતિભાવ (Parent Feedback)</div>
+  <p>
+    નામ:
+    <span contenteditable="true" style="display:inline-block;min-width:220px;border-bottom:1px solid #555;"></span>
+    &nbsp; (વિદ્યાર્થીના પિતા / માતા)
+  </p>
+  <p>તારીખ: <span class="dyn-date">10/08/2026</span></p>
+  <p contenteditable="true">
+    "મારા બાળકના વાંચન અને લેખનમાં ઘણો સુધારો જોવા મળ્યો છે. શાળામાં
+    પીવાના પાણીની અને શૌચાલયની સ્વચ્છતા સારી છે. શાળા દ્વારા લેવાતા
+    નિયમિત ટેસ્ટની જાણ અમને સમયસર કરવામાં આવે છે."
+  </p>
+  <p>સહી: __________________________</p>
+
+  <div class="section-heading">૩. શિક્ષકનો પ્રતિભાવ (Teacher Feedback)</div>
+  <p>
+    નામ:
+    <span contenteditable="true" style="display:inline-block;min-width:220px;border-bottom:1px solid #555;"></span>
+  </p>
+  <p>તારીખ: <span class="dyn-date">10/08/2026</span></p>
+  <p contenteditable="true">
+    "શાળામાં શૈક્ષણિક કાર્ય માટે પૂરતા TLM ઉપલબ્ધ છે. નવી શિક્ષણ નીતિ
+    (NEP-2020) અંગેની સ્ટાફ મીટિંગ માર્ગદર્શક રહી. ડિજિટલ શિક્ષણ માટે
+    ઈન્ટરનેટ કનેક્ટિવિટી વધુ ઝડપી બનાવવામાં આવે તો વધુ અનુકૂળતા રહે."
+  </p>
+  <p>સહી: __________________________</p>
+
+  <div class="doc-footer" style="margin-top:25px;">
+    <div>
+      સ્થળ: <span class="dyn-place">કોરાડા</span><br>
+      તારીખ: <span class="dyn-date">10/08/2026</span>
+    </div>
+    <div class="sign-area">
+      <span class="dyn-principal">હિતેશભાઈ પુજારા</span><br>
+      આચાર્યશ્રીની સહી અને સિક્કો
+    </div>
+  </div>
+  <div class="credit-footer">સૌજન્ય : પરબતભાઇ કરમુર - શ્રી કોરાડાવાડી પ્રાથમિક શાળા</div>
+</div>
+
+<!-- ========================================================= -->
+<!-- ભાગ ૧૧ - પેજ ૩ : હિતધારકોના પ્રતિભાવને આધારે કરેલ સુધારા -->
+<!-- ========================================================= -->
+<div class="page">
+  <div class="doc-header">
+    <div class="school-title">
+      <span class="dyn-school">શ્રી કોરાડા વાડી પ્રાથમિક શાળા</span>
+    </div>
+    <div class="school-meta">
+      તા- <span class="dyn-taluka">દ્વારકા</span>,
+      જિલ્લો- <span class="dyn-district">દેવભૂમિ દ્વારકા</span>
+      | ડાયસ કોડ: <span class="dyn-dise">24280100000</span>
+    </div>
+    <div class="doc-main-title">
+      હિતધારકોના પ્રતિભાવોને આધારે શાળાએ કરેલ સુધારા-ફેરફારની વિગતો
+    </div>
+    <div class="doc-tag">
+      (Feedback Based Action Taken Report)
+    </div>
+  </div>
+
+  <p>
+    શાળાના સર્વાંગી વિકાસ અને ગુણવત્તા સુધારણા માટે વિવિધ હિતધારકો પાસેથી
+    નિયમિતપણે પ્રતિભાવો મેળવવામાં આવે છે. આ પ્રતિભાવો અને સૂચનોને
+    ગંભીરતાથી લઈ શાળાના વહીવટ અને શૈક્ષણિક પ્રણાલીમાં નીચે મુજબના
+    હકારાત્મક સુધારા અને ફેરફારો કરવામાં આવ્યા છે.
+  </p>
+
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th style="width:6%;">ક્રમ</th>
+        <th style="width:16%;">હિતધારક</th>
+        <th style="width:26%;">મેળવેલ પ્રતિભાવ / સૂચન</th>
+        <th style="width:28%;">શાળા દ્વારા કરાયેલ સુધારો</th>
+        <th style="width:24%;">પરિણામ / અસર</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="text-center">૧</td>
+        <td contenteditable="true">વાલીઓ</td>
+        <td contenteditable="true">પીવાના પાણીની સુવિધા અને શૌચાલયની સ્વચ્છતા બાબતે સુધારો કરવા સૂચન.</td>
+        <td contenteditable="true">SMC ગ્રાન્ટમાંથી પાણીની ટાંકી સાફ કરાવી, RO ફિલ્ટર રીપેર કરાવ્યું અને નિયમિત સફાઈ માટે સૂચના આપવામાં આવી.</td>
+        <td contenteditable="true">વિદ્યાર્થીઓને સ્વચ્છ અને આરોગ્યપ્રદ વાતાવરણ મળ્યું.</td>
+      </tr>
+      <tr>
+        <td class="text-center">૨</td>
+        <td contenteditable="true">વિદ્યાર્થીઓ</td>
+        <td contenteditable="true">શાળાના મેદાનમાં રમતગમતના નવા સાધનોની માંગણી.</td>
+        <td contenteditable="true">રમતગમત ગ્રાન્ટમાંથી ક્રિકેટ કિટ, વોલીબોલ, રિંગ વગેરે સાધનો ખરીદવામાં આવ્યા.</td>
+        <td contenteditable="true">રમતગમતમાં વિદ્યાર્થીઓની ભાગીદારી વધી.</td>
+      </tr>
+      <tr>
+        <td class="text-center">૩</td>
+        <td contenteditable="true">શિક્ષકો</td>
+        <td contenteditable="true">સ્માર્ટ ક્લાસમાં ઈન્ટરનેટ કનેક્ટિવિટી ધીમી હોવાથી મુશ્કેલી.</td>
+        <td contenteditable="true">ઈન્ટરનેટ પ્લાનનું અપગ્રેડેશન અને રાઉટરની યોગ્ય વ્યવસ્થા કરવામાં આવી.</td>
+        <td contenteditable="true">DIKSHA અને ડિજિટલ કન્ટેન્ટનો ઉપયોગ સરળ અને ઝડપી બન્યો.</td>
+      </tr>
+      <tr>
+        <td class="text-center">૪</td>
+        <td contenteditable="true">SMC / સમુદાય</td>
+        <td contenteditable="true">નબળા વિદ્યાર્થીઓના વાંચન અને લેખન (FLN) પર વધુ ધ્યાન આપવા રજૂઆત.</td>
+        <td contenteditable="true">શાળા સમય બાદ વિશેષ ઉપચારાત્મક વર્ગો અને Peer Learning પદ્ધતિ શરૂ કરવામાં આવી.</td>
+        <td contenteditable="true">વિદ્યાર્થીઓના પાયાના જ્ઞાન અને એકમ કસોટીના પરિણામમાં સુધારો થયો.</td>
+      </tr>
+      <tr>
+        <td class="text-center">૫</td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p style="margin-top:8px;">
+    <strong>નિષ્કર્ષ:</strong>
+    હિતધારકોના સૂચનોને આવકારી તેના પર યોગ્ય કાર્યવાહી કરવાથી શાળા પ્રત્યે
+    સમુદાયનો વિશ્વાસ વધ્યો છે અને શાળાની વ્યવસ્થામાં સતત ગુણાત્મક સુધારો
+    શક્ય બન્યો છે.
+  </p>
+
+  <div class="doc-footer">
+    <div>
+      સ્થળ: <span class="dyn-place">કોરાડા</span><br>
+      તારીખ: <span class="dyn-date">10/08/2026</span>
+    </div>
+    <div class="sign-area">
+      SMC અધ્યક્ષની સહી: _______________<br>
+      <span class="dyn-principal">હિતેશભાઈ પુજારા</span><br>
+      આચાર્યશ્રીની સહી અને સિક્કો
+    </div>
+  </div>
+  <div class="credit-footer">સૌજન્ય : પરબતભાઇ કરમુર - શ્રી કોરાડાવાડી પ્રાથમિક શાળા</div>
+</div>
+
+<!-- ========================================================= -->
+<!-- ભાગ ૧૧ - પેજ ૪ : સમુદાય સહયોગથી વિદ્યાર્થીઓના જ્ઞાન અને કૌશલ્ય વૃદ્ધિ -->
+<!-- ========================================================= -->
+<div class="page">
+  <div class="doc-header">
+    <div class="school-title">
+      <span class="dyn-school">શ્રી કોરાડા વાડી પ્રાથમિક શાળા</span>
+    </div>
+    <div class="school-meta">
+      તા- <span class="dyn-taluka">દ્વારકા</span>,
+      જિલ્લો- <span class="dyn-district">દેવભૂમિ દ્વારકા</span>
+      | ડાયસ કોડ: <span class="dyn-dise">24280100000</span>
+    </div>
+    <div class="doc-main-title">
+      સમુદાયના સહયોગથી વિદ્યાર્થીઓના જ્ઞાન અને કૌશલ્યોમાં વૃદ્ધિ માટેની પ્રવૃત્તિઓનો અહેવાલ
+    </div>
+    <div class="doc-tag">
+      (Community Participation)
+    </div>
+  </div>
+
+  <p>
+    ગુણોત્સવ ૨.૦ ના માપદંડો અને SQAAF માર્ગદર્શિકા અંતર્ગત વિદ્યાર્થીઓના
+    સર્વાંગી વિકાસ, જ્ઞાન અને કૌશલ્યોમાં વૃદ્ધિ કરવા માટે શાળા અને સમુદાય
+    વચ્ચેનો સેતુ અત્યંત મહત્વપૂર્ણ છે.
+  </p>
+
+  <div class="section-heading">
+    સમુદાયના સહયોગથી હાથ ધરાયેલી મુખ્ય પ્રવૃત્તિઓ
+  </div>
+
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th style="width:7%;">ક્રમ</th>
+        <th style="width:25%;">પ્રવૃત્તિ</th>
+        <th style="width:33%;">સમુદાયનો સહયોગ</th>
+        <th style="width:35%;">વિદ્યાર્થીઓને થયેલ લાભ</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="text-center">૧</td>
+        <td contenteditable="true">અતિથિ વક્તા સત્ર</td>
+        <td contenteditable="true">ગામના અનુભવી વડીલો, નિવૃત્ત શિક્ષકો, તબીબો તથા નિષ્ણાતોને આમંત્રિત કરી માર્ગદર્શન.</td>
+        <td contenteditable="true">પ્રેરણા, નૈતિક મૂલ્યો અને વ્યવહારુ જ્ઞાનમાં વૃદ્ધિ.</td>
+      </tr>
+      <tr>
+        <td class="text-center">૨</td>
+        <td contenteditable="true">શૈક્ષણિક સાહિત્ય / પુસ્તક દાન</td>
+        <td contenteditable="true">વાલીઓ, દાતાઓ અને પૂર્વ વિદ્યાર્થીઓ દ્વારા પુસ્તકો અને શૈક્ષણિક સામગ્રીનું દાન.</td>
+        <td contenteditable="true">વાંચનક્ષમતા અને જ્ઞાનમાં વધારો.</td>
+      </tr>
+      <tr>
+        <td class="text-center">૩</td>
+        <td contenteditable="true">કૌશલ્ય વિકાસ પ્રવૃત્તિ</td>
+        <td contenteditable="true">સ્થાનિક કારીગરો, નિષ્ણાતો અને વડીલો દ્વારા પ્રાયોગિક માર્ગદર્શન.</td>
+        <td contenteditable="true">વ્યવહારુ કૌશલ્યો અને સર્જનાત્મકતાનો વિકાસ.</td>
+      </tr>
+      <tr>
+        <td class="text-center">૪</td>
+        <td contenteditable="true">શાળા વિકાસમાં સહયોગ</td>
+        <td contenteditable="true">દાતાઓ અને સમુદાય દ્વારા શ્રમદાન, સામગ્રી સહાય તથા આર્થિક સહયોગ.</td>
+        <td contenteditable="true">શાળાની ભૌતિક અને શૈક્ષણિક સુવિધાઓમાં સુધારો.</td>
+      </tr>
+      <tr>
+        <td class="text-center">૫</td>
+        <td contenteditable="true">અન્ય પ્રવૃત્તિ</td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p style="margin-top:10px;">
+    <strong>નિષ્કર્ષ:</strong>
+    સમુદાય, વાલીઓ અને દાતાઓના સહયોગથી વિદ્યાર્થીઓને શાળા બહારના અનુભવો,
+    પ્રેરણાત્મક માર્ગદર્શન અને વ્યવહારુ કૌશલ્યો મેળવવાની તક મળે છે.
+  </p>
+
+  <div class="doc-footer">
+    <div>
+      સ્થળ: <span class="dyn-place">કોરાડા</span><br>
+      તારીખ: <span class="dyn-date">10/08/2026</span>
+    </div>
+    <div class="sign-area">
+      SMC અધ્યક્ષની સહી: _______________<br>
+      <span class="dyn-principal">હિતેશભાઈ પુજારા</span><br>
+      આચાર્યશ્રીની સહી અને સિક્કો
+    </div>
+  </div>
+  <div class="credit-footer">સૌજન્ય : પરબતભાઇ કરમુર - શ્રી કોરાડાવાડી પ્રાથમિક શાળા</div>
+</div>
+
+<!-- ========================================================= -->
+<!-- ભાગ ૧૧ - પેજ ૫ : પૂર્વ વિદ્યાર્થી સંગઠન (Alumni Association) -->
+<!-- ========================================================= -->
+<div class="page">
+  <div class="doc-header">
+    <div class="school-title">
+      <span class="dyn-school">શ્રી કોરાડા વાડી પ્રાથમિક શાળા</span>
+    </div>
+    <div class="school-meta">
+      તા- <span class="dyn-taluka">દ્વારકા</span>,
+      જિલ્લો- <span class="dyn-district">દેવભૂમિ દ્વારકા</span>
+      | ડાયસ કોડ: <span class="dyn-dise">24280100000</span>
+    </div>
+    <div class="doc-main-title">
+      પૂર્વ વિદ્યાર્થી સંગઠન (Alumni Association) ની માહિતી અને પ્રવૃત્તિઓનો અહેવાલ
+    </div>
+    <div class="doc-tag">
+      (SQAAF ગુણોત્સવ - ૨.૦)
+    </div>
+  </div>
+
+  <p>
+    શાળાના ભૂતપૂર્વ વિદ્યાર્થીઓ શાળા સાથે જોડાયેલા રહે અને શાળાના વિકાસમાં
+    પોતાનું યોગદાન આપે તે હેતુથી પૂર્વ વિદ્યાર્થી સંગઠન (Alumni Association)
+    ની રચના કરવામાં આવી છે.
+  </p>
+
+  <div class="section-heading">
+    ૧. પૂર્વ વિદ્યાર્થી સંગઠનની રચના અને માહિતી
+  </div>
+
+  <table class="custom-table">
+    <tbody>
+      <tr>
+        <th style="width:35%;">સંગઠનનું નામ</th>
+        <td contenteditable="true">
+          <span class="dyn-school">શ્રી કોરાડા વાડી પ્રાથમિક શાળા</span> પૂર્વ વિદ્યાર્થી મંડળ
+        </td>
+      </tr>
+      <tr>
+        <th>રચનાની તારીખ</th>
+        <td contenteditable="true">શાળાના સ્થાપના દિન / વાર્ષિક ઉત્સવ નિમિત્તે</td>
+      </tr>
+      <tr>
+        <th>મુખ્ય હેતુ</th>
+        <td contenteditable="true">
+          વર્તમાન વિદ્યાર્થીઓને શૈક્ષણિક અને આર્થિક પ્રોત્સાહન પૂરું પાડવું
+          તેમજ શાળાના ભૌતિક વિકાસમાં સહયોગ આપવો.
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="section-heading">
+    ૨. પૂર્વ વિદ્યાર્થી સંગઠન દ્વારા હાથ ધરાયેલ પ્રવૃત્તિઓ
+  </div>
+
+  <ul>
+    <li contenteditable="true">
+      <strong>માર્ગદર્શન અને પ્રેરણા સત્રો:</strong>
+      શાળામાંથી અભ્યાસ પૂર્ણ કરી ઉચ્ચ હોદ્દા પર પહોંચેલા અથવા ઉચ્ચ શિક્ષણ
+      લઈ રહેલા પૂર્વ વિદ્યાર્થીઓ દ્વારા પ્રેરણાત્મક વ્યાખ્યાનો.
+    </li>
+    <li contenteditable="true">
+      <strong>શૈક્ષણિક સાહિત્ય અને પુસ્તક દાન:</strong>
+      આર્થિક રીતે નબળા વિદ્યાર્થીઓને નોટબુક, સ્કૂલ બેગ, કંપાસ અને
+      શૈક્ષણિક કીટનું વિતરણ.
+    </li>
+    <li contenteditable="true">
+      <strong>શાળાના વિકાસ કાર્યોમાં સહયોગ:</strong>
+      વાર્ષિક ઉત્સવ, રાષ્ટ્રીય તહેવારો અને પ્રવેશ ઉત્સવમાં આર્થિક તેમજ
+      શ્રમદાન દ્વારા સહયોગ.
+    </li>
+    <li contenteditable="true">
+      <strong>ગ્રેજ્યુએટ મીટ (Alumni Meet):</strong>
+      દર વર્ષે પૂર્વ વિદ્યાર્થીઓની બેઠક યોજી શાળાના વિકાસ માટે નવી
+      યોજનાઓ પર ચર્ચા.
+    </li>
+  </ul>
+
+  <div class="section-heading">
+    ૩. પૂર્વ વિદ્યાર્થી સંગઠનની કારોબારી સમિતિ
+  </div>
+
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th style="width:10%;">ક્રમ</th>
+        <th style="width:30%;">હોદ્દો</th>
+        <th>પૂર્વ વિદ્યાર્થીનું નામ અને સંપર્ક વિગત</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="text-center">૧</td>
+        <td>અધ્યક્ષ (President)</td>
+        <td contenteditable="true"></td>
+      </tr>
+      <tr>
+        <td class="text-center">૨</td>
+        <td>ઉપપ્રમુખ (Vice President)</td>
+        <td contenteditable="true"></td>
+      </tr>
+      <tr>
+        <td class="text-center">૩</td>
+        <td>મંત્રી (Secretary)</td>
+        <td contenteditable="true"></td>
+      </tr>
+      <tr>
+        <td class="text-center">૪</td>
+        <td>સહમંત્રી (Joint Secretary)</td>
+        <td contenteditable="true"></td>
+      </tr>
+      <tr>
+        <td class="text-center">૫</td>
+        <td>સભ્ય (Member)</td>
+        <td contenteditable="true"></td>
+      </tr>
+      <tr>
+        <td class="text-center">૬</td>
+        <td contenteditable="true">સભ્ય</td>
+        <td contenteditable="true"></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p style="margin-top:8px;">
+    <strong>નિષ્કર્ષ:</strong>
+    પૂર્વ વિદ્યાર્થી સંગઠનની સક્રિય પ્રવૃત્તિઓના કારણે શાળા પ્રત્યેનો લગાવ
+    વધે છે અને વર્તમાન વિદ્યાર્થીઓને આગળ વધવા માટે પ્રોત્સાહન મળે છે.
+  </p>
+
+  <div class="doc-footer">
+    <div>
+      સ્થળ: <span class="dyn-place">કોરાડા</span><br>
+      તારીખ: <span class="dyn-date">10/08/2026</span>
+    </div>
+    <div class="sign-area">
+      <span class="dyn-principal">હિતેશભાઈ પુજારા</span><br>
+      આચાર્યશ્રીની સહી અને સિક્કો
+    </div>
+  </div>
+  <div class="credit-footer">સૌજન્ય : પરબતભાઇ કરમુર - શ્રી કોરાડાવાડી પ્રાથમિક શાળા</div>
+</div>
+
+<!-- ========================================================= -->
+<!-- ભાગ ૧૨ - પેજ ૧ : પુસ્તકાલય વ્યવસ્થા અને વાંચન પ્રવૃત્તિ -->
+<!-- ========================================================= -->
+<div class="page">
+  <div class="doc-header">
+    <div class="school-title">
+      <span class="dyn-school">શ્રી કોરાડા વાડી પ્રાથમિક શાળા</span>
+    </div>
+    <div class="school-meta">
+      તા- <span class="dyn-taluka">દ્વારકા</span>,
+      જિલ્લો- <span class="dyn-district">દેવભૂમિ દ્વારકા</span>
+      | ડાયસ કોડ: <span class="dyn-dise">24280100000</span>
+    </div>
+    <div class="doc-main-title">
+      પુસ્તકાલય વ્યવસ્થા અને વાંચન સંસ્કૃતિના વિકાસનો અહેવાલ
+    </div>
+    <div class="doc-tag">
+      (Library & Reading Culture)
+    </div>
+  </div>
+
+  <p>
+    શાળામાં વિદ્યાર્થીઓમાં વાંચનની ટેવ, ભાષાકીય કૌશલ્ય, જ્ઞાનવિસ્તાર અને
+    સ્વઅભ્યાસની ભાવના વિકસે તે માટે પુસ્તકાલયનો નિયમિત અને અસરકારક ઉપયોગ
+    કરવામાં આવે છે.
+  </p>
+
+  <div class="section-heading">
+    ૧. પુસ્તકાલયની મૂળભૂત માહિતી
+  </div>
+
+  <table class="custom-table">
+    <tbody>
+      <tr>
+        <th style="width:38%;">પુસ્તકાલયનું નામ</th>
+        <td contenteditable="true">
+          <span class="dyn-school">શ્રી કોરાડા વાડી પ્રાથમિક શાળા</span> પુસ્તકાલય
+        </td>
+      </tr>
+      <tr>
+        <th>કુલ પુસ્તકોની સંખ્યા</th>
+        <td contenteditable="true">૬૫૦</td>
+      </tr>
+      <tr>
+        <th>વાર્તા / બાળસાહિત્ય પુસ્તકો</th>
+        <td contenteditable="true">૪૦૦</td>
+      </tr>
+      <tr>
+        <th>સંદર્ભ પુસ્તકો</th>
+        <td contenteditable="true">૨૫૦</td>
+      </tr>
+      <tr>
+        <th>પુસ્તકાલય મોનિટર</th>
+        <td contenteditable="true">વિદ્યાર્થી પ્રતિનિધિ (ધોરણ ૮)</td>
+      </tr>
+      <tr>
+        <th>પુસ્તકાલયનો સમય</th>
+        <td contenteditable="true">રિસેસ અને સાપ્તાહિક વાંચન તાસ</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="section-heading">
+    ૨. વાંચન પ્રવૃત્તિઓ
+  </div>
+
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th>ક્રમ</th>
+        <th>પ્રવૃત્તિ</th>
+        <th>ભાગ લેનાર ધોરણ</th>
+        <th>આયોજન / સમય</th>
+        <th>વિદ્યાર્થીઓને થયેલ લાભ</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="text-center">૧</td>
+        <td contenteditable="true">વાંચન કલાક</td>
+        <td contenteditable="true">ધોરણ ૧ થી ૮</td>
+        <td contenteditable="true">સાપ્તાહિક</td>
+        <td contenteditable="true">વાંચન પ્રવાહિતા અને શબ્દભંડોળમાં વધારો</td>
+      </tr>
+      <tr>
+        <td class="text-center">૨</td>
+        <td contenteditable="true">વાર્તા વાંચન</td>
+        <td contenteditable="true">ધોરણ ૧ થી ૫</td>
+        <td contenteditable="true">પાક્ષિક</td>
+        <td contenteditable="true">કલ્પનાશક્તિ અને ભાષાકૌશલ્યનો વિકાસ</td>
+      </tr>
+      <tr>
+        <td class="text-center">૩</td>
+        <td contenteditable="true">પુસ્તક પરિચય</td>
+        <td contenteditable="true">ધોરણ ૬ થી ૮</td>
+        <td contenteditable="true">માસિક</td>
+        <td contenteditable="true">સ્વઅભ્યાસ અને રજૂઆત કૌશલ્ય</td>
+      </tr>
+      <tr>
+        <td class="text-center">૪</td>
+        <td contenteditable="true">વાંચન સ્પર્ધા</td>
+        <td contenteditable="true">ધોરણ ૧ થી ૮</td>
+        <td contenteditable="true">સત્રાંત</td>
+        <td contenteditable="true">આત્મવિશ્વાસ અને વાંચન પ્રત્યે રસ</td>
+      </tr>
+      <tr>
+        <td class="text-center">૫</td>
+        <td contenteditable="true">પુસ્તક સમીક્ષા</td>
+        <td contenteditable="true">ધોરણ ૬ થી ૮</td>
+        <td contenteditable="true">માસિક</td>
+        <td contenteditable="true">વિચારશક્તિ અને લેખન કૌશલ્ય</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p style="margin-top:8px;">
+    <strong>નિષ્કર્ષ:</strong>
+    પુસ્તકાલયના નિયમિત ઉપયોગથી વિદ્યાર્થીઓમાં વાંચનની ટેવ, ભાષાકીય
+    અભિવ્યક્તિ, જ્ઞાન અને સ્વઅભ્યાસની ભાવનામાં વધારો થયો છે.
+  </p>
+
+  <div class="doc-footer">
+    <div>
+      સ્થળ: <span class="dyn-place">કોરાડા</span><br>
+      તારીખ: <span class="dyn-date">10/08/2026</span>
+    </div>
+    <div class="sign-area">
+      પુસ્તકાલય ઇન્ચાર્જ સહી: _____________<br>
+      <span class="dyn-principal">હિતેશભાઈ પુજારા</span><br>
+      આચાર્યશ્રીની સહી અને સિક્કો
+    </div>
+  </div>
+  <div class="credit-footer">સૌજન્ય : પરબતભાઇ કરમુર - શ્રી કોરાડાવાડી પ્રાથમિક શાળા</div>
+</div>
+
+<!-- ========================================================= -->
+<!-- ભાગ ૧૨ - પેજ ૨ : કમ્પ્યુટર / ICT અને ડેડસ્ટોક વ્યવસ્થા -->
+<!-- ========================================================= -->
+<div class="page">
+  <div class="doc-header">
+    <div class="school-title">
+      <span class="dyn-school">શ્રી કોરાડા વાડી પ્રાથમિક શાળા</span>
+    </div>
+    <div class="school-meta">
+      તા- <span class="dyn-taluka">દ્વારકા</span>,
+      જિલ્લો- <span class="dyn-district">દેવભૂમિ દ્વારકા</span>
+      | ડાયસ કોડ: <span class="dyn-dise">24280100000</span>
+    </div>
+    <div class="doc-main-title">
+      કમ્પ્યુટર, ICT સાધનો અને ડેડસ્ટોક વ્યવસ્થાનો અહેવાલ
+    </div>
+    <div class="doc-tag">
+      (ICT / Computer & Dead Stock)
+    </div>
+  </div>
+
+  <p>
+    શાળામાં ઉપલબ્ધ ICT અને કમ્પ્યુટર સાધનોનો ઉપયોગ શૈક્ષણિક પ્રક્રિયાને
+    વધુ અસરકારક, રસપ્રદ અને ટેક્નોલોજી આધારિત બનાવવા માટે કરવામાં આવે છે.
+    તમામ સાધનોની નોંધ ડેડસ્ટોક રજીસ્ટરમાં જાળવવામાં આવે છે.
+  </p>
+
+  <div class="section-heading">
+    ૧. ICT / કમ્પ્યુટર સાધનોની વિગતો
+  </div>
+
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th>ક્રમ</th>
+        <th>સાધનનું નામ</th>
+        <th>કુલ સંખ્યા</th>
+        <th>કાર્યરત</th>
+        <th>બિનકાર્યરત</th>
+        <th>ઉપયોગ / નોંધ</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="text-center">૧</td>
+        <td contenteditable="true">કમ્પ્યુટર / Laptop</td>
+        <td contenteditable="true">1</td>
+        <td contenteditable="true">1</td>
+        <td contenteditable="true">0</td>
+        <td contenteditable="true">શૈક્ષણિક & વહીવટ</td>
+      </tr>
+      <tr>
+        <td class="text-center">૨</td>
+        <td contenteditable="true">પ્રોજેક્ટર / સ્ક્રીન</td>
+        <td contenteditable="true">1</td>
+        <td contenteditable="true">1</td>
+        <td contenteditable="true">0</td>
+        <td contenteditable="true">ડિજિટલ ક્લાસરૂમ</td>
+      </tr>
+      <tr>
+        <td class="text-center">૩</td>
+        <td contenteditable="true">સ્માર્ટ ટીવી / Smart Board</td>
+        <td contenteditable="true">1</td>
+        <td contenteditable="true">1</td>
+        <td contenteditable="true">0</td>
+        <td contenteditable="true">DIKSHA / શૈક્ષણિક વિડીયો</td>
+      </tr>
+      <tr>
+        <td class="text-center">૪</td>
+        <td contenteditable="true">પ્રિન્ટર / સ્કેનર</td>
+        <td contenteditable="true">1</td>
+        <td contenteditable="true">1</td>
+        <td contenteditable="true">0</td>
+        <td contenteditable="true">પરીક્ષા / પરિપત્ર પ્રિન્ટ</td>
+      </tr>
+      <tr>
+        <td class="text-center">૫</td>
+        <td contenteditable="true">સાઉન્ડ સિસ્ટમ / સ્પીકર</td>
+        <td contenteditable="true">1</td>
+        <td contenteditable="true">1</td>
+        <td contenteditable="true">0</td>
+        <td contenteditable="true">પ્રાર્થના સભા / કાર્યક્રમ</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="section-heading">
+    ૨. ડેડસ્ટોક રજીસ્ટર અંગેની નોંધ
+  </div>
+
+  <ul>
+    <li contenteditable="true">
+      તમામ કમ્પ્યુટર અને ICT સાધનોની ખરીદી / પ્રાપ્તીની તારીખ તથા કિંમત
+      ડેડસ્ટોક રજીસ્ટરમાં નોંધવામાં આવે છે.
+    </li>
+    <li contenteditable="true">
+      સાધનોની કાર્યક્ષમતા સમયાંતરે તપાસવામાં આવે છે.
+    </li>
+    <li contenteditable="true">
+      બિનકાર્યરત સાધનો માટે રિપેરિંગ અથવા નિકાલની કાર્યવાહી કરવામાં આવે છે.
+    </li>
+    <li contenteditable="true">
+      ડિજિટલ સાધનોનો ઉપયોગ DIKSHA, શૈક્ષણિક વિડિયો અને ડિજિટલ
+      અધ્યયન સામગ્રી માટે કરવામાં આવે છે.
+    </li>
+  </ul>
+
+  <div class="doc-footer">
+    <div>
+      સ્થળ: <span class="dyn-place">કોરાડા</span><br>
+      તારીખ: <span class="dyn-date">10/08/2026</span>
+    </div>
+    <div class="sign-area">
+      સ્ટોક ઇન્ચાર્જ: _______________<br>
+      <span class="dyn-principal">હિતેશભાઈ પુજારા</span><br>
+      આચાર્યશ્રીની સહી અને સિક્કો
+    </div>
+  </div>
+  <div class="credit-footer">સૌજન્ય : પરબતભાઇ કરમુર - શ્રી કોરાડાવાડી પ્રાથમિક શાળા</div>
+</div>
+
+<!-- ========================================================= -->
+<!-- ભાગ ૧૨ - પેજ ૩ : કલા શિક્ષણ -->
+<!-- ========================================================= -->
+<div class="page">
+  <div class="doc-header">
+    <div class="school-title">
+      <span class="dyn-school">શ્રી કોરાડા વાડી પ્રાથમિક શાળા</span>
+    </div>
+    <div class="school-meta">
+      તા- <span class="dyn-taluka">દ્વારકા</span>,
+      જિલ્લો- <span class="dyn-district">દેવભૂમિ દ્વારકા</span>
+      | ડાયસ કોડ: <span class="dyn-dise">24280100000</span>
+    </div>
+    <div class="doc-main-title">
+      કલા શિક્ષણ પ્રવૃત્તિઓનો અહેવાલ
+    </div>
+    <div class="doc-tag">
+      (Art Education)
+    </div>
+  </div>
+
+  <p>
+    શાળામાં વિદ્યાર્થીઓની સર્જનાત્મકતા, કલ્પનાશક્તિ, અભિવ્યક્તિ અને
+    સૌંદર્યબોધ વિકસે તે માટે વિવિધ કલા શિક્ષણ પ્રવૃત્તિઓનું આયોજન કરવામાં
+    આવે છે.
+  </p>
+
+  <div class="section-heading">
+    કલા શિક્ષણ પ્રવૃત્તિઓનું આયોજન પત્રક
+  </div>
+
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th>ક્રમ</th>
+        <th>પ્રવૃત્તિનું નામ</th>
+        <th>ભાગ લેનાર ધોરણો</th>
+        <th>આયોજનનો સમય / મહિનો</th>
+        <th>નોંધ</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="text-center">૧</td>
+        <td contenteditable="true">ચિત્રકળા અને રંગપૂરણી સ્પર્ધા</td>
+        <td contenteditable="true">ધોરણ ૧ થી ૮</td>
+        <td contenteditable="true">માસિક / સત્રાંત</td>
+        <td contenteditable="true">ઉત્કૃષ્ટ કૃતિઓનું પ્રદર્શન</td>
+      </tr>
+      <tr>
+        <td class="text-center">૨</td>
+        <td contenteditable="true">કાગળ કામ અને ઓરિગામી (Craft)</td>
+        <td contenteditable="true">ધોરણ ૩ થી ૫</td>
+        <td contenteditable="true">પાક્ષિક પ્રવૃત્તિ</td>
+        <td contenteditable="true">હસ્તકળા કૌશલ્ય વિકાસ</td>
+      </tr>
+      <tr>
+        <td class="text-center">૩</td>
+        <td contenteditable="true">માટીકામ અને સર્જનાત્મક કલાકૃતિ</td>
+        <td contenteditable="true">ધોરણ ૬ થી ૮</td>
+        <td contenteditable="true">કલા ઉત્સવ દરમિયાન</td>
+        <td contenteditable="true">સ્થાનિક માટીકળા</td>
+      </tr>
+      <tr>
+        <td class="text-center">૪</td>
+        <td contenteditable="true">દેશભક્તિ ગીત અને સાંસ્કૃતિક નૃત્ય</td>
+        <td contenteditable="true">ધોરણ ૧ થી ૮</td>
+        <td contenteditable="true">રાષ્ટ્રીય પર્વ</td>
+        <td contenteditable="true">સંસ્કાર અને કલા અભિવ્યક્તિ</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p style="margin-top:10px;">
+    <strong>નિષ્કર્ષ:</strong>
+    કલા શિક્ષણની વિવિધ પ્રવૃત્તિઓ દ્વારા વિદ્યાર્થીઓની કલ્પનાશક્તિ અને
+    સર્જનાત્મકતામાં વધારો થયો છે તથા પઠન-પાઠનની સાથે કલા ક્ષેત્રે પણ
+    વિદ્યાર્થીઓ ઉત્સાહપૂર્વક આગળ વધી રહ્યા છે.
+  </p>
+
+  <div class="doc-footer">
+    <div>
+      સ્થળ: <span class="dyn-place">કોરાડા</span><br>
+      તારીખ: <span class="dyn-date">10/08/2026</span>
+    </div>
+    <div class="sign-area">
+      કલા શિક્ષકની સહી: _______________<br>
+      <span class="dyn-principal">હિતેશભાઈ પુજારા</span><br>
+      આચાર્યશ્રીની સહી અને સિક્કો
+    </div>
+  </div>
+  <div class="credit-footer">સૌજન્ય : પરબતભાઇ કરમુર - શ્રી કોરાડાવાડી પ્રાથમિક શાળા</div>
+</div>
+
+<!-- ========================================================= -->
+<!-- ભાગ ૧૨ - પેજ ૪ : યોગ અને શારીરિક સ્વાસ્થ્ય -->
+<!-- ========================================================= -->
+<div class="page">
+  <div class="doc-header">
+    <div class="school-title">
+      <span class="dyn-school">શ્રી કોરાડા વાડી પ્રાથમિક શાળા</span>
+    </div>
+    <div class="school-meta">
+      તા- <span class="dyn-taluka">દ્વારકા</span>,
+      જિલ્લો- <span class="dyn-district">દેવભૂમિ દ્વારકા</span>
+      | ડાયસ કોડ: <span class="dyn-dise">24280100000</span>
+    </div>
+    <div class="doc-main-title">
+      શાળામાં યોગ પ્રવૃત્તિઓના આયોજન અને અમલનો અહેવાલ
+    </div>
+    <div class="doc-tag">
+      (Yoga & Physical Well-being)
+    </div>
+  </div>
+
+  <div class="section-heading">
+    ૧. દૈનિક પ્રાર્થના સભામાં યોગ / પ્રાણાયામ
+  </div>
+
+  <p contenteditable="true">
+    શાળાની દૈનિક પ્રાર્થના સભા દરમિયાન ૧૦ થી ૧૫ મિનિટ માટે તમામ વિદ્યાર્થીઓ
+    અને શિક્ષકો દ્વારા સૂર્યનમસ્કાર, પ્રાણાયામ (લોમ-વિલોમ, ભસ્ત્રિકા) અને
+    ધ્યાનાભ્યાસ કરાવવામાં આવે છે.
+  </p>
+
+  <div class="section-heading">
+    ૨. આંતરરાષ્ટ્રીય યોગ દિવસ
+  </div>
+
+  <p contenteditable="true">
+    દર વર્ષે ૨૧ જૂનના રોજ શાળામાં યોગ દિવસની ઉજવણી કરવામાં આવે છે જેમાં
+    વિદ્યાર્થીઓ, શિક્ષકો, SMC સભ્યો અને વાલીઓ ઉત્સાહપૂર્વક ભાગ લે છે.
+  </p>
+
+  <div class="section-heading">
+    ૩. યોગ પ્રવૃત્તિ આયોજન પત્રક
+  </div>
+
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th>ક્રમ</th>
+        <th>યોગ / શારીરિક પ્રવૃત્તિ</th>
+        <th>ભાગ લેનાર</th>
+        <th>સમય / દિવસ</th>
+        <th>મુખ્ય હેતુ</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="text-center">૧</td>
+        <td contenteditable="true">સૂર્યનમસ્કાર</td>
+        <td contenteditable="true">ધોરણ ૧ થી ૮</td>
+        <td contenteditable="true">દૈનિક</td>
+        <td contenteditable="true">શારીરિક સ્વાસ્થ્ય</td>
+      </tr>
+      <tr>
+        <td class="text-center">૨</td>
+        <td contenteditable="true">પ્રાણાયામ</td>
+        <td contenteditable="true">ધોરણ ૧ થી ૮</td>
+        <td contenteditable="true">દૈનિક</td>
+        <td contenteditable="true">શ્વાસ નિયંત્રણ અને એકાગ્રતા</td>
+      </tr>
+      <tr>
+        <td class="text-center">૩</td>
+        <td contenteditable="true">ધ્યાન</td>
+        <td contenteditable="true">ધોરણ ૫ થી ૮</td>
+        <td contenteditable="true">સાપ્તાહિક</td>
+        <td contenteditable="true">માનસિક શાંતિ અને એકાગ્રતા</td>
+      </tr>
+      <tr>
+        <td class="text-center">૪</td>
+        <td contenteditable="true">યોગ દિવસ</td>
+        <td contenteditable="true">સમસ્ત શાળા</td>
+        <td contenteditable="true">૨૧ જૂન</td>
+        <td contenteditable="true">યોગ પ્રત્યે જાગૃતિ</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p style="margin-top:8px;">
+    <strong>નિષ્કર્ષ:</strong>
+    યોગ અને પ્રાણાયામની નિયમિત પ્રવૃત્તિઓથી વિદ્યાર્થીઓમાં શારીરિક
+    તંદુરસ્તી, એકાગ્રતા અને માનસિક શાંતિનો વિકાસ થાય છે.
+  </p>
+
+  <div class="doc-footer">
+    <div>
+      સ્થળ: <span class="dyn-place">કોરાડા</span><br>
+      તારીખ: <span class="dyn-date">10/08/2026</span>
+    </div>
+    <div class="sign-area">
+      શારીરિક શિક્ષકની સહી: _______________<br>
+      <span class="dyn-principal">હિતેશભાઈ પુજારા</span><br>
+      આચાર્યશ્રીની સહી અને સિક્કો
+    </div>
+  </div>
+  <div class="credit-footer">સૌજન્ય : પરબતભાઇ કરમુર - શ્રી કોરાડાવાડી પ્રાથમિક શાળા</div>
+</div>
+
+<!-- ========================================================= -->
+<!-- ભાગ ૧૨ - પેજ ૫ : પર્યાવરણ જાગૃતિ -->
+<!-- ========================================================= -->
+<div class="page">
+  <div class="doc-header">
+    <div class="school-title">
+      <span class="dyn-school">શ્રી કોરાડા વાડી પ્રાથમિક શાળા</span>
+    </div>
+    <div class="school-meta">
+      તા- <span class="dyn-taluka">દ્વારકા</span>,
+      જિલ્લો- <span class="dyn-district">દેવભૂમિ દ્વારકા</span>
+      | ડાયસ કોડ: <span class="dyn-dise">24280100000</span>
+    </div>
+    <div class="doc-main-title">
+      પર્યાવરણ જાગૃતિ અને સંરક્ષણ પ્રવૃત્તિઓનો અહેવાલ
+    </div>
+    <div class="doc-tag">
+      (Environment Education)
+    </div>
+  </div>
+
+  <p>
+    વિદ્યાર્થીઓમાં પર્યાવરણ પ્રત્યે સંવેદનશીલતા, જવાબદારી અને સ્વચ્છતાની
+    ભાવના વિકસે તે માટે શાળામાં વિવિધ પર્યાવરણલક્ષી પ્રવૃત્તિઓ કરવામાં
+    આવે છે.
+  </p>
+
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th>ક્રમ</th>
+        <th>પ્રવૃત્તિ</th>
+        <th>સમય / દિવસ</th>
+        <th>વિદ્યાર્થીઓની ભાગીદારી</th>
+        <th>પરિણામ</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="text-center">૧</td>
+        <td contenteditable="true">વૃક્ષારોપણ</td>
+        <td contenteditable="true">વર્ષાઋતુ / વન મહોત્સવ</td>
+        <td contenteditable="true">ધોરણ ૧ થી ૮</td>
+        <td contenteditable="true">હરિયાળી અને પર્યાવરણ પ્રત્યે જાગૃતિ</td>
+      </tr>
+      <tr>
+        <td class="text-center">૨</td>
+        <td contenteditable="true">શાળા સફાઈ અભિયાન</td>
+        <td contenteditable="true">સાપ્તાહિક</td>
+        <td contenteditable="true">સમસ્ત વિદ્યાર્થીઓ</td>
+        <td contenteditable="true">સ્વચ્છતા અંગે જાગૃતિ</td>
+      </tr>
+      <tr>
+        <td class="text-center">૩</td>
+        <td contenteditable="true">કચરા વિભાજન</td>
+        <td contenteditable="true">દૈનિક</td>
+        <td contenteditable="true">સમસ્ત વિદ્યાર્થીઓ</td>
+        <td contenteditable="true">સૂકો અને ભીનો કચરો અલગ કરવાની ટેવ</td>
+      </tr>
+      <tr>
+        <td class="text-center">૪</td>
+        <td contenteditable="true">પ્લાસ્ટિક મુક્ત શાળા</td>
+        <td contenteditable="true">સતત</td>
+        <td contenteditable="true">સમસ્ત શાળા</td>
+        <td contenteditable="true">પ્લાસ્ટિકનો ઓછો ઉપયોગ</td>
+      </tr>
+      <tr>
+        <td class="text-center">૫</td>
+        <td contenteditable="true">બગીચાની માવજત</td>
+        <td contenteditable="true">સાપ્તાહિક</td>
+        <td contenteditable="true">Eco Club</td>
+        <td contenteditable="true">પ્રકૃતિ પ્રત્યે સંવેદનશીલતા</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="section-heading">
+    Eco Club / વિદ્યાર્થી નેતૃત્વ
+  </div>
+
+  <p contenteditable="true">
+    શાળાના Eco Club દ્વારા વૃક્ષારોપણ, બગીચાની માવજત, સ્વચ્છતા અને
+    પર્યાવરણ જાગૃતિ અંગે વિવિધ પ્રવૃત્તિઓનું આયોજન કરવામાં આવે છે.
+  </p>
+
+  <div class="doc-footer">
+    <div>
+      સ્થળ: <span class="dyn-place">કોરાડા</span><br>
+      તારીખ: <span class="dyn-date">10/08/2026</span>
+    </div>
+    <div class="sign-area">
+      Eco Club Leader: _______________<br>
+      <span class="dyn-principal">હિતેશભાઈ પુજારા</span><br>
+      આચાર્યશ્રીની સહી અને સિક્કો
+    </div>
+  </div>
+  <div class="credit-footer">સૌજન્ય : પરબતભાઇ કરમુર - શ્રી કોરાડાવાડી પ્રાથમિક શાળા</div>
+</div>
+
+<!-- ========================================================= -->
+<!-- ભાગ ૧૨ - પેજ ૬ : દિનવિશેષ અને રાષ્ટ્રીય / સાંસ્કૃતિક કાર્યક્રમો -->
+<!-- ========================================================= -->
+<div class="page">
+  <div class="doc-header">
+    <div class="school-title">
+      <span class="dyn-school">શ્રી કોરાડા વાડી પ્રાથમિક શાળા</span>
+    </div>
+    <div class="school-meta">
+      તા- <span class="dyn-taluka">દ્વારકા</span>,
+      જિલ્લો- <span class="dyn-district">દેવભૂમિ દ્વારકા</span>
+      | ડાયસ કોડ: <span class="dyn-dise">24280100000</span>
+    </div>
+    <div class="doc-main-title">
+      દિનવિશેષ અને રાષ્ટ્રીય / સાંસ્કૃતિક કાર્યક્રમોનો અહેવાલ
+    </div>
+    <div class="doc-tag">
+      (Special Days & Celebrations)
+    </div>
+  </div>
+
+  <p>
+    શાળામાં રાષ્ટ્રીય, સામાજિક અને સાંસ્કૃતિક મહત્વ ધરાવતા દિવસોની ઉજવણી
+    વિદ્યાર્થીઓની સક્રિય ભાગીદારી સાથે કરવામાં આવે છે.
+  </p>
+
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th>ક્રમ</th>
+        <th>કાર્યક્રમ / તહેવારનું નામ</th>
+        <th>ઉજવણીની તારીખ</th>
+        <th>વિદ્યાર્થીઓની ભાગીદારી અને પ્રવૃત્તિ</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="text-center">૧</td>
+        <td contenteditable="true">સ્વાતંત્ર્ય દિન</td>
+        <td contenteditable="true">૧૫ ઓગસ્ટ</td>
+        <td contenteditable="true">ધ્વજવંદન, દેશભક્તિ ગીત, વક્તૃત્વ</td>
+      </tr>
+      <tr>
+        <td class="text-center">૨</td>
+        <td contenteditable="true">શિક્ષક દિન</td>
+        <td contenteditable="true">૫ સપ્ટેમ્બર</td>
+        <td contenteditable="true">વિદ્યાર્થીઓ દ્વારા શિક્ષણ કાર્ય અને સાંસ્કૃતિક રજૂઆત</td>
+      </tr>
+      <tr>
+        <td class="text-center">૩</td>
+        <td contenteditable="true">ગાંધી જયંતિ અને સ્વચ્છતા અભિયાન</td>
+        <td contenteditable="true">૨ ઓક્ટોબર</td>
+        <td contenteditable="true">શાળા સફાઈ, પ્રભાતફેરી અને નિબંધ સ્પર્ધા</td>
+      </tr>
+      <tr>
+        <td class="text-center">૪</td>
+        <td contenteditable="true">બાળ દિવસ</td>
+        <td contenteditable="true">૧૪ નવેમ્બર</td>
+        <td contenteditable="true">રમતગમત, ક્વિઝ અને મનોરંજક પ્રવૃત્તિઓ</td>
+      </tr>
+      <tr>
+        <td class="text-center">૫</td>
+        <td contenteditable="true">વાર્ષિકોત્સવ / કલા ઉત્સવ</td>
+        <td contenteditable="true">વાર્ષિક સત્ર દરમિયાન</td>
+        <td contenteditable="true">નાટક, નૃત્ય, ગરબા અને હસ્તકળા પ્રદર્શન</td>
+      </tr>
+      <tr>
+        <td class="text-center">૬</td>
+        <td contenteditable="true">અન્ય દિનવિશેષ</td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p style="margin-top:8px;">
+    <strong>નિષ્કર્ષ:</strong>
+    રાષ્ટ્રીય અને સાંસ્કૃતિક પ્રવૃત્તિઓમાં વિદ્યાર્થીઓની સક્રિય ભાગીદારીના
+    કારણે તેમનામાં રાષ્ટ્રપ્રેમ, શિસ્ત, સામાજિક સદભાવ અને નેતૃત્વ ગુણોનો
+    વિકાસ થયો છે.
+  </p>
+
+  <div class="doc-footer">
+    <div>
+      સ્થળ: <span class="dyn-place">કોરાડા</span><br>
+      તારીખ: <span class="dyn-date">10/08/2026</span>
+    </div>
+    <div class="sign-area">
+      સાંસ્કૃતિક કાર્યક્રમ ઇન્ચાર્જ: ___________<br>
+      <span class="dyn-principal">હિતેશભાઈ પુજારા</span><br>
+      આચાર્યશ્રીની સહી અને સિક્કો
+    </div>
+  </div>
+  <div class="credit-footer">સૌજન્ય : પરબતભાઇ કરમુર - શ્રી કોરાડાવાડી પ્રાથમિક શાળા</div>
+</div>
+
+<!-- ========================================================= -->
+<!-- ભાગ ૧૨ - પેજ ૭ : મૂલ્ય શિક્ષણ -->
+<!-- ========================================================= -->
+<div class="page">
+  <div class="doc-header">
+    <div class="school-title">
+      <span class="dyn-school">શ્રી કોરાડા વાડી પ્રાથમિક શાળા</span>
+    </div>
+    <div class="school-meta">
+      તા- <span class="dyn-taluka">દ્વારકા</span>,
+      જિલ્લો- <span class="dyn-district">દેવભૂમિ દ્વારકા</span>
+      | ડાયસ કોડ: <span class="dyn-dise">24280100000</span>
+    </div>
+    <div class="doc-main-title">
+      મૂલ્ય શિક્ષણ અને જીવન કૌશલ્ય વિકાસનો અહેવાલ
+    </div>
+    <div class="doc-tag">
+      (Value Education & Life Skills)
+    </div>
+  </div>
+
+  <p>
+    વિદ્યાર્થીઓમાં સત્ય, પ્રામાણિકતા, શિસ્ત, સહકાર, દયા, જવાબદારી,
+    દેશપ્રેમ અને સામાજિક સંવેદનશીલતા જેવા મૂલ્યો વિકસે તે માટે
+    શાળાની દૈનિક શૈક્ષણિક અને સહઅભ્યાસિક પ્રવૃત્તિઓમાં મૂલ્ય શિક્ષણને
+    સ્થાન આપવામાં આવે છે.
+  </p>
+
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th>ક્રમ</th>
+        <th>મૂલ્ય / જીવન કૌશલ્ય</th>
+        <th>પ્રવૃત્તિ</th>
+        <th>આયોજન</th>
+        <th>વિદ્યાર્થીઓ પર અસર</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="text-center">૧</td>
+        <td contenteditable="true">પ્રામાણિકતા</td>
+        <td contenteditable="true">વાર્તા, ચર્ચા અને પ્રસંગો</td>
+        <td contenteditable="true">સાપ્તાહિક</td>
+        <td contenteditable="true">સત્ય બોલવાની ટેવ</td>
+      </tr>
+      <tr>
+        <td class="text-center">૨</td>
+        <td contenteditable="true">સ્વચ્છતા</td>
+        <td contenteditable="true">સ્વચ્છતા અભિયાન</td>
+        <td contenteditable="true">સાપ્તાહિક</td>
+        <td contenteditable="true">સ્વચ્છતા પ્રત્યે જવાબદારી</td>
+      </tr>
+      <tr>
+        <td class="text-center">૩</td>
+        <td contenteditable="true">સહકાર</td>
+        <td contenteditable="true">ટીમ ગેમ્સ અને જૂથ કાર્ય</td>
+        <td contenteditable="true">નિયમિત</td>
+        <td contenteditable="true">સહકાર અને ટીમવર્ક</td>
+      </tr>
+      <tr>
+        <td class="text-center">૪</td>
+        <td contenteditable="true">જવાબદારી</td>
+        <td contenteditable="true">બાલ સંસદ / ક્લબ જવાબદારી</td>
+        <td contenteditable="true">સતત</td>
+        <td contenteditable="true">નેતૃત્વ અને જવાબદારી</td>
+      </tr>
+      <tr>
+        <td class="text-center">૫</td>
+        <td contenteditable="true">સહાનુભૂતિ</td>
+        <td contenteditable="true">સહાય અને સામાજિક સેવા</td>
+        <td contenteditable="true">માસિક</td>
+        <td contenteditable="true">માનવતા અને સામાજિક સંવેદનશીલતા</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="doc-footer">
+    <div>
+      સ્થળ: <span class="dyn-place">કોરાડા</span><br>
+      તારીખ: <span class="dyn-date">10/08/2026</span>
+    </div>
+    <div class="sign-area">
+      વર્ગશિક્ષકની સહી: _______________<br>
+      <span class="dyn-principal">હિતેશભાઈ પુજારા</span><br>
+      આચાર્યશ્રીની સહી અને સિક્કો
+    </div>
+  </div>
+  <div class="credit-footer">સૌજન્ય : પરબતભાઇ કરમુર - શ્રી કોરાડાવાડી પ્રાથમિક શાળા</div>
+</div>
+
+<!-- ========================================================= -->
+<!-- ભાગ ૧૨ - પેજ ૮ : આનંદદાયી શનિવાર -->
+<!-- ========================================================= -->
+<div class="page">
+  <div class="doc-header">
+    <div class="school-title">
+      <span class="dyn-school">શ્રી કોરાડા વાડી પ્રાથમિક શાળા</span>
+    </div>
+    <div class="school-meta">
+      તા- <span class="dyn-taluka">દ્વારકા</span>,
+      જિલ્લો- <span class="dyn-district">દેવભૂમિ દ્વારકા</span>
+      | ડાયસ કોડ: <span class="dyn-dise">24280100000</span>
+    </div>
+    <div class="doc-main-title">
+      આનંદદાયી શનિવાર પ્રવૃત્તિઓનો અહેવાલ
+    </div>
+    <div class="doc-tag">
+      (Joyful Saturday)
+    </div>
+  </div>
+
+  <p>
+    વિદ્યાર્થીઓ શાળામાં તણાવમુક્ત વાતાવરણમાં આનંદ સાથે શીખે, તેમની
+    સર્જનાત્મકતા અને સહકારની ભાવના વિકસે તથા શાળા પ્રત્યે લગાવ વધે
+    તે હેતુથી "આનંદદાયી શનિવાર" અંતર્ગત વિવિધ પ્રવૃત્તિઓનું આયોજન
+    કરવામાં આવે છે.
+  </p>
+
+  <div class="section-heading">
+    આનંદદાયી શનિવાર પ્રવૃત્તિઓનું આયોજન પત્રક
+  </div>
+
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th>ક્રમ</th>
+        <th>શનિવારની પ્રવૃત્તિ / કાર્યક્રમ</th>
+        <th>ભાગ લેનાર ધોરણ</th>
+        <th>મુખ્ય હેતુ / કૌશલ્ય વિકાસ</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="text-center">૧</td>
+        <td contenteditable="true">યોગ, પ્રાણાયામ અને શારીરિક કસરત</td>
+        <td contenteditable="true">ધોરણ ૧ થી ૮</td>
+        <td contenteditable="true">શારીરિક અને માનસિક સ્વાસ્થ્ય</td>
+      </tr>
+      <tr>
+        <td class="text-center">૨</td>
+        <td contenteditable="true">ચિત્રકળા, ક્રાફ્ટ અને હસ્તકળા કામ</td>
+        <td contenteditable="true">ધોરણ ૧ થી ૫</td>
+        <td contenteditable="true">સર્જનાત્મકતા અને કલા કૌશલ્ય</td>
+      </tr>
+      <tr>
+        <td class="text-center">૩</td>
+        <td contenteditable="true">ક્વિઝ, કોયડા અને લોકગીત / સંગીત</td>
+        <td contenteditable="true">ધોરણ ૬ થી ૮</td>
+        <td contenteditable="true">બૌદ્ધિક વિકાસ અને પ્રતિભા પ્રદર્શન</td>
+      </tr>
+      <tr>
+        <td class="text-center">૪</td>
+        <td contenteditable="true">સામાજિક રમતગમત અને ટીમ ગેમ્સ</td>
+        <td contenteditable="true">સમસ્ત વિદ્યાર્થીઓ</td>
+        <td contenteditable="true">સહકારની ભાવના અને શિસ્ત</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p style="margin-top:10px;">
+    <strong>નિષ્કર્ષ:</strong>
+    "આનંદદાયી શનિવાર" ની આ પ્રવૃત્તિઓથી વિદ્યાર્થીઓનો શાળા પ્રત્યેનો
+    ડર દૂર થયો છે, શાળા પ્રત્યે લગાવ વધ્યો છે અને તેઓ તણાવમુક્ત વાતાવરણમાં
+    આનંદ સાથે નવું જ્ઞાન મેળવી રહ્યા છે.
+  </p>
+
+  <div class="doc-footer">
+    <div>
+      સ્થળ: <span class="dyn-place">કોરાડા</span><br>
+      તારીખ: <span class="dyn-date">10/08/2026</span>
+    </div>
+    <div class="sign-area">
+      પ્રવૃત્તિ ઇન્ચાર્જની સહી: _____________<br>
+      <span class="dyn-principal">હિતેશભાઈ પુજારા</span><br>
+      આચાર્યશ્રીની સહી અને સિક્કો
+    </div>
+  </div>
+  <div class="credit-footer">સૌજન્ય : પરબતભાઇ કરમુર - શ્રી કોરાડાવાડી પ્રાથમિક શાળા</div>
+</div>
+
+<!-- ========================================================= -->
+<!-- ભાગ ૧૨ - પેજ ૯ : દફતર વિનાના ૧૦ દિવસ - ભાગ ૧ -->
+<!-- ========================================================= -->
+<div class="page">
+  <div class="doc-header">
+    <div class="school-title">
+      <span class="dyn-school">શ્રી કોરાડા વાડી પ્રાથમિક શાળા</span>
+    </div>
+    <div class="school-meta">
+      તા- <span class="dyn-taluka">દ્વારકા</span>,
+      જિલ્લો- <span class="dyn-district">દેવભૂમિ દ્વારકા</span>
+      | ડાયસ કોડ: <span class="dyn-dise">24280100000</span>
+    </div>
+    <div class="doc-main-title">
+      દફતર વિનાના ૧૦ દિવસ - પ્રવૃત્તિ આયોજન
+    </div>
+    <div class="doc-tag">
+      (Bagless Days)
+    </div>
+  </div>
+
+  <p>
+    વિદ્યાર્થીઓને શાળાની પરંપરાગત વર્ગખંડ આધારિત શિક્ષણથી અલગ
+    વ્યવહારુ અનુભવ, સ્થાનિક જ્ઞાન, કૌશલ્ય, સર્જનાત્મકતા અને જીવન
+    કૌશલ્યો પ્રાપ્ત થાય તે હેતુથી "દફતર વિનાના ૧૦ દિવસ"નું આયોજન
+    કરવામાં આવે છે.
+  </p>
+
+  <div class="section-heading">
+    ૧૦ દિવસીય પ્રવૃત્તિઓનું આયોજન પત્રક
+  </div>
+
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th style="width:10%;">ક્રમ</th>
+        <th style="width:22%;">દિવસ / સત્ર</th>
+        <th style="width:38%;">પ્રવૃત્તિનું નામ અને વિગત</th>
+        <th>મુખ્ય હેતુ / કૌશલ્ય વિકાસ</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="text-center">૧</td>
+        <td contenteditable="true">દિવસ ૧ અને ૨</td>
+        <td contenteditable="true">યોગ, શારીરિક કસરત અને પ્રકૃતિ દૃશ્યટન</td>
+        <td contenteditable="true">શારીરિક સ્વાસ્થ્ય અને નિરીક્ષણ શક્તિ</td>
+      </tr>
+      <tr>
+        <td class="text-center">૨</td>
+        <td contenteditable="true">દિવસ ૩ અને ૪</td>
+        <td contenteditable="true">સ્થાનિક કારીગરોની મુલાકાત અને કૌશલ્ય પરિચય</td>
+        <td contenteditable="true">વ્યાવસાયિક સમજ અને સન્માનની ભાવના</td>
+      </tr>
+      <tr>
+        <td class="text-center">૩</td>
+        <td contenteditable="true">દિવસ ૫ અને ૬</td>
+        <td contenteditable="true">માટીકામ, ક્રાફ્ટ અને વેસ્ટમાંથી બેસ્ટ બનાવવું</td>
+        <td contenteditable="true">સર્જનાત્મકતા અને હસ્તકળા વિકાસ</td>
+      </tr>
+      <tr>
+        <td class="text-center">૪</td>
+        <td contenteditable="true">દિવસ ૭ અને ૮</td>
+        <td contenteditable="true">બગીચાની માવજત અને વૃક્ષારોપણ પ્રવૃત્તિ</td>
+        <td contenteditable="true">પર્યાવરણ પ્રત્યે સંવેદનશીલતા</td>
+      </tr>
+      <tr>
+        <td class="text-center">૫</td>
+        <td contenteditable="true">દિવસ ૯ અને ૧૦</td>
+        <td contenteditable="true">સાંસ્કૃતિક ગીતો, નાટક અને ક્વિઝ સ્પર્ધા</td>
+        <td contenteditable="true">આત્મવિશ્વાસ અને પ્રતિભા પ્રદર્શન</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p style="margin-top:10px;">
+    <strong>નિષ્કર્ષ:</strong>
+    "દફતર વિનાના ૧૦ દિવસ" ના આ સઘન આયોજનથી વિદ્યાર્થીઓનો સર્વાંગી વિકાસ
+    થયો છે, શાળા પ્રત્યેનો તેમનો ઉત્સાહ અને આનંદ અનેકગણો વધ્યો છે.
+  </p>
+
+  <div class="doc-footer">
+    <div>
+      સ્થળ: <span class="dyn-place">કોરાડા</span><br>
+      તારીખ: <span class="dyn-date">10/08/2026</span>
+    </div>
+    <div class="sign-area">
+      પ્રવૃત્તિ સંયોજકની સહી: _____________<br>
+      <span class="dyn-principal">હિતેશભાઈ પુજારા</span><br>
+      આચાર્યશ્રીની સહી અને સિક્કો
+    </div>
+  </div>
+  <div class="credit-footer">સૌજન્ય : પરબતભાઇ કરમુર - શ્રી કોરાડાવાડી પ્રાથમિક શાળા</div>
+</div>
+
+<!-- ========================================================= -->
+<!-- ભાગ ૧૨ - પેજ ૧૦ : ૧૦ બેગલેસ ડેઝ - અમલીકરણ અને પરિણામ -->
+<!-- ========================================================= -->
+<div class="page">
+  <div class="doc-header">
+    <div class="school-title">
+      <span class="dyn-school">શ્રી કોરાડા વાડી પ્રાથમિક શાળા</span>
+    </div>
+    <div class="school-meta">
+      તા- <span class="dyn-taluka">દ્વારકા</span>,
+      જિલ્લો- <span class="dyn-district">દેવભૂમિ દ્વારકા</span>
+      | ડાયસ કોડ: <span class="dyn-dise">24280100000</span>
+    </div>
+    <div class="doc-main-title">
+      દફતર વિનાના ૧૦ દિવસ - અમલીકરણ અહેવાલ
+    </div>
+    <div class="doc-tag">
+      (Implementation & Outcome)
+    </div>
+  </div>
+
+  <div class="section-heading">
+    ૧. પ્રવૃત્તિની અમલવારી
+  </div>
+
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th style="width:10%;">ક્રમ</th>
+        <th style="width:40%;">વિગત</th>
+        <th>શાળાની નોંધ</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="text-center">૧</td>
+        <td>આયોજનની તારીખ</td>
+        <td contenteditable="true">૦૫/૦૮/૨૦૨૬ થી ૧૪/૦૮/૨૦૨૬</td>
+      </tr>
+      <tr>
+        <td class="text-center">૨</td>
+        <td>ભાગ લેનાર ધોરણો</td>
+        <td contenteditable="true">ધોરણ ૧ થી ૮</td>
+      </tr>
+      <tr>
+        <td class="text-center">૩</td>
+        <td>ભાગ લેનાર વિદ્યાર્થીઓ</td>
+        <td contenteditable="true">૧૫૮</td>
+      </tr>
+      <tr>
+        <td class="text-center">૪</td>
+        <td>માર્ગદર્શક શિક્ષકો</td>
+        <td contenteditable="true">શાળાના તમામ ૪ શિક્ષકો</td>
+      </tr>
+      <tr>
+        <td class="text-center">૫</td>
+        <td>સ્થાનિક નિષ્ણાત / કારીગર</td>
+        <td contenteditable="true">સ્થાનિક માટીકામ અને હસ્તકળા કારીગરો</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="section-heading">
+    ૨. વિદ્યાર્થીઓમાં થયેલ કૌશલ્ય વિકાસ
+  </div>
+
+  <ul>
+    <li contenteditable="true">સર્જનાત્મક અને હસ્તકળા કૌશલ્યમાં વધારો.</li>
+    <li contenteditable="true">સ્થાનિક વ્યવસાય અને કારીગરી અંગે પ્રાયોગિક જ્ઞાન પ્રાપ્ત થયું.</li>
+    <li contenteditable="true">ટીમવર્ક, સહકાર અને નેતૃત્વની ભાવનાનો વિકાસ થયો.</li>
+    <li contenteditable="true">પર્યાવરણ સંરક્ષણ અને સ્વચ્છતા અંગે જાગૃતિ વધી.</li>
+    <li contenteditable="true">આત્મવિશ્વાસ અને જાહેર રજૂઆતની ક્ષમતામાં વધારો થયો.</li>
+  </ul>
+
+  <div class="section-heading">
+    ૩. ફોટોગ્રાફ / પુરાવા / નોંધ
+  </div>
+
+  <table class="custom-table">
+    <tbody>
+      <tr>
+        <th style="height:60px;width:25%;">પ્રવૃત્તિનો ફોટો / પુરાવો</th>
+        <td contenteditable="true" style="height:60px;">[ અહીં ૧૦ બેગલેસ ડેઝ પ્રવૃત્તિનો ફોટોગ્રાફ લગાવો ]</td>
+      </tr>
+      <tr>
+        <th>SMC / વાલી પ્રતિભાવ</th>
+        <td contenteditable="true" style="height:50px;">બાળકો ખૂબ ઉત્સાહ સાથે આનંદપૂર્વક શીખ્યા, કાર્યક્રમ ખૂબ પ્રેરણાદાયી રહ્યો.</td>
+      </tr>
+      <tr>
+        <th>વિશેષ નોંધ</th>
+        <td contenteditable="true" style="height:50px;">વિદ્યાર્થીઓ દ્વારા તૈયાર કરાયેલ કલાકૃતિઓનું શાળામાં પ્રદર્શન રાખવામાં આવ્યું.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p style="margin-top:10px;">
+    <strong>અંતિમ નિષ્કર્ષ:</strong>
+    દફતર વિનાના ૧૦ દિવસની પ્રવૃત્તિઓ દ્વારા વિદ્યાર્થીઓને પુસ્તક બહારના
+    જીવન સાથે જોડાયેલું વ્યવહારુ શિક્ષણ મળ્યું છે અને તેમના જ્ઞાન,
+    કૌશલ્ય, સર્જનાત્મકતા, આત્મવિશ્વાસ તથા સહકારની ભાવનામાં નોંધપાત્ર
+    વૃદ્ધિ થઈ છે.
+  </p>
+
+  <div class="doc-footer">
+    <div>
+      સ્થળ: <span class="dyn-place">કોરાડા</span><br>
+      તારીખ: <span class="dyn-date">10/08/2026</span>
+    </div>
+    <div class="sign-area">
+      SMC અધ્યક્ષની સહી: _______________<br>
+      <span class="dyn-principal">હિતેશભાઈ પુજારા</span><br>
+      આચાર્યશ્રીની સહી અને સિક્કો
+    </div>
+  </div>
+  <div class="credit-footer">સૌજન્ય : પરબતભાઇ કરમુર - શ્રી કોરાડાવાડી પ્રાથમિક શાળા</div>
+</div>
+
+<!-- ========================================== -->
+<!-- જાવાસ્ક્રિપ્ટ: ડાયનેમિક બાઇન્ડિંગ, કેલ્ક્યુલેશન અને સેફ લોકલ સ્ટોરેજ -->
+<!-- ========================================== -->
+<script>
+  const STORAGE_KEY = 'sqaaf_gunotsav_data_2026_27';
+  let saveTimeout = null;
+
+  // LocalStorage સપોર્ટ ચેક
+  function isStorageAvailable() {
+    try {
+      const test = '__storage_test__';
+      localStorage.setItem(test, test);
+      localStorage.removeItem(test);
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  // ૧. ડાયનેમિક રિયલ-ટાઇમ ડેટા સિન્ક્રોનાઇઝેશન
+  function syncData() {
+    const schoolEl = document.getElementById('inputSchoolName');
+    const talukaEl = document.getElementById('inputTaluka');
+    const districtEl = document.getElementById('inputDistrict');
+    const diseCodeEl = document.getElementById('inputDiseCode');
+    const yearEl = document.getElementById('inputYear');
+    const dateValEl = document.getElementById('inputDate');
+    const placeValEl = document.getElementById('inputPlace');
+    const principalEl = document.getElementById('inputPrincipal');
+
+    if (!schoolEl) return;
+
+    const schoolName = schoolEl.value || '';
+    const taluka = talukaEl ? talukaEl.value : '';
+    const district = districtEl ? districtEl.value : '';
+    const diseCode = diseCodeEl ? diseCodeEl.value : '';
+    const year = yearEl ? yearEl.value : '';
+    const dateVal = dateValEl ? dateValEl.value : '';
+    const placeVal = placeValEl ? placeValEl.value : '';
+    const principal = principalEl ? principalEl.value : '';
+
+    document.querySelectorAll('.dyn-school').forEach(el => el.textContent = schoolName);
+    document.querySelectorAll('.dyn-taluka').forEach(el => el.textContent = taluka);
+    document.querySelectorAll('.dyn-district').forEach(el => el.textContent = district);
+    document.querySelectorAll('.dyn-dise').forEach(el => el.textContent = diseCode);
+    document.querySelectorAll('.dyn-year').forEach(el => el.textContent = year);
+    document.querySelectorAll('.dyn-date').forEach(el => el.textContent = dateVal);
+    document.querySelectorAll('.dyn-place').forEach(el => el.textContent = placeVal);
+    document.querySelectorAll('.dyn-principal').forEach(el => el.textContent = principal);
+  }
+
+  // ૨. નવા પ્રવેશ ટેબલની ગણતરી (Page 3)
+  function calcAdm() {
+    let bList = document.querySelectorAll('.adm-b');
+    let gList = document.querySelectorAll('.adm-g');
+    let tList = document.querySelectorAll('.adm-t');
+    let sumB = 0, sumG = 0;
+
+    for (let i = 0; i < bList.length; i++) {
+      let b = parseInt(bList[i].value) || 0;
+      let g = parseInt(gList[i].value) || 0;
+      let total = b + g;
+      if (tList[i]) tList[i].textContent = total;
+      sumB += b;
+      sumG += g;
+    }
+    const totB = document.getElementById('totAdmB');
+    const totG = document.getElementById('totAdmG');
+    const totAll = document.getElementById('totAdmAll');
+    if (totB) totB.textContent = sumB;
+    if (totG) totG.textContent = sumG;
+    if (totAll) totAll.textContent = sumB + sumG;
+  }
+
+  // ૩. કેટેગરી પ્રવેશ ટેબલની ગણતરી (Page 3)
+  function calcCat() {
+    let bList = document.querySelectorAll('.cat-b');
+    let gList = document.querySelectorAll('.cat-g');
+    let tList = document.querySelectorAll('.cat-t');
+    let sumB = 0, sumG = 0;
+
+    for (let i = 0; i < bList.length; i++) {
+      let b = parseInt(bList[i].value) || 0;
+      let g = parseInt(gList[i].value) || 0;
+      let total = b + g;
+      if (tList[i]) tList[i].textContent = total;
+      sumB += b;
+      sumG += g;
+    }
+    const totB = document.getElementById('totCatB');
+    const totG = document.getElementById('totCatG');
+    const totAll = document.getElementById('totCatAll');
+    if (totB) totB.textContent = sumB;
+    if (totG) totG.textContent = sumG;
+    if (totAll) totAll.textContent = sumB + sumG;
+  }
+
+  // ૪. વિદ્યાર્થી સંખ્યા ટેબલની ગણતરી (Page 5)
+  function calcEnr() {
+    let bList = document.querySelectorAll('.enr-b');
+    let gList = document.querySelectorAll('.enr-g');
+    let tList = document.querySelectorAll('.enr-t');
+    let sumB = 0, sumG = 0;
+
+    for (let i = 0; i < bList.length; i++) {
+      let b = parseInt(bList[i].value) || 0;
+      let g = parseInt(gList[i].value) || 0;
+      let total = b + g;
+      if (tList[i]) tList[i].textContent = total;
+      sumB += b;
+      sumG += g;
+    }
+    const totB = document.getElementById('totEnrB');
+    const totG = document.getElementById('totEnrG');
+    const totAll = document.getElementById('totEnrAll');
+    if (totB) totB.textContent = sumB;
+    if (totG) totG.textContent = sumG;
+    if (totAll) totAll.textContent = sumB + sumG;
+  }
+
+  // ૫. લોકલ સ્ટોરેજમાં ડેટા સેવ કરવો
+  function saveToLocalStorage() {
+    if (!isStorageAvailable()) return;
+
+    try {
+      const data = {
+        inputs: {},
+        editables: []
+      };
+
+      // તમામ ઇનપુટ ફિલ્ડ સેવ કરો
+      document.querySelectorAll('input').forEach((input, index) => {
+        const key = input.id ? input.id : 'inp_idx_' + index;
+        data.inputs[key] = input.value;
+      });
+
+      // તમામ એડિટેબલ સેલ્સ સેવ કરો
+      document.querySelectorAll('[contenteditable="true"]').forEach((el) => {
+        data.editables.push(el.innerHTML);
+      });
+
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+      
+      const statusEl = document.getElementById('saveStatus');
+      if (statusEl) {
+        statusEl.textContent = '✅ વિગતો લોકલ સ્ટોરેજમાં સેવ થઈ ગઈ!';
+        setTimeout(() => {
+          statusEl.textContent = '💾 તમામ વિગતો લોકલ સ્ટોરેજમાં સેવ થાય છે';
+        }, 1500);
+      }
+    } catch (err) {
+      console.warn('LocalStorage save error:', err);
+    }
+  }
+
+  // ૬. લોકલ સ્ટોરેજમાંથી ડેટા લોડ કરવો
+  function loadFromLocalStorage() {
+    if (!isStorageAvailable()) return;
+
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (!saved) return;
+
+      const data = JSON.parse(saved);
+
+      // ઇનપુટ્સ રિસ્ટોર કરો
+      if (data.inputs) {
+        document.querySelectorAll('input').forEach((input, index) => {
+          const key = input.id ? input.id : 'inp_idx_' + index;
+          if (data.inputs[key] !== undefined) {
+            input.value = data.inputs[key];
+          }
+        });
+      }
+
+      // એડિટેબલ સેલ્સ રિસ્ટોર કરો
+      if (data.editables && Array.isArray(data.editables)) {
+        document.querySelectorAll('[contenteditable="true"]').forEach((el, index) => {
+          if (data.editables[index] !== undefined) {
+            el.innerHTML = data.editables[index];
+          }
+        });
+      }
+    } catch (err) {
+      console.warn('LocalStorage load error:', err);
+    }
+  }
+
+  // ૭. ડિફોલ્ટ ડેટા રીસેટ કરવો
+  function resetDefaults() {
+    if (confirm('શું તમે તમામ સુધારેલી વિગતો ભૂંસીને મૂળ ડિફોલ્ટ વિગત પાછી લાવવા માંગો છો?')) {
+      if (isStorageAvailable()) {
+        try {
+          localStorage.removeItem(STORAGE_KEY);
+        } catch (e) {}
+      }
+      location.reload();
+    }
+  }
+
+  // ૮. માસ્ટર ઇવેન્ટ લિસનર્સ
+  function attachEvents() {
+    // કંટ્રોલ પેનલના ઇનપુટ્સ સાથે તાત્કાલિક બાઇન્ડિંગ
+    document.querySelectorAll('.control-panel input').forEach(input => {
+      input.addEventListener('input', () => {
+        syncData();
+      });
+    });
+
+    // સમગ્ર ડોક્યુમેન્ટ માટે ઇનપુટ અને ઓટો-સેવ
+    document.addEventListener('input', (e) => {
+      syncData();
+      calcAdm();
+      calcCat();
+      calcEnr();
+
+      clearTimeout(saveTimeout);
+      saveTimeout = setTimeout(saveToLocalStorage, 300);
+    });
+  }
+
+  // ૯. શરૂઆતી રન (Immediate Execution)
+  function init() {
+    loadFromLocalStorage();
+    syncData();
+    calcAdm();
+    calcCat();
+    calcEnr();
+    attachEvents();
+  }
+
+  // પેજ લોડ થતાં જ તુરંત ચાલુ કરો
+  init();
+</script>
+</body>
+</html>
