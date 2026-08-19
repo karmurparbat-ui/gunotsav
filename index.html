@@ -441,9 +441,135 @@
     gap: 6px;
   }
   .btn-logout:hover { background: #feb2b2; color: #742a2a; }
+
+  /* Notice / Announcement Modal (Login Screen Info Popup) */
+  .notice-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(15, 23, 42, 0.88);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100000;
+    padding: 15px;
+  }
+  .notice-card {
+    background: #ffffff;
+    padding: 26px 28px 28px 28px;
+    border-radius: 12px;
+    max-width: 460px;
+    width: 100%;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.35);
+    text-align: center;
+    font-family: 'Rasa', serif;
+    max-height: 92vh;
+    overflow-y: auto;
+  }
+  .notice-icon {
+    font-size: 2.4rem;
+    margin-bottom: 6px;
+  }
+  .notice-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #0f2b48;
+    margin: 0 0 14px 0;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #e2e8f0;
+  }
+  .notice-box {
+    border-radius: 8px;
+    padding: 12px 14px;
+    margin-bottom: 12px;
+    text-align: left;
+    font-size: 1.02rem;
+    font-weight: 600;
+    line-height: 1.5;
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+  }
+  .notice-box .notice-emoji { flex-shrink: 0; font-size: 1.1rem; }
+  .notice-box-free {
+    background: #dcfce7;
+    border: 1.5px solid #86efac;
+    color: #14532d;
+  }
+  .notice-box-paid {
+    background: #fef3c7;
+    border: 1.5px solid #fcd34d;
+    color: #78350f;
+  }
+  .notice-box-pay {
+    background: #f1f5f9;
+    border: 1.5px dashed #94a3b8;
+    color: #1e293b;
+    display: block;
+    text-align: center;
+  }
+  .notice-box-pay .pay-label {
+    font-size: 1.02rem;
+    font-weight: 700;
+  }
+  .notice-box-pay .pay-number {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #0f2b48;
+    margin: 4px 0 8px 0;
+  }
+  .notice-box-pay .pay-note {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #475569;
+    line-height: 1.5;
+  }
+  .btn-notice-ok {
+    width: 100%;
+    background: #1a365d;
+    color: white;
+    border: none;
+    padding: 13px;
+    font-size: 1.15rem;
+    font-weight: 700;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: 'Rasa', serif;
+    margin-top: 6px;
+  }
+  .btn-notice-ok:hover { background: #2a4365; }
 </style>
 </head>
 <body>
+  <!-- અગત્યની સૂચના પોપઅપ (લૉગિન પહેલાં દેખાય છે) -->
+<div id="noticeModal" class="notice-overlay no-print">
+  <div class="notice-card">
+    <div class="notice-icon">📢</div>
+    <h2 class="notice-title">અગત્યની સૂચના (ગુણોત્સવ ૨.૦ SQAAF)</h2>
+
+    <div class="notice-box notice-box-free">
+      <span class="notice-emoji">✅</span>
+      <span><strong>દ્વારકા તાલુકોઃ</strong> તમામ પ્રાથમિક શાળાઓ માટે આ સોફ્ટવેર <u>તદ્દન ફ્રી</u> છે.</span>
+    </div>
+
+    <div class="notice-box notice-box-paid">
+      <span class="notice-emoji">ℹ️</span>
+      <span><strong>અન્ય તાલુકા / જિલ્લાઓઃ</strong> અન્ય શાળાઓ માટે આ સોફ્ટવેર ઉપયોગનો સહયોગ ચાર્જ ₹ 200 રાખેલ છે.
+જો જરૂરી હોય તો, પહેલાં તપાસવા માટે ડેમો ફાઇલની માંગણી કરો અને ત્યારબાદ જ ચુકવણી કરો.</span>
+    </div>
+
+    <div class="notice-box notice-box-pay">
+      <div class="pay-label">📲 Google Pay / PhonePe નંબર:</div>
+      <div class="pay-number">9586311704</div>
+      <div class="pay-note">
+        ગૂગલ પે કર્યા બાદ સ્ક્રીનશોટ અને આપની શાળાનો ડાયસ કોડ આ જ નંબર પર WhatsApp કરવો. ત્યારબાદ આપને <strong>લૉગિન પિન (PIN)</strong> જણાવવામાં આવશે.
+      </div>
+    </div>
+
+    <button type="button" class="btn-notice-ok" id="btnNoticeOk" onclick="closeNoticeModal()">સમજાઈ ગયું / આગળ વધો (OK) ➔</button>
+  </div>
+</div>
+
   <!-- લૉગિન પોપઅપ વિન્ડો -->
 <div id="authModal" class="auth-overlay no-print">
   <div class="auth-card">
@@ -4262,6 +4388,12 @@
       }
       location.reload();
     }
+  }
+
+  // ૧૩.૫ અગત્યની સૂચના પોપઅપ બંધ કરવું
+  function closeNoticeModal() {
+    const notice = document.getElementById('noticeModal');
+    if (notice) notice.style.display = 'none';
   }
 
   // ૧૪. ગૂગલ શીટ દ્વારા લૉગિન વેરિફિકેશન
