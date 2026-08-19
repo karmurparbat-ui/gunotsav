@@ -4351,7 +4351,6 @@
         const allOtherEditables = document.querySelectorAll('p[contenteditable="true"], li[contenteditable="true"], span[contenteditable="true"]');
         data.otherEditables.forEach(eItem => {
           if (allOtherEditables[eItem.index] && eItem.html !== undefined) {
-            allOtherEditables[eItem.index] && eItem.html !== undefined) {
             allOtherEditables[eItem.index].innerHTML = eItem.html;
           }
         });
@@ -4407,4 +4406,161 @@
     }
 
     btnSubmit.disabled = true;
-    status
+    statusMsg.className = 'auth-msg auth-loader';
+    statusMsg.textContent = '⏳ ચકાસણી થઈ રહી છે...';
+
+    try {
+      const requestUrl = `${GOOGLE_SCRIPT_API_URL}?action=verify&dise=${encodeURIComponent(dise)}&pin=${encodeURIComponent(pin)}`;
+      const response = await fetch(requestUrl);
+      const result = await response.json();
+
+      if (result.success) {
+        const verifiedDise = result.diseCode || dise;
+
+        sessionStorage.setItem('gunotsav_auth', 'true');
+        sessionStorage.setItem('gunotsav_verified_dise', verifiedDise);
+
+        statusMsg.className = 'auth-msg';
+        statusMsg.style.color = '#22543d';
+        statusMsg.textContent = '✅ પ્રવેશ સફળ!';
+
+        const diseEl = document.getElementById('inputDiseCode');
+        if (diseEl) {
+          diseEl.value = verifiedDise;
+          diseEl.readOnly = true;
+        }
+
+        // લૉગિન થતાં જ આ શાળાનો અગાઉ સેવ કરેલો ડેટા લોડ કરવો
+        loadFromLocalStorage();
+        syncData();
+
+        setTimeout(() => {
+          unlockEditor();
+        }, 500);
+
+      } else {
+        statusMsg.className = 'auth-msg auth-err';
+        statusMsg.textContent = '❌ ' + (result.message || 'ખોટો ડાયસ કોડ અથવા પિન!');
+      }
+    } catch (err) {
+      console.error(err);
+      statusMsg.className = 'auth-msg auth-err';
+      statusMsg.textContent = '❌ કનેક્શન એરર! ફરી પ્રયાસ કરો.';
+    } finally {
+      btnSubmit.disabled = false;
+    }
+  }
+
+  
+      diseEl.readOnly = true;
+    }
+
+    document.querySelectorAll('.control-panel input:not(#inputDiseCode), table input').forEach(el => {
+      el.disabled = false;
+    });
+
+    document.querySelectorAll('[contenteditable]').forEach(el => {
+      el.setAttribute('contenteditable', 'true');
+    });
+
+    syncData();
+  }
+
+  // ૧૭. એડિટર લૉક રાખવું (શરૂઆતમાં નોટિસ બતાવવી)
+  function lockEditor() {
+    const noticeModal = document.getElementById('noticeModal');
+    const authModal = document.getElementById('authModal');
+
+    // શરૂઆતમાં નોટિસ પોપઅપ દેખાશે અને લૉગિન બોક્સ પાછળ રહેશે
+    if (noticeModal) noticeModal.style.display = 'flex';
+    if (authModal) authModal.style.display = 'none';
+
+    document.querySelectorAll('.control-panel input, table input').forEach(el => {
+      el.disabled = true;
+    });
+
+    document.querySelectorAll('[contenteditable]').forEach(el => {
+      el.setAttribute('contenteditable', 'false');
+    });
+  }
+
+  // ૧૮. પેજ લોડ વખતે ચકાસણી
+  function checkAuthOnLoad() {
+    const isAuth = sessionStorage.getItem('gunotsav_auth');
+    const verifiedDise = sessionStorage.getItem('gunotsav_verified_dise');
+
+    if (isAuth === 'true' && verifiedDise) {
+      const diseEl = document.getElementById('inputDiseCode');
+      if (diseEl) {
+        diseEl.value = verifiedDise;
+        diseEl.readOnly = true;
+      }
+      unlockEditor();
+      loadFromLocalStorage(); // સેશન ચાલુ હોય તો પણ સેવ થયેલો ડેટા લોડ કરવો
+    } else {
+      lockEditor();
+    }
+  }
+
+  // ૧૯. લૉગઆઉટ ફંક્શન
+  function logoutUser() {
+    if (confirm('શું તમે લૉગઆઉટ કરવા માંગો છો?')) {
+      // લૉગઆઉટ થતાં પહેલાં વર્તમાન ડેટા સેવ કરી લેવો
+      saveToLocalStorage();
+      sessionStorage.clear();
+      location.reload();
+    }
+  }
+
+  // ૨૦. માસ્ટર ઇવેન્ટ લિસનર્સ (તમામ ફેરફારો તાત્કાલિક સેવ કરવા માટે)
+  function attachEvents() {
+    // કીબોર્ડ ટાઇપિંગ વખતે ઓટો સેવ
+    document.addEventListener('input', (e) => {
+      syncData();
+      calcAdm();
+      calcCat();
+      calcEnr();
+
+      clearTimeout(saveTimeout);
+      saveTimeout = setTimeout(saveToLocalStorage, 300);
+    });
+
+    // ટેબલ કે ઇનપુટમાંથી બહાર નીકળતાં (Blur / Change) તુરંત સેવ
+    document.addEventListener('change', () => {
+      syncData();
+      calcAdm();
+      calcCat();
+      calcEnr();
+      saveToLocalStorage();
+    });
+
+    document.addEventListener('blur', (e) => {
+      if (e.target && (e.target.isContentEditable || e.target.tagName === 'INPUT')) {
+        saveToLocalStorage();
+      }
+    }, true);
+  }
+
+  // ૨૧. મુખ્ય શરૂઆત (Initialization)
+  function init() {
+    loadFromLocalStorage();
+    syncData();
+    calcAdm();
+    calcCat();
+    calcEnr();
+    setupDynamicTableButtons();
+    attachEvents();
+    
+    // લૉગિન ચકાસણી
+    checkAuthOnLoad();
+  }
+
+  // પેજ લોડિંગ હેન્ડલર
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+</script>
+</body>
+</html>
