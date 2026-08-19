@@ -570,7 +570,7 @@
 
     <div class="auth-input-group">
       <label>શાળાનો ડાયસ કોડ (DISE Code):</label>
-      <input type="text" id="authDise" placeholder="દા.ત. 24280100000">
+      <input type="text" id="authDise" placeholder="દા.ત. 24280100000" onkeypress="if(event.key==='Enter') verifyAccessFromSheet()">
     </div>
 
     <div class="auth-input-group">
@@ -1574,7 +1574,6 @@
   </div>
   <div class="credit-footer">સૌજન્ય : પરબતભાઇ કરમુર - શ્રી કોરાડાવાડી પ્રાથમિક શાળા</div>
 </div>
-
 <!-- ========================================== -->
 <!-- ભાગ ૮ - પેજ ૩: શૌચાલયોની સ્વચ્છતા અને રખરખાવ અહેવાલ & રજીસ્ટર -->
 <!-- ========================================== -->
@@ -3548,9 +3547,9 @@
   <div class="credit-footer">સૌજન્ય : પરબતભાઇ કરમુર - શ્રી કોરાડાવાડી પ્રાથમિક શાળા</div>
 </div>
 
-<!-- ========================================== -->
+<!-- ========================================================= -->
 <!-- ભાગ ૧૨ - પેજ ૬ : દિનવિશેષ અને રાષ્ટ્રીય / સાંસ્કૃતિક કાર્યક્રમો -->
-<!-- ========================================== -->
+<!-- ========================================================= -->
 <div class="page">
   <div class="doc-header">
     <div class="school-title">
@@ -4271,8 +4270,8 @@
         otherEditables: []
       };
 
-      // કંટ્રોલ પેનલ + ઇન-ટેબલ ઇનપુટ્સ
-      document.querySelectorAll('input').forEach((input, index) => {
+      // કંટ્રોલ પેનલ + ઇન-ટેબલ ઇનપુટ્સ (મોડલ ઇનપુટ્સ સિવાય)
+      document.querySelectorAll('.control-panel input, table input').forEach((input, index) => {
         const key = input.id ? input.id : 'inp_' + index;
         data.inputs[key] = input.value;
       });
@@ -4337,7 +4336,7 @@
 
       // ૨. ટેબલ રિસ્ટોર થયા પછી તમામ ઇનપુટ્સની વેલ્યુ સેટ કરો
       if (data.inputs) {
-        document.querySelectorAll('input').forEach((input, index) => {
+        document.querySelectorAll('.control-panel input, table input').forEach((input, index) => {
           const keyName = input.id ? input.id : 'inp_' + index;
           if (data.inputs[keyName] !== undefined) {
             input.value = data.inputs[keyName];
@@ -4383,10 +4382,15 @@
 
   // ૧૪. નોટિસ મોડલ બંધ કરી લૉગિન મોડલ બતાવવું
   function openLoginModal() {
+    sessionStorage.setItem('gunotsav_notice_seen', 'true');
     const noticeModal = document.getElementById('noticeModal');
     const authModal = document.getElementById('authModal');
     if (noticeModal) noticeModal.style.display = 'none';
-    if (authModal) authModal.style.display = 'flex';
+    if (authModal) {
+      authModal.style.display = 'flex';
+      const authDise = document.getElementById('authDise');
+      if (authDise) authDise.focus();
+    }
   }
 
   // ૧૫. ગૂગલ શીટ દ્વારા લૉગિન વેરિફિકેશન
@@ -4396,7 +4400,7 @@
     const statusMsg = document.getElementById('authStatusMsg');
     const btnSubmit = document.getElementById('btnAuthSubmit');
 
-    const dise = diseInput ? diseInput.value.trim() : '';
+    const dise = diseInput ? diseInput.value.trim().replace(/\D/g, '') : '';
     const pin = pinInput ? pinInput.value.trim() : '';
 
     if (!dise || !pin) {
@@ -4407,14 +4411,14 @@
 
     btnSubmit.disabled = true;
     statusMsg.className = 'auth-msg auth-loader';
-    statusMsg.textContent = '⏳ ચકાસણી થઈ રહી છે...';
+    statusMsg.textContent = '⏳ ગૂગલ શીટમાં ચકાસણી થઈ રહી છે...';
 
     try {
       const requestUrl = `${GOOGLE_SCRIPT_API_URL}?action=verify&dise=${encodeURIComponent(dise)}&pin=${encodeURIComponent(pin)}`;
       const response = await fetch(requestUrl);
       const result = await response.json();
 
-      if (result.success) {
+      if (result && result.success) {
         const verifiedDise = result.diseCode || dise;
 
         sessionStorage.setItem('gunotsav_auth', 'true');
@@ -4422,145 +4426,24 @@
 
         statusMsg.className = 'auth-msg';
         statusMsg.style.color = '#22543d';
-        statusMsg.textContent = '✅ પ્રવેશ સફળ!';
+        statusMsg.textContent = '✅ પ્રવેશ સફળ! પેજ ખૂલી રહ્યું છે...';
 
         const diseEl = document.getElementById('inputDiseCode');
         if (diseEl) {
           diseEl.value = verifiedDise;
+          diseEl.disabled = false;
           diseEl.readOnly = true;
         }
 
-        // લૉગિન થતાં જ આ શાળાનો અગાઉ સેવ કરેલો ડેટા લોડ કરવો
         loadFromLocalStorage();
         syncData();
 
         setTimeout(() => {
           unlockEditor();
-        }, 500);
+        }, 400);
 
       } else {
         statusMsg.className = 'auth-msg auth-err';
-        statusMsg.textContent = '❌ ' + (result.message || 'ખોટો ડાયસ કોડ અથવા પિન!');
+        statusMsg.textContent = '❌ ' + (result && result.message ? result.message : 'ખોટો ડાયસ કોડ અથવા પિન!');
       }
     } catch (err) {
-      console.error(err);
-      statusMsg.className = 'auth-msg auth-err';
-      statusMsg.textContent = '❌ કનેક્શન એરર! ફરી પ્રયાસ કરો.';
-    } finally {
-      btnSubmit.disabled = false;
-    }
-  }
-
-  
-      diseEl.readOnly = true;
-    }
-
-    document.querySelectorAll('.control-panel input:not(#inputDiseCode), table input').forEach(el => {
-      el.disabled = false;
-    });
-
-    document.querySelectorAll('[contenteditable]').forEach(el => {
-      el.setAttribute('contenteditable', 'true');
-    });
-
-    syncData();
-  }
-
-  // ૧૭. એડિટર લૉક રાખવું (શરૂઆતમાં નોટિસ બતાવવી)
-  function lockEditor() {
-    const noticeModal = document.getElementById('noticeModal');
-    const authModal = document.getElementById('authModal');
-
-    // શરૂઆતમાં નોટિસ પોપઅપ દેખાશે અને લૉગિન બોક્સ પાછળ રહેશે
-    if (noticeModal) noticeModal.style.display = 'flex';
-    if (authModal) authModal.style.display = 'none';
-
-    document.querySelectorAll('.control-panel input, table input').forEach(el => {
-      el.disabled = true;
-    });
-
-    document.querySelectorAll('[contenteditable]').forEach(el => {
-      el.setAttribute('contenteditable', 'false');
-    });
-  }
-
-  // ૧૮. પેજ લોડ વખતે ચકાસણી
-  function checkAuthOnLoad() {
-    const isAuth = sessionStorage.getItem('gunotsav_auth');
-    const verifiedDise = sessionStorage.getItem('gunotsav_verified_dise');
-
-    if (isAuth === 'true' && verifiedDise) {
-      const diseEl = document.getElementById('inputDiseCode');
-      if (diseEl) {
-        diseEl.value = verifiedDise;
-        diseEl.readOnly = true;
-      }
-      unlockEditor();
-      loadFromLocalStorage(); // સેશન ચાલુ હોય તો પણ સેવ થયેલો ડેટા લોડ કરવો
-    } else {
-      lockEditor();
-    }
-  }
-
-  // ૧૯. લૉગઆઉટ ફંક્શન
-  function logoutUser() {
-    if (confirm('શું તમે લૉગઆઉટ કરવા માંગો છો?')) {
-      // લૉગઆઉટ થતાં પહેલાં વર્તમાન ડેટા સેવ કરી લેવો
-      saveToLocalStorage();
-      sessionStorage.clear();
-      location.reload();
-    }
-  }
-
-  // ૨૦. માસ્ટર ઇવેન્ટ લિસનર્સ (તમામ ફેરફારો તાત્કાલિક સેવ કરવા માટે)
-  function attachEvents() {
-    // કીબોર્ડ ટાઇપિંગ વખતે ઓટો સેવ
-    document.addEventListener('input', (e) => {
-      syncData();
-      calcAdm();
-      calcCat();
-      calcEnr();
-
-      clearTimeout(saveTimeout);
-      saveTimeout = setTimeout(saveToLocalStorage, 300);
-    });
-
-    // ટેબલ કે ઇનપુટમાંથી બહાર નીકળતાં (Blur / Change) તુરંત સેવ
-    document.addEventListener('change', () => {
-      syncData();
-      calcAdm();
-      calcCat();
-      calcEnr();
-      saveToLocalStorage();
-    });
-
-    document.addEventListener('blur', (e) => {
-      if (e.target && (e.target.isContentEditable || e.target.tagName === 'INPUT')) {
-        saveToLocalStorage();
-      }
-    }, true);
-  }
-
-  // ૨૧. મુખ્ય શરૂઆત (Initialization)
-  function init() {
-    loadFromLocalStorage();
-    syncData();
-    calcAdm();
-    calcCat();
-    calcEnr();
-    setupDynamicTableButtons();
-    attachEvents();
-    
-    // લૉગિન ચકાસણી
-    checkAuthOnLoad();
-  }
-
-  // પેજ લોડિંગ હેન્ડલર
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
-</script>
-</body>
-</html>
