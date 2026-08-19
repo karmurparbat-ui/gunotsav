@@ -358,7 +358,89 @@
       bottom: 4mm;
     }
   }
-  /* Auth Modal & Logout Styling */
+
+  /* ૧. નોટિસ મોડલ સ્ટાઇલ */
+  .notice-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(15, 23, 42, 0.90);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100000;
+  }
+  .notice-card {
+    background: #ffffff;
+    padding: 26px 28px;
+    border-radius: 12px;
+    max-width: 480px;
+    width: 92%;
+    box-shadow: 0 16px 40px rgba(0,0,0,0.35);
+    text-align: center;
+    font-family: 'Rasa', serif;
+    border-top: 6px solid #1a365d;
+    animation: popIn 0.3s ease-out;
+  }
+  @keyframes popIn {
+    from { transform: scale(0.92); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+  .notice-badge-free {
+    background: #e6fffa;
+    color: #234e52;
+    border: 1.5px solid #38b2ac;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 1.08rem;
+    font-weight: 700;
+    margin: 10px 0;
+    text-align: left;
+  }
+  .notice-badge-paid {
+    background: #fffaf0;
+    color: #744210;
+    border: 1.5px solid #dd6b20;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin: 10px 0;
+    text-align: left;
+  }
+  .notice-pay-box {
+    background: #edf2f7;
+    border: 1.5px dashed #4a5568;
+    border-radius: 8px;
+    padding: 12px;
+    margin: 14px 0;
+    text-align: center;
+  }
+  .notice-pay-num {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #1a365d;
+    letter-spacing: 1px;
+  }
+  .btn-notice-ok {
+    width: 100%;
+    background: #1a365d;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: 'Rasa', serif;
+    transition: background 0.2s;
+    box-shadow: 0 4px 12px rgba(26, 54, 93, 0.3);
+  }
+  .btn-notice-ok:hover {
+    background: #2b6cb0;
+  }
+
+  /* ૨. લૉગિન મોડલ અને લૉગઆઉટ બટન સ્ટાઇલ */
   .auth-overlay {
     position: fixed;
     top: 0; left: 0;
@@ -444,8 +526,42 @@
 </style>
 </head>
 <body>
-  <!-- લૉગિન પોપઅપ વિન્ડો -->
-<div id="authModal" class="auth-overlay no-print">
+
+<!-- ૧. અગત્યની સૂચના પોપઅપ વિન્ડો (Notice Modal) -->
+<div id="noticeModal" class="notice-overlay no-print">
+  <div class="notice-card">
+    <div style="font-size: 2.2rem; margin-bottom: 2px;">📢</div>
+    <h2 style="margin: 0 0 6px 0; color: #0f2b48; font-size: 1.45rem; font-weight: 800;">
+      અગત્યની સૂચના (ગુણોત્સવ ૨.૦ SQAAF)
+    </h2>
+    <div style="height: 2px; background: #e2e8f0; margin: 8px 0 12px 0;"></div>
+
+    <div class="notice-badge-free">
+      ✅ <strong>દ્વારકા તાલુકો:</strong> તમામ પ્રાથમિક શાળાઓ માટે આ સોફ્ટવેર <u>તદ્દન ફ્રી</u> છે.
+    </div>
+
+    <div class="notice-badge-paid">
+      ℹ️ <strong>અન્ય તાલુકા / જિલ્લાઓ:</strong> અન્ય શાળાઓ માટે આ સોફ્ટવેર ઉપયોગનો સહયોગ ચાર્જ <strong>₹૧૦૦</strong> રાખેલ છે.
+    </div>
+
+    <div class="notice-pay-box">
+      <div style="font-size: 0.98rem; font-weight: 700; color: #2d3748; margin-bottom: 4px;">
+        📲 Google Pay / PhonePe નંબર:
+      </div>
+      <div class="notice-pay-num">9586311704</div>
+      <div style="font-size: 0.92rem; color: #4a5568; margin-top: 6px;">
+        ગૂગલ પે કર્યા બાદ સ્ક્રીનશોટ અને આપની શાળાનો ડાયસ કોડ આ જ નંબર પર WhatsApp કરવો. ત્યારબાદ આપને <strong>લૉગિન પિન (PIN)</strong> ફાળવવામાં આવશે.
+      </div>
+    </div>
+
+    <button type="button" class="btn-notice-ok" onclick="openLoginModal()">
+      સમજાઈ ગયું / આગળ વધો (OK) ➔
+    </button>
+  </div>
+</div>
+
+<!-- ૨. લૉગિન પોપઅપ વિન્ડો (Login Modal) -->
+<div id="authModal" class="auth-overlay no-print" style="display: none;">
   <div class="auth-card">
     <h2 style="margin: 0 0 8px 0; color: #0f2b48; font-size: 1.45rem;">🔐 અધિકૃત શાળા પ્રવેશ (Login)</h2>
     <p style="color: #4a5568; font-size: 1rem; margin-bottom: 20px;">
@@ -483,10 +599,10 @@
       <label>જિલ્લો:</label>
       <input type="text" id="inputDistrict" value="દેવભૂમિ દ્વારકા">
     </div>
-<div class="form-group">
-  <label>ડાયસ કોડ (DISE Code): <span style="font-size:0.85rem; color:#2b6cb0; font-weight:600;">🔒 (લૉક)</span></label>
-  <input type="text" id="inputDiseCode" value="" readonly placeholder="લૉગિન થતાં આપોઆપ આવશે" style="background-color: #edf2f7; color: #1a365d; font-weight: 700; cursor: not-allowed; border: 1.5px solid #cbd5e0;">
-</div>
+    <div class="form-group">
+      <label>ડાયસ કોડ (DISE Code): <span style="font-size:0.85rem; color:#2b6cb0; font-weight:600;">🔒 (લૉક)</span></label>
+      <input type="text" id="inputDiseCode" value="" readonly placeholder="લૉગિન થતાં આપોઆપ આવશે" style="background-color: #edf2f7; color: #1a365d; font-weight: 700; cursor: not-allowed; border: 1.5px solid #cbd5e0;">
+    </div>
     <div class="form-group">
       <label>શૈક્ષણિક વર્ષ:</label>
       <input type="text" id="inputYear" value="૨૦૨૬-૨૭">
@@ -506,8 +622,9 @@
   </div>
   <div class="panel-actions">
     <button class="btn-print" onclick="window.print()">🖨️ પ્રિન્ટ / PDF ડાઉનલોડ કરો</button>
-    <button class="btn-reset" onclick="resetDefaults()">🔄 ડિફોલ્ટ ડેટા રીસેટ</button><button class="btn-logout" onclick="logoutUser()">🚪 લૉગઆઉટ</button>
-    <span class="save-status" id="saveStatus">💾 તમામ વિગતો લોકલ સ્ટોરેજમાં સેવ થાય છે</span>
+    <button class="btn-reset" onclick="resetDefaults()">🔄 ડિફોલ્ટ ડેટા રીસેટ</button>
+    <button class="btn-logout" onclick="logoutUser()">🚪 લૉગઆઉટ</button>
+    <span class="save-status" id="saveStatus">💾 તમામ વિગતો ઓટોમેટિક સેવ થાય છે</span>
   </div>
 </div>
 
@@ -3431,9 +3548,9 @@
   <div class="credit-footer">સૌજન્ય : પરબતભાઇ કરમુર - શ્રી કોરાડાવાડી પ્રાથમિક શાળા</div>
 </div>
 
-<!-- ========================================================= -->
+<!-- ========================================== -->
 <!-- ભાગ ૧૨ - પેજ ૬ : દિનવિશેષ અને રાષ્ટ્રીય / સાંસ્કૃતિક કાર્યક્રમો -->
-<!-- ========================================================= -->
+<!-- ========================================== -->
 <div class="page">
   <div class="doc-header">
     <div class="school-title">
@@ -4138,7 +4255,7 @@
     });
   }
 
-  // ૧૧. લોકલ સ્ટોરેજમાં સંપૂર્ણ ડેટા સેવ કરવો (સુધારેલ ફંક્શન)
+  // ૧૧. લોકલ સ્ટોરેજમાં સંપૂર્ણ ડેટા સેવ કરવો
   function saveToLocalStorage() {
     if (!isStorageAvailable()) return;
 
@@ -4194,7 +4311,7 @@
     }
   }
 
-  // ૧૨. લોકલ સ્ટોરેજમાંથી ડેટા લોડ કરવો (સુધારેલ સાચો ક્રમ)
+  // ૧૨. લોકલ સ્ટોરેજમાંથી ડેટા લોડ કરવો
   function loadFromLocalStorage() {
     if (!isStorageAvailable()) return;
 
@@ -4205,7 +4322,7 @@
 
       const data = JSON.parse(saved);
 
-      // ૧. સૌથી પહેલાં ટેબલ્સનું innerHTML રિસ્ટોર કરો (નવી રો સહિત)
+      // ૧. સૌથી પહેલાં ટેબલ્સનું innerHTML રિસ્ટોર કરો
       if (data.tables && Array.isArray(data.tables)) {
         const allTables = document.querySelectorAll('table.custom-table');
         data.tables.forEach(tItem => {
@@ -4234,6 +4351,7 @@
         const allOtherEditables = document.querySelectorAll('p[contenteditable="true"], li[contenteditable="true"], span[contenteditable="true"]');
         data.otherEditables.forEach(eItem => {
           if (allOtherEditables[eItem.index] && eItem.html !== undefined) {
+            allOtherEditables[eItem.index] && eItem.html !== undefined) {
             allOtherEditables[eItem.index].innerHTML = eItem.html;
           }
         });
@@ -4264,7 +4382,15 @@
     }
   }
 
-  // ૧૪. ગૂગલ શીટ દ્વારા લૉગિન વેરિફિકેશન
+  // ૧૪. નોટિસ મોડલ બંધ કરી લૉગિન મોડલ બતાવવું
+  function openLoginModal() {
+    const noticeModal = document.getElementById('noticeModal');
+    const authModal = document.getElementById('authModal');
+    if (noticeModal) noticeModal.style.display = 'none';
+    if (authModal) authModal.style.display = 'flex';
+  }
+
+  // ૧૫. ગૂગલ શીટ દ્વારા લૉગિન વેરિફિકેશન
   async function verifyAccessFromSheet() {
     const diseInput = document.getElementById('authDise');
     const pinInput = document.getElementById('authPin');
@@ -4281,163 +4407,4 @@
     }
 
     btnSubmit.disabled = true;
-    statusMsg.className = 'auth-msg auth-loader';
-    statusMsg.textContent = '⏳ ચકાસણી થઈ રહી છે...';
-
-    try {
-      const requestUrl = `${GOOGLE_SCRIPT_API_URL}?action=verify&dise=${encodeURIComponent(dise)}&pin=${encodeURIComponent(pin)}`;
-      const response = await fetch(requestUrl);
-      const result = await response.json();
-
-      if (result.success) {
-        const verifiedDise = result.diseCode || dise;
-
-        sessionStorage.setItem('gunotsav_auth', 'true');
-        sessionStorage.setItem('gunotsav_verified_dise', verifiedDise);
-
-        statusMsg.className = 'auth-msg';
-        statusMsg.style.color = '#22543d';
-        statusMsg.textContent = '✅ પ્રવેશ સફળ!';
-
-        const diseEl = document.getElementById('inputDiseCode');
-        if (diseEl) {
-          diseEl.value = verifiedDise;
-          diseEl.readOnly = true;
-        }
-
-        // લૉગિન થતાં જ આ શાળાનો અગાઉ સેવ કરેલો ડેટા લોડ કરવો
-        loadFromLocalStorage();
-        syncData();
-
-        setTimeout(() => {
-          unlockEditor();
-        }, 500);
-
-      } else {
-        statusMsg.className = 'auth-msg auth-err';
-        statusMsg.textContent = '❌ ' + (result.message || 'ખોટો ડાયસ કોડ અથવા પિન!');
-      }
-    } catch (err) {
-      console.error(err);
-      statusMsg.className = 'auth-msg auth-err';
-      statusMsg.textContent = '❌ કનેક્શન એરર! ફરી પ્રયાસ કરો.';
-    } finally {
-      btnSubmit.disabled = false;
-    }
-  }
-
-  // ૧૫. એડિટર અનલૉક કરવું
-  function unlockEditor() {
-    const modal = document.getElementById('authModal');
-    if (modal) modal.style.display = 'none';
-
-    const verifiedDise = sessionStorage.getItem('gunotsav_verified_dise');
-    const diseEl = document.getElementById('inputDiseCode');
-    if (diseEl && verifiedDise) {
-      diseEl.value = verifiedDise;
-      diseEl.readOnly = true;
-    }
-
-    document.querySelectorAll('.control-panel input:not(#inputDiseCode), table input').forEach(el => {
-      el.disabled = false;
-    });
-
-    document.querySelectorAll('[contenteditable]').forEach(el => {
-      el.setAttribute('contenteditable', 'true');
-    });
-
-    syncData();
-  }
-
-  // ૧૬. એડિટર લૉક રાખવું (લૉગિન વિના)
-  function lockEditor() {
-    const modal = document.getElementById('authModal');
-    if (modal) modal.style.display = 'flex';
-
-    document.querySelectorAll('.control-panel input, table input').forEach(el => {
-      el.disabled = true;
-    });
-
-    document.querySelectorAll('[contenteditable]').forEach(el => {
-      el.setAttribute('contenteditable', 'false');
-    });
-  }
-
-  // ૧૭. પેજ લોડ વખતે ચકાસણી
-  function checkAuthOnLoad() {
-    const isAuth = sessionStorage.getItem('gunotsav_auth');
-    const verifiedDise = sessionStorage.getItem('gunotsav_verified_dise');
-
-    if (isAuth === 'true' && verifiedDise) {
-      const diseEl = document.getElementById('inputDiseCode');
-      if (diseEl) {
-        diseEl.value = verifiedDise;
-        diseEl.readOnly = true;
-      }
-      unlockEditor();
-      loadFromLocalStorage(); // સેશન ચાલુ હોય તો પણ સેવ થયેલો ડેટા લોડ કરવો
-    } else {
-      lockEditor();
-    }
-  }
-
-  // ૧૮. લૉગઆઉટ ફંક્શન
-  function logoutUser() {
-    if (confirm('શું તમે લૉગઆઉટ કરવા માંગો છો?')) {
-      // લૉગઆઉટ થતાં પહેલાં વર્તમાન ડેટા સેવ કરી લેવો
-      saveToLocalStorage();
-      sessionStorage.clear();
-      location.reload();
-    }
-  }
-
-  // ૧૯. માસ્ટર ઇવેન્ટ લિસનર્સ (તમામ ફેરફારો તાત્કાલિક સેવ કરવા માટે)
-  function attachEvents() {
-    // કીબોર્ડ ટાઇપિંગ વખતે ઓટો સેવ
-    document.addEventListener('input', (e) => {
-      syncData();
-      calcAdm();
-      calcCat();
-      calcEnr();
-
-      clearTimeout(saveTimeout);
-      saveTimeout = setTimeout(saveToLocalStorage, 300);
-    });
-
-    // ટેબલ કે ઇનપુટમાંથી બહાર નીકળતાં (Blur / Change) તુરંત સેવ
-    document.addEventListener('change', () => {
-      syncData();
-      calcAdm();
-      calcCat();
-      calcEnr();
-      saveToLocalStorage();
-    });
-
-    document.addEventListener('blur', (e) => {
-      if (e.target && (e.target.isContentEditable || e.target.tagName === 'INPUT')) {
-        saveToLocalStorage();
-      }
-    }, true);
-  }
-
-  // ૨૦. મુખ્ય શરૂઆત (Initialization)
-  function init() {
-    loadFromLocalStorage();
-    syncData();
-    calcAdm();
-    calcCat();
-    calcEnr();
-    setupDynamicTableButtons();
-    attachEvents();
-    
-    // લૉગિન ચકાસણી
-    checkAuthOnLoad();
-  }
-
-  // પેજ લોડિંગ હેન્ડલર
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
-</script>ipt>
+    status
