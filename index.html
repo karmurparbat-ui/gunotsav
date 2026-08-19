@@ -555,7 +555,7 @@
 
     <div class="notice-box notice-box-paid">
       <span class="notice-emoji">ℹ️</span>
-      <span><strong>અન્ય તાલુકા / જિલ્લાઓઃ</strong> અન્ય શાળાઓ માટે આ સોફ્ટવેર ઉપયોગનો સહયોગ ચાર્જ ₹૧૦૦ રાખેલ છે.</span>
+      <span><strong>અન્ય તાલુકા / જિલ્લાઓઃ</strong> અન્ય શાળાઓ માટે આ સોફ્ટવેર ઉપયોગનો સહયોગ ચાર્જ ₹૨૦૦ રાખેલ છે. જો જરૂરી હોય તો, પહેલાં ચકાસવા માટે <strong>ડેમો ફાઇલની માંગણી કરો</strong> અને ત્યારબાદ જ ચુકવણી કરો.</span>
     </div>
 
     <div class="notice-box notice-box-pay">
@@ -4344,6 +4344,10 @@
         });
       }
 
+      // ૧.૧ જૂના (કેશ થયેલા) ડેટામાં ખૂટતું contenteditable પાછું ઉમેરવું
+      // (જૂના બ્રાઉઝર સેવ ડેટામાં ફક્ત અમુક કોલમ જ એડિટેબલ હોય તો પણ, હવે તમામ સેલ એડિટેબલ બને)
+      ensureTableCellsEditable();
+
       // ૨. ટેબલ રિસ્ટોર થયા પછી તમામ ઇનપુટ્સની વેલ્યુ સેટ કરો
       if (data.inputs) {
         document.querySelectorAll('input').forEach((input, index) => {
@@ -4394,6 +4398,16 @@
   function closeNoticeModal() {
     const notice = document.getElementById('noticeModal');
     if (notice) notice.style.display = 'none';
+  }
+
+  // ૧૩.૬ તમામ ટેબલ સેલ પર contenteditable ખાતરીપૂર્વક લાગુ કરવું
+  // (જૂના સેવ થયેલા લોકલ ડેટામાં આ એટ્રિબ્યુટ ખૂટતું હોય તો પણ સરખું કરી દેશે)
+  function ensureTableCellsEditable() {
+    document.querySelectorAll('table.custom-table td').forEach(td => {
+      if (!td.querySelector('input, select, button') && !td.hasAttribute('contenteditable')) {
+        td.setAttribute('contenteditable', 'true');
+      }
+    });
   }
 
   // ૧૪. ગૂગલ શીટ દ્વારા લૉગિન વેરિફિકેશન
@@ -4473,6 +4487,8 @@
     document.querySelectorAll('.control-panel input:not(#inputDiseCode), table input').forEach(el => {
       el.disabled = false;
     });
+
+    ensureTableCellsEditable();
 
     document.querySelectorAll('[contenteditable]').forEach(el => {
       el.setAttribute('contenteditable', 'true');
