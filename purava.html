@@ -1,1 +1,1599 @@
+<!DOCTYPE html>
+<html lang="gu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>આધાર પુરાવા દસ્તાવેજ -ગુણોત્સવ-2026-27</title>
 
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anek+Gujarati:wght@400;600;700&family=Rasa:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ===== CSS Variables ===== */
+        :root {
+            --primary-blue: #2c2f70;
+            --secondary-green: #d4edda;
+            --light-bg: #f4f6f9;
+            --border-color: #d1d5db;
+            --text-dark: #333;
+            --text-muted: #555;
+            --white: #fff;
+            --danger: #dc3545;
+            --success: #28a745;
+            --info: #0056b3;
+        }
+
+        /* ===== Reset & Base ===== */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Anek Gujarati', sans-serif;
+            background-color: var(--light-bg);
+            display: flex;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1,
+        h2,
+        h3,
+        .page-title,
+        .section-title {
+            font-family: 'Rasa', serif;
+        }
+
+        /* ===== Sidebar ===== */
+        .sidebar {
+            width: 380px;
+            background-color: var(--white);
+            border-right: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .sidebar-header {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            text-align: center;
+            padding: 15px;
+            flex-shrink: 0;
+        }
+
+        .sidebar-header h3 {
+            margin: 0;
+            font-size: 18px;
+        }
+
+        .sidebar-header p {
+            margin: 5px 0 0 0;
+            font-size: 13px;
+        }
+
+        /* ===== Tabs ===== */
+        .tabs {
+            display: flex;
+            border-bottom: 2px solid var(--border-color);
+            background-color: #e9ecef;
+            flex-shrink: 0;
+        }
+
+        .tab {
+            flex: 1;
+            text-align: center;
+            padding: 12px;
+            font-weight: bold;
+            color: #555;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            transition: background 0.2s, border-color 0.2s;
+            user-select: none;
+        }
+
+        .tab.active {
+            border-bottom: 3px solid var(--success);
+            background-color: var(--secondary-green);
+            color: #155724;
+        }
+
+        .tab:hover {
+            background-color: #dee2e6;
+        }
+
+        /* ===== Settings Panel ===== */
+        .settings-panel {
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-bottom: 2px solid var(--border-color);
+            font-size: 13px;
+            max-height: 250px;
+            overflow-y: auto;
+            flex-shrink: 0;
+        }
+
+        .settings-panel label {
+            font-weight: 600;
+            display: block;
+            margin-top: 8px;
+            margin-bottom: 3px;
+            color: #555;
+        }
+
+        .settings-panel input[type="text"] {
+            width: 100%;
+            padding: 6px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-family: 'Anek Gujarati', sans-serif;
+        }
+
+        .settings-panel input[type="file"] {
+            width: 100%;
+            padding: 5px;
+            border: 1px dashed #aaa;
+            background: var(--white);
+            margin-bottom: 5px;
+            font-size: 12px;
+        }
+
+        .settings-row {
+            display: flex;
+            gap: 10px;
+        }
+
+        .settings-row>div {
+            flex: 1;
+        }
+
+        /* ===== Menu List ===== */
+        .menu-list {
+            flex: 1;
+            overflow-y: auto;
+            padding: 10px;
+        }
+
+        .menu-item {
+            display: flex;
+            align-items: flex-start;
+            padding: 10px;
+            margin-bottom: 5px;
+            background-color: var(--white);
+            border-bottom: 1px solid #eee;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            color: var(--text-dark);
+            border-left: 4px solid transparent;
+            transition: background 0.15s, border-color 0.15s;
+        }
+
+        .menu-item.active-menu {
+            background-color: #eaf4fb;
+            color: var(--primary-blue);
+            border-left-color: var(--primary-blue);
+        }
+
+        .menu-item:hover {
+            background-color: #f1f7fc;
+        }
+
+        .menu-number {
+            background-color: #3f4770;
+            color: var(--white);
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-right: 10px;
+            font-size: 13px;
+            min-width: 18px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        /* ===== Main Content ===== */
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            overflow-y: auto;
+            min-width: 0;
+        }
+
+        /* ===== Top Bar ===== */
+        .top-bar {
+            padding: 10px 20px;
+            background-color: var(--white);
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            flex-shrink: 0;
+        }
+
+        /* ===== Buttons ===== */
+        .btn {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 4px;
+            color: var(--white);
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 14px;
+            font-family: 'Anek Gujarati', sans-serif;
+            transition: opacity 0.2s, transform 0.1s;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+        .btn:active {
+            transform: scale(0.97);
+        }
+
+        .btn-blue {
+            background-color: var(--info);
+        }
+        .btn-red {
+            background-color: var(--danger);
+        }
+        .btn-green {
+            background-color: var(--success);
+        }
+        .btn-small {
+            padding: 5px 10px;
+            font-size: 12px;
+            margin-left: 5px;
+        }
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+        .btn-secondary:hover {
+            background: #5a6268;
+        }
+
+        /* ===== Document Area ===== */
+        .document-area {
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            flex: 1;
+        }
+
+        .page {
+            background-color: var(--white);
+            width: 100%;
+            max-width: 850px;
+            padding: 40px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            align-self: flex-start;
+        }
+
+        /* ===== Print Styles ===== */
+        @media print {
+            body,
+            html {
+                height: auto !important;
+                background: var(--white) !important;
+            }
+
+            .sidebar,
+            .top-bar,
+            .no-print {
+                display: none !important;
+            }
+
+            .main-content {
+                overflow: visible !important;
+                width: 100% !important;
+                padding: 0 !important;
+            }
+
+            .page {
+                box-shadow: none !important;
+                border: none !important;
+                padding: 10px !important;
+                width: 100% !important;
+                max-width: 100% !important;
+            }
+
+            .table-input {
+                border: 0 !important;
+                background: transparent !important;
+            }
+
+            #photoSection {
+                page-break-inside: avoid;
+            }
+
+            .photo-container {
+                page-break-inside: avoid;
+            }
+
+            .photo-preview {
+                display: block !important;
+                max-width: 100% !important;
+                height: auto !important;
+            }
+
+            .photo-upload-box {
+                border: none !important;
+                background-color: transparent !important;
+            }
+        }
+
+        /* ===== Page Elements ===== */
+        .page-title {
+            border: 2px solid var(--primary-blue);
+            text-align: center;
+            padding: 10px;
+            color: var(--primary-blue);
+            font-size: 22px;
+            background-color: #eaf4fb;
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            margin-top: 15px;
+            margin-bottom: 10px;
+            border-bottom: 1px dotted #ccc;
+            padding-bottom: 5px;
+            color: var(--primary-blue);
+        }
+
+        /* ===== Tables ===== */
+        #tableContainer {
+            margin-bottom: 10px;
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            font-size: 14px;
+            text-align: left;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #adb5bd;
+        }
+
+        th {
+            background-color: #e9ecef;
+            padding: 8px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        td {
+            padding: 4px;
+        }
+
+        .table-input {
+            width: 95%;
+            border: 1px solid transparent;
+            outline: none;
+            padding: 4px;
+            font-family: inherit;
+            font-size: 14px;
+            background: transparent;
+            transition: border 0.2s, background 0.2s;
+        }
+
+        .table-input:focus {
+            border: 1px solid #80bdff;
+            background-color: #f8f9fa;
+        }
+
+        /* ===== Highlight & Description ===== */
+        .highlight-box {
+            border-left: 4px solid var(--primary-blue);
+            background-color: #f8f9fa;
+            padding: 10px;
+            font-weight: bold;
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: var(--primary-blue);
+        }
+
+        .desc-text {
+            font-size: 14px;
+            color: var(--text-muted);
+            background-color: #fdfdfd;
+            border: 1px dashed #ccc;
+            padding: 10px;
+            margin-bottom: 15px;
+        }
+
+        /* ===== Photo Section ===== */
+        #photoSection {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px dashed #ccc;
+        }
+
+        .photo-container {
+            position: relative;
+            text-align: center;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+        .photo-upload-box {
+            border: 2px dashed #adb5bd;
+            background-color: #e9ecef;
+            min-height: 250px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            position: relative;
+        }
+
+        .photo-preview {
+            max-width: 100%;
+            max-height: 250px;
+            display: none;
+            object-fit: contain;
+        }
+
+        .placeholder-text {
+            color: #6c757d;
+            font-size: 14px;
+        }
+
+        .delete-btn {
+            position: absolute;
+            top: -12px;
+            right: -12px;
+            background: var(--danger);
+            color: var(--white);
+            border: none;
+            border-radius: 50%;
+            width: 28px;
+            height: 28px;
+            cursor: pointer;
+            font-weight: bold;
+            z-index: 10;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.15s;
+        }
+
+        .delete-btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* ===== Footer Signature ===== */
+        .footer-sign {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 60px;
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        .signature-area {
+            height: 60px;
+            display: flex;
+            align-items: end;
+            justify-content: center;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+
+        .signature-img {
+            max-height: 60px;
+            max-width: 150px;
+            display: none;
+        }
+
+        .footer-sign-center {
+            text-align: center;
+        }
+
+        /* ===== Utility ===== */
+        .text-center {
+            text-align: center;
+        }
+        .text-right {
+            text-align: right;
+        }
+        .mt-10 {
+            margin-top: 10px;
+        }
+        .mt-20 {
+            margin-top: 20px;
+        }
+        .mb-10 {
+            margin-bottom: 10px;
+        }
+        .mb-5 {
+            margin-bottom: 5px;
+        }
+        .mr-15 {
+            margin-right: 15px;
+        }
+        .text-danger {
+            color: var(--danger);
+        }
+        .text-muted-small {
+            color: #6c757d;
+            font-size: 14px;
+        }
+
+        .border-none {
+            border: none !important;
+        }
+
+        /* ===== Responsive ===== */
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+                height: auto;
+            }
+
+            .sidebar {
+                width: 100%;
+                height: auto;
+                max-height: 50vh;
+                border-right: none;
+                border-bottom: 1px solid var(--border-color);
+            }
+
+            .main-content {
+                height: auto;
+            }
+
+            .page {
+                padding: 20px;
+            }
+
+            .settings-row {
+                flex-direction: column;
+                gap: 0;
+            }
+
+            .footer-sign {
+                flex-direction: column;
+                gap: 20px;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== SIDEBAR ===== -->
+    <aside class="sidebar no-print">
+        <div class="sidebar-header">
+            <h3>તૈયાર કરનાર : પરબતભાઇ કરમુર</h3>
+            <p>શ્રી કોરાડા વાડી પ્રા.શાળા</p>
+        </div>
+
+        <div class="tabs">
+            <div class="tab active" id="tabPart1" onclick="switchTab(1)">📄 PART 1</div>
+            <div class="tab" id="tabPart2" onclick="switchTab(2)">📄 PART 2</div>
+        </div>
+
+        <div class="settings-panel">
+            <label>શાળાનું નામ:</label>
+            <input type="text" id="inpSchoolName" class="autosave" value="કવિ સુંદરમ પ્રાથમિક શાળા (સવાર)" onkeyup="updateDoc()">
+
+            <div class="settings-row">
+                <div>
+                    <label>UDISE કોડ:</label>
+                    <input type="text" id="inpUdise" class="autosave" value="24191304004" onkeyup="updateDoc()">
+                </div>
+                <div>
+                    <label>વર્ષ:</label>
+                    <input type="text" id="inpYear" class="autosave" value="2026-27" onkeyup="updateDoc()">
+                </div>
+            </div>
+
+            <label>ગામ / તાલુકો / જિલ્લો:</label>
+            <input type="text" id="inpAddress" class="autosave" value="હાથીખાના વડોદરા સીટી" onkeyup="updateDoc()">
+
+            <label>ચાલતા ધોરણ:</label>
+            <input type="text" id="inpStandard" class="autosave" value="બાળવાટીકા થી ધોરણ ૮" onkeyup="updateDoc()">
+
+            <label>આચાર્યનું નામ:</label>
+            <input type="text" id="inpPrincipal" class="autosave" value="પટેલ અલ્પેશકુમાર કે" onkeyup="updateDoc()">
+
+            <label style="color: #d9534f; margin-top: 10px;">આચાર્યની સહી અને સિક્કો અપલોડ કરો:</label>
+            <input type="file" accept="image/*" onchange="previewSignature(this)">
+        </div>
+
+        <div class="menu-list" id="menuList"></div>
+    </aside>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main class="main-content">
+        <div class="top-bar no-print">
+            <button class="btn btn-secondary" onclick="goBackToMain()">🔙 મુખ્ય પેજ પર પાછા</button>
+            <button class="btn btn-blue" onclick="window.print()">📥 PDF ડાઉનલોડ / 🖨️ પ્રિન્ટ</button>
+        </div>
+
+        <div class="document-area">
+            <div class="page" id="documentPage">
+
+                <!-- Title -->
+                <div class="page-title" id="docMainTitle">આધાર પુરાવા દસ્તાવેજ (PART 1)</div>
+
+                <!-- School Info -->
+                <div class="section-title">(01) શાળાની માહિતી :</div>
+                <table style="border:none; margin-bottom: 20px;">
+                    <tr style="border:none;">
+                        <td style="border:none; text-align: left;">
+                            <strong>શાળાનું નામ :</strong> <span id="docSchoolName">કવિ સુંદરમ પ્રાથમિક શાળા (સવાર)</span><br><br>
+                            <strong>સરનામું :</strong> <span id="docAddress">હાથીખાના વડોદરા સીટી</span><br><br>
+                            <strong>વર્ષ :</strong> <span id="docYear">2026-27</span>
+                        </td>
+                        <td style="border:none; text-align: left;">
+                            <strong>UDISE કોડ :</strong> <span id="docUdise">24191304004</span><br><br>
+                            <strong>ચાલતા ધોરણ :</strong> <span id="docStandard">બાળવાટીકા થી ધોરણ ૮</span><br><br>
+                            <strong>આચાર્યશ્રી :</strong> <span id="docPrincipal">પટેલ અલ્પેશકુમાર કે</span>
+                        </td>
+                    </tr>
+                </table>
+
+                <!-- Dynamic Content -->
+                <div class="section-title">(02) આધાર-પુરાવાની વિગત :</div>
+                <div id="dynamicContent"></div>
+
+                <!-- Table Controls -->
+                <div class="no-print text-right mt-10 mb-5">
+                    <span class="text-danger" style="font-size:13px; margin-right:15px;">
+                        (નોંધ: નીચેના ટેબલમાં માહિતી ટાઈપ કરી સુધારી શકાય છે.)
+                    </span>
+                    <button class="btn btn-red btn-small" onclick="removeCol('mainTable')">− કોલમ કાઢો</button>
+                    <button class="btn btn-blue btn-small" onclick="addCol('mainTable')">+ કોલમ ઉમેરો</button>
+                    <button class="btn btn-red btn-small" onclick="removeRow('mainTable')">− રો કાઢો</button>
+                    <button class="btn btn-blue btn-small" onclick="addRow('mainTable')">+ રો ઉમેરો</button>
+                </div>
+
+                <!-- Table Container -->
+                <div id="tableContainer"></div>
+
+                <!-- Photo Section -->
+                <div id="photoSection"></div>
+
+                <!-- Add Photo Button -->
+                <div class="no-print text-center mt-20">
+                    <button class="btn btn-blue" onclick="addExtraPhoto()">+ વધારાનો ફોટો ઉમેરો</button>
+                </div>
+
+                <!-- Footer Signature -->
+                <div class="footer-sign">
+                    <div>
+                        સ્થળ : <span id="docFooterPlace">વડોદરા</span><br><br>
+                        તારીખ : ___ / ___ / ૨૦૨૬
+                    </div>
+                    <div class="footer-sign-center">
+                        આચાર્યની સહી અને સિક્કો
+                        <div class="signature-area">
+                            <img id="docSignature" class="signature-img" src="" alt="સહી">
+                        </div>
+                        _________________________
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- ============================================================ -->
+    <!-- ===== JAVASCRIPT ===== -->
+    <!-- ============================================================ -->
+    <script>
+        /* ==============================================================
+           PART 1 DATA — 38 items
+           ============================================================== */
+        const part1Data = [{
+            id: 1,
+            title: 'શાળાએ ચાલુ શૈક્ષણિક વર્ષમાં આપેલ પ્રવેશની વિગત',
+            desc: 'શાળામાં ચાલુ શૈક્ષણિક વર્ષ દરમિયાન ધોરણ ૧ અને બાલવાટિકામાં સરકારશ્રીના નિયમો મુજબ પ્રવેશ આપવામાં આવેલ છે.',
+            headers: ['ધોરણ', 'નવા પ્રવેશ (ચાલુ વર્ષે)', 'અન્ય શાળામાંથી'],
+            rows: [
+                ['બાલવાટિકા', '૧૦', '૦૦'],
+                ['ધોરણ ૧', '૧૨', '૦૨']
+            ]
+        }, {
+            id: 2,
+            title: 'શાળાના કુલ શિક્ષકો અને વિદ્યાર્થીઓની સંખ્યા અને પ્રત્યેક વર્ગ દીઠ વિદ્યાર્થીઓની સંખ્યા',
+            desc: 'શાળામાં મંજૂર મહેકમ સામે કાર્યરત શિક્ષકો અને પ્રત્યેક વર્ગદીઠ કુમાર-કન્યાની હાજર સંખ્યાનું પત્રક નીચે મુજબ નિભાવવામાં આવેલ છે.',
+            headers: ['વિગત', 'મંજૂર મહેકમ / કુલ સંખ્યા', 'હાજર સંખ્યા'],
+            rows: [
+                ['કુલ શિક્ષકો', '૦૬', '૦૫'],
+                ['કુલ વિદ્યાર્થીઓ (ધો ૧ થી ૮)', '−', '૧૫૦']
+            ]
+        }, {
+            id: 3,
+            title: 'શાળાના પ્રત્યેક કર્મચારી / શિક્ષકને અપાયેલ કામગીરી / વિષય અને તેમની શૈક્ષણિક - વ્યાવસાયિક લાયકાતની વિગત',
+            desc: 'શાળાના તમામ શિક્ષકો ઉચ્ચ શૈક્ષણિક અને વ્યવસાયિક લાયકાત ધરાવે છે. તેઓને તેમની લાયકાત અને અનુભવ અનુસાર વિષયોની યોગ્ય વહેંચણી કરવામાં આવેલ છે.',
+            headers: ['શિક્ષકનું નામ', 'શૈક્ષણિક લાયકાત', 'વ્યાવસાયિક લાયકાત', 'સોંપાયેલ વિષય / ધોરણ'],
+            rows: [
+                ['શ્રી જીતેન્દ્રકુમાર પટેલ', 'M.A.', 'B.Ed.', 'ધોરણ ૬ થી ૮ ભાષા'],
+                ['શ્રી મુકેશભાઈ સોલંકી', 'B.Sc.', 'B.Ed.', 'ધોરણ ૬ થી ૮ ગણિત-વિજ્ઞાન']
+            ]
+        }, {
+            id: 4,
+            title: 'શાળાના કર્મચારીઓના સેવા રેકોર્ડની જાળવણીની પદ્ધતિની વિગત',
+            desc: 'શાળાના તમામ કર્મચારીઓની સર્વિસ બુક, રજા પત્રક અને અન્ય સેવા રેકોર્ડ અદ્યતન સ્થિતિમાં ફાઈલિંગ સાથે નિભાવવામાં આવે છે.',
+            headers: ['રેકોર્ડનો પ્રકાર', 'જાળવણીની પદ્ધતિ', 'અદ્યતન કરવાની સ્થિતિ'],
+            rows: [
+                ['સર્વિસ બુક', 'ભૌતિક કબાટમાં સુરક્ષિત', 'વાર્ષિક અપડેટ'],
+                ['રજા રજીસ્ટર', 'ઓફિસ ફાઈલમાં', 'નિયમિત નોંધ']
+            ]
+        }, {
+            id: 5,
+            title: 'કર્મચારીઓને પગાર ચૂકવણી, Payroll અને ઓડિટની વિગત',
+            desc: 'શાળાના તમામ શિક્ષકોને સરકારશ્રીના નિયમાનુસાર દર માસની નિયત તારીખે પગાર ચૂકવવામાં આવે છે અને શાળાનું વાર્ષિક ઓડિટ પૂર્ણ થયેલ છે.',
+            headers: ['પ્રક્રિયા', 'વિગત / પદ્ધતિ', 'સ્થિતિ'],
+            rows: [
+                ['પગાર ચૂકવણી (Payroll)', 'DBT મારફતે બેંકમાં જમા', 'દર માસની ૫ તારીખે'],
+                ['વાર્ષિક ઓડિટ', 'લોકલ ફંડ દ્વારા', 'પૂર્ણ થયેલ']
+            ]
+        }, {
+            id: 6,
+            title: 'કર્મચારીઓના સ્થાયીકરણ માટેના પ્રયાસોની વિગત, નવા નિમાયેલ અને શાળા છોડીને ગયેલ કર્મચારીઓની સંખ્યા',
+            desc: 'શાળામાં શિક્ષકોના સ્થાયીકરણ માટે સાનુકૂળ વાતાવરણ પૂરું પાડવામાં આવે છે, જેથી શિક્ષકો લાંબા સમય સુધી કાર્યરત રહે છે.',
+            headers: ['વિગત', 'સંખ્યા'],
+            rows: [
+                ['ગત વર્ષે કાર્યરત કુલ સ્ટાફ', '૦૫'],
+                ['નવા જોડાયેલ / બદલી થઈ આવેલ', '૦૦']
+            ]
+        }, {
+            id: 7,
+            title: 'કર્મચારીઓને આપેલ પ્રોત્સાહન - પુરસ્કાર સંબંધિત વિગત',
+            desc: 'શાળામાં શ્રેષ્ઠ કામગીરી કરનાર અને ૧૦૦% પરિણામ લાવનાર શિક્ષકોને વાર્ષિક ઉત્સવ દરમિયાન સન્માનિત કરવામાં આવે છે.',
+            headers: ['શિક્ષકનું નામ', 'આપવામાં આવેલ પ્રોત્સાહન / પુરસ્કાર', 'કારણ / સિદ્ધિ'],
+            rows: [
+                ['શ્રી મુકેશભાઈ', 'શ્રેષ્ઠ શિક્ષક સન્માન', '૧૦૦% પરિણામ બદલ']
+            ]
+        }, {
+            id: 8,
+            title: 'કર્મચારીઓની ફરિયાદોની નોંધ અને નિકાલ સંબંધિત વિગત',
+            desc: 'શિક્ષકો કે કર્મચારીઓના કોઈ પણ પ્રશ્નોના નિવારણ માટે શાળામાં આંતરિક સમિતિ કાર્યરત છે, જે સત્વરે ઉકેલ લાવે છે.',
+            headers: ['ફરિયાદ / પ્રશ્ન', 'રજૂઆત કરનાર', 'કરેલ નિવારણ (Action Taken)'],
+            rows: [
+                ['સ્માર્ટ ક્લાસમાં નેટવર્ક પ્રોબ્લેમ', 'શિક્ષકો', 'નવું રાઉટર લગાવ્યું.']
+            ]
+        }, {
+            id: 9,
+            title: 'શાળાનો વિકાસ યોજનાનો દસ્તાવેજ',
+            desc: 'શાળાના શૈક્ષણિક અને ભૌતિક વિકાસ માટે આગામી વર્ષના લક્ષ્યાંકો નક્કી કરી શાળા વિકાસ યોજના (SDP) તૈયાર કરવામાં આવેલ છે.',
+            headers: ['લક્ષ્યાંક (SDP Goal)', 'સમયગાળો', 'વર્તમાન સ્થિતિ'],
+            rows: [
+                ['FLN 100% સિદ્ધિ', '૧ વર્ષ', '૭૦% પૂર્ણ']
+            ]
+        }, {
+            id: 10,
+            title: 'શાળા વિકાસ યોજનાના અમલીકરણ, સમીક્ષા અને શૈક્ષણિક બાબતોમાં થયેલ ગુણાત્મક ફેરફારની વિગત',
+            desc: 'શાળા વિકાસ યોજના અંતર્ગત ગત વર્ષની સરખામણીએ ચાલુ વર્ષે શિક્ષણ પદ્ધતિ અને ભૌતિક સુવિધાઓમાં નોંધપાત્ર ગુણાત્મક સુધારો જોવા મળેલ છે.',
+            headers: ['ક્ષેત્ર', 'ગત વર્ષની સ્થિતિ', 'વર્તમાન વર્ષમાં ગુણાત્મક ફેરફાર'],
+            rows: [
+                ['શિક્ષણ પદ્ધતિ', 'બોર્ડ વર્ક', 'સ્માર્ટ ક્લાસ અને પ્રોજેક્ટરનો ઉપયોગ']
+            ]
+        }, {
+            id: 11,
+            title: 'SMC / વાલીમંડળની રચના અને પુનઃરચના પ્રક્રિયા સંબંધિત અહેવાલ / દસ્તાવેજ અને સભ્યોની વિગત',
+            desc: 'RTE ના નિયમો મુજબ શાળામાં પારદર્શક રીતે ગ્રામસભા બોલાવી ૫૦% મહિલા અનામત સાથે SMC ની રચના કરવામાં આવેલ છે.',
+            headers: ['ક્રમ', 'સભ્યનું નામ', 'હોદ્દો'],
+            rows: [
+                ['૧', 'શ્રી રમેશભાઈ પટેલ', 'અધ્યક્ષ']
+            ]
+        }, {
+            id: 12,
+            title: 'SMC / વાલીમંડળની બેઠકોનું રજીસ્ટર',
+            desc: 'SMC સમિતિની બેઠક દર મહિને નિયમિત બોલાવવામાં આવે છે, જેનું રજીસ્ટર સહીઓ સાથે નિભાવવામાં આવે છે.',
+            headers: ['માસ', 'બેઠકની તારીખ', 'મુખ્ય ચર્ચાનો વિષય'],
+            rows: [
+                ['જૂન', '૧૫/૦૬/૨૦૨૬', 'પ્રવેશોત્સવ અંગે']
+            ]
+        }, {
+            id: 13,
+            title: 'બેઠક કાર્યવાહી નોંધ (મિટિંગ મિનિટ્સ) બુક',
+            desc: 'દરેક મિટિંગ બાદ ચર્ચાયેલા મુદ્દાઓ અને લેવાયેલા નિર્ણયોની મિનિટ્સ બુકમાં વિગતવાર નોંધ કરી તમામ સભ્યોની સહી લેવામાં આવે છે.',
+            headers: ['તારીખ', 'ચર્ચાનો મુદ્દો', 'લેવાયેલ નિર્ણય (ઠરાવ)'],
+            rows: [
+                ['૧૫/૦૬/૨૦૨૬', 'શાળા વિકાસ યોજના', 'સર્વાનુમતે મંજૂર કરવામાં આવી.']
+            ]
+        }, {
+            id: 14,
+            title: 'SMC / વાલીમંડળની ઠરાવ બુક',
+            desc: 'ગ્રાન્ટના વપરાશ અને અન્ય આર્થિક નિર્ણયો માટે SMC ની બેઠકમાં સર્વાનુમતે ઠરાવ પસાર કરવામાં આવે છે.',
+            headers: ['ઠરાવ નંબર', 'તારીખ', 'ઠરાવની વિગત'],
+            rows: [
+                ['૦૧', '૧૦/૦૮/૨૦૨૬', 'રમત-ગમતના નવા સાધનો ખરીદવા બાબત']
+            ]
+        }, {
+            id: 15,
+            title: 'ગ્રાન્ટ ડિસ્પ્લે બોર્ડ - ફોટોગ્રાફ',
+            desc: 'શાળાને મળતી સરકારી ગ્રાન્ટ અને તેના વપરાશની વિગતો દર્શાવતું પારદર્શક ડિસ્પ્લે બોર્ડ શાળામાં લગાવવામાં આવેલ છે.',
+            headers: ['ગ્રાન્ટનું નામ', 'વર્ષ', 'મળેલ રકમ', 'મુખ્ય વપરાશ'],
+            rows: [
+                ['SSG ગ્રાન્ટ', '૨૦૨૬-૨૭', '૨૫,૦૦૦', 'સ્વચ્છતા અને નિભાવણી']
+            ]
+        }, {
+            id: 16,
+            title: 'SMC / વાલીમંડળની બેઠકોનું રજીસ્ટર, મિટિંગ મિનિટ્સ બુક, ઠરાવ બુક',
+            desc: 'SMC રજીસ્ટર, મિનિટ્સ બુક અને ઠરાવ બુકના મુખ્ય પાનાઓની વિગત નીચે મુજબ છે.',
+            headers: ['રજીસ્ટરનું નામ', 'અપડેટ સ્થિતિ', 'નિભાવણી પદ્ધતિ'],
+            rows: [
+                ['મિટિંગ મિનિટ્સ બુક', 'અદ્યતન', 'સભ્યોની સહી લીધેલ છે']
+            ]
+        }, {
+            id: 17,
+            title: 'ઓડિટ સર્ટિફિકેટ (ગત નાણાકીય વર્ષ)',
+            desc: 'શાળાના હિસાબોનું સરકાર માન્ય ઓડિટર / લોકલ ફંડ દ્વારા વાર્ષિક ઓડિટ નિયમિતપણે કરવામાં આવે છે.',
+            headers: ['નાણાકીય વર્ષ', 'ઓડિટ કરનાર એજન્સી / C.A.', 'ઓડિટ પૂર્ણ થયા તારીખ'],
+            rows: [
+                ['૨૦૨૫-૨૬', 'જિલ્લા લોકલ ફંડ', '૩૦/૦૪/૨૦૨૬']
+            ]
+        }, {
+            id: 18,
+            title: 'ફાયર સેફ્ટીનું પ્રમાણપત્ર અને ફાયર સેફ્ટીના સાધનોના ફોટોગ્રાફ્સ',
+            desc: 'આગ લાગવાની ઘટના સમયે રક્ષણ મેળવવા શાળામાં ફાયર એક્સટિંગ્વિશર લગાવવામાં આવેલ છે અને ફાયર NOC મેળવેલ છે.',
+            headers: ['સાધન / પ્રમાણપત્ર', 'ઉપલબ્ધ સંખ્યા / સ્થિતિ', 'માન્યતા (Valid Upto)'],
+            rows: [
+                ['ફાયર એક્સટિંગ્વિશર (બોટલ)', '૦૨', 'ડિસેમ્બર ૨૦૨૭']
+            ]
+        }, {
+            id: 19,
+            title: 'પ્રાથમિક સારવાર પેટી અને આપાતકાલીન તબીબી સેવાઓ',
+            desc: 'વિદ્યાર્થીઓને ઈજા થાય ત્યારે તાત્કાલિક સારવાર માટે ફર્સ્ટ એઈડ બોક્સ અને 108 એમ્બ્યુલન્સ જેવા જરૂરી નંબરો ડિસ્પ્લે પર લગાવેલ છે.',
+            headers: ['સેવા / સુવિધા', 'વિગત / સંપર્ક નંબર', 'અપડેટ સ્થિતિ'],
+            rows: [
+                ['ફર્સ્ટ એઈડ બોક્સ', 'તમામ સાધનો ઉપલબ્ધ', 'અદ્યતન']
+            ]
+        }, {
+            id: 20,
+            title: 'વીજળીકરણ અને વીજઉપકરણોની સ્થિતિ દર્શાવતા ફોટોગ્રાફ્સ',
+            desc: 'શાળાના તમામ વર્ગખંડોમાં પંખા અને ટ્યુબલાઈટની સુવિધા છે. વાયરીંગ કન્સીલ્ડ હોવાથી બાળકો માટે સંપૂર્ણ સુરક્ષિત છે.',
+            headers: ['ઓરડાની વિગત', 'પંખા / ટ્યુબલાઈટની સંખ્યા', 'વાયરીંગ અને બોર્ડની સ્થિતિ'],
+            rows: [
+                ['વર્ગખંડ - ૧', '૨ પંખા, ૨ ટ્યુબલાઈટ', 'સુરક્ષિત (કન્સીલ્ડ)']
+            ]
+        }, {
+            id: 21,
+            title: 'CCTV કેમેરાની વ્યવસ્થાની વિગત',
+            desc: 'શાળાની સુરક્ષા અને શિસ્ત માટે સમગ્ર કેમ્પસ અને વર્ગખંડોમાં CCTV કેમેરા લગાવવામાં આવેલ છે.',
+            headers: ['કુલ લગાવેલા કેમેરા', 'ચાલુ સ્થિતિમાં (Working)', 'કંટ્રોલ રૂમ / DVR સ્થાન'],
+            rows: [
+                ['૦૮', '૦૮', 'આચાર્યશ્રીની ઓફિસ']
+            ]
+        }, {
+            id: 22,
+            title: 'શાળા પરિસરમાં પ્રદર્શિત કરેલ આપત્તિ વ્યવસ્થાપન પ્લાન',
+            desc: 'આપત્તિના સમયે બહાર નીકળવાના રસ્તાઓ (Exit Route) દર્શાવતો નકશો શાળાના મુખ્ય નોટિસ બોર્ડ પર લગાવેલ છે.',
+            headers: ['આપત્તિ વ્યવસ્થાપન પ્લાન', 'પ્રદર્શિત કરેલ સ્થાન'],
+            rows: [
+                ['શાળાનો નકશો અને એક્ઝિટ રૂટ', 'મુખ્ય નોટિસ બોર્ડ']
+            ]
+        }, {
+            id: 23,
+            title: 'મોકડ્રીલ પ્રવૃત્તિનો ફોટોગ્રાફ્સ સહિતનો અહેવાલ',
+            desc: 'વિદ્યાર્થીઓને ભૂકંપ અને આગ જેવી આપત્તિ સમયે બચાવની તાલીમ આપવા માટે દર વર્ષે મોકડ્રીલનું આયોજન થાય છે.',
+            headers: ['મોકડ્રીલનો વિષય', 'તારીખ', 'સહયોગી સંસ્થા / ટીમ'],
+            rows: [
+                ['ભૂકંપ અને આગ સમયે બચાવ', '૧૨/૦૭/૨૦૨૬', 'સ્થાનિક ફાયર સ્ટેશન']
+            ]
+        }, {
+            id: 24,
+            title: 'હિતધારકોના પ્રતિભાવ એકત્રિત કરવાની વ્યવસ્થા',
+            desc: 'વિદ્યાર્થીઓ અને વાલીઓના મંતવ્યો જાણવા માટે શાળામાં સૂચન પેટી રાખવામાં આવેલ છે.',
+            headers: ['પ્રતિભાવ લેવાનું માધ્યમ', 'લક્ષિત જૂથ', 'કરેલ સુધારો (Action Taken)'],
+            rows: [
+                ['સૂચન પેટી', 'વિદ્યાર્થીઓ', 'પીવાના પાણીનું કૂલર સાફ કરાવ્યું.']
+            ]
+        }, {
+            id: 25,
+            title: 'રમતગમતના સાધનોની ઉપલબ્ધતા (ડેડસ્ટોક રજીસ્ટરની અદ્યતન તારીજ)',
+            desc: 'વિદ્યાર્થીઓના શારીરિક વિકાસ માટે વોલીબોલ, ક્રિકેટ અને ઇન્ડોર ગેમ્સના પૂરતા સાધનો રમત-ગમત રૂમમાં ઉપલબ્ધ છે.',
+            headers: ['રમતગમત સાધનનું નામ', 'ઉપલબ્ધ જથ્થો', 'સ્થિતિ'],
+            rows: [
+                ['વોલીબોલ / ક્રિકેટ કીટ', '૦૩ / ૦૨', 'વપરાશ યોગ્ય']
+            ]
+        }, {
+            id: 26,
+            title: 'CWSN વિદ્યાર્થીઓ માટેની ભૌતિક સુવિધાઓ (ફોટોગ્રાફ્સ)',
+            desc: 'દિવ્યાંગ બાળકો સરળતાથી હરી-ફરી શકે તે માટે તમામ વર્ગો બહાર રેમ્પ, હેન્ડરેલ અને અલગ શૌચાલયની વ્યવસ્થા છે.',
+            headers: ['CWSN સુવિધા', 'સ્થાન'],
+            rows: [
+                ['રેમ્પ અને હેન્ડરેલ', 'તમામ વર્ગખંડ બહાર']
+            ]
+        }, {
+            id: 27,
+            title: 'પુસ્તકાલયના પુસ્તકોના ડેડસ્ટોક રજીસ્ટરની અદ્યતન તારીજ',
+            desc: 'વિદ્યાર્થીઓના વાંચન શોખને વધારવા માટે પુસ્તકાલયમાં ૫૦૦ થી વધુ પુસ્તકો ઉપલબ્ધ છે.',
+            headers: ['પુસ્તકનો પ્રકાર / કેટેગરી', 'કુલ પુસ્તકો', 'ઇસ્યુ કરેલ (સરેરાશ)'],
+            rows: [
+                ['વાર્તા અને જીવનચરિત્ર', '૨૫૦', '૪૫']
+            ]
+        }, {
+            id: 28,
+            title: 'પુસ્તકાલયમાં આવતાં વર્તમાનપત્રો અને સામયિકોની અદ્યતન વિગત',
+            desc: 'સામાન્ય જ્ઞાનમાં વધારો કરવા માટે શાળામાં બાલસૃષ્ટિ અને સફારી જેવા શૈક્ષણિક સામયિકો નિયમિત મંગાવવામાં આવે છે.',
+            headers: ['વર્તમાનપત્ર / સામયિકનું નામ', 'પ્રકાર (દૈનિક / માસિક)', 'ઉપયોગ'],
+            rows: [
+                ['સફારી / બાલસૃષ્ટિ', 'માસિક', 'વાંચન માટે']
+            ]
+        }, {
+            id: 29,
+            title: 'ભોજન માટેના સ્થાનનો ફોટોગ્રાફ અને તેની સ્વચ્છતા માટેની વ્યવસ્થા',
+            desc: 'મધ્યાહન ભોજન માટે સ્વચ્છ, હવા-ઉજાસવાળું રસોડું અને વિદ્યાર્થીઓ શાંતિથી જમી શકે તેવો ડાઈનિંગ એરિયા છે.',
+            headers: ['સફાઈ કામગીરી', 'જવાબદાર વ્યક્તિ', 'સ્થિતિ'],
+            rows: [
+                ['ડાઈનિંગ એરિયા અને રસોડાની સફાઈ', 'MDM સંચાલક / મદદનીશ', 'નિયમિત સ્વચ્છ']
+            ]
+        }, {
+            id: 30,
+            title: 'ભોજનની ગુણવત્તાની ચકાસણી અને ગુણવત્તા અંગે પ્રતિભાવ આપવાની વ્યવસ્થા',
+            desc: 'બાળકોને ભોજન પીરસતા પહેલા આચાર્યશ્રી કે શિક્ષકો દ્વારા ફરજિયાત ભોજન ચાખવામાં આવે છે.',
+            headers: ['તારીખ', 'વાનગીનું નામ', 'ભોજન ચાખનારનો અભિપ્રાય / સહી'],
+            rows: [
+                ['૧૫/૦૮/૨૦૨૬', 'દાળ-ભાત', 'આચાર્યશ્રી - ઉત્તમ અને પૌષ્ટિક']
+            ]
+        }, {
+            id: 31,
+            title: 'પીવાના પાણીની સમગ્ર સુવિધાનો ફોટોગ્રાફ',
+            desc: 'વિદ્યાર્થીઓને શુદ્ધ અને ઠંડુ પીવાનું પાણી મળી રહે તે માટે RO પ્લાન્ટ અને વોટર કૂલર લગાવવામાં આવેલ છે.',
+            headers: ['પીવાના પાણીની સુવિધા', 'સંખ્યા / ક્ષમતા', 'સ્થિતિ'],
+            rows: [
+                ['RO પ્લાન્ટ / વોટર કૂલર', '૦૧', 'કાર્યરત']
+            ]
+        }, {
+            id: 32,
+            title: 'પાણીની ટાંકીની સફાઈ અંગેના આયોજન અને અમલની વિગત',
+            desc: 'પીવાના પાણીની ગુણવત્તા જાળવવા માટે ઓવરહેડ અને અંડરગ્રાઉન્ડ ટાંકીની દર મહિને નિયમિત સફાઈ કરવામાં આવે છે.',
+            headers: ['ટાંકીનો પ્રકાર', 'સફાઈની તારીખ', 'આગામી સફાઈની તારીખ'],
+            rows: [
+                ['ભૂગર્ભ અને ઓવરહેડ ટાંકી', '૦૧/૦૮/૨૦૨૬', '૦૧/૦૯/૨૦૨૬']
+            ]
+        }, {
+            id: 33,
+            title: 'કુમાર, કન્યા અને દિવ્યાંગ વિદ્યાર્થીઓ માટેના શૌચાલય સંકુલના ફોટોગ્રાફ',
+            desc: 'શાળામાં કુમાર, કન્યા અને દિવ્યાંગ બાળકો માટે રનિંગ વોટરની સુવિધાવાળા અલગ-અલગ શૌચાલયો કાર્યરત છે.',
+            headers: ['શૌચાલય બ્લોક', 'કુમાર શૌચાલય', 'કન્યા શૌચાલય'],
+            rows: [
+                ['સંખ્યા અને સુવિધા', '૦૩ ટોયલેટ, ૦૬ મૂતરડી', '૦૪ ટોયલેટ']
+            ]
+        }, {
+            id: 34,
+            title: 'શૌચાલયની સંખ્યાની વિગત, પાણીની ઉપલબ્ધતા',
+            desc: 'તમામ શૌચાલયોમાં નળ, ડોલ-ટમ્બલર અને પાણીની ૧૦૦% ઉપલબ્ધતા છે.',
+            headers: ['કેટેગરી', 'કુલ શૌચાલય', 'રનિંગ વોટર (નળ / પાણી) ની સ્થિતિ'],
+            rows: [
+                ['કુમાર / કન્યા', '૦૭', 'હા, ૧૦૦% ઉપલબ્ધ']
+            ]
+        }, {
+            id: 35,
+            title: 'શૌચાલયોની સ્વચ્છતા અને રખરખાવ માટેના આયોજનની વિગત',
+            desc: 'શૌચાલયોની સાફસફાઈ સફાઈકર્મી દ્વારા દરરોજ નિયમિત એસિડ-ફિનાઈલથી કરવામાં આવે છે.',
+            headers: ['સફાઈનો સમય', 'કામગીરીની વિગત', 'જવાબદાર વ્યક્તિ'],
+            rows: [
+                ['સવારે ૧૦:૦૦ કલાકે', 'એસિડ / ફિનાઈલથી સફાઈ', 'સફાઈ કામદાર']
+            ]
+        }, {
+            id: 36,
+            title: 'કચરાના વ્યવસ્થાપન અંગે શાળાની પદ્ધતિની વિગત',
+            desc: 'સ્વચ્છ ભારત અભિયાન અંતર્ગત શાળાના ભીના અને સૂકા કચરાના નિકાલ માટે ડસ્ટબીન અને કમ્પોસ્ટ પીટની વ્યવસ્થા છે.',
+            headers: ['કચરાનો પ્રકાર', 'કચરાપેટીની વ્યવસ્થા', 'નિકાલની પદ્ધતિ'],
+            rows: [
+                ['ભીનો અને સૂકો કચરો', 'લીલી અને ભૂરી ડસ્ટબીન', 'કમ્પોસ્ટ પીટ']
+            ]
+        }, {
+            id: 37,
+            title: 'વિદ્યાર્થીઓના વાર્ષિક આરોગ્ય તપાસનો અહેવાલ',
+            desc: 'આરોગ્ય વિભાગની ટીમ દ્વારા વાર્ષિક મેડિકલ કેમ્પમાં તમામ બાળકોની તપાસ કરી જરૂરી માર્ગદર્શન અને દવાઓ આપવામાં આવે છે.',
+            headers: ['કેમ્પની તારીખ', 'તપાસ કરનાર ડોક્ટર / ટીમ', 'વધુ સારવાર માટે રિફર કરેલ બાળકો'],
+            rows: [
+                ['૧૦/૦૭/૨૦૨૬', 'PHC મેડિકલ ટીમ', '૦૪ વિદ્યાર્થીઓ']
+            ]
+        }, {
+            id: 38,
+            title: 'દિવ્યાંગતાની જાણ માટે વિદ્યાર્થીઓના સ્ક્રિનિંગ અને કરેલ અનુકાર્યની વિગત',
+            desc: 'દિવ્યાંગ બાળકોના સ્ક્રિનિંગ કેમ્પ દ્વારા તેમને સિવિલ હોસ્પિટલમાંથી પ્રમાણપત્ર અને જરૂરી સાધનો મેળવવામાં મદદ કરવામાં આવે છે.',
+            headers: ['ઓળખાયેલ દિવ્યાંગતાનો પ્રકાર', 'વિદ્યાર્થીઓની સંખ્યા', 'કરેલ અનુકાર્ય (Follow up)'],
+            rows: [
+                ['અલ્પ દ્રષ્ટિ (Low Vision)', '૦૧', 'ચશ્મા માટે સિવિલ હોસ્પિટલ મોકલેલ']
+            ]
+        }];
+
+        /* ==============================================================
+           PART 2 DATA — 36 items
+           ============================================================== */
+        const part2Data = [{
+            id: 1,
+            title: 'શાળાના વાર્ષિક અભ્યાસક્રમ અને પ્રવૃત્તિ આયોજનની નકલ',
+            desc: 'શાળાના શૈક્ષણિક વર્ષ માટે પરીક્ષાઓ, રજાઓ અને સાંસ્કૃતિક પ્રવૃત્તિઓ દર્શાવતું વાર્ષિક કેલેન્ડર તૈયાર કરી અમલમાં મૂકાયેલ છે.',
+            headers: ['માસ', 'આયોજિત કાર્યક્રમ / પ્રવૃત્તિ', 'અમલીકરણની તારીખ'],
+            rows: [
+                ['ઓગસ્ટ', 'સ્વાતંત્ર્ય પર્વ અને વકતૃત્વ સ્પર્ધા', '૧૫/૦૮/૨૦૨૬']
+            ]
+        }, {
+            id: 2,
+            title: 'શાળાના 20% શિક્ષકોની દૈનિક આયોજનપોથીની નોંધના નમૂના',
+            desc: 'શિક્ષકો દ્વારા વર્ગખંડમાં જતા પહેલા દૈનિક આયોજનપોથી લખવામાં આવે છે, જેમાં આચાર્યશ્રી નિયમિત સહી કરે છે.',
+            headers: ['તારીખ', 'શિક્ષકનું નામ / વિષય', 'આચાર્યશ્રીની નોંધ / સહી'],
+            rows: [
+                ['૨૦/૦૭/૨૦૨૬', 'શ્રી મુકેશભાઈ (વિજ્ઞાન)', 'TLM નો સારો ઉપયોગ કર્યો.']
+            ]
+        }, {
+            id: 3,
+            title: 'આચાર્ય-સુપરવાઇઝરની શિક્ષકોના વર્ગખંડ અવલોકનની નોંધપોથીમાંથી નમૂનારૂપ પાના',
+            desc: 'આચાર્યશ્રી દ્વારા શિક્ષકોના શિક્ષણ કાર્યનું પ્રત્યક્ષ અવલોકન કરી તેમને હકારાત્મક માર્ગદર્શન પૂરું પાડવામાં આવે છે.',
+            headers: ['અવલોકન તારીખ', 'શિક્ષકનું નામ', 'સુધારા માટે સૂચન / નોંધ'],
+            rows: [
+                ['૨૨/૦૭/૨૦૨૬', 'શ્રીમતી સોનલબેન', 'વિદ્યાર્થીઓને વધુ પ્રશ્નો પૂછવા.']
+            ]
+        }, {
+            id: 4,
+            title: 'આચાર્ય-સુપરવાઇઝરે યાદચ્છિક રીતે વિદ્યાર્થીઓ પસંદ કરી કરેલ મૂલ્યાંકનની વિગત (ધો. 3, 4 અને 5)',
+            desc: 'આચાર્યશ્રી દ્વારા યાદચ્છિક રીતે પસંદ કરેલા વિદ્યાર્થીઓના વાંચન, લેખન અને ગણનની સ્થિતિ ચકાસી તેની નોંધ રાખેલ છે.',
+            headers: ['વિદ્યાર્થીનું નામ', 'વિષય', 'વાંચન / લેખન / ગણનની સ્થિતિ'],
+            rows: [
+                ['પટેલ દર્શન આર. (ધોરણ ૩)', 'ગુજરાતી', 'સળંગ વાંચન કરી શકે છે.']
+            ]
+        }, {
+            id: 5,
+            title: 'વિદ્યાર્થીની બે નોંધપોથી અને બે અન્ય પોથીઓમાંથી એક-એક પ્રકરણની માહિતી',
+            desc: 'વિદ્યાર્થીઓની હોમવર્કની નોટબુક અને સ્વાધ્યાયપોથીઓનું આચાર્યશ્રી દ્વારા સમયાંતરે ચેકિંગ કરવામાં આવે છે.',
+            headers: ['વિદ્યાર્થીનું નામ', 'વિષય / પોથીનું નામ', 'નોંધ / શેરો'],
+            rows: [
+                ['ઠાકોર રાહુલ (ધોરણ ૬)', 'ગણિત પાકી નોટ', 'નિયમિત હોમવર્ક કરે છે.']
+            ]
+        }, {
+            id: 6,
+            title: 'વિદ્યાર્થીની કોઈપણ 3 વિષયોની ઉત્તરવહીઓની નકલ',
+            desc: 'વિદ્યાર્થીઓની સત્રાંત કસોટીની ઉત્તરવહીઓનું મૂલ્યાંકન પારદર્શક રીતે થાય છે અને તેની નકલો રેકોર્ડ પર ઉપલબ્ધ છે.',
+            headers: ['વિદ્યાર્થીનું નામ', 'વિષય', 'મેળવેલ ગુણ / ગ્રેડ'],
+            rows: [
+                ['ચૌધરી મિતલ (ધોરણ ૮)', 'વિજ્ઞાન', '૪૦/૫૦ (ગ્રેડ A)']
+            ]
+        }, {
+            id: 7,
+            title: 'ત્રિમાસિક કસોટીઓના પરિણામોને આધારે ઉપચારાત્મક કાર્યની વિગત દર્શાવતો અહેવાલ',
+            desc: 'ત્રિમાસિક કસોટીમાં નબળા પરિણામવાળા વિદ્યાર્થીઓને તારવીને તેમને વિશેષ ઉપચારાત્મક શિક્ષણ (Remedial Teaching) અપાય છે.',
+            headers: ['ધોરણ / વિષય', 'નબળા પરિણામવાળા વિદ્યાર્થી સંખ્યા', 'ઉપચારાત્મક કાર્યની વિગત'],
+            rows: [
+                ['ધોરણ ૬ / ગણિત', '૦૪', 'બેઝિક કન્સેપ્ટ માટે એક્સ્ટ્રા ક્લાસ']
+            ]
+        }, {
+            id: 8,
+            title: 'ત્રિમાસિક કસોટીઓના પરિણામોની વાલીઓને જાણ કરવાની પદ્ધતિ - વાલી બેઠકનો અહેવાલ',
+            desc: 'પરીક્ષાના પરિણામ અંગે વાલીઓને માહિતગાર કરવા પેરેન્ટ-ટીચર મિટિંગ (PTM) યોજી પ્રગતિ બાબતે ચર્ચા કરવામાં આવે છે.',
+            headers: ['બેઠકની તારીખ', 'ધોરણ', 'મુખ્ય ચર્ચા (પરિણામ બાબતે)'],
+            rows: [
+                ['૨૫/૧૦/૨૦૨૬', 'ધોરણ ૧ થી ૮', 'ત્રિમાસિક કસોટીનું પરિણામ અને ગુણ-દોષ']
+            ]
+        }, {
+            id: 9,
+            title: 'આચાર્ય યાદચ્છિક રીતે પસંદ કરેલ વિદ્યાર્થીઓની 3 વિષયોની ઉત્તરવહીઓની નકલ',
+            desc: 'પસંદ કરેલ વિદ્યાર્થીઓની ૩ વિષયોની ઉત્તરવહીઓનું સઘન નિરીક્ષણ કરી શિક્ષકોને જરૂરી સૂચના અપાય છે.',
+            headers: ['વિદ્યાર્થીનું નામ', 'વિષય', 'ઉત્તરવહીની વિગત'],
+            rows: [
+                ['રાઠોડ વિજય (ધોરણ ૫)', 'પર્યાવરણ', 'પ્રશ્નોના જવાબ સમજપૂર્વક લખેલ છે.']
+            ]
+        }, {
+            id: 10,
+            title: 'કસોટીઓના પરિણામોની વાલીઓને જાણ અંગેની માહિતી - ફોટોગ્રાફ સહિત અહેવાલ',
+            desc: 'કસોટીના પરિણામની જાણ વાલીઓને વોટ્સએપ ગ્રુપ મારફતે અને રૂબરૂ બોલાવીને કરવામાં આવે છે.',
+            headers: ['તારીખ', 'લક્ષિત જૂથ', 'વાલીની સહી / પ્રતિભાવ'],
+            rows: [
+                ['૧૨/૧૧/૨૦૨૬', 'ધોરણ ૭ ના વાલીઓ', 'બાળકના પ્રદર્શનથી સંતોષ.']
+            ]
+        }, {
+            id: 11,
+            title: 'યાદચ્છિક રીતે પસંદ વિદ્યાર્થીઓ પૈકી કોઈપણ એક વિદ્યાર્થીના HPC (પ્રગતિ પત્રક) ની નકલ',
+            desc: 'વિદ્યાર્થીઓના સર્વાંગી વિકાસને દર્શાવતું Holistic Progress Card (HPC) તૈયાર કરી વાલીઓને સુપરત કરવામાં આવે છે.',
+            headers: ['વિદ્યાર્થીનું નામ', 'ધોરણ / સ્ટેજ', 'પ્રગતિ પત્રક (HPC) સ્થિતિ'],
+            rows: [
+                ['પટેલ નેહા (ધોરણ ૪)', 'પ્રિપેરેટરી સ્ટેજ', 'HPC સંપૂર્ણ ભરેલ અને વાલીને આપેલ.']
+            ]
+        }, {
+            id: 12,
+            title: 'શાળાની નિર્ણય પ્રક્રિયા અંગેની વિગત - નમૂનારૂપ 2 નિર્ણય લેવા માટેની કાર્યવાહી અને મિનિટ્સ',
+            desc: 'શાળાના અગત્યના નિર્ણયો લોકશાહી ઢબે સ્ટાફ અને SMC ના સભ્યો સાથે પરામર્શ કરીને લેવામાં આવે છે.',
+            headers: ['નિર્ણય લેવાયેલ તારીખ', 'મુખ્ય નિર્ણય (Decision)', 'સહભાગી સભ્યો'],
+            rows: [
+                ['૧૦/૦૮/૨૦૨૬', 'સ્વચ્છતા અભિયાન અને ડસ્ટબીન ખરીદી', 'SMC સભ્યો અને શિક્ષકો']
+            ]
+        }, {
+            id: 13,
+            title: 'શાળા સ્ટાફ મિટિંગના આયોજનની વિગત - 2 બેઠકના ચર્ચાના મુદ્દા અને મિટિંગ મિનિટ્સ',
+            desc: 'શાળાના શૈક્ષણિક આયોજન અને પરીક્ષાની પૂર્વતૈયારી માટે દર મહિને સ્ટાફ મિટિંગ યોજવામાં આવે છે.',
+            headers: ['મીટીંગ તારીખ', 'એજન્ડા / ચર્ચાના મુદ્દા', 'લીધેલ નિર્ણય'],
+            rows: [
+                ['૧૫/૦૯/૨૦૨૬', 'પ્રથમ સત્રાંત પરીક્ષા તૈયારી', 'પેપર સેટિંગ ડ્યુટી નક્કી કરવામાં આવી.']
+            ]
+        }, {
+            id: 14,
+            title: 'વિવિધ શાળાકીય કાર્યક્રમો અને પ્રવૃત્તિઓમાં શિક્ષકોને જોડવાની યોજના - કામગીરીની વહેંચણી',
+            desc: 'શાળાની વિવિધ પ્રવૃત્તિઓનું સંચાલન સરળ બને તે માટે શિક્ષકો વચ્ચે શિસ્ત, રમતગમત અને સાંસ્કૃતિક સમિતિની વહેંચણી કરેલ છે.',
+            headers: ['શિક્ષકનું નામ', 'સોંપાયેલ વિશેષ કામગીરી / સમિતિ', 'નોંધ'],
+            rows: [
+                ['શ્રી મુકેશભાઈ ચૌધરી', 'રમતગમત અને શિસ્ત સમિતિ ઇન્ચાર્જ', 'વાર્ષિક આયોજન મુજબ અમલ']
+            ]
+        }, {
+            id: 15,
+            title: 'ગત શૈક્ષણિક વર્ષમાં શાળાના શિક્ષકો દ્વારા લેવાયેલ CPD (દીક્ષા / નિષ્ઠા) તાલીમની તારીજ',
+            desc: 'શિક્ષકોને અદ્યતન શૈક્ષણિક પદ્ધતિઓથી માહિતગાર કરવા DIKSHA અને NISHTHA તાલીમ પૂર્ણ કરાવવામાં આવેલ છે.',
+            headers: ['શિક્ષકનું નામ', 'પૂર્ણ કરેલ તાલીમ (Nishtha / Diksha)', 'તાલીમનો સમયગાળો'],
+            rows: [
+                ['તમામ શિક્ષકો', 'FLN / નિષ્ઠા ઓનલાઈન કોર્સ', '૨૦૨૫-૨૬']
+            ]
+        }, {
+            id: 16,
+            title: 'શૈક્ષણિક / વ્યાવસાયિક વિકાસ સંબંધિત પ્રવૃત્તિઓમાં ભાગ લેનાર શિક્ષકોની સંખ્યા અને ટકાવારી',
+            desc: 'શિક્ષકોના વ્યાવસાયિક વિકાસ માટે તેમને CRC / BRC કક્ષાના સેમિનાર અને વર્કશોપમાં ભાગ લેવા પ્રોત્સાહિત કરાય છે.',
+            headers: ['શિક્ષકનું નામ', 'પ્રવૃત્તિ (વર્કશોપ / સેમિનાર)', 'તારીખ / વર્ષ'],
+            rows: [
+                ['શ્રી જીતેન્દ્રકુમાર પટેલ', 'શૈક્ષણિક ઇનોવેશન ફેસ્ટિવલ', 'જાન્યુઆરી ૨૦૨૬']
+            ]
+        }, {
+            id: 17,
+            title: 'શાળા સમયપત્રક (Master Timetable) ની નકલ',
+            desc: 'વિદ્યાર્થીઓના બોજ વગરના શિક્ષણ માટે કમ્પ્યુટર, રમત-ગમત અને લાઈબ્રેરીના તાસ સાથેનું માસ્ટર સમયપત્રક અમલમાં છે.',
+            headers: ['ધોરણ', 'ફાળવેલ તાસ', 'વિશેષ બાબત'],
+            rows: [
+                ['ધોરણ ૬ થી ૮', 'માસ્ટર ટાઈમટેબલ મુજબ', 'કમ્પ્યુટર અને રમતગમતના તાસ સામેલ']
+            ]
+        }, {
+            id: 18,
+            title: 'સાંસ્કૃતિક કાર્યક્રમો - ઉજવણીઓ અને ગુણવત્તા બાબતોમાં SMC / વાલીમંડળ સહભાગીતા',
+            desc: '૧૫મી ઓગસ્ટ, વાર્ષિક ઉત્સવ અને નવરાત્રી જેવા કાર્યક્રમોમાં SMC અને ગામના વાલીઓનો આર્થિક અને શારીરિક સહયોગ મળે છે.',
+            headers: ['કાર્યક્રમનું નામ', 'તારીખ', 'SMC / વાલીઓનો સહયોગ'],
+            rows: [
+                ['નવરાત્રી (ગરબા મહોત્સવ)', 'ઓક્ટોબર ૨૦૨૬', 'સાઉન્ડ સિસ્ટમ અને પ્રસાદની વ્યવસ્થા']
+            ]
+        }, {
+            id: 19,
+            title: 'SMC / વાલીમંડળ અને સમુદાયના શાળા અંગેના પ્રતિભાવો અને સૂચનો આધારે કરાયેલ અનુકાર્ય',
+            desc: 'વાલીઓ દ્વારા મળેલા સૂચનોને આવકારીને શાળા વ્યવસ્થાપન દ્વારા હકારાત્મક પગલાં ભરવામાં આવે છે.',
+            headers: ['SMC / વાલીઓનો પ્રતિભાવ / સૂચન', 'શાળા દ્વારા લેવાયેલ પગલાં (Action Taken)', 'પરિણામ'],
+            rows: [
+                ['ગણિત વિષયમાં બાળકોનું પરિણામ સુધારવું.', 'શાળા છૂટ્યા પછી વધારાનો તાસ શરૂ કર્યો.',
+                    'સુધારો જોવા મળ્યો.'
+                ]
+            ]
+        }, {
+            id: 20,
+            title: 'વિદ્યાર્થીઓના જ્ઞાન અને કૌશલ્યોમાં વૃદ્ધિ થાય તે માટે સમુદાયના સહયોગથી થયેલ પ્રવૃત્તિ',
+            desc: 'વિદ્યાર્થીઓને પુસ્તકિયા જ્ઞાન ઉપરાંત વ્યાવસાયિક કૌશલ્યો મળે તે માટે સ્થાનિક કારીગરો અને તજજ્ઞોનો લાભ અપાય છે.',
+            headers: ['કૌશલ્ય પ્રવૃત્તિનો વિષય', 'સ્થાનિક તજજ્ઞ / સમુદાય વ્યક્તિનું નામ', 'લાભાર્થી વિદ્યાર્થીઓ'],
+            rows: [
+                ['યોગ અને સ્વાસ્થ્ય શિબિર', 'પતંજલિ યોગ સમિતિના સભ્યો', 'તમામ વિદ્યાર્થીઓ']
+            ]
+        }, {
+            id: 21,
+            title: 'પ્રાર્થનાસભાની પ્રવૃત્તિઓનું આયોજન (સમગ્ર શાળા અને વર્ગ અનુસાર)',
+            desc: 'રોજ સવારે પ્રાર્થના સભામાં ધૂન, સમાચાર વાંચન, સુવિચાર અને ક્વિઝ જેવી પ્રવૃત્તિઓ વર્ગ વાઈઝ યોજવામાં આવે છે.',
+            headers: ['વાર', 'સંચાલન કરનાર વર્ગ', 'વિશેષ પ્રવૃત્તિ'],
+            rows: [
+                ['સોમવાર', 'ધોરણ ૮', 'વિજ્ઞાનની રોચક વાતો અને ક્વિઝ']
+            ]
+        }, {
+            id: 22,
+            title: 'શાળા દ્વારા યોજાયેલ કલા શિક્ષણની પ્રવૃત્તિઓનો અહેવાલ',
+            desc: 'બાળકોમાં સર્જનાત્મકતા ખીલે તે હેતુથી ચિત્રકામ, માટીકામ અને હસ્તકલા (Craft) ની સ્પર્ધાઓ નિયમિત યોજવામાં આવે છે.',
+            headers: ['માસ / તારીખ', 'કલા પ્રવૃત્તિનું નામ', 'ભાગ લેનાર ધોરણ'],
+            rows: [
+                ['ઓગસ્ટ ૨૦૨૬', 'રાખડી મેકિંગ અને ગ્રીટિંગ કાર્ડ બનાવટ', 'બાલવાટિકા થી ધોરણ ૮']
+            ]
+        }, {
+            id: 23,
+            title: 'કલા ઉત્સવમાં ભાગીદારીની વિગત અને પ્રમાણપત્રો',
+            desc: 'CRC અને BRC કક્ષાએ યોજાતા કલા ઉત્સવમાં શાળાના વિદ્યાર્થીઓ ઉત્સાહભેર ભાગ લઈ ઈનામો પ્રાપ્ત કરે છે.',
+            headers: ['વિદ્યાર્થીનું નામ', 'સ્પર્ધા (ચિત્ર / સંગીત / નૃત્ય)', 'પરિણામ / ક્રમ'],
+            rows: [
+                ['પ્રજાપતિ રોહન એમ.', 'ચિત્રકળા સ્પર્ધા (BRC કક્ષા)', 'પ્રથમ ક્રમ']
+            ]
+        }, {
+            id: 24,
+            title: 'શાળા દ્વારા યોજાયેલ યોગપ્રવૃત્તિઓનો અહેવાલ',
+            desc: 'આંતરરાષ્ટ્રીય યોગ દિવસની ભવ્ય ઉજવણી તેમજ શનિવારના રોજ નિયમિત ધ્યાન અને યોગાભ્યાસ કરાવવામાં આવે છે.',
+            headers: ['કાર્યક્રમ / દિવસ', 'મુખ્ય આસનો / પ્રવૃત્તિ', 'ભાગ લેનાર વિદ્યાર્થીઓ'],
+            rows: [
+                ['૨૧ જૂન - આંતરરાષ્ટ્રીય યોગ દિવસ', 'સૂર્ય નમસ્કાર, અનુલોમ-વિલોમ', 'સમગ્ર શાળા (૧૦૦%)']
+            ]
+        }, {
+            id: 25,
+            title: 'રમત સ્પર્ધાઓમાં (ખેલ મહાકુંભ વગેરે) શાળાની ભાગીદારીની વિગત અને પ્રમાણપત્રો',
+            desc: 'ખેલ મહાકુંભ અને અન્ય રમત-ગમત સ્પર્ધાઓમાં શાળાની કબડ્ડી અને ખો-ખોની ટીમ શ્રેષ્ઠ પ્રદર્શન કરે છે.',
+            headers: ['વિદ્યાર્થી / ટીમનું નામ', 'રમતનું નામ / કક્ષા', 'પરિણામ / ક્રમ'],
+            rows: [
+                ['શાળાની ખો-ખો ટીમ (અંડર-૧૪)', 'ખો-ખો (તાલુકા કક્ષા)', 'દ્વિતીય ક્રમ (વિજેતા)']
+            ]
+        }, {
+            id: 26,
+            title: 'બાળવૈજ્ઞાનિક પ્રદર્શનોમાં (Science Fair) શાળાની ભાગીદારીની વિગત અને પ્રમાણપત્રો',
+            desc: 'બાળકોમાં વૈજ્ઞાનિક અભિગમ કેળવાય તે માટે CRC અને તાલુકા કક્ષાના વિજ્ઞાન મેળામાં શ્રેષ્ઠ કૃતિઓ રજૂ કરવામાં આવે છે.',
+            headers: ['બાળવૈજ્ઞાનિકના નામ', 'કૃતિ / મોડલનું નામ', 'પરિણામ'],
+            rows: [
+                ['પટેલ જૈમિન અને સોલંકી રાજ', 'સ્માર્ટ ડસ્ટબીન (સેન્સર આધારિત)', 'CRC કક્ષાએ પ્રથમ ક્રમ']
+            ]
+        }, {
+            id: 27,
+            title: 'શાળામાં યોજાતી પર્યાવરણલક્ષી (ઇકો ક્લબ) પ્રવૃત્તિઓનો અહેવાલ',
+            desc: 'ઇકો-ક્લબ અંતર્ગત શાળામાં વૃક્ષારોપણ, સ્વચ્છતા રેલી અને પર્યાવરણ જાગૃતિના કાર્યક્રમો સફળતાપૂર્વક યોજવામાં આવે છે.',
+            headers: ['તારીખ', 'પ્રવૃત્તિનું નામ', 'ભાગ લેનાર વિદ્યાર્થીઓ'],
+            rows: [
+                ['૦૫/૦૬/૨૦૨૬', 'વિશ્વ પર્યાવરણ દિવસ - વૃક્ષારોપણ', 'ઇકો-ક્લબના સભ્યો (૫૦ વિદ્યાર્થીઓ)']
+            ]
+        }, {
+            id: 28,
+            title: 'રાષ્ટ્રીય, સાંસ્કૃતિક અને દિનવિશેષ કાર્યક્રમોમાં વિદ્યાર્થીઓની ભાગીદારીનો અહેવાલ',
+            desc: 'રાષ્ટ્રીય પર્વો, ગાંધી જયંતી અને શિક્ષક દિન જેવા તહેવારોની વિદ્યાર્થીઓની ભાગીદારી સાથે ભવ્ય ઉજવણી કરવામાં આવે છે.',
+            headers: ['દિનવિશેષ / તહેવાર', 'ઉજવણીની તારીખ', 'યોજાયેલ પ્રવૃત્તિ / વિદ્યાર્થી ભાગીદારી'],
+            rows: [
+                ['શિક્ષક દિન (૫ સપ્ટેમ્બર)', '૦૫/૦૯/૨૦૨૬', 'વિદ્યાર્થીઓ દ્વારા સ્વયં શિક્ષક બની શિક્ષણ કાર્ય']
+            ]
+        }, {
+            id: 29,
+            title: 'શાળા દ્વારા યોજાયેલ આનંદદાયી શનિવારની પ્રવૃત્તિઓનો અહેવાલ',
+            desc: 'દર શનિવારે ભણતરના ભાર વિના આનંદદાયી શનિવાર અંતર્ગત રમત-ગમત, બાળ ફિલ્મ અને સાંસ્કૃતિક કાર્યક્રમો યોજાય છે.',
+            headers: ['શનિવારનો ક્રમ', 'યોજાયેલ પ્રવૃત્તિ', 'ભાગ લેનાર ધોરણ'],
+            rows: [
+                ['પ્રથમ શનિવાર', 'રમત-ગમત અને પી.ટી. સ્પર્ધાઓ', 'ધોરણ ૧ થી ૮']
+            ]
+        }, {
+            id: 30,
+            title: 'દફતર વિનાના 10 દિવસ (Bagless Days) સંબંધિત પ્રવૃત્તિઓનો અહેવાલ',
+            desc: 'NEP-2020 ના ભાગરૂપે ધોરણ ૬ થી ૮ ના બાળકો માટે બેગલેસ ડેઝ (Bagless Days) માં પોસ્ટ ઓફિસ અને બેંકની મુલાકાતો ગોઠવવામાં આવી.',
+            headers: ['તારીખ / માસ', 'વિશેષ પ્રવૃત્તિઓ / ફિલ્ડ ટ્રીપ', 'ધોરણ'],
+            rows: [
+                ['૧૦ થી ૧૨ સપ્ટેમ્બર ૨૦૨૬', 'સ્થાનિક બેંક અને પોસ્ટ ઓફિસની મુલાકાત', 'ધોરણ ૬ થી ૮']
+            ]
+        }, {
+            id: 31,
+            title: 'શાળા દ્વારા વર્ગ મોનિટર, બાલવૃંદ પ્રતિનિધિ, વિવિધ સમિતિના લીડરની પસંદગી પ્રક્રિયા',
+            desc: 'વિદ્યાર્થીઓમાં નેતૃત્વના ગુણો વિકસે તે માટે બાલસંસદની ચૂંટણી યોજી વિવિધ મંત્રીઓ અને વર્ગ મોનિટરની નિમણૂક કરવામાં આવેલ છે.',
+            headers: ['વિદ્યાર્થીનું નામ', 'ધોરણ', 'સોંપાયેલ હોદ્દો / સમિતિ'],
+            rows: [
+                ['ચૌધરી નેહા બી.', 'ધોરણ ૭', 'સ્વચ્છતા અને આરોગ્ય મંત્રી (બાલસંસદ)']
+            ]
+        }, {
+            id: 32,
+            title: 'પુસ્તકાલયના ઇશ્યૂ રજીસ્ટરની નકલ અને વિદ્યાર્થી દીઠ વંચાયેલ સરેરાશ પુસ્તક સંખ્યા',
+            desc: 'પુસ્તકાલયનો મહત્તમ ઉપયોગ થાય તે માટે વિદ્યાર્થીઓને નિયમિત પુસ્તકો ઇશ્યૂ કરી તેનું રેકોર્ડ નિભાવવામાં આવે છે.',
+            headers: ['તારીખ', 'પુસ્તકનું નામ / નંબર', 'ઇશ્યૂ કરનાર વિદ્યાર્થીનું નામ'],
+            rows: [
+                ['૦૧/૦૮/૨૦૨૬', 'મિયાં ફુસકી (નંબર-૪૫)', 'રાજ પટેલ (ધો. ૫)']
+            ]
+        }, {
+            id: 33,
+            title: 'શાળાના શિક્ષક દીઠ વંચાયેલ સરેરાશ પુસ્તક સંખ્યાની વિગત',
+            desc: 'શાળાના શિક્ષકો દ્વારા શૈક્ષણિક, ઐતિહાસિક અને પ્રેરણાદાયક પુસ્તકોનું વાંચન કરી વર્ગખંડમાં તેની ચર્ચા કરવામાં આવે છે.',
+            headers: ['શિક્ષકનું નામ', 'વંચાયેલ પુસ્તકોની સંખ્યા', 'વિશેષ નોંધ (નવા વિચારોનો અમલ)'],
+            rows: [
+                ['શ્રી જીતેન્દ્રકુમાર પટેલ', '૦૫', 'શિક્ષણની નવી પદ્ધતિઓનો વર્ગખંડમાં અમલ']
+            ]
+        }, {
+            id: 34,
+            title: 'શાળા દ્વારા યોજાયેલ પુસ્તકાલય - વાંચન સંબંધિત પ્રવૃત્તિઓનો અહેવાલ',
+            desc: 'વાંચન અભિયાન અંતર્ગત શાળામાં પુસ્તક મેળો, વાર્તા કથન અને પુસ્તક સમીક્ષા સ્પર્ધાનું આયોજન કરવામાં આવે છે.',
+            headers: ['પ્રવૃત્તિનું નામ', 'યોજાયેલ માસ', 'લાભાર્થી વિદ્યાર્થીઓ'],
+            rows: [
+                ['વાર્તા કથન અને પુસ્તક સમીક્ષા સ્પર્ધા', 'ઓગસ્ટ ૨૦૨૬', 'ધોરણ ૬ થી ૮ ના વિદ્યાર્થીઓ']
+            ]
+        }, {
+            id: 35,
+            title: 'ભોજન પહેલાં અને પછી વિદ્યાર્થીઓ હાથ-મોં સ્વચ્છ કરી શકે તે માટેની સુવિધા અને પ્રયાસો',
+            desc: 'મધ્યાહન ભોજન લેતા પહેલા અને પછી તમામ વિદ્યાર્થીઓ ફરજિયાતપણે સાબુથી હાથ ધુએ તેની તકેદારી રાખવામાં આવે છે.',
+            headers: ['સુવિધા / પ્રયાસ', 'વિગત', 'અમલીકરણ'],
+            rows: [
+                ['હેન્ડવોશ સ્ટેશન', 'સાબુ / લિક્વિડથી હાથ ધોવડાવવા', 'દરરોજ ભોજન પહેલાં અને પછી']
+            ]
+        }, {
+            id: 36,
+            title: 'વિદ્યાર્થીઓની વ્યક્તિગત સ્વચ્છતાની કેળવણી અને આરોગ્યપ્રદ આહાર અંગેની જાગૃતિ',
+            desc: 'બાળકો જંકફૂડ ટાળે અને પૌષ્ટિક આહાર લે તે માટે વર્ગમાં જાગૃતિ અપાય છે તથા નખ-વાળની સાપ્તાહિક ચકાસણી થાય છે.',
+            headers: ['ચકાસણીનો મુદ્દો', 'જવાબદારી', 'આરોગ્યપ્રદ આહાર જાગૃતિ'],
+            rows: [
+                ['નખ, સ્વચ્છ ગણવેશ અને વાળ', 'વર્ગ શિક્ષક (દર શનિવારે)',
+                    'જંકફૂડ ન ખાવા અંગે વર્ગમાં ચર્ચા'
+                ]
+            ]
+        }];
+
+        /* ==============================================================
+           STATE
+           ============================================================== */
+        let currentPartData = part1Data;
+
+        /* ==============================================================
+           DOM REFS
+           ============================================================== */
+        const menuListEl = document.getElementById('menuList');
+        const dynamicContentEl = document.getElementById('dynamicContent');
+        const tableContainerEl = document.getElementById('tableContainer');
+        const photoSectionEl = document.getElementById('photoSection');
+        const docMainTitle = document.getElementById('docMainTitle');
+
+        /* ==============================================================
+           AUTO-SAVE INPUTS
+           ============================================================== */
+        document.querySelectorAll('.autosave').forEach(input => {
+            const saved = localStorage.getItem(input.id);
+            if (saved) input.value = saved;
+            input.addEventListener('input', () => {
+                localStorage.setItem(input.id, input.value);
+                updateDoc();
+            });
+        });
+
+        /* ==============================================================
+           UPDATE DOCUMENT FIELDS
+           ============================================================== */
+        function updateDoc() {
+            const get = id => document.getElementById(id);
+            const val = id => get(id).value;
+
+            get('docSchoolName').innerText = val('inpSchoolName');
+            get('docAddress').innerText = val('inpAddress');
+            get('docYear').innerText = val('inpYear');
+            get('docUdise').innerText = val('inpUdise');
+            get('docStandard').innerText = val('inpStandard');
+            get('docPrincipal').innerText = val('inpPrincipal');
+
+            const addr = val('inpAddress');
+            get('docFooterPlace').innerText = addr || 'વડોદરા';
+        }
+
+        /* ==============================================================
+           SIGNATURE PREVIEW
+           ============================================================== */
+        function previewSignature(input) {
+            if (!input.files || !input.files[0]) return;
+            const reader = new FileReader();
+            reader.onload = e => {
+                const img = document.getElementById('docSignature');
+                img.src = e.target.result;
+                img.style.display = 'inline-block';
+                localStorage.setItem('savedSignature', e.target.result);
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+
+        /* ==============================================================
+           TAB SWITCHING
+           ============================================================== */
+        function switchTab(partNum) {
+            document.getElementById('tabPart1').classList.toggle('active', partNum === 1);
+            document.getElementById('tabPart2').classList.toggle('active', partNum === 2);
+
+            if (partNum === 1) {
+                docMainTitle.innerText = 'આધાર પુરાવા દસ્તાવેજ (PART 1)';
+                currentPartData = part1Data;
+            } else {
+                docMainTitle.innerText = 'આધાર પુરાવા દસ્તાવેજ (PART 2)';
+                currentPartData = part2Data;
+            }
+            renderSidebarMenu();
+        }
+
+        /* ==============================================================
+           RENDER SIDEBAR MENU
+           ============================================================== */
+        function renderSidebarMenu() {
+            menuListEl.innerHTML = '';
+            currentPartData.forEach(menu => {
+                const div = document.createElement('div');
+                div.className = 'menu-item';
+                div.innerHTML =
+                    `<span class="menu-number">${menu.id}</span> ${menu.title}`;
+                div.onclick = function() {
+                    document.querySelectorAll('.menu-item').forEach(el => el.classList.remove('active-menu'));
+                    this.classList.add('active-menu');
+                    loadContent(menu.id);
+                };
+                menuListEl.appendChild(div);
+            });
+
+            // Select first item
+            if (menuListEl.firstChild) {
+                menuListEl.firstChild.classList.add('active-menu');
+                loadContent(currentPartData[0].id);
+            }
+        }
+
+        /* ==============================================================
+           LOAD CONTENT (title, desc, table, photo)
+           ============================================================== */
+        function loadContent(id) {
+            const data = currentPartData.find(m => m.id === id);
+            if (!data) return;
+
+            // — dynamic content (title + desc) —
+            dynamicContentEl.innerHTML = `
+                <div class="highlight-box">${data.title}</div>
+                <div class="desc-text">${data.desc}</div>
+            `;
+
+            // — table —
+            let tableHTML = `<table id="mainTable"><tr>`;
+            data.headers.forEach(h => { tableHTML += `<th>${h}</th>`; });
+            tableHTML += `</tr>`;
+            data.rows.forEach(row => {
+                tableHTML += `<tr>`;
+                row.forEach(cell => {
+                    tableHTML +=
+                        `<td><input type="text" class="table-input" value="${cell}"></td>`;
+                });
+                tableHTML += `</tr>`;
+            });
+            tableHTML += `</table>`;
+            tableContainerEl.innerHTML = tableHTML;
+
+            // — photo section (single by default) —
+            photoSectionEl.innerHTML = `
+                <div class="photo-container">
+                    <button class="delete-btn no-print" onclick="this.parentElement.remove()" title="જો ફોટાની જરૂર ના હોય તો કાઢી નાખો">❌</button>
+                    <div class="photo-upload-box">
+                        <span class="placeholder-text">[ અહીં ફોટો અપલોડ કરો ]</span>
+                        <img class="photo-preview" src="" alt="પ્રિવ્યુ">
+                    </div>
+                    <div class="no-print" style="margin-top:10px;">
+                        <input type="file" accept="image/*" style="display:none;" onchange="previewImage(this)">
+                        <button class="btn btn-green" onclick="this.previousElementSibling.click()">📷 ફોટો અપલોડ કરો</button>
+                    </div>
+                </div>
+            `;
+        }
+
+        /* ==============================================================
+           TABLE OPERATIONS
+           ============================================================== */
+        function addRow(tableId) {
+            const table = document.getElementById(tableId);
+            if (!table) return;
+            const colCount = table.rows[0].cells.length;
+            const row = table.insertRow(-1);
+            for (let i = 0; i < colCount; i++) {
+                row.insertCell(i).innerHTML =
+                    `<input type="text" class="table-input" value="">`;
+            }
+        }
+
+        function removeRow(tableId) {
+            const table = document.getElementById(tableId);
+            if (!table) return;
+            if (table.rows.length > 2) table.deleteRow(-1);
+            else alert('ઓછામાં ઓછી એક લાઈન હોવી જરૂરી છે!');
+        }
+
+        function addCol(tableId) {
+            const table = document.getElementById(tableId);
+            if (!table) return;
+            for (let i = 0; i < table.rows.length; i++) {
+                const cell = table.rows[i].insertCell(-1);
+                if (i === 0) {
+                    cell.outerHTML = `<th>નવી કોલમ</th>`;
+                } else {
+                    cell.innerHTML = `<input type="text" class="table-input" value="">`;
+                }
+            }
+        }
+
+        function removeCol(tableId) {
+            const table = document.getElementById(tableId);
+            if (!table) return;
+            if (table.rows[0].cells.length > 1) {
+                for (let i = 0; i < table.rows.length; i++) {
+                    table.rows[i].deleteCell(-1);
+                }
+            }
+        }
+
+        /* ==============================================================
+           PHOTO PREVIEW (for file input)
+           ============================================================== */
+        function previewImage(input) {
+            if (!input.files || !input.files[0]) return;
+            const reader = new FileReader();
+            reader.onload = e => {
+                const container = input.closest('.photo-container');
+                const box = container.querySelector('.photo-upload-box');
+                const img = box.querySelector('.photo-preview');
+                img.src = e.target.result;
+                img.style.display = 'block';
+                const placeholder = box.querySelector('.placeholder-text');
+                if (placeholder) placeholder.style.display = 'none';
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+
+        /* ==============================================================
+           ADD EXTRA PHOTO BLOCK
+           ============================================================== */
+        function addExtraPhoto() {
+            const section = document.getElementById('photoSection');
+            const block = document.createElement('div');
+            block.className = 'photo-container';
+            block.innerHTML = `
+                <button class="delete-btn no-print" onclick="this.parentElement.remove()" title="આ ફોટો કાઢી નાખો">❌</button>
+                <div class="photo-upload-box">
+                    <span class="placeholder-text">[ અહીં ફોટો અપલોડ કરો ]</span>
+                    <img class="photo-preview" src="" alt="પ્રિવ્યુ">
+                </div>
+                <div class="no-print" style="margin-top:10px;">
+                    <input type="file" accept="image/*" style="display:none;" onchange="previewImage(this)">
+                    <button class="btn btn-green" onclick="this.previousElementSibling.click()">📷 ફોટો અપલોડ કરો</button>
+                </div>
+            `;
+            section.appendChild(block);
+        }
+
+        /* ==============================================================
+           BACK TO MAIN PAGE
+           ============================================================== */
+        function goBackToMain() {
+            window.location.href = 'index.html';
+        }
+
+        /* ==============================================================
+           PAGE LOAD
+           ============================================================== */
+        window.onload = function() {
+            // Restore saved signature
+            const savedSig = localStorage.getItem('savedSignature');
+            if (savedSig) {
+                const img = document.getElementById('docSignature');
+                img.src = savedSig;
+                img.style.display = 'inline-block';
+            }
+
+            // Load shared school data from main page
+            const sharedData = localStorage.getItem('gunotsav_shared_school_data');
+            if (sharedData) {
+                const data = JSON.parse(sharedData);
+                document.getElementById('inpSchoolName').value = data.schoolName || '';
+                document.getElementById('inpUdise').value = data.diseCode || '';
+                document.getElementById('inpAddress').value = (data.place || '') + ', ' + (data.taluka || '') + ', ' + (data.district || '');
+                document.getElementById('inpYear').value = data.year || '';
+                document.getElementById('inpPrincipal').value = data.principal || '';
+
+                // Save these values to localStorage so they persist if user edits them
+                localStorage.setItem('inpSchoolName', document.getElementById('inpSchoolName').value);
+                localStorage.setItem('inpUdise', document.getElementById('inpUdise').value);
+                localStorage.setItem('inpAddress', document.getElementById('inpAddress').value);
+                localStorage.setItem('inpYear', document.getElementById('inpYear').value);
+                localStorage.setItem('inpPrincipal', document.getElementById('inpPrincipal').value);
+
+                updateDoc();
+            }
+
+            renderSidebarMenu();
+        };
+    </script>
+
+</body>
+</html>
