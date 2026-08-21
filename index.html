@@ -118,6 +118,23 @@
     background: #cbd5e0;
     color: #1a202c;
   }
+  .btn-purava {
+    background: #2b6cb0;
+    color: white;
+    padding: 11px 22px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.15rem;
+    font-weight: 700;
+    font-family: 'Rasa', serif;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .btn-purava:hover {
+    background: #2a4365;
+  }
   .save-status {
     font-size: 0.95rem;
     font-weight: 600;
@@ -129,7 +146,7 @@
   .page {
     background: var(--bg-page);
     width: 210mm;
-    min-height: 297mm;
+    height: 297mm;
     padding: 15mm 18mm 18mm 18mm;
     margin: 0 auto 25px auto;
     box-shadow: 0 4px 15px rgba(0,0,0,0.12);
@@ -138,6 +155,15 @@
     border: 3px double var(--border-color);
     outline: 1.5px solid var(--border-color);
     outline-offset: -7px;
+    overflow: hidden; /* કન્ટેન્ટ ગમે તેટલું હોય, પેજ હંમેશા એક જ A4 ઊંચાઈમાં રહે */
+  }
+
+  /* સ્કેલિંગ વ્રેપર: પેજની અંદરનું તમામ કન્ટેન્ટ (સહી/ફૂટર સહિત, ક્રેડિટ લાઇન સિવાય)
+     આ .page-inner માં રહે છે. જો કન્ટેન્ટ એક પેજ કરતાં મોટું હોય તો JS દ્વારા
+     તેને ઓટોમેટીક નાનું (scale) કરવામાં આવે છે જેથી તે ફરજિયાત એક જ પેજમાં સમાય. */
+  .page-inner {
+    width: 100%;
+    transform-origin: top left;
   }
 
   /* Header Section */
@@ -328,25 +354,38 @@
     user-select: none;
   }
 
-  /* Print Settings */
+  /* Print Settings – સુધારેલ (A4 પર સંપૂર્ણ ફિટ થાય તે માટે) */
+  @page {
+    size: A4;
+    margin: 0;
+  }
   @media print {
     body {
-      background: none;
-      padding: 0;
+      background: #ffffff !important;
+      padding: 0 !important;
+      margin: 0 !important;
     }
-    .control-panel, .table-btn-bar, .no-print {
+    .control-panel, .table-btn-bar, .no-print, .auth-overlay, .notice-overlay {
       display: none !important;
     }
     .page {
-      box-shadow: none;
-      margin: 0;
-      width: 100%;
-      min-height: 100vh;
-      page-break-after: always;
-      padding: 13mm 15mm 16mm 15mm;
-      border: 3px double #000;
-      outline: 1.5px solid #000;
-      outline-offset: -6px;
+      box-shadow: none !important;
+      margin: 0 auto !important;
+      width: 100% !important;
+      height: 297mm !important;
+      max-height: 297mm !important;
+      overflow: hidden !important;
+      padding: 15mm !important;
+      border: 3px double #000 !important;
+      outline: 1.5px solid #000 !important;
+      outline-offset: -6px !important;
+      box-sizing: border-box !important;
+      page-break-after: always !important;
+      page-break-inside: avoid !important;
+      break-inside: avoid !important;
+    }
+    .page:last-child {
+      page-break-after: auto !important;
     }
     table input {
       border: none !important;
@@ -355,7 +394,7 @@
       color: #94a3b8 !important;
       -webkit-print-color-adjust: exact;
       print-color-adjust: exact;
-      bottom: 4mm;
+      bottom: 5mm !important;
     }
   }
   /* Auth Modal & Logout Styling */
@@ -632,7 +671,9 @@
   </div>
   <div class="panel-actions">
     <button class="btn-print" onclick="window.print()">🖨️ પ્રિન્ટ / PDF ડાઉનલોડ કરો</button>
-    <button class="btn-reset" onclick="resetDefaults()">🔄 ડિફોલ્ટ ડેટા રીસેટ</button><button class="btn-logout" onclick="logoutUser()">🚪 લૉગઆઉટ</button>
+    <button class="btn-reset" onclick="resetDefaults()">🔄 ડિફોલ્ટ ડેટા રીસેટ</button>
+    <button class="btn-purava" onclick="gotoPurava()">📄 ગુણોત્સવ પુરાવા દસ્તાવેજ</button>
+    <button class="btn-logout" onclick="logoutUser()">🚪 લૉગઆઉટ</button>
     <span class="save-status" id="saveStatus">💾 તમામ વિગતો લોકલ સ્ટોરેજમાં સેવ થાય છે</span>
   </div>
 </div>
@@ -4214,6 +4255,7 @@
 
     newRow.innerHTML = html;
     tbody.appendChild(newRow);
+    scheduleFit();
     saveToLocalStorage();
   }
 
@@ -4225,6 +4267,7 @@
     const rows = tbody.querySelectorAll('tr');
     if (rows.length > 1) {
       tbody.removeChild(rows[rows.length - 1]);
+      scheduleFit();
       saveToLocalStorage();
     }
   }
@@ -4539,7 +4582,91 @@
     }
   }
 
-  // ૧૯. માસ્ટર ઇવેન્ટ લિસનર્સ (તમામ ફેરફારો તાત્કાલિક સેવ કરવા માટે)
+  // ૧૯. ગુણોત્સવ પુરાવા પેજ પર જવા માટે (નવું ફંક્શન)
+  function gotoPurava() {
+    // શાળાની વિગતો એકત્રિત કરો
+    const schoolData = {
+      schoolName: document.getElementById('inputSchoolName').value,
+      taluka: document.getElementById('inputTaluka').value,
+      district: document.getElementById('inputDistrict').value,
+      diseCode: document.getElementById('inputDiseCode').value,
+      year: document.getElementById('inputYear').value,
+      date: document.getElementById('inputDate').value,
+      place: document.getElementById('inputPlace').value,
+      principal: document.getElementById('inputPrincipal').value
+    };
+    // શેર કરેલ ડેટા localStorage માં સેવ કરો
+    localStorage.setItem('gunotsav_shared_school_data', JSON.stringify(schoolData));
+    // બીજા પેજ પર રીડાયરેક્ટ કરો (એ જ ટેબમાં)
+    window.location.href = 'purava.html';
+  }
+
+  // ૧૯.૫ પેજ ઓટો-ફિટ: દરેક .page (સૌજન્ય-લાઇન સુધીનું) ફરજિયાત એક જ A4 પેજમાં સમાય
+  //      તે માટે કન્ટેન્ટને એક વ્રેપરમાં લઈ, જરૂર પડે તેને ઓટોમેટીક નાનું (scale) કરવામાં આવે છે.
+  const MM_TO_PX = 96 / 25.4;
+  const A4_HEIGHT_MM = 297;
+  let fitScheduled = false;
+
+  // તમામ .page ની અંદરનું કન્ટેન્ટ (credit-footer સિવાય) .page-inner માં વ્રેપ કરવું
+  function wrapPageContents() {
+    document.querySelectorAll('.page').forEach((page) => {
+      if (page.querySelector(':scope > .page-inner')) return; // પહેલેથી વ્રેપ થયેલ છે
+      const creditFooter = page.querySelector(':scope > .credit-footer');
+      const inner = document.createElement('div');
+      inner.className = 'page-inner';
+      Array.from(page.childNodes).forEach((node) => {
+        if (node !== creditFooter) inner.appendChild(node);
+      });
+      if (creditFooter) {
+        page.insertBefore(inner, creditFooter);
+      } else {
+        page.appendChild(inner);
+      }
+    });
+  }
+
+  // દરેક પેજનું કન્ટેન્ટ માપી, જરૂર પડે તો scale() વડે નાનું કરવું જેથી તે એક જ પેજમાં સમાય
+  function fitPagesToSinglePage() {
+    const pageHeightPx = A4_HEIGHT_MM * MM_TO_PX;
+
+    document.querySelectorAll('.page').forEach((page) => {
+      const inner = page.querySelector(':scope > .page-inner');
+      if (!inner) return;
+
+      // પહેલા સ્કેલ રીસેટ કરો જેથી કન્ટેન્ટની સાચી (કુદરતી) ઊંચાઈ મળી શકે
+      inner.style.transform = 'none';
+      inner.style.width = '100%';
+
+      const style = getComputedStyle(page);
+      const paddingTop = parseFloat(style.paddingTop) || 0;
+      const paddingBottom = parseFloat(style.paddingBottom) || 0;
+      const borderTop = parseFloat(style.borderTopWidth) || 0;
+      const borderBottom = parseFloat(style.borderBottomWidth) || 0;
+
+      const availableHeight = pageHeightPx - paddingTop - paddingBottom - borderTop - borderBottom;
+      const contentHeight = inner.scrollHeight;
+
+      if (contentHeight > availableHeight && contentHeight > 0) {
+        let scale = (availableHeight / contentHeight) * 0.98; // થોડું સેફ્ટી માર્જિન
+        scale = Math.max(0.4, Math.min(scale, 1)); // વધુ પડતું નાનું ન થાય તેની કાળજી
+        inner.style.transformOrigin = 'top left';
+        inner.style.transform = `scale(${scale})`;
+        inner.style.width = (100 / scale) + '%';
+      }
+    });
+  }
+
+  // વારંવાર કૉલ ટાળવા માટે (ટાઇપિંગ, રિસાઇઝ વખતે) ડિબાઉન્સ કરેલ ફિટ
+  function scheduleFit() {
+    if (fitScheduled) return;
+    fitScheduled = true;
+    requestAnimationFrame(() => {
+      fitScheduled = false;
+      fitPagesToSinglePage();
+    });
+  }
+
+  // ૨૦. માસ્ટર ઇવેન્ટ લિસનર્સ (તમામ ફેરફારો તાત્કાલિક સેવ કરવા માટે)
   function attachEvents() {
     // કીબોર્ડ ટાઇપિંગ વખતે ઓટો સેવ
     document.addEventListener('input', (e) => {
@@ -4547,6 +4674,7 @@
       calcAdm();
       calcCat();
       calcEnr();
+      scheduleFit();
 
       clearTimeout(saveTimeout);
       saveTimeout = setTimeout(saveToLocalStorage, 300);
@@ -4558,6 +4686,7 @@
       calcAdm();
       calcCat();
       calcEnr();
+      scheduleFit();
       saveToLocalStorage();
     });
 
@@ -4566,9 +4695,21 @@
         saveToLocalStorage();
       }
     }, true);
+
+    // વિન્ડો રિસાઇઝ થાય ત્યારે ફરી ફિટ કરો
+    window.addEventListener('resize', scheduleFit);
+
+    // પ્રિન્ટ / Save as PDF કરતાં પહેલાં ચોક્કસ ફિટ કરી લો (તાત્કાલિક, ડિબાઉન્સ વગર)
+    window.addEventListener('beforeprint', fitPagesToSinglePage);
+
+    // ફોન્ટ સંપૂર્ણ લોડ થાય પછી ફરી ફિટ કરો (ફોન્ટ બદલાવાથી ટેક્સ્ટની ઊંચાઈ બદલાઈ શકે છે)
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(scheduleFit);
+    }
+    window.addEventListener('load', scheduleFit);
   }
 
-  // ૨૦. મુખ્ય શરૂઆત (Initialization)
+  // ૨૧. મુખ્ય શરૂઆત (Initialization)
   function init() {
     loadFromLocalStorage();
     syncData();
@@ -4576,8 +4717,10 @@
     calcCat();
     calcEnr();
     setupDynamicTableButtons();
+    wrapPageContents();
     attachEvents();
-    
+    scheduleFit();
+
     // લૉગિન ચકાસણી
     checkAuthOnLoad();
   }
@@ -4588,4 +4731,6 @@
   } else {
     init();
   }
-</script>ipt>
+</script>
+</body>
+</html>
