@@ -286,6 +286,17 @@
             align-self: flex-start;
         }
 
+        .page-inner {
+            width: 100%;
+            transform-origin: top left;
+        }
+
+        /* ===== Print Page Size (ઓટોમેટિક A4 સાઈઝ) ===== */
+        @page {
+            size: A4;
+            margin: 12mm;
+        }
+
         /* ===== Print Styles ===== */
         @media print {
             body,
@@ -309,9 +320,17 @@
             .page {
                 box-shadow: none !important;
                 border: none !important;
-                padding: 10px !important;
+                padding: 8px !important;
                 width: 100% !important;
                 max-width: 100% !important;
+                height: 273mm !important;
+                max-height: 273mm !important;
+                overflow: hidden !important;
+                box-sizing: border-box !important;
+                display: block !important;
+                page-break-after: avoid !important;
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
             }
 
             .table-input {
@@ -330,12 +349,51 @@
             .photo-preview {
                 display: block !important;
                 max-width: 100% !important;
+                max-height: 85mm !important;
+                width: auto !important;
                 height: auto !important;
+                margin: 0 auto;
             }
 
             .photo-upload-box {
                 border: none !important;
                 background-color: transparent !important;
+            }
+
+            /* હેડર/ફૂટર અને સ્પેસિંગ કોમ્પેક્ટ કરી - વધારે જગ્યા ન રોકે તે માટે */
+            .page-title {
+                padding: 5px !important;
+                font-size: 18px !important;
+                margin-bottom: 8px !important;
+                border-width: 1px !important;
+            }
+
+            .section-title {
+                margin-top: 6px !important;
+                margin-bottom: 5px !important;
+                padding-bottom: 2px !important;
+                font-size: 15px !important;
+            }
+
+            table {
+                margin-top: 5px !important;
+                font-size: 12px !important;
+            }
+
+            th,
+            td {
+                padding: 4px 6px !important;
+            }
+
+            .footer-sign {
+                margin-top: 15px !important;
+                font-size: 13px !important;
+            }
+
+            .signature-area {
+                height: 35px !important;
+                margin-top: 2px !important;
+                margin-bottom: 2px !important;
             }
         }
 
@@ -553,22 +611,28 @@
         }
 
         /* ===== Responsive ===== */
-        @media (max-width: 768px) {
+        @media screen and (max-width: 768px) {
             body {
                 flex-direction: column;
-                height: auto;
+                height: 100vh;
+                overflow: hidden;
             }
 
             .sidebar {
                 width: 100%;
-                height: auto;
-                max-height: 50vh;
+                height: 42vh;
+                max-height: 42vh;
                 border-right: none;
-                border-bottom: 1px solid var(--border-color);
+                border-bottom: 2px solid var(--border-color);
+            }
+
+            .menu-list {
+                min-height: 0;
             }
 
             .main-content {
-                height: auto;
+                height: 58vh;
+                overflow-y: auto;
             }
 
             .page {
@@ -620,6 +684,9 @@
             <label>ગામ / તાલુકો / જિલ્લો:</label>
             <input type="text" id="inpAddress" class="autosave" value="હાથીખાના વડોદરા સીટી" onkeyup="updateDoc()">
 
+            <label>તારીખ:</label>
+            <input type="text" id="inpDate" class="autosave" value="" onkeyup="updateDoc()">
+
             <label>ચાલતા ધોરણ:</label>
             <input type="text" id="inpStandard" class="autosave" value="બાળવાટીકા થી ધોરણ ૮" onkeyup="updateDoc()">
 
@@ -637,11 +704,12 @@
     <main class="main-content">
         <div class="top-bar no-print">
             <button class="btn btn-secondary" onclick="goBackToMain()">🔙 મુખ્ય પેજ પર પાછા</button>
-            <button class="btn btn-blue" onclick="window.print()">📥 PDF ડાઉનલોડ / 🖨️ પ્રિન્ટ</button>
+            <button class="btn btn-blue" onclick="printDocument()">📥 PDF ડાઉનલોડ / 🖨️ પ્રિન્ટ</button>
         </div>
 
         <div class="document-area">
             <div class="page" id="documentPage">
+              <div class="page-inner" id="pageInner">
 
                 <!-- Title -->
                 <div class="page-title" id="docMainTitle">આધાર પુરાવા દસ્તાવેજ (PART 1)</div>
@@ -692,8 +760,8 @@
                 <!-- Footer Signature -->
                 <div class="footer-sign">
                     <div>
-                        સ્થળ : <span id="docFooterPlace">વડોદરા</span><br><br>
-                        તારીખ : ___ / ___ / ૨૦૨૬
+                        સ્થળ : <span id="docFooterPlace">વડોદરા</span><br>
+                        તારીખ : <span id="docFooterDate">___ / ___ / ૨૦૨૬</span>
                     </div>
                     <div class="footer-sign-center">
                         આચાર્યની સહી અને સિક્કો
@@ -704,6 +772,7 @@
                     </div>
                 </div>
 
+              </div>
             </div>
         </div>
     </main>
@@ -1328,6 +1397,136 @@
            STATE
            ============================================================== */
         let currentPartData = part1Data;
+        let currentPartNum = 1;
+        let currentItemId = null;
+
+        /* ==============================================================
+           PHOTO AUTO-SAVE (localStorage)
+           દરેક આધાર-પુરાવા આઇટમ (Part + ID) દીઠ અલગ ફોટો સેવ થાય છે
+           ============================================================== */
+        const PHOTO_STORE_KEY = 'gunotsav_purava_photos_data';
+
+        function loadPhotosStore() {
+            try {
+                return JSON.parse(localStorage.getItem(PHOTO_STORE_KEY) || '{}');
+            } catch (e) {
+                return {};
+            }
+        }
+
+        function savePhotosStore(store) {
+            try {
+                localStorage.setItem(PHOTO_STORE_KEY, JSON.stringify(store));
+            } catch (e) {
+                console.warn('ફોટો સેવ કરવામાં ભૂલ:', e);
+            }
+        }
+
+        function getPhotoStoreKey(partNum, itemId) {
+            return 'part' + partNum + '_item' + itemId;
+        }
+
+        function collectCurrentPhotos() {
+            const imgs = photoSectionEl.querySelectorAll('.photo-preview');
+            const arr = [];
+            imgs.forEach(img => {
+                if (img.src && img.src.indexOf('data:') === 0) arr.push(img.src);
+            });
+            return arr;
+        }
+
+        function savePhotosForCurrentItem() {
+            if (!currentItemId) return;
+            const store = loadPhotosStore();
+            const key = getPhotoStoreKey(currentPartNum, currentItemId);
+            const photos = collectCurrentPhotos();
+            if (photos.length > 0) {
+                store[key] = photos;
+            } else {
+                delete store[key];
+            }
+            savePhotosStore(store);
+        }
+
+        function buildPhotoContainerHTML(src) {
+            const hasSrc = !!src;
+            return `
+                <div class="photo-container">
+                    <button class="delete-btn no-print" onclick="removePhotoBlock(this)" title="આ ફોટો કાઢી નાખો">❌</button>
+                    <div class="photo-upload-box">
+                        <span class="placeholder-text" style="${hasSrc ? 'display:none;' : ''}">[ અહીં ફોટો અપલોડ કરો ]</span>
+                        <img class="photo-preview" src="${hasSrc ? src : ''}" style="${hasSrc ? 'display:block;' : ''}" alt="પ્રિવ્યુ">
+                    </div>
+                    <div class="no-print" style="margin-top:10px;">
+                        <input type="file" accept="image/*" style="display:none;" onchange="previewImage(this)">
+                        <button class="btn btn-green" onclick="this.previousElementSibling.click()">📷 ફોટો અપલોડ કરો</button>
+                    </div>
+                </div>`;
+        }
+
+        function removePhotoBlock(btn) {
+            const container = btn.closest('.photo-container');
+            if (container) container.remove();
+            savePhotosForCurrentItem();
+        }
+
+        /* ==============================================================
+           A4 ઓટો-ફિટ: પ્રિન્ટ વખતે પેજનું તમામ કન્ટેન્ટ ફરજિયાત
+           એક જ A4 પેજમાં સમાય તે માટે જરૂર પડે તો ઓટોમેટીક નાનું (scale) કરવું
+           ============================================================== */
+        const MM_TO_PX = 96 / 25.4;
+        const A4_HEIGHT_MM = 297;
+        const PAGE_MARGIN_MM = 12; // @page margin સાથે મેચ થવું જોઈએ
+
+        function fitPageToA4() {
+            const page = document.getElementById('documentPage');
+            const inner = document.getElementById('pageInner');
+            if (!page || !inner) return;
+
+            // પહેલા સ્કેલ રીસેટ કરો જેથી કન્ટેન્ટની સાચી (કુદરતી) ઊંચાઈ મળી શકે
+            inner.style.transform = 'none';
+            inner.style.width = '100%';
+
+            const style = getComputedStyle(page);
+            const paddingTop = parseFloat(style.paddingTop) || 0;
+            const paddingBottom = parseFloat(style.paddingBottom) || 0;
+
+            const availableHeight = (A4_HEIGHT_MM - PAGE_MARGIN_MM * 2) * MM_TO_PX - paddingTop - paddingBottom;
+            const contentHeight = inner.scrollHeight;
+
+            if (contentHeight > availableHeight && contentHeight > 0) {
+                let scale = (availableHeight / contentHeight) * 0.98; // થોડું સેફ્ટી માર્જિન
+                scale = Math.max(0.2, Math.min(scale, 1)); // વધુ પડતું નાનું ન થાય તેની કાળજી
+                inner.style.transformOrigin = 'top left';
+                inner.style.transform = `scale(${scale})`;
+                inner.style.width = (100 / scale) + '%';
+            }
+        }
+
+        function resetPageScale() {
+            const inner = document.getElementById('pageInner');
+            if (inner) {
+                inner.style.transform = 'none';
+                inner.style.width = '100%';
+            }
+        }
+
+        window.addEventListener('beforeprint', fitPageToA4);
+        window.addEventListener('afterprint', resetPageScale);
+
+        // મોબાઈલ બ્રાઉઝર (દા.ત. Android "Save as PDF")માં ક્યારેક beforeprint
+        // ઈવેન્ટ સમયસર / યોગ્ય રીતે લાગુ થતું નથી, એટલે પ્રિન્ટ બટન દબાવતાં જ
+        // પહેલા સ્કેલ લાગુ કરી, થોડી રાહ જોઈને (layout settle થવા) પછી જ પ્રિન્ટ ખોલીએ છીએ.
+        function printDocument() {
+            fitPageToA4();
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                    window.print();
+                    // afterprint ઈવેન્ટ ના મળે તો પણ થોડી વાર પછી સ્ક્રીન વ્યુ પાછું નોર્મલ કરી દો
+                    setTimeout(resetPageScale, 1500);
+                });
+            });
+        }
 
         /* ==============================================================
            DOM REFS
@@ -1366,6 +1565,10 @@
 
             const addr = val('inpAddress');
             get('docFooterPlace').innerText = addr || 'વડોદરા';
+
+            const dateEl = get('inpDate');
+            const dateVal = dateEl ? dateEl.value : '';
+            get('docFooterDate').innerText = dateVal || '___ / ___ / ૨૦૨૬';
         }
 
         /* ==============================================================
@@ -1387,6 +1590,7 @@
            TAB SWITCHING
            ============================================================== */
         function switchTab(partNum) {
+            currentPartNum = partNum;
             document.getElementById('tabPart1').classList.toggle('active', partNum === 1);
             document.getElementById('tabPart2').classList.toggle('active', partNum === 2);
 
@@ -1432,6 +1636,8 @@
             const data = currentPartData.find(m => m.id === id);
             if (!data) return;
 
+            currentItemId = id;
+
             // — dynamic content (title + desc) —
             dynamicContentEl.innerHTML = `
                 <div class="highlight-box">${data.title}</div>
@@ -1453,20 +1659,14 @@
             tableHTML += `</table>`;
             tableContainerEl.innerHTML = tableHTML;
 
-            // — photo section (single by default) —
-            photoSectionEl.innerHTML = `
-                <div class="photo-container">
-                    <button class="delete-btn no-print" onclick="this.parentElement.remove()" title="જો ફોટાની જરૂર ના હોય તો કાઢી નાખો">❌</button>
-                    <div class="photo-upload-box">
-                        <span class="placeholder-text">[ અહીં ફોટો અપલોડ કરો ]</span>
-                        <img class="photo-preview" src="" alt="પ્રિવ્યુ">
-                    </div>
-                    <div class="no-print" style="margin-top:10px;">
-                        <input type="file" accept="image/*" style="display:none;" onchange="previewImage(this)">
-                        <button class="btn btn-green" onclick="this.previousElementSibling.click()">📷 ફોટો અપલોડ કરો</button>
-                    </div>
-                </div>
-            `;
+            // — photo section: અગાઉ સેવ કરેલા ફોટા હોય તો પુનઃસ્થાપિત કરો, નહીં તો ખાલી બોક્સ બતાવો —
+            const store = loadPhotosStore();
+            const savedPhotos = store[getPhotoStoreKey(currentPartNum, id)];
+            if (savedPhotos && savedPhotos.length > 0) {
+                photoSectionEl.innerHTML = savedPhotos.map(src => buildPhotoContainerHTML(src)).join('');
+            } else {
+                photoSectionEl.innerHTML = buildPhotoContainerHTML(null);
+            }
         }
 
         /* ==============================================================
@@ -1527,6 +1727,9 @@
                 img.style.display = 'block';
                 const placeholder = box.querySelector('.placeholder-text');
                 if (placeholder) placeholder.style.display = 'none';
+
+                // ફોટો અપલોડ થતાં જ તેને ઓટોમેટિક લોકલ સ્ટોરેજમાં સેવ કરો
+                savePhotosForCurrentItem();
             };
             reader.readAsDataURL(input.files[0]);
         }
@@ -1536,20 +1739,9 @@
            ============================================================== */
         function addExtraPhoto() {
             const section = document.getElementById('photoSection');
-            const block = document.createElement('div');
-            block.className = 'photo-container';
-            block.innerHTML = `
-                <button class="delete-btn no-print" onclick="this.parentElement.remove()" title="આ ફોટો કાઢી નાખો">❌</button>
-                <div class="photo-upload-box">
-                    <span class="placeholder-text">[ અહીં ફોટો અપલોડ કરો ]</span>
-                    <img class="photo-preview" src="" alt="પ્રિવ્યુ">
-                </div>
-                <div class="no-print" style="margin-top:10px;">
-                    <input type="file" accept="image/*" style="display:none;" onchange="previewImage(this)">
-                    <button class="btn btn-green" onclick="this.previousElementSibling.click()">📷 ફોટો અપલોડ કરો</button>
-                </div>
-            `;
-            section.appendChild(block);
+            const wrapper = document.createElement('div');
+            wrapper.innerHTML = buildPhotoContainerHTML(null);
+            section.appendChild(wrapper.firstElementChild);
         }
 
         /* ==============================================================
@@ -1580,6 +1772,7 @@
                 document.getElementById('inpAddress').value = (data.place || '') + ', ' + (data.taluka || '') + ', ' + (data.district || '');
                 document.getElementById('inpYear').value = data.year || '';
                 document.getElementById('inpPrincipal').value = data.principal || '';
+                document.getElementById('inpDate').value = data.date || '';
 
                 // Save these values to localStorage so they persist if user edits them
                 localStorage.setItem('inpSchoolName', document.getElementById('inpSchoolName').value);
@@ -1587,6 +1780,7 @@
                 localStorage.setItem('inpAddress', document.getElementById('inpAddress').value);
                 localStorage.setItem('inpYear', document.getElementById('inpYear').value);
                 localStorage.setItem('inpPrincipal', document.getElementById('inpPrincipal').value);
+                localStorage.setItem('inpDate', document.getElementById('inpDate').value);
 
                 updateDoc();
             }
